@@ -375,6 +375,7 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
         *directory_contract["content_parts"],
         "_schema",
         "tools",
+        ".git",
     }
     unexpected_top_dirs = {
         path.name
