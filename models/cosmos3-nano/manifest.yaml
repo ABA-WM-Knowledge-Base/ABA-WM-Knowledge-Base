@@ -1,0 +1,134 @@
+schema_version: 3
+id: model.cosmos3-nano
+entity_type: model
+canonical_name: Cosmos3-Nano
+aliases:
+  - Cosmos 3 Nano
+family: Cosmos 3
+developer: NVIDIA
+release_date: "2026-05-31"
+license: OpenMDW-1.1
+license_scope: downloadable_reference_checkpoint
+hosted_service_terms: surface_specific_and_not_encoded_as_checkpoint_license
+tags:
+  - world-model
+  - world-foundation-model
+  - physical-ai
+  - omnimodal
+  - mixture-of-transformers
+  - robotics
+  - world-action-model
+checkpoint:
+  model_id: nvidia/Cosmos3-Nano
+  reference_revision: 411f42a8fdfb8c5b2583cb8786e0938f49796eaa
+  total_parameters: 16B
+  hosted_revision: not_exposed_by_service
+components:
+  reasoner:
+    approximate_scale: 8B
+    mechanism: autoregressive next-token prediction
+    served_model_id: nvidia/cosmos3-nano-reasoner
+  generator:
+    approximate_scale: 8B
+    mechanism: rectified-flow denoising
+related_checkpoints:
+  - model_id: nvidia/Cosmos3-Nano-Policy-DROID
+    relationship: DROID policy post-training variant
+    reference_revision: 6706d7680581c255ff61e0f3bb49d90eac55c79e
+revisions:
+  nvidia_cosmos: f76cd8705dc04e5d6fba0ce0c057930b4393ad5d
+  cosmos_framework: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+  huggingface_checkpoint: 411f42a8fdfb8c5b2583cb8786e0938f49796eaa
+interfaces:
+  canonical_owner: modalities-and-io.md
+  contracts:
+    - mode: reasoner
+      component: reasoner
+      checkpoint_scope: Cosmos3-Nano Reasoner component or served Reasoner model
+      inputs: [text, optional_image_or_video]
+      outputs: [text]
+      backend_constraint: Vision input availability is backend and checkpoint-layout specific.
+    - mode: text2image
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano with compatible Generator backend
+      inputs: [text]
+      outputs: [image]
+    - mode: text2video
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano with compatible Generator backend
+      inputs: [text]
+      outputs: [video]
+    - mode: image2image
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano with compatible visual-condition adapter
+      inputs: [text, image]
+      outputs: [image]
+    - mode: image2video
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano with compatible visual-condition adapter
+      inputs: [text, image]
+      outputs: [video]
+    - mode: video2video
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano with compatible visual-condition adapter
+      inputs: [text, video]
+      outputs: [video]
+    - mode: audio_image2video
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano with compatible audio and visual adapters
+      inputs: [text, image, audio]
+      outputs: [video, audio]
+    - mode: forward_dynamics
+      component: generator
+      checkpoint_scope: Base Nano action-enabled configuration and domain adapter
+      inputs: [observation, text, action]
+      outputs: [future_visual_observation]
+    - mode: inverse_dynamics
+      component: generator
+      checkpoint_scope: Base Nano action-enabled configuration and domain adapter
+      inputs: [observation_transition, text, domain_configuration]
+      outputs: [action_trajectory]
+    - mode: wam
+      component: generator
+      checkpoint_scope: Base Nano action-enabled configuration and domain adapter
+      inputs: [observation, text, domain_configuration]
+      outputs: [action_trajectory, visual_rollout]
+    - mode: policy_droid
+      component: generator
+      checkpoint_scope: nvidia/Cosmos3-Nano-Policy-DROID
+      inputs: [task_text, droid_proprioception, droid_three_view_canvas]
+      outputs: [droid_absolute_joint_position_action_chunk]
+  action_mode_names:
+    training: [forward_dynamics, inverse_dynamics, policy]
+    framework: [forward_dynamics, inverse_dynamics, wam]
+reproduction:
+  canonical_owner: reproduction.md
+  registry_heading: Claim registry
+optimization_surfaces:
+  - reasoner
+  - generator
+  - forward_dynamics
+  - inverse_dynamics
+  - world_action_model
+  - policy_adaptation
+documents:
+  overview: README.md
+  agent_index: agent-index.yaml
+  architecture: architecture.md
+  modalities_and_io: modalities-and-io.md
+  reasoner: reasoner.md
+  generator: generator.md
+  action_modeling: action-modeling.md
+  policy: policy.md
+  data: data.md
+  training: training.md
+  post_training: post-training.md
+  evaluation: evaluation.md
+  limitations: limitations.md
+  codebase: codebase.md
+  inference: inference.md
+  reproduction: reproduction.md
+  optimization_playbook: optimization-playbook.md
+  research_queue: research-queue.md
+  sources: sources.yaml
+last_updated: "2026-08-11"

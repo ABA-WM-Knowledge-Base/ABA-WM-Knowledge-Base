@@ -1,0 +1,97 @@
+schema_version: 3
+
+collection:
+  required:
+    - schema_version
+    - as_of
+    - sources
+  optional:
+    - local_path_policy
+
+local_path_policy:
+  required:
+    - current_pdf_root
+    - portable_identity
+    - note
+
+source:
+  required:
+    - id
+    - type
+    - title
+    - publisher
+    - accessed
+  allowed_types:
+    - paper
+    - model_card
+    - system_card
+    - official_blog
+    - code_repository
+    - code_documentation
+    - code_file
+    - documentation
+    - service_page
+    - dataset
+    - benchmark
+    - local_artifact
+    - forum_thread
+  identity:
+    at_least_one_of:
+      - canonical_url
+      - local_path
+  optional_identity_fields:
+    - revision
+    - version
+    - license
+  optional_locator_fields:
+    - pages
+    - section
+    - table
+    - figure
+    - symbol
+    - related_path
+  optional_retrieval_fields:
+    - retrieval_hint
+    - scope
+  integrity_fields:
+    - sha256
+  allowed_fields:
+    - id
+    - type
+    - title
+    - publisher
+    - accessed
+    - canonical_url
+    - local_path
+    - revision
+    - version
+    - license
+    - pages
+    - section
+    - table
+    - figure
+    - symbol
+    - related_path
+    - retrieval_hint
+    - scope
+    - sha256
+
+local_artifact:
+  required:
+    - local_path
+    - sha256
+
+cached_paper:
+  required:
+    - local_path
+    - sha256
+    - pages
+
+rules:
+  - Keep source IDs stable and never reuse an ID for another object.
+  - Pin code commits and model revisions when an immutable identifier exists.
+  - Record an access date for mutable online sources.
+  - Record SHA256 for cached papers and local artifacts when available.
+  - Resolve related_path from the model entry root and require the target to exist.
+  - Use page, table, section, symbol, or artifact locators in prose when a source is too broad for direct retrieval.
+  - Store source identity here and interpretation in the canonical topic page.

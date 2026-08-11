@@ -1,0 +1,256 @@
+schema_version: 3
+as_of: "2026-08-09"
+local_path_policy:
+  current_pdf_root: 'C:\Users\94875\Desktop\cosmos'
+  portable_identity: canonical_url_plus_sha256
+  note: Absolute paths locate the files read on this workstation; another machine may rebind the root while preserving filename and SHA256.
+sources:
+  - id: C3-TR
+    type: paper
+    title: "Cosmos 3: Omnimodal World Models for Physical AI"
+    publisher: NVIDIA
+    version: "arXiv:2606.02800v4; report date 2026-06-24"
+    canonical_url: https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf
+    local_path: 'C:\Users\94875\Desktop\cosmos\cosmos3.pdf'
+    sha256: df058bd2447fbdd83d13fd63be60a8b0aceb00ef6e50ba428b0a6bdbbed64b8d
+    pages: 139
+    accessed: "2026-08-09"
+  - id: C1-TR
+    type: paper
+    title: Cosmos World Foundation Model Platform for Physical AI
+    publisher: NVIDIA
+    canonical_url: https://arxiv.org/abs/2501.03575
+    local_path: 'C:\Users\94875\Desktop\cosmos\cosmos.pdf'
+    sha256: c3c61f0a6f9a32700fc47d9898db573628d72bdea07562ca319ceba046e95c84
+    pages: 75
+    accessed: "2026-08-09"
+  - id: R1-TR
+    type: paper
+    title: "Cosmos-Reason1: From Physical Common Sense To Embodied Reasoning"
+    publisher: NVIDIA
+    canonical_url: https://arxiv.org/abs/2503.15558
+    local_path: 'C:\Users\94875\Desktop\cosmos\Cosmos-Reason1.pdf'
+    sha256: cd88d0a653bd4979ffa9dbd2e290c55a0ad3260d8647f6cfd3c96e2ff8cf7972
+    pages: 36
+    accessed: "2026-08-09"
+  - id: T1-TR
+    type: paper
+    title: "Cosmos-Transfer1: Conditional World Generation with Adaptive Multimodal Control"
+    publisher: NVIDIA
+    canonical_url: https://arxiv.org/abs/2503.14492
+    local_path: 'C:\Users\94875\Desktop\cosmos\Cosmos-Transfer1.pdf'
+    sha256: c9d0256d1a066ed7a165cb1f62b1fee097f15e776a7f792d1998379c6fb0a6d9
+    pages: 28
+    accessed: "2026-08-09"
+  - id: P25-TR
+    type: paper
+    title: World Simulation with Video Foundation Models for Physical AI
+    publisher: NVIDIA
+    canonical_url: https://arxiv.org/abs/2511.00062
+    local_path: 'C:\Users\94875\Desktop\cosmos\cosmos-predict2.5.pdf'
+    sha256: 2597170ef9e8128c1ec3c87aa1eaf321cd599268451da1f61aead325eca576fe
+    pages: 44
+    accessed: "2026-08-09"
+  - id: C3-HF
+    type: model_card
+    title: nvidia/Cosmos3-Nano model card
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos3-Nano
+    revision: 411f42a8fdfb8c5b2583cb8786e0938f49796eaa
+    accessed: "2026-08-09"
+  - id: C3-POLICY-DROID-HF
+    type: model_card
+    title: nvidia/Cosmos3-Nano-Policy-DROID model card
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos3-Nano-Policy-DROID
+    revision: 6706d7680581c255ff61e0f3bb49d90eac55c79e
+    accessed: "2026-08-09"
+  - id: C3-HF-BLOG
+    type: official_blog
+    title: "Welcome NVIDIA Cosmos 3: The First Open Omni-model for Physical AI Reasoning and Action"
+    publisher: Hugging Face / NVIDIA
+    canonical_url: https://huggingface.co/blog/nvidia/cosmos-3-for-physical-ai
+    accessed: "2026-08-09"
+  - id: C3-REASONER-CARD
+    type: model_card
+    title: Cosmos3-Nano-Reasoner model card
+    publisher: NVIDIA
+    canonical_url: https://build.nvidia.com/nvidia/cosmos3-nano-reasoner/modelcard
+    accessed: "2026-08-09"
+  - id: C3-GENERATOR-CARD
+    type: model_card
+    title: Cosmos3-Nano Generator model card
+    publisher: NVIDIA
+    canonical_url: https://build.nvidia.com/nvidia/cosmos3-nano/modelcard
+    accessed: "2026-08-09"
+  - id: C3-SYSTEM-CARD
+    type: system_card
+    title: Cosmos3-Nano system card
+    publisher: NVIDIA
+    canonical_url: https://build.nvidia.com/nvidia/cosmos3-nano/systemcard
+    accessed: "2026-08-09"
+  - id: C3-REPO
+    type: code_repository
+    title: NVIDIA/cosmos
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos
+    revision: f76cd8705dc04e5d6fba0ce0c057930b4393ad5d
+    accessed: "2026-08-09"
+  - id: C3-COOKBOOK
+    type: documentation
+    title: Cosmos 3 backend cookbook
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos/blob/f76cd8705dc04e5d6fba0ce0c057930b4393ad5d/cookbooks/cosmos3/README.md
+    revision: f76cd8705dc04e5d6fba0ce0c057930b4393ad5d
+    accessed: "2026-08-09"
+  - id: C3-REASONER-COOKBOOK
+    type: documentation
+    title: Cosmos 3 Reasoner examples and backend memory comparison
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos/blob/f76cd8705dc04e5d6fba0ce0c057930b4393ad5d/cookbooks/cosmos3/reasoner/README.md
+    revision: f76cd8705dc04e5d6fba0ce0c057930b4393ad5d
+    accessed: "2026-08-09"
+  - id: C3-INFERENCE-BENCHMARKS
+    type: documentation
+    title: Cosmos 3 inference benchmarks
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos/blob/f76cd8705dc04e5d6fba0ce0c057930b4393ad5d/inference_benchmarks.md
+    revision: f76cd8705dc04e5d6fba0ce0c057930b4393ad5d
+    accessed: "2026-08-09"
+  - id: C3-FW
+    type: code_repository
+    title: NVIDIA/cosmos-framework
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    version: 1.2.2
+    accessed: "2026-08-09"
+  - id: C3-FW-AGENTS
+    type: code_documentation
+    title: Cosmos Framework canonical code map
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/AGENTS.md
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-INFERENCE
+    type: code_documentation
+    title: Cosmos Framework inference guide
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/docs/inference.md
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-TRAINING
+    type: code_documentation
+    title: Cosmos Framework training guide
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/docs/training.md
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-POLICY-DROID-DOC
+    type: code_documentation
+    title: Cosmos3 DROID policy server guide
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/docs/action_policy_droid_server.md
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-ARGS
+    type: code_file
+    title: Cosmos Framework inference arguments and defaults
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/cosmos_framework/inference/args.py
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-MODEL
+    type: code_file
+    title: Cosmos Framework checkpoint model wrapper
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/cosmos_framework/inference/model.py
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-OMNI-MOT
+    type: code_file
+    title: Cosmos 3 Omni MoT implementation
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/cosmos_framework/model/generator/omni_mot_model.py
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-ACTION
+    type: code_file
+    title: Cosmos Framework action inference adapter
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/cosmos_framework/inference/action.py
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-POLICY-SERVER
+    type: code_file
+    title: Cosmos3 DROID action policy server
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/cosmos_framework/scripts/action_policy_server_robolab.py
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-FAQ
+    type: documentation
+    title: Cosmos Framework FAQ
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/docs/faq.md
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-FW-SETUP
+    type: documentation
+    title: Cosmos Framework setup guide
+    publisher: NVIDIA
+    canonical_url: https://github.com/NVIDIA/cosmos-framework/blob/4155d61d14b14e05a8cafe2bd796d090fcb5f145/docs/setup.md
+    revision: 4155d61d14b14e05a8cafe2bd796d090fcb5f145
+    accessed: "2026-08-09"
+  - id: C3-NIM-API
+    type: documentation
+    title: Query the Cosmos 3 Reasoner API
+    publisher: NVIDIA
+    canonical_url: https://docs.nvidia.com/nim/vision-language-models/1.7.0/examples/cosmos-reason3/api.html
+    version: 1.7.0
+    accessed: "2026-08-09"
+  - id: C3-BUILD
+    type: service_page
+    title: Cosmos3-Nano Reasoner NVIDIA Build page
+    publisher: NVIDIA
+    canonical_url: https://build.nvidia.com/nvidia/cosmos3-nano-reasoner
+    accessed: "2026-08-09"
+  - id: LOCAL-REPRO-20260809-FIRST
+    type: local_artifact
+    title: Cosmos3-Nano hosted Reasoner attempted run 20260809T044050.760336Z (HTTP 404)
+    publisher: AIBuildAI local research
+    local_path: 'C:\Users\94875\AIbuildAI\cosmos3_reproduction\outputs\20260809T044050.760336Z\run_summary.json'
+    related_path: ../../../cosmos3_reproduction/outputs/20260809T044050.760336Z/run_summary.json
+    sha256: 675e8afc1b0b97d81453951cd3cd794234d91fb96400aabf68076861102607c2
+    accessed: "2026-08-09"
+  - id: LOCAL-REPRO-20260809
+    type: local_artifact
+    title: Cosmos3-Nano hosted Reasoner attempted run 20260809T051230.022876Z (HTTP 404)
+    publisher: AIBuildAI local research
+    local_path: 'C:\Users\94875\AIbuildAI\cosmos3_reproduction\outputs\20260809T051230.022876Z\run_summary.json'
+    related_path: ../../../cosmos3_reproduction/outputs/20260809T051230.022876Z/run_summary.json
+    sha256: fc73ce48f313e6fb875528067d3491b50090f47b79e285b3f546efa7edf25f6b
+    accessed: "2026-08-09"
+  - id: LOCAL-HOSTED-DIAGNOSIS-20260809
+    type: local_artifact
+    title: Hosted catalog and entitlement diagnostic note 2026-08-09
+    publisher: AIBuildAI local research
+    local_path: 'C:\Users\94875\AIbuildAI\cosmos3_reproduction\README.md'
+    related_path: ../../../cosmos3_reproduction/README.md
+    sha256: ffaa7802a413449e4bb8430e0380aae60dbf275171d9a9effb6185df766826d4
+    scope: Human-authored diagnostic summary; raw catalog and direct-lookup responses were not retained.
+    accessed: "2026-08-09"
+  - id: LOCAL-ENV-20260809
+    type: local_artifact
+    title: Local inference environment snapshot 2026-08-09
+    publisher: AIBuildAI local research
+    local_path: 'C:\Users\94875\AIbuildAI\world_model_kb\models\cosmos3-nano\artifacts\environment-20260809.yaml'
+    related_path: artifacts/environment-20260809.yaml
+    sha256: b9bb0bbabf66b8b94ba05746f9d54218a1e944c9215b00273bcb51556a801723
+    accessed: "2026-08-09"
+  - id: NVIDIA-FORUM-ENTITLEMENT
+    type: forum_thread
+    title: Requesting Cosmos NIM serverless entitlement
+    publisher: NVIDIA Developer Forums / community report
+    canonical_url: https://forums.developer.nvidia.com/t/requesting-cosmos-nim-serverless-entitlement-cosmos-reason2-8b-cosmos3-nano-reasoner/378125
+    accessed: "2026-08-09"

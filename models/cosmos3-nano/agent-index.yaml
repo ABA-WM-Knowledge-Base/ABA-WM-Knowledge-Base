@@ -1,0 +1,220 @@
+schema_version: 3
+model_entry: world-model-kb.models.cosmos3-nano
+entrypoint: README.md
+purpose: >-
+  Help AIBuildAI dynamically locate Cosmos3-Nano knowledge, strategies, best
+  practices, and evidence that can ground design and implementation decisions.
+  This index is not a workflow-orchestration definition.
+
+authority_boundary:
+  mode: knowledge_guidance_without_orchestration
+  knowledge_role: >-
+    Influence Agent understanding, judgment, strategy selection, failure diagnosis,
+    experiment design, and interpretation through retrieved knowledge.
+  workflow_authority: AIBuildAI runtime, orchestrator, Agent configuration, and task instructions
+  does_not_define:
+    - which Agent is invoked
+    - which solution repository is advanced, paused, or abandoned
+    - task decomposition, execution order, or scheduling
+    - permissions, approvals, or external side effects
+    - model-training or deployment authorization
+  integration_note: >-
+    AIBuildAI may dynamically select and combine these profiles based on the current
+    task and state. Retrieved content grounds decisions; higher-level AIBuildAI
+    orchestration, instructions, and policies remain authoritative.
+
+canonical_owners:
+  model_identity: manifest.yaml
+  retrieval_metadata: agent-index.yaml
+  model_overview: README.md
+  architecture_and_attention: architecture.md
+  modality_contracts: modalities-and-io.md
+  reasoner_behavior: reasoner.md
+  generator_behavior: generator.md
+  action_semantics: action-modeling.md
+  policy_runtime: policy.md
+  data_composition: data.md
+  training_curriculum: training.md
+  adaptation_recipes: post-training.md
+  benchmark_protocols: evaluation.md
+  known_limits: limitations.md
+  code_navigation: codebase.md
+  runtime_reference: inference.md
+  executed_state: reproduction.md
+  optimization_reference: optimization-playbook.md
+  unresolved_questions: research-queue.md
+  source_resolution: sources.yaml
+
+retrieval_profiles:
+  - id: model_identity
+    related_intents:
+      - identify a checkpoint or served model
+      - compare Nano, Super, Reasoner, Generator, or Policy-DROID identities
+      - resolve revision, license, or lineage
+    query_terms: [model identity, checkpoint, revision, license, parameter count, Nano, Super]
+    primary_documents: [manifest.yaml, sources.yaml]
+    additional_documents:
+      architecture_or_lineage_detail: [architecture.md]
+      capability_boundaries: [limitations.md]
+    knowledge_supported:
+      - exact checkpoint or service identity
+      - fixed revision when published
+      - component scope and invalid identity equivalences
+
+  - id: architecture_and_interfaces
+    related_intents:
+      - inspect Mixture-of-Transformers or attention
+      - inspect modality representations or preprocessing
+      - resolve tensor, input, output, shape, or timing semantics
+    query_terms: [architecture, attention, modality, preprocessing, tensor shape, input, output]
+    primary_documents: [architecture.md, modalities-and-io.md, manifest.yaml]
+    additional_documents:
+      implementation_locations: [codebase.md]
+      action_or_policy_semantics: [action-modeling.md, policy.md]
+    knowledge_supported:
+      - computation and information-flow semantics
+      - mode-specific input and output contracts
+      - compatible implementation surfaces
+
+  - id: reasoner_knowledge
+    related_intents:
+      - analyze or improve visual reasoning
+      - analyze grounding, temporal reasoning, physical reasoning, or planning text
+    query_terms: [Reasoner, captioning, grounding, task planning, video reasoning, hallucination]
+    primary_documents: [reasoner.md, architecture.md, evaluation.md]
+    additional_documents:
+      data_and_learning: [data.md, training.md, post-training.md]
+      execution_observations: [reproduction.md, inference.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - Reasoner mechanisms and output contracts
+      - capability-specific levers and failure interpretations
+      - published evaluation conditions
+
+  - id: generator_knowledge
+    related_intents:
+      - analyze or improve image, video, or audiovisual generation
+      - inspect physical prediction, controllability, or sampling
+    query_terms: [Generator, image generation, video generation, audio-video, physical consistency, sampling]
+    primary_documents: [generator.md, modalities-and-io.md, evaluation.md]
+    additional_documents:
+      data_and_learning: [data.md, training.md, post-training.md]
+      execution_observations: [reproduction.md, inference.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - Generator mechanisms and mode contracts
+      - conditioning, sampling, and training levers
+      - quality, physics, adherence, and resource measures
+
+  - id: action_and_wam_knowledge
+    related_intents:
+      - analyze forward dynamics, inverse dynamics, or WAM
+      - inspect action representations or rollout consistency
+    query_terms: [forward dynamics, inverse dynamics, WAM, action representation, rollout]
+    primary_documents: [action-modeling.md, modalities-and-io.md, evaluation.md]
+    additional_documents:
+      policy_semantics: [policy.md]
+      data_and_learning: [data.md, training.md, post-training.md]
+      execution_observations: [reproduction.md, inference.md]
+    knowledge_supported:
+      - domain and action coordinate contracts
+      - action adapters and modeling objectives
+      - action, state, geometry, and rollout evaluation dimensions
+
+  - id: policy_and_embodiment_knowledge
+    related_intents:
+      - inspect Policy-DROID
+      - analyze embodiment transfer or RoboCasa integration
+      - inspect observation, controller, or closed-loop interfaces
+    query_terms: [Policy-DROID, robot policy, RoboCasa, embodiment, closed-loop control]
+    primary_documents: [policy.md, action-modeling.md, modalities-and-io.md]
+    additional_documents:
+      adaptation_methods: [post-training.md, training.md]
+      evaluation_and_risk: [evaluation.md, limitations.md]
+      execution_observations: [reproduction.md, inference.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - source and target interface differences
+      - observation, action, normalization, and controller semantics
+      - published policy adaptation and evaluation evidence
+
+  - id: data_and_training_knowledge
+    related_intents:
+      - inspect data composition or curriculum
+      - inspect objectives, optimizers, trainable groups, or post-training recipes
+      - formulate a data or training hypothesis
+    query_terms: [dataset mixture, curriculum, optimizer, loss, fine-tuning, post-training, synthetic data]
+    primary_documents: [data.md, training.md, post-training.md]
+    additional_documents:
+      benchmark_conditions: [evaluation.md, limitations.md]
+      implementation_locations: [codebase.md]
+      execution_observations: [reproduction.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - published data and training state
+      - controllable learning variables and confounders
+      - public adaptation recipes and checkpoint layouts
+
+  - id: implementation_knowledge
+    related_intents:
+      - locate a class, function, configuration, adapter, or conversion path
+      - understand training or inference call paths
+    query_terms: [source file, class, function, configuration, checkpoint conversion, code change]
+    primary_documents: [codebase.md, manifest.yaml]
+    additional_documents:
+      runtime_reference: [inference.md]
+      model_mechanisms: [architecture.md, reasoner.md, generator.md, action-modeling.md, policy.md]
+      learning_implementation: [training.md, post-training.md]
+    knowledge_supported:
+      - fixed-revision source locations
+      - call paths and configuration precedence
+      - checkpoint conversion and extension surfaces
+
+  - id: runtime_knowledge
+    related_intents:
+      - inspect available inference or serving paths
+      - diagnose a recorded runtime symptom
+      - compare backend resource characteristics
+    query_terms: [inference, serving, deployment, OOM, API error, backend, latency, memory]
+    primary_documents: [inference.md, reproduction.md, limitations.md]
+    additional_documents:
+      implementation_locations: [codebase.md]
+      policy_runtime: [policy.md]
+      generator_interfaces: [generator.md, modalities-and-io.md]
+    knowledge_supported:
+      - documented commands and backend characteristics
+      - recorded execution outcomes and artifacts
+      - failure interpretations and resource observations
+
+  - id: evaluation_knowledge
+    related_intents:
+      - interpret a benchmark or metric
+      - compare checkpoints or protocols
+      - inspect regressions, ablations, or leaderboard claims
+    query_terms: [benchmark, metric, baseline, regression, ablation, leaderboard, comparison]
+    primary_documents: [evaluation.md, limitations.md, manifest.yaml]
+    additional_documents:
+      executed_results: [reproduction.md]
+      capability_mechanisms: [reasoner.md, generator.md, action-modeling.md, policy.md]
+      source_versions: [sources.yaml]
+    knowledge_supported:
+      - checkpoint- and protocol-bound result interpretation
+      - evaluator, aggregation, confounder, and regression details
+      - known source conflicts
+
+  - id: optimization_and_open_questions
+    related_intents:
+      - formulate an optimization experiment
+      - inspect unresolved decision-relevant questions
+      - connect a failure to candidate interventions and measurements
+    query_terms: [optimization, experiment, hypothesis, unresolved question, failure analysis]
+    primary_documents: [optimization-playbook.md, research-queue.md]
+    additional_documents:
+      model_identity: [manifest.yaml]
+      execution_observations: [reproduction.md]
+      evaluation_reference: [evaluation.md, limitations.md]
+      mechanism_pages: [reasoner.md, generator.md, action-modeling.md, policy.md, data.md, training.md]
+    knowledge_supported:
+      - experiment-design patterns and evidence requirements
+      - cataloged unresolved questions and dependencies
+      - candidate metrics, artifacts, and interpretation risks

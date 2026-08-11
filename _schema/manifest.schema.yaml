@@ -1,0 +1,81 @@
+schema_version: 3
+
+manifest:
+  required:
+    - schema_version
+    - id
+    - entity_type
+    - canonical_name
+    - family
+    - developer
+    - release_date
+    - license
+    - checkpoint
+    - components
+    - revisions
+    - interfaces
+    - reproduction
+    - documents
+    - last_updated
+  entity_type_values:
+    - model
+
+checkpoint:
+  required:
+    - model_id
+    - reference_revision
+    - total_parameters
+    - hosted_revision
+
+revisions:
+  required:
+    - nvidia_cosmos
+    - cosmos_framework
+    - huggingface_checkpoint
+
+interfaces:
+  required:
+    - canonical_owner
+    - contracts
+    - action_mode_names
+  contract_required:
+    - mode
+    - component
+    - checkpoint_scope
+    - inputs
+    - outputs
+
+reproduction:
+  required:
+    - canonical_owner
+    - registry_heading
+
+documents:
+  required_routes:
+    - overview
+    - agent_index
+    - architecture
+    - modalities_and_io
+    - reasoner
+    - generator
+    - action_modeling
+    - policy
+    - data
+    - training
+    - post_training
+    - evaluation
+    - limitations
+    - codebase
+    - inference
+    - reproduction
+    - optimization_playbook
+    - research_queue
+    - sources
+
+rules:
+  - Treat a product family, downloadable checkpoint, hosted service model, and post-trained checkpoint as separate identities unless an exact equivalence is published.
+  - Pin code and checkpoint revisions with complete immutable identifiers when available.
+  - Declare how every related checkpoint differs from the reference checkpoint.
+  - Resolve document paths relative to the model entry root.
+  - Store no mutable execution-state mirror in the manifest; follow reproduction.canonical_owner to the execution-state registry.
+  - Keep optimization hypotheses and experiment conclusions out of identity fields.

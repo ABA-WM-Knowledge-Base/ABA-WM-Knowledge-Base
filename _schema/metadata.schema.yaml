@@ -1,0 +1,107 @@
+schema_version: 3
+
+page_frontmatter:
+  required:
+    - id
+    - title
+    - kind
+    - status
+    - last_updated
+    - owners
+  kind:
+    - index
+    - overview
+    - concept
+    - paper
+    - model
+    - reference
+    - guide
+    - record
+  status:
+    - reserved
+    - draft
+    - maintained
+    - archived
+
+model_topic_page:
+  required_heading:
+    - Retrieval metadata
+  retrieval_fields:
+    - Relevant queries
+    - Knowledge provided
+    - Related pages
+  content_rules:
+    - Write canonical KB content in English while preserving exact official identifiers and source titles when required.
+    - Expose query-to-knowledge associations that support dynamic retrieval.
+    - State model variant and operating conditions for each reusable fact.
+    - Connect optimization advice to a mechanism, implementation surface, metric, risk, and falsification test.
+    - Keep local execution observations in reproducible experiment records.
+    - Exclude progress narration, reading history, and generic project justification.
+
+agent_index:
+  supported_schema_version: 3
+  path: models/cosmos3-nano/agent-index.yaml
+  required:
+    - schema_version
+    - model_entry
+    - entrypoint
+    - purpose
+    - authority_boundary
+    - canonical_owners
+    - retrieval_profiles
+  profile_required:
+    - id
+    - related_intents
+    - query_terms
+    - primary_documents
+    - additional_documents
+    - knowledge_supported
+
+directory_contract:
+  content_parts:
+    - foundations
+    - papers
+    - models
+  shared_files:
+    - README.md
+    - INDEX.md
+    - CHANGELOG.md
+    - _schema
+  schema_files:
+    - metadata.schema.yaml
+    - manifest.schema.yaml
+    - sources.schema.yaml
+    - naming-conventions.md
+    - style-guide.md
+    - page-template.md
+    - paper-entry-template.md
+
+model_entry_required_files:
+  - README.md
+  - agent-index.yaml
+  - manifest.yaml
+  - architecture.md
+  - modalities-and-io.md
+  - reasoner.md
+  - generator.md
+  - action-modeling.md
+  - policy.md
+  - data.md
+  - training.md
+  - post-training.md
+  - evaluation.md
+  - limitations.md
+  - codebase.md
+  - inference.md
+  - reproduction.md
+  - optimization-playbook.md
+  - research-queue.md
+  - sources.yaml
+
+canonical_ownership:
+  rules:
+    - One page owns the complete reusable explanation of a topic.
+    - Dependent pages summarize only the local implication and link to the owner.
+    - Reproduction owns execution state; topic pages own stable model knowledge.
+    - Optimization references own reusable intervention strategies; research registries own unresolved evidence questions.
+    - Retrieved knowledge may influence Agent reasoning and strategy, but retrieval metadata does not define AIBuildAI orchestration, permissions, Agent selection, repository selection, or execution scheduling.

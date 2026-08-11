@@ -1,0 +1,16 @@
+schema_version: 1
+record_type: environment_snapshot
+captured_at: "2026-08-09"
+host:
+  os: Windows 11 x86_64
+  physical_memory_bytes: 16334770176
+  system_drive_free_bytes: 270628364288
+gpu:
+  name: NVIDIA GeForce RTX 4060 Laptop GPU
+  memory_mib: 8188
+  driver_version: "610.74"
+  compute_capability: "8.9"
+notes:
+  - Values were queried locally with nvidia-smi and Windows CIM/PSDrive.
+  - This snapshot does not indicate that a Cosmos checkpoint was loaded.
+
