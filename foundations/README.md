@@ -62,4 +62,4 @@ A foundation page must enable an agent to make or reject a modeling decision. It
 - links to representative paper entries and model-specific implementations;
 - unresolved conditions that would change a design decision.
 
-Use the [canonical page template](../_schema/page-template.md) when a topic is activated. Until then, route model-specific work through [Part III](../models/README.md).
+Use the [canonical page template](../_schema/page-template.md) when a topic is activated. Until then, this part supplies no foundation-topic facts; currently available model-specific knowledge remains in [Part III](../models/README.md).

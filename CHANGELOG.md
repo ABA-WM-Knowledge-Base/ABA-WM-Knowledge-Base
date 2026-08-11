@@ -14,6 +14,8 @@ This file records changes that affect retrieval metadata, canonical ownership, s
 
 ## 0.4.0 - 2026-08-11
 
+- Corrected the repository architecture to represent Foundations, Papers, and Models as non-exclusive peer knowledge inputs rather than forcing every task through Cosmos3-Nano.
+- Standardized cross-page references as canonical knowledge ownership instead of task routing or experiment prioritization.
 - Defined the KB as a knowledge-guidance and evidence layer that shapes reasoning and strategy without overriding AIBuildAI orchestration, configuration, permissions, or policies.
 - Replaced control-plane task routes with dynamic-retrieval profiles based on query themes and document associations.
 - Removed route priority, exclusions, context budgets, mandatory bundles, global stop rules, and expected-Agent-output fields.

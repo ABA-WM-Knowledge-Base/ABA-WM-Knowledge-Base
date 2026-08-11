@@ -16,7 +16,7 @@ owners:
 
 | Concept | Contract |
 |---|---|
-| Retrieval profile | A non-binding association between query themes and potentially relevant documents. |
+| Retrieval profile | A machine-readable association between query themes and decision-grounding knowledge. It supports dynamic loading without carrying workflow-orchestration authority. |
 | Canonical ownership | One page owns the full reusable explanation of a topic. Other pages summarize only the dependency and link to the owner. |
 | Progressive disclosure | An optional retrieval pattern in which additional sources are opened when more detail is useful. |
 | Workflow authority | AIBuildAI runtime, Agent configuration, task instructions, and policies remain authoritative. |
@@ -26,11 +26,11 @@ owners:
 
 ## Retrieval metadata use
 
-[The global index](../INDEX.md) and [`agent-index.yaml`](../models/cosmos3-nano/agent-index.yaml) expose topic and document associations. They are discovery aids, not an execution sequence. A consuming workflow decides what to load, in what order, and whether additional provenance, implementation, evaluation, or reproduction evidence is useful.
+[The global index](../INDEX.md) exposes non-exclusive knowledge areas, while [`agent-index.yaml`](../models/cosmos3-nano/agent-index.yaml) maps Cosmos3-Nano query themes to decision-grounding knowledge. AIBuildAI may dynamically combine these inputs according to the current task and state. The metadata does not select Agents, repositories, task order, or execution schedule.
 
 ## Canonical page contract
 
-Every model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. The remaining content supports model understanding and evidence-based decisions without prescribing Agent behavior.
+Every model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
 
 Canonical pages must not contain:
 
@@ -45,7 +45,7 @@ Canonical pages must not contain:
 
 | File | Contract |
 |---|---|
-| [`metadata.schema.yaml`](metadata.schema.yaml) | Frontmatter, directory boundary, required model files, and routing fields |
+| [`metadata.schema.yaml`](metadata.schema.yaml) | Frontmatter, directory boundary, required model files, and retrieval fields |
 | [`manifest.schema.yaml`](manifest.schema.yaml) | Model identity, pinned revisions, mode-specific interfaces, execution-state pointer, and document map |
 | [`sources.schema.yaml`](sources.schema.yaml) | Stable source identities, revisions, locators, and local integrity fields |
 | [`naming-conventions.md`](naming-conventions.md) | Stable paths, IDs, model names, versions, and terminology |
@@ -63,6 +63,6 @@ Canonical pages must not contain:
 | Local command, failure, fix, output, or run state | `reproduction.md` |
 | Reusable intervention and selection rule | `optimization-playbook.md` |
 | Unresolved condition that blocks a decision | `research-queue.md` |
-| Path, routing, or schema change | `CHANGELOG.md` and the relevant schema file |
+| Path, retrieval-metadata, or schema change | `CHANGELOG.md` and the relevant schema file |
 
 A statement is promoted from an experiment record into a canonical topic page only when its scope, conditions, and reusable consequence are explicit.

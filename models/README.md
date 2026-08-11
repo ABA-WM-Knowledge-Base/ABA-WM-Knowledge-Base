@@ -20,7 +20,7 @@ owners:
 
 ## Active entry
 
-| Entity | Canonical scope | Router |
+| Entity | Canonical scope | Entry point |
 |---|---|---|
 | Cosmos3-Nano | Model-specific mechanisms, interfaces, training, evaluation, code, execution state, optimization levers, and decision blockers | [Cosmos3-Nano](cosmos3-nano/README.md) |
 

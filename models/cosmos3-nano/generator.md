@@ -75,7 +75,7 @@ Actions and controls such as edge, depth, or segmentation enter through dedicate
 
 [C3-TR, pp.5-10 and pp.27-32; C3-FW-INFERENCE; C3-FW-ARGS]
 
-General media generation and action-domain modeling require different adapters and evaluation. Route FD, ID, and WAM details to [action-modeling.md](action-modeling.md). Route DROID-specific closed-loop behavior to [policy.md](policy.md).
+General media generation and action-domain modeling require different adapters and evaluation. FD, ID, and WAM details are owned by [action-modeling.md](action-modeling.md); DROID-specific closed-loop behavior is owned by [policy.md](policy.md).
 
 ## Training lineage
 

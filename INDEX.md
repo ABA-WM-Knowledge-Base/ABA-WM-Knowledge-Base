@@ -10,7 +10,7 @@ owners:
 
 # Knowledge Base Topic Index
 
-This index is a topic map. It helps readers and retrieval systems discover relevant knowledge without prescribing task order, context size, tool choice, or execution behavior.
+This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple content areas for the same task and use the resulting knowledge to ground reasoning and strategy. The index does not prescribe Agent selection, repository selection, task order, execution scheduling, permissions, or external actions.
 
 ## Content areas
 

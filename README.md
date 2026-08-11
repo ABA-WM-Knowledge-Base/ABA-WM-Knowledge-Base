@@ -27,16 +27,30 @@ The KB is a knowledge-guidance layer. It is intended to shape Agent understandin
 
 ```mermaid
 flowchart TD
-    Q["Research question or model task"] --> G["INDEX.md: global knowledge map"]
-    G --> E["Cosmos3-Nano README: model entry and ownership map"]
-    E --> R["agent-index.yaml: dynamic retrieval profiles"]
-    R --> M["Mechanisms and interfaces"]
-    R --> L["Learning and evaluation"]
-    R --> X["Code and runtime evidence"]
-    M --> S["sources.yaml: source identity and revisions"]
-    L --> S
-    X --> P["reproduction.md: observed execution state"]
+    O["AIBuildAI workflow orchestration"] --> T["Current task and state"]
+    T --> R["AIBuildAI dynamic knowledge retrieval"]
+    R --> I["INDEX.md: non-exclusive knowledge-area map"]
+
+    I --> F["Foundations: reusable world-model principles"]
+    I --> P["Papers: methods, experiments, and transferable evidence"]
+    I --> M["Models: Cosmos3-Nano-specific knowledge"]
+
+    M --> C["agent-index.yaml: Cosmos3-Nano retrieval profiles"]
+    C --> MI["Mechanisms and interfaces"]
+    C --> LE["Learning and evaluation"]
+    C --> EX["Code and execution evidence"]
+
+    F --> S["Knowledge synthesis"]
+    P --> S
+    MI --> S
+    LE --> S
+    EX --> S
+
+    S --> D["Ground Agent reasoning, diagnosis, and strategy selection"]
+    D -.->|informs without controlling| O
 ```
+
+The three content parts are non-exclusive knowledge inputs. A task may retrieve from one, two, or all three according to its current state. `Foundations` and `Papers` are reserved in the current release, so Cosmos3-Nano supplies the active content today; that content status does not change the peer architecture.
 
 The repository separates five concerns:
 
@@ -70,9 +84,9 @@ The three content parts are peers:
 
 ## How to navigate
 
-Start from [`INDEX.md`](INDEX.md) for the global topic map or open the active [`Cosmos3-Nano entry`](models/cosmos3-nano/README.md) directly. Its [`agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) provides optional, machine-readable query-to-document associations. These associations help discovery but carry no execution authority.
+Start from [`INDEX.md`](INDEX.md) for the global topic map. AIBuildAI may dynamically combine model-independent foundations, paper-specific evidence, and model-specific knowledge rather than assigning a task to exactly one part. For Cosmos3-Nano questions, [`agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) associates query themes with knowledge, strategies, best practices, and evidence that can ground decisions without taking workflow authority.
 
-Within a topic page, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through [`sources.yaml`](models/cosmos3-nano/sources.yaml), while observed execution evidence is kept separate in [`reproduction.md`](models/cosmos3-nano/reproduction.md). The `_schema/` directory defines how KB content is represented; it does not define Agent behavior.
+Within a topic page, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through [`sources.yaml`](models/cosmos3-nano/sources.yaml), while observed execution evidence is kept separate in [`reproduction.md`](models/cosmos3-nano/reproduction.md). The `_schema/` directory defines how KB content is represented; it does not define AIBuildAI workflow orchestration.
 
 ## Validation
 

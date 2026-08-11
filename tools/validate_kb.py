@@ -278,7 +278,7 @@ def validate_relative_links(path: Path, text: str, errors: list[str]) -> None:
 def validate_pages(
     schema: dict, source_ids: set[str], errors: list[str]
 ) -> set[str]:
-    """Validate page metadata, routing contracts, links, and source tokens."""
+    """Validate page metadata, retrieval contracts, links, and source tokens."""
 
     contract = schema["page_frontmatter"]
     required = set(contract["required"])
@@ -425,7 +425,7 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
 
 
 def validate_manifest(errors: list[str]) -> None:
-    """Validate model identity, reproduction state, and document routing."""
+    """Validate model identity, reproduction state, and document ownership."""
 
     manifest = load_yaml(MANIFEST_PATH)
     schema = load_yaml(MANIFEST_SCHEMA_PATH)
@@ -527,7 +527,7 @@ def validate_manifest(errors: list[str]) -> None:
     route_missing = set(schema["documents"]["required_routes"]) - documents.keys()
     if route_missing:
         errors.append(
-            f"manifest.yaml: documents missing routes {sorted(route_missing)}"
+            f"manifest.yaml: documents missing ownership entries {sorted(route_missing)}"
         )
     for name, target in documents.items():
         if not isinstance(target, str) or not (MODEL_ROOT / target).resolve().is_file():
@@ -538,7 +538,7 @@ def validate_manifest(errors: list[str]) -> None:
 
 
 def validate_agent_index(schema: dict, errors: list[str]) -> None:
-    """Validate machine-readable routing and every referenced document path."""
+    """Validate machine-readable retrieval metadata and referenced document paths."""
 
     index = load_yaml(AGENT_INDEX_PATH)
     contract = schema["agent_index"]
@@ -548,7 +548,7 @@ def validate_agent_index(schema: dict, errors: list[str]) -> None:
     if index.get("schema_version") != contract.get("supported_schema_version"):
         errors.append(
             "agent-index.yaml: unsupported schema_version; update metadata.schema.yaml "
-            "with the routing contract"
+            "with the retrieval contract"
         )
 
     try:

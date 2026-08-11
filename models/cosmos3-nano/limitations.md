@@ -174,7 +174,7 @@ No public Cosmos3-Nano result establishes performance on every embodied benchmar
 | Metric | Reasoning, PSNR, or DROID success may not predict target success/recovery | Correlation study plus target rollouts |
 | Safety | Simulator-valid commands can still violate limits/collisions/timeouts | Safety-wrapper test and adversarial termination cases |
 
-Do not optimize directly on a shifted target until observation/action invariants pass. Route testable transfer questions to [research-queue.md](research-queue.md) and procedures to [optimization-playbook.md](optimization-playbook.md).
+Optimization on a shifted target is not interpretable until observation/action invariants pass. Testable transfer questions are registered in [research-queue.md](research-queue.md), while reusable procedures are owned by [optimization-playbook.md](optimization-playbook.md).
 
 ## 8. Failure-to-intervention map
 
@@ -219,13 +219,13 @@ The following conditions weaken an optimization claim or create deployment risk:
 - applicable license, service, privacy, or distribution terms are unresolved;
 - repeated controlled trials fail to reproduce the effect or effect size falls below the declared practical threshold.
 
-## 11. Canonical routing
+## 11. Related knowledge ownership
 
-- Route exact metric protocols, baselines, conflicts, and ablations to [evaluation.md](evaluation.md).
-- Route data composition, filtering, normalization, and leakage controls to [data.md](data.md).
-- Route training objectives, optimizer state, and compute accounting to [training.md](training.md).
-- Route adaptation branches and public SFT execution to [post-training.md](post-training.md).
-- Route policy I/O, serving, receding horizon, and runtime safety integration to [policy.md](policy.md).
-- Route prioritized hypotheses to [research-queue.md](research-queue.md) and optimization procedures to [optimization-playbook.md](optimization-playbook.md).
-- Route actual run state and produced artifacts to [reproduction.md](reproduction.md).
-- Resolve source IDs and fixed revisions in [sources.yaml](sources.yaml).
+- Exact metric protocols, baselines, conflicts, and ablations are owned by [evaluation.md](evaluation.md).
+- Data composition, filtering, normalization, and leakage controls are owned by [data.md](data.md).
+- Training objectives, optimizer state, and compute accounting are owned by [training.md](training.md).
+- Adaptation branches and public SFT execution are owned by [post-training.md](post-training.md).
+- Policy I/O, serving, receding horizon, and runtime safety integration are owned by [policy.md](policy.md).
+- Unresolved research questions are registered in [research-queue.md](research-queue.md), while reusable optimization strategies are owned by [optimization-playbook.md](optimization-playbook.md).
+- Actual run state and produced artifacts are owned by [reproduction.md](reproduction.md).
+- Source IDs and fixed revisions resolve through [sources.yaml](sources.yaml).

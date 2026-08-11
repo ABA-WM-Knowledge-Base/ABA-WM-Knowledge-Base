@@ -185,7 +185,7 @@ The fixed `NVIDIA/cosmos` commit publishes an engine/hardware inference matrix d
 
 For Nano Reasoner on RTX PRO 6000 Blackwell with `Input 50 / Output 1 / Video 1 FPS`, concurrency 1→256 changes request latency 187.59→19,541.84 ms and throughput 5.29→9.89 requests/s. This is a queueing throughput/tail-latency trade-off, not a model-quality score. [C3-INFERENCE-BENCHMARKS, "Cosmos3-Nano Reasoner"]
 
-Blank official cells mean unmeasured, not unsupported. Record engine/container, precision, GPU, parallelism, resolution/FPS/frames, warmup, timing boundary, and concurrency. Route commands to [inference.md](inference.md).
+Blank official cells mean unmeasured, not unsupported. Record engine/container, precision, GPU, parallelism, resolution/FPS/frames, warmup, timing boundary, and concurrency. Command references are owned by [inference.md](inference.md).
 
 ## 9. Known protocol conflicts
 
@@ -215,7 +215,7 @@ Map an observed deficit to the smallest causal intervention:
 | ID/policy improve while FD declines | objective/gradient balancing | all three task metrics + gradient norms | one task exceeds regression budget |
 | Offline action improves, rollout does not | observation/action mismatch or compounding error | offline error + closed-loop success + latency | no invariant I/O validation exists |
 
-Register new hypotheses and closure criteria in [research-queue.md](research-queue.md); route reusable optimization procedures to [optimization-playbook.md](optimization-playbook.md).
+Register new hypotheses and closure criteria in [research-queue.md](research-queue.md); reusable optimization procedures are owned by [optimization-playbook.md](optimization-playbook.md).
 
 ## 11. Experiment-record fields
 
@@ -247,13 +247,13 @@ An evaluation cannot support its intended claim when:
 - the effect is smaller than the practical threshold or repeated trials do not reproduce direction;
 - cost or latency exceeds the declared deployment budget even when quality improves.
 
-## 13. Canonical routing
+## 13. Related knowledge ownership
 
-- Route objectives, optimizer state, schedules, and trainable groups to [training.md](training.md).
-- Route adaptation branches and public recipes to [post-training.md](post-training.md).
-- Route data mixtures, filtering, leakage, and action normalization to [data.md](data.md).
-- Route model-card limitations, safety risks, and deployment gates to [limitations.md](limitations.md).
-- Route inference commands and engine configuration to [inference.md](inference.md).
-- Route experiment priorities to [research-queue.md](research-queue.md) and reusable procedures to [optimization-playbook.md](optimization-playbook.md).
-- Route actual run state and artifacts to [reproduction.md](reproduction.md).
-- Resolve source IDs and fixed revisions in [sources.yaml](sources.yaml).
+- Objectives, optimizer state, schedules, and trainable groups are owned by [training.md](training.md).
+- Adaptation branches and public recipes are owned by [post-training.md](post-training.md).
+- Data mixtures, filtering, leakage, and action normalization are owned by [data.md](data.md).
+- Model-card limitations, safety risks, and deployment evidence are owned by [limitations.md](limitations.md).
+- Inference commands and engine configuration are owned by [inference.md](inference.md).
+- Unresolved research questions are registered in [research-queue.md](research-queue.md), while reusable experiment strategies are owned by [optimization-playbook.md](optimization-playbook.md).
+- Actual run state and artifacts are owned by [reproduction.md](reproduction.md).
+- Source IDs and fixed revisions resolve through [sources.yaml](sources.yaml).

@@ -214,13 +214,13 @@ An adaptation claim is weak or invalid when:
 - resumed training cannot reproduce the previous state because optimizer, scheduler, data position, or RNG is missing;
 - repeated checkpoints show no meaningful improvement before the compute cap.
 
-## 11. Canonical routing
+## 11. Related knowledge ownership
 
-- Route foundation objectives, packing, optimizer defaults, and mid-training mixture to [training.md](training.md).
-- Route dataset filtering, captions, action normalization, and manifests to [data.md](data.md).
-- Route policy observation/action interfaces, serving, receding horizon, and safety wrappers to [policy.md](policy.md).
-- Route metrics, learning curves, checkpoint selection, and comparison validity to [evaluation.md](evaluation.md).
-- Route model risks and deployment limits to [limitations.md](limitations.md).
-- Route experiment priorities to [research-queue.md](research-queue.md) and reusable procedures to [optimization-playbook.md](optimization-playbook.md).
-- Route actual run state and produced artifacts to [reproduction.md](reproduction.md).
-- Resolve source IDs and fixed revisions in [sources.yaml](sources.yaml).
+- Foundation objectives, packing, optimizer defaults, and mid-training mixtures are owned by [training.md](training.md).
+- Dataset filtering, captions, action normalization, and manifests are owned by [data.md](data.md).
+- Policy observation/action interfaces, serving, receding horizon, and safety wrappers are owned by [policy.md](policy.md).
+- Metrics, learning curves, checkpoint selection, and comparison validity are owned by [evaluation.md](evaluation.md).
+- Model risks and deployment limits are owned by [limitations.md](limitations.md).
+- Unresolved research questions are registered in [research-queue.md](research-queue.md), while reusable experiment strategies are owned by [optimization-playbook.md](optimization-playbook.md).
+- Actual run state and produced artifacts are owned by [reproduction.md](reproduction.md).
+- Source IDs and fixed revisions resolve through [sources.yaml](sources.yaml).

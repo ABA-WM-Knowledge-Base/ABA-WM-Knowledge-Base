@@ -35,7 +35,7 @@ Reasoner and Generator use matching transformer-block shapes but separate Mixtur
 
 The technical report describes foundation-scale Reasoner pre-training, Generator pre-training, and mid-training. The fixed public Framework primarily exposes SFT/post-training recipes through `cosmos_framework.scripts.train --sft-toml=<recipe>`, recipe TOML, experiment SKU, and `SFTExperimentConfig`. Generator/action recipes generally convert a Hugging Face base checkpoint to DCP; Nano Reasoner recipes may first merge to VLM safetensors. Training writes resolved configuration, DCP iteration checkpoints, and RNG state; `export_model` produces inference safetensors. [C3-FW-TRAINING]
 
-Do not infer that the 31.05T/2.4T-token foundation curriculum is reproducible merely because a public SFT recipe launches. Route executable recipe details to [post-training.md](post-training.md).
+Do not infer that the 31.05T/2.4T-token foundation curriculum is reproducible merely because a public SFT recipe launches. Executable recipe details are owned by [post-training.md](post-training.md).
 
 ## 2. Reasoner training state
 
@@ -204,13 +204,13 @@ A training claim is weak or invalid when:
 - repeated checkpoints show no practically meaningful progress relative to compute, or validation degrades while training loss continues to fall;
 - resume cannot restore optimizer, scheduler, data position, and per-rank RNG state.
 
-## 11. Canonical routing
+## 11. Related knowledge ownership
 
-- Route raw data, filtering, captions, action normalization, and mixture manifests to [data.md](data.md).
-- Route specialist branches, public SFT recipes, checkpoint conversion, resume, and export to [post-training.md](post-training.md).
-- Route architecture and tower ownership to [architecture.md](architecture.md).
-- Route metrics, baselines, ablations, and comparison validity to [evaluation.md](evaluation.md).
-- Route model risk and deployment guardrails to [limitations.md](limitations.md).
-- Route experiment prioritization to [research-queue.md](research-queue.md) and procedures to [optimization-playbook.md](optimization-playbook.md).
-- Route actual run claims and artifacts to [reproduction.md](reproduction.md).
-- Resolve source IDs and fixed revisions in [sources.yaml](sources.yaml).
+- Raw data, filtering, captions, action normalization, and mixture manifests are owned by [data.md](data.md).
+- Specialist branches, public SFT recipes, checkpoint conversion, resume, and export are owned by [post-training.md](post-training.md).
+- Architecture and tower semantics are owned by [architecture.md](architecture.md).
+- Metrics, baselines, ablations, and comparison validity are owned by [evaluation.md](evaluation.md).
+- Model risks and deployment evidence are owned by [limitations.md](limitations.md).
+- Unresolved research questions are registered in [research-queue.md](research-queue.md), while reusable experiment strategies are owned by [optimization-playbook.md](optimization-playbook.md).
+- Actual run claims and artifacts are owned by [reproduction.md](reproduction.md).
+- Source IDs and fixed revisions resolve through [sources.yaml](sources.yaml).

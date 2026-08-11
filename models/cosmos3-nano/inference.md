@@ -102,7 +102,7 @@ Minimal request shape:
 }
 ```
 
-Hosted success requires HTTP 200 and non-empty `choices[0].message.content` for the declared case. Never switch to another model on 404. Route the current service state through [reproduction.md](reproduction.md).
+Hosted success requires HTTP 200 and non-empty `choices[0].message.content` for the declared case. Never switch to another model on 404. The current service state is owned by [reproduction.md](reproduction.md).
 
 Retry policy:
 

@@ -139,7 +139,7 @@ Do not interchange checkpoint layouts:
 - Diffusers conversion is a separate layout;
 - hosted service revisions may remain undisclosed.
 
-## Code-change routing
+## Code-change impact map
 
 | Intended change | Primary owner | Required adjacent checks |
 |---|---|---|

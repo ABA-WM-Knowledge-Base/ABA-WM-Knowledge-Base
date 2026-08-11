@@ -63,7 +63,7 @@ Describe observable symptoms, likely causes, affected regimes, detection signals
 
 ## Decision blockers
 
-List only unknowns that can change an implementation or experiment decision. Route broader items to `research-queue.md`.
+List only unknowns that can change an implementation or experiment decision. Broader unresolved items belong in `research-queue.md`.
 
 ## Sources
 

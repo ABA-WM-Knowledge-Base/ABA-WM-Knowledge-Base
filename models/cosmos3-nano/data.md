@@ -207,13 +207,13 @@ A data-intervention claim is weak or invalid when any of the following holds:
 - failure or idle handling is undocumented;
 - repeated scaling yields no statistically or practically meaningful gain under a fixed protocol.
 
-## 9. Canonical routing
+## 9. Related knowledge ownership
 
-- Route loss functions, optimizer groups, packing, and stage schedules to [training.md](training.md).
-- Route specialist checkpoint adaptation and public recipe execution to [post-training.md](post-training.md).
-- Route metric definitions, baselines, seeds, judges, and comparison rules to [evaluation.md](evaluation.md).
-- Route model-level failure modes and safety gates to [limitations.md](limitations.md).
-- Route executable policy I/O and canvas/action contracts to [policy.md](policy.md).
-- Route unresolved research items to [research-queue.md](research-queue.md).
-- Route actual run state, artifacts, and reproduction claims to [reproduction.md](reproduction.md).
-- Resolve source IDs and fixed revisions in [sources.yaml](sources.yaml).
+- Loss functions, optimizer groups, packing, and stage schedules are owned by [training.md](training.md).
+- Specialist checkpoint adaptation and public recipe execution are owned by [post-training.md](post-training.md).
+- Metric definitions, baselines, seeds, judges, and comparison rules are owned by [evaluation.md](evaluation.md).
+- Model-level failure modes and safety evidence are owned by [limitations.md](limitations.md).
+- Executable policy I/O and canvas/action contracts are owned by [policy.md](policy.md).
+- Unresolved research questions are registered in [research-queue.md](research-queue.md).
+- Actual run state, artifacts, and reproduction claims are owned by [reproduction.md](reproduction.md).
+- Source IDs and fixed revisions resolve through [sources.yaml](sources.yaml).
