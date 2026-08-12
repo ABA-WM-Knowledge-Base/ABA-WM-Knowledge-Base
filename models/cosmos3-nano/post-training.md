@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** checkpoint branch boundaries, published specialist recipes, trainable groups, conversion paths, adaptation variables, and comparison confounders.
 
-**Related pages:** [Training](training.md) contains foundation objectives; [Data](data.md) contains dataset state; [Policy](policy.md) contains serving I/O; [Evaluation](evaluation.md) contains reported results; [Reproduction](reproduction.md) contains execution state.
+**Related pages:** [Training](training.md) contains foundation objectives; [Data](data.md) contains dataset state; [Policy](policy.md) contains serving I/O; [Evaluation](evaluation.md) contains reported results; [Reproduction](reproduction.md) contains execution state. [Datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md) owns the model-independent data principles used to assess adaptation recipes.
 
 ## 1. Select the branch before selecting a recipe
 
@@ -182,7 +182,7 @@ The following entries are reusable hypothesis templates, not active or prioritiz
 - **ADAPT-H07 — Rate-aware action representation:** an invertible representation that includes rate and controller metadata should transfer more reliably than raw state differences across embodiments.
 - **ADAPT-H08 — Two-stage policy adaptation:** broad target-domain behavior cloning followed by short hard-case or preference refinement should mirror the successful specialist pattern without collapsing broad task coverage.
 
-Only instantiated `RQ-*` records may carry priority, state, dependencies, or closure status in [research-queue.md](research-queue.md); reusable procedures belong in [optimization-playbook.md](optimization-playbook.md).
+Only instantiated `RQ-*` records may carry dependency impact, evidence state, dependencies, or closure status in [research-queue.md](research-queue.md); reusable procedures belong in [optimization-playbook.md](optimization-playbook.md).
 
 ## 9. Experiment-record fields
 

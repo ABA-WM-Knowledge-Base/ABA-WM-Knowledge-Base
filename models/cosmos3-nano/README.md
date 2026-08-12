@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** model identity boundaries, topic ownership, a document map, and high-level capability distinctions.
 
-**Related pages:** [`agent-index.yaml`](agent-index.yaml) provides machine-readable profiles for dynamic knowledge retrieval; [`manifest.yaml`](manifest.yaml) provides model identity and fixed revisions. Neither file defines AIBuildAI workflow orchestration.
+**Related pages:** [`agent-index.yaml`](agent-index.yaml) provides machine-readable profiles for dynamic knowledge retrieval; [`manifest.yaml`](manifest.yaml) provides model identity and fixed revisions. The Foundation pages for [world models](../../foundations/definitions-and-taxonomy/world-model.md), [world foundation models](../../foundations/definitions-and-taxonomy/world-foundation-model.md), and [world action models](../../foundations/definitions-and-taxonomy/world-action-model.md) own the model-independent definitions used by this entry. None of these resources defines AIBuildAI workflow orchestration.
 
 ## Retrieval integration
 

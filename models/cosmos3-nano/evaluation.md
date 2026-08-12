@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** checkpoint- and protocol-bound published results, evaluator conditions, aggregation rules, confounders, capability slices, and comparison-validity criteria.
 
-**Related pages:** [Training](training.md) contains learning configuration; [Post-training](post-training.md) contains adaptation recipes; [Inference](inference.md) contains runtime references; [Limitations](limitations.md) contains risk boundaries; [Reproduction](reproduction.md) contains local results.
+**Related pages:** [Training](training.md) contains learning configuration; [Post-training](post-training.md) contains adaptation recipes; [Inference](inference.md) contains runtime references; [Limitations](limitations.md) contains risk boundaries; [Reproduction](reproduction.md) contains local results. [Evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns the model-independent evidence and comparison principles.
 
 ## 1. Comparison key and score grammar
 

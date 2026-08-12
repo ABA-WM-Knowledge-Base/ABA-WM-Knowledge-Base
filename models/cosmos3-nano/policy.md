@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** checkpoint lineage, DROID-specific interfaces, server semantics, adaptation variables, failure interpretations, safety evidence, and published policy results. DROID and RoboLab metrics belong to the specialized checkpoint, not base Nano.
 
-**Related pages:** [Architecture](architecture.md) covers base-model structure; [Reasoner](reasoner.md) covers text plans; [Action modeling](action-modeling.md) covers base action modes; [Generator](generator.md) covers media generation.
+**Related pages:** [Architecture](architecture.md) covers base-model structure; [Reasoner](reasoner.md) covers text plans; [Action modeling](action-modeling.md) covers base action modes; [Generator](generator.md) covers media generation. Model-independent decision and deployment knowledge is owned by [planning and control](../../foundations/decision-making/planning-and-control.md), [model-based reinforcement learning](../../foundations/decision-making/model-based-rl.md), and [robotics and embodied AI](../../foundations/embodied-systems/robotics-and-embodied-ai.md).
 
 ## Canonical identity and lineage
 

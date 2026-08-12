@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** published training state, objectives, curricula, trainable-group semantics, system characteristics, controllable variables, confounders, and candidate intervention patterns.
 
-**Related pages:** [Data](data.md) contains dataset construction; [Post-training](post-training.md) contains public SFT recipes; [Inference](inference.md) contains runtime commands; [Evaluation](evaluation.md) contains benchmark definitions; [Reproduction](reproduction.md) contains execution status.
+**Related pages:** [Data](data.md) contains dataset construction; [Post-training](post-training.md) contains public SFT recipes; [Inference](inference.md) contains runtime commands; [Evaluation](evaluation.md) contains benchmark definitions; [Reproduction](reproduction.md) contains execution status. Foundation owners cover [datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md).
 
 ## 1. Checkpoint lineage is part of the experimental state
 
@@ -171,7 +171,7 @@ The following entries are reusable hypothesis templates, not active or prioritiz
 - **TRAIN-H07 — Replay for specialization:** general and Physical-AI replay should reduce catastrophic forgetting during narrow-domain SFT; tune replay by Pareto frontier rather than a single aggregate score.
 - **TRAIN-H08 — Reasoner-guided Generator adaptation:** preserving the Reasoner-initialized understanding tower should protect Physical-AI semantics; unfreeze only with an explicit domain representation hypothesis.
 
-Only instantiated `RQ-*` records may carry priority, state, dependencies, or closure status in [research-queue.md](research-queue.md); reusable procedures belong in [optimization-playbook.md](optimization-playbook.md).
+Only instantiated `RQ-*` records may carry dependency impact, evidence state, dependencies, or closure status in [research-queue.md](research-queue.md); reusable procedures belong in [optimization-playbook.md](optimization-playbook.md).
 
 ## 9. Experiment-record fields
 

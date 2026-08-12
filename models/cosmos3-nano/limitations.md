@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** documented capability boundaries, observable failure signatures, evaluation confounders, transfer risks, and evidence gaps. Risk descriptions are informational and do not define AIBuildAI policy.
 
-**Related pages:** [Evaluation](evaluation.md) contains benchmark scores; [Training](training.md) contains optimizer state; [Post-training](post-training.md) contains recipes; [Reproduction](reproduction.md) contains execution observations.
+**Related pages:** [Evaluation](evaluation.md) contains benchmark scores; [Training](training.md) contains optimizer state; [Post-training](post-training.md) contains recipes; [Reproduction](reproduction.md) contains execution observations. [Open problems](../../foundations/research-frontiers/open-problems.md) owns the cross-model unresolved conditions behind field-level limitations.
 
 ## 1. Model-card failure envelope
 

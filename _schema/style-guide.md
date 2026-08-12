@@ -12,7 +12,7 @@ owners:
 
 ## Optimize for decisions
 
-Write for an agent selecting, implementing, or evaluating a model intervention. A page is complete when it supports a decision under explicit conditions, not when it summarizes every source paragraph.
+Write for an agent defining, selecting, implementing, or evaluating a model intervention. A page is complete when it supports a judgment under explicit conditions, not when it summarizes every source paragraph.
 
 Prefer this chain:
 
@@ -22,9 +22,9 @@ A statement such as “the model supports video and action” is insufficient. S
 
 ## Describe retrieval without controlling workflow
 
-Every canonical model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
+Every canonical Foundation or model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
 
-`agent-index.yaml` maps task themes to knowledge, strategies, best practices, and evidence that can ground Agent decisions. It supports dynamic retrieval but does not define AIBuildAI's Agent selection, repository selection, task sequencing, execution scheduling, permissions, or external actions.
+Foundation `retrieval-index.yaml` and model-entry `agent-index.yaml` map query themes to knowledge, strategies, best practices, and evidence that can ground Agent decisions. They support dynamic retrieval but do not define AIBuildAI's Agent selection, repository selection, task sequencing, execution scheduling, permissions, or external actions.
 
 Progressive disclosure may be useful as a retrieval pattern, but it remains a choice of the consuming workflow rather than a KB requirement.
 
@@ -33,6 +33,19 @@ Progressive disclosure may be useful as a retrieval pattern, but it remains a ch
 Place the full explanation in one owner page. Elsewhere, state only the dependency needed for the local argument and link to the owner. Do not duplicate tables, result sets, input/output contracts, or training recipes across pages.
 
 When sources disagree, preserve the precise variant, revision, and operating conditions for each statement. Do not merge them into an apparent consensus.
+
+## Write model-independent foundations
+
+A Foundation page owns a transferable concept rather than a single paper's narrative or a single model's implementation. Organize it around the question the concept resolves:
+
+- preserve competing definitions when the field has no universal one;
+- define variables, distributions, objectives, and assumptions before comparing methods;
+- separate what is represented from how it is learned and how it is used for decisions;
+- distinguish a source-reported claim from a KB synthesis across sources;
+- state which evidence would make a proposed generalization invalid;
+- connect to representative-paper evidence and model-specific instantiations without duplicating their results or implementation detail.
+
+Do not universalize terminology coined by one product or paper. Labels such as world foundation model and world action model require an explicit capability and interface boundary. A Foundation comparison may influence design judgment, but it must not encode task priority, required reading order, Agent selection, or execution policy.
 
 ## Use decision-ready facts
 
@@ -73,7 +86,9 @@ Every result retains model variant, task, dataset, metric definition and directi
 
 ## Sources and locators
 
-Resolve every source ID through the entry's `sources.yaml`. Use locators such as `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, or `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
+Resolve every source ID through the nearest owning registry: `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, or `models/<model-id>/sources.yaml`. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; existing examples include `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
+
+Source type, venue, and version describe provenance; they do not substitute for claim-level reasoning. For broad or contested claims, triangulate primary sources with different assumptions and identify the resulting synthesis explicitly.
 
 ## Language and form
 

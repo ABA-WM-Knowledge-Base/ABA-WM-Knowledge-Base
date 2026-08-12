@@ -1,4 +1,4 @@
-schema_version: 3
+schema_version: 4
 
 page_frontmatter:
   required:
@@ -23,7 +23,7 @@ page_frontmatter:
     - maintained
     - archived
 
-model_topic_page:
+canonical_topic_page:
   required_heading:
     - Retrieval metadata
   retrieval_fields:
@@ -33,10 +33,44 @@ model_topic_page:
   content_rules:
     - Write canonical KB content in English while preserving exact official identifiers and source titles when required.
     - Expose query-to-knowledge associations that support dynamic retrieval.
-    - State model variant and operating conditions for each reusable fact.
-    - Connect optimization advice to a mechanism, implementation surface, metric, risk, and falsification test.
-    - Keep local execution observations in reproducible experiment records.
+    - State the concept scope, model family or variant when applicable, and operating conditions for each reusable fact.
+    - Connect design implications or optimization advice to a mechanism, controllable surface, expected evidence, risk, and falsification test.
+    - Keep local execution observations in the owning entry's reproducible experiment records.
     - Exclude progress narration, reading history, and generic project justification.
+
+foundation_entry:
+  required_files:
+    - README.md
+    - retrieval-index.yaml
+    - sources.yaml
+  subparts:
+    - definitions-and-taxonomy
+    - problem-formulation
+    - representations
+    - learning-objectives
+    - decision-making
+    - embodied-systems
+    - data-and-evaluation
+    - research-frontiers
+
+foundation_retrieval_index:
+  supported_schema_version: 1
+  path: foundations/retrieval-index.yaml
+  required:
+    - schema_version
+    - part_entry
+    - entrypoint
+    - purpose
+    - authority_boundary
+    - canonical_owners
+    - retrieval_profiles
+  profile_required:
+    - id
+    - related_intents
+    - query_terms
+    - primary_documents
+    - related_documents
+    - knowledge_supported
 
 agent_index:
   supported_schema_version: 3
@@ -74,9 +108,10 @@ directory_contract:
     - naming-conventions.md
     - style-guide.md
     - page-template.md
+    - foundation-page-template.md
     - paper-entry-template.md
 
-model_entry_required_files:
+cosmos3_nano_required_files:
   - README.md
   - agent-index.yaml
   - manifest.yaml

@@ -12,6 +12,17 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 0.5.0 - 2026-08-11
+
+- Activated Part I with 22 canonical World Model Foundation topics grouped into eight semantic subparts: definitions and taxonomy, problem formulation, representations, learning objectives, decision-making, embodied systems, data and evaluation, and research frontiers.
+- Added `problem-formulation.md` and `actions-and-interventions.md` as explicit owners for mathematical task contracts and causal action semantics.
+- Added an advisory Foundation retrieval index that maps query themes to knowledge without defining Agent selection, repository selection, task order, context budgets, stopping, retries, permissions, or execution policy.
+- Added a Foundation source registry of primary papers, conference proceedings, datasets, and benchmarks, with globally unique IDs and explicit source discrepancies where official records differ.
+- Added a Foundation-specific canonical page template and extended naming, style, metadata, and source-registry contracts for nested topic ownership.
+- Connected Cosmos3-Nano mechanism, data, evaluation, optimization, and limitation pages to applicable Foundation owners; paper-entry contracts now require reciprocal conceptual links without a mandatory reading sequence.
+- Generalized validation from one Cosmos source registry to all part- and entry-local registries, added global source-ID uniqueness, nested Foundation link and metadata checks, safe retrieval-index path containment, and canonical Foundation path-to-ID validation.
+- Updated the repository architecture diagram and global index so Foundations, Papers, and Models remain peer, non-exclusive knowledge inputs; Cosmos3-Nano is a model entry rather than the universal first retrieval path.
+
 ## 0.4.0 - 2026-08-11
 
 - Corrected the repository architecture to represent Foundations, Papers, and Models as non-exclusive peer knowledge inputs rather than forcing every task through Cosmos3-Nano.

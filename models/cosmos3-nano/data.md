@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** published data state, mixture semantics, counting boundaries, controllable data variables, confounders, and reusable data-intervention hypotheses.
 
-**Related pages:** [Training](training.md) covers objectives and optimizers; [Post-training](post-training.md) covers public recipes; [Evaluation](evaluation.md) covers protocols; [Modality contracts](modalities-and-io.md) covers I/O; [Reproduction](reproduction.md) covers executed state.
+**Related pages:** [Training](training.md) covers objectives and optimizers; [Post-training](post-training.md) covers public recipes; [Evaluation](evaluation.md) covers protocols; [Modality contracts](modalities-and-io.md) covers I/O; [Reproduction](reproduction.md) covers executed state. [Datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md) owns the model-independent data principles.
 
 ## 1. Data model: keep counting units and stages separate
 
@@ -173,7 +173,7 @@ The following entries are reusable hypothesis templates, not active or prioritiz
 - **DATA-H07 — Synthetic-tail plus real anchor:** synthetic data should be introduced by capability deficit and gated by domain regressions; SDG-All is a precedent for balanced benefit, not proof that a larger synthetic share is better.
 - **DATA-H08 — Uncertainty-preserving futures:** where multiple futures are valid, preserving multimodal outcomes or using trajectory-aware objectives should outperform pruning all but one deterministic target.
 
-Only instantiated `RQ-*` records may carry priority, state, dependencies, or closure status in [research-queue.md](research-queue.md); reusable procedures belong in [optimization-playbook.md](optimization-playbook.md).
+Only instantiated `RQ-*` records may carry dependency impact, evidence state, dependencies, or closure status in [research-queue.md](research-queue.md); reusable procedures belong in [optimization-playbook.md](optimization-playbook.md).
 
 ## 7. Experiment-record fields
 

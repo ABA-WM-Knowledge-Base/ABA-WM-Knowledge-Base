@@ -18,6 +18,7 @@ owners:
 |---|---|
 | Retrieval profile | A machine-readable association between query themes and decision-grounding knowledge. It supports dynamic loading without carrying workflow-orchestration authority. |
 | Canonical ownership | One page owns the full reusable explanation of a topic. Other pages summarize only the dependency and link to the owner. |
+| Part-local provenance | Foundation, paper, and model entries keep source identities in the nearest owning `sources.yaml`; source IDs remain unique across the repository. |
 | Progressive disclosure | An optional retrieval pattern in which additional sources are opened when more detail is useful. |
 | Workflow authority | AIBuildAI runtime, Agent configuration, task instructions, and policies remain authoritative. |
 | Decision-ready fact | A scoped statement that includes mechanism, operating conditions, optimization consequence, failure boundary, and source locator. |
@@ -26,11 +27,11 @@ owners:
 
 ## Retrieval metadata use
 
-[The global index](../INDEX.md) exposes non-exclusive knowledge areas, while [`agent-index.yaml`](../models/cosmos3-nano/agent-index.yaml) maps Cosmos3-Nano query themes to decision-grounding knowledge. AIBuildAI may dynamically combine these inputs according to the current task and state. The metadata does not select Agents, repositories, task order, or execution schedule.
+[The global index](../INDEX.md) exposes non-exclusive knowledge areas. The Foundation [`retrieval-index.yaml`](../foundations/retrieval-index.yaml) associates model-independent queries with canonical concepts, while the Cosmos3-Nano [`agent-index.yaml`](../models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with decision-grounding knowledge. AIBuildAI may dynamically combine these inputs according to the current task and state. Neither index selects Agents, repositories, task order, or execution schedule.
 
 ## Canonical page contract
 
-Every model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
+Every canonical Foundation or model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. Foundation pages own transferable concepts; paper entries own work-specific evidence; model pages own concrete instantiations. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
 
 Canonical pages must not contain:
 
@@ -51,12 +52,16 @@ Canonical pages must not contain:
 | [`naming-conventions.md`](naming-conventions.md) | Stable paths, IDs, model names, versions, and terminology |
 | [`style-guide.md`](style-guide.md) | Agent-oriented content, provenance grammar, optimization detail, and experiment requirements |
 | [`page-template.md`](page-template.md) | Canonical model-topic page template |
+| [`foundation-page-template.md`](foundation-page-template.md) | Canonical model-independent concept-page template |
 | [`paper-entry-template.md`](paper-entry-template.md) | Representative-paper entry contract |
 
 ## Update placement
 
 | New information | Canonical destination |
 |---|---|
+| Model-independent definition, formalism, mechanism family, or evaluation principle | The owning nested page under `foundations/<subpart>/` |
+| Foundation source identity or immutable artifact version | `foundations/sources.yaml` |
+| Foundation query-to-knowledge association | `foundations/retrieval-index.yaml` |
 | Stable mechanism, interface, or limitation | The owning topic page |
 | Model identity, revision, license, or component inventory | `manifest.yaml` |
 | Source identity, immutable version, or artifact hash | `sources.yaml` |
@@ -65,4 +70,4 @@ Canonical pages must not contain:
 | Unresolved condition that blocks a decision | `research-queue.md` |
 | Path, retrieval-metadata, or schema change | `CHANGELOG.md` and the relevant schema file |
 
-A statement is promoted from an experiment record into a canonical topic page only when its scope, conditions, and reusable consequence are explicit.
+A statement is promoted from an experiment record into a canonical topic page only when its scope, conditions, and reusable consequence are explicit. Moving a model observation into Foundations additionally requires model-independent support or an explicitly labeled cross-source synthesis; one implementation alone does not establish a universal principle.

@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** immutable execution observations, surface-specific claim states, artifact locations, raw-status interpretation, and the evidence available for each reproduction claim.
 
-**Related pages:** [Inference](inference.md) contains reference commands; [Optimization reference](optimization-playbook.md) contains experiment-design patterns. This ledger records evidence and does not schedule retries or choose a backend.
+**Related pages:** [Inference](inference.md) contains reference commands; [Optimization reference](optimization-playbook.md) contains experiment-design patterns; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) defines model-independent evidence standards. This ledger records evidence and does not schedule retries or choose a backend.
 
 ## Claim registry
 

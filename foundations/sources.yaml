@@ -1,0 +1,411 @@
+schema_version: 3
+as_of: "2026-08-11"
+sources:
+  - id: FND-KALMAN-1960
+    type: paper
+    title: A New Approach to Linear Filtering and Prediction Problems
+    publisher: Journal of Basic Engineering
+    version: "82(1):35-45; DOI 10.1115/1.3662552"
+    canonical_url: https://doi.org/10.1115/1.3662552
+    accessed: "2026-08-11"
+  - id: FND-ASTROM-1965
+    type: paper
+    title: Optimal Control of Markov Processes with Incomplete State Information I
+    publisher: Journal of Mathematical Analysis and Applications
+    version: "10:174-205; DOI 10.1016/0022-247X(65)90154-X"
+    canonical_url: https://doi.org/10.1016/0022-247X(65)90154-X
+    accessed: "2026-08-11"
+  - id: CTRL-POMDP-1998
+    type: paper
+    title: Planning and Acting in Partially Observable Stochastic Domains
+    publisher: Artificial Intelligence
+    version: "101(1-2):99-134; DOI 10.1016/S0004-3702(98)00023-X"
+    canonical_url: https://doi.org/10.1016/S0004-3702(98)00023-X
+    accessed: "2026-08-11"
+  - id: MBRL-DYNA-1990
+    type: paper
+    title: Integrated Modeling and Control Based on Reinforcement Learning and Dynamic Programming
+    publisher: NeurIPS 1990
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/1990/file/d9fc5b73a8d78fad3d6dffe419384e70-Paper.pdf
+    accessed: "2026-08-11"
+  - id: FND-WORLD-MODELS-2018
+    type: paper
+    title: Recurrent World Models Facilitate Policy Evolution
+    publisher: NeurIPS 2018
+    canonical_url: https://proceedings.neurips.cc/paper/2018/hash/2de5d16682c3c35007e4e92982f1a2ba-Abstract.html
+    accessed: "2026-08-11"
+  - id: PLAN-MUZERO-2020
+    type: paper
+    title: Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model
+    publisher: Nature
+    version: "588:604-609; DOI 10.1038/s41586-020-03051-4"
+    canonical_url: https://doi.org/10.1038/s41586-020-03051-4
+    accessed: "2026-08-11"
+  - id: ACT-PEARL-1995
+    type: paper
+    title: Causal Diagrams for Empirical Research
+    publisher: Biometrika
+    version: "82(4):669-688; DOI 10.1093/biomet/82.4.669"
+    canonical_url: https://doi.org/10.1093/biomet/82.4.669
+    accessed: "2026-08-11"
+  - id: FND-OH-VIDEO-2015
+    type: paper
+    title: Action-Conditional Video Prediction using Deep Networks in Atari Games
+    publisher: NeurIPS 2015
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/2015/hash/6ba3af5d7b2790e73f0de32e5c8c1798-Abstract.html
+    accessed: "2026-08-11"
+  - id: FND-E2C-2015
+    type: paper
+    title: "Embed to Control: A Locally Linear Latent Dynamics Model for Control from Raw Images"
+    publisher: NeurIPS 2015
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/2015/hash/a1afc58c6ca9540d057299ec3016d726-Abstract.html
+    accessed: "2026-08-11"
+  - id: FD-PLANET-2019
+    type: paper
+    title: Learning Latent Dynamics for Planning from Pixels
+    publisher: ICML 2019 / PMLR 97
+    canonical_url: https://proceedings.mlr.press/v97/hafner19a.html
+    accessed: "2026-08-11"
+  - id: WFM-GENIE-2024
+    type: paper
+    title: "Genie: Generative Interactive Environments"
+    publisher: ICML 2024 / PMLR 235
+    canonical_url: https://proceedings.mlr.press/v235/bruce24a.html
+    accessed: "2026-08-11"
+  - id: REP-MATHIEU-2016
+    type: paper
+    title: Deep Multi-Scale Video Prediction Beyond Mean Square Error
+    publisher: ICLR 2016
+    version: arXiv:1511.05440
+    canonical_url: https://arxiv.org/abs/1511.05440
+    accessed: "2026-08-11"
+  - id: REP-VIDEO-PREDICTION-2016
+    type: paper
+    title: Unsupervised Learning for Physical Interaction through Video Prediction
+    publisher: NeurIPS 2016
+    version: arXiv:1605.07157
+    canonical_url: https://arxiv.org/abs/1605.07157
+    accessed: "2026-08-11"
+  - id: REP-TECO-2023
+    type: paper
+    title: Temporally Consistent Transformers for Video Generation
+    publisher: ICML 2023 / PMLR 202
+    canonical_url: https://proceedings.mlr.press/v202/yan23b.html
+    accessed: "2026-08-11"
+  - id: REP-DIAMOND-2024
+    type: paper
+    title: "Diffusion for World Modeling: Visual Details Matter in Atari"
+    publisher: NeurIPS 2024
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/2024/hash/6bdde0373d53d4a501249547084bed43-Abstract-Conference.html
+    accessed: "2026-08-11"
+  - id: REP-VQVAE-2017
+    type: paper
+    title: Neural Discrete Representation Learning
+    publisher: NeurIPS 2017
+    canonical_url: https://proceedings.neurips.cc/paper/2017/hash/7a98af17e63a0ac09ce2e96d03992fbc-Abstract.html
+    accessed: "2026-08-11"
+  - id: MBRL-DREAMERV3-2025
+    type: paper
+    title: Mastering Diverse Control Tasks through World Models
+    publisher: Nature
+    version: "640:647-653; DOI 10.1038/s41586-025-08744-2"
+    canonical_url: https://doi.org/10.1038/s41586-025-08744-2
+    accessed: "2026-08-11"
+  - id: REP-INTERACTION-NET-2016
+    type: paper
+    title: Interaction Networks for Learning about Objects, Relations and Physics
+    publisher: NeurIPS 2016
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/2016/hash/3147da8ab4a0437c15ef51a5cc7f2dc4-Abstract.html
+    accessed: "2026-08-11"
+  - id: REP-VIN-2017
+    type: paper
+    title: "Visual Interaction Networks: Learning a Physics Simulator from Video"
+    publisher: NeurIPS 2017
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/2017/hash/8cbd005a556ccd4211ce43f309bc0eac-Abstract.html
+    accessed: "2026-08-11"
+  - id: REP-CSWM-2020
+    type: paper
+    title: Contrastive Learning of Structured World Models
+    publisher: ICLR 2020
+    canonical_url: https://openreview.net/forum?id=H1gax6VtDB
+    accessed: "2026-08-11"
+  - id: REP-SLOT-ATTENTION-2020
+    type: paper
+    title: Object-Centric Learning with Slot Attention
+    publisher: NeurIPS 2020
+    canonical_url: https://proceedings.neurips.cc/paper/2020/hash/8511df98c02ab60aea1b2356c013bc0f-Abstract.html
+    accessed: "2026-08-11"
+  - id: REP-OP3-2020
+    type: paper
+    title: Entity Abstraction in Visual Model-Based Reinforcement Learning
+    publisher: CoRL 2019 / PMLR 100
+    canonical_url: https://proceedings.mlr.press/v100/veerapaneni20a.html
+    accessed: "2026-08-11"
+  - id: REP-NERF-2020
+    type: paper
+    title: "NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis"
+    publisher: ECCV 2020
+    version: arXiv:2003.08934
+    canonical_url: https://arxiv.org/abs/2003.08934
+    accessed: "2026-08-11"
+  - id: REP-DNERF-2021
+    type: paper
+    title: "D-NeRF: Neural Radiance Fields for Dynamic Scenes"
+    publisher: CVPR 2021
+    canonical_url: https://openaccess.thecvf.com/content/CVPR2021/html/Pumarola_D-NeRF_Neural_Radiance_Fields_for_Dynamic_Scenes_CVPR_2021_paper.html
+    accessed: "2026-08-11"
+  - id: REP-3DGS-2023
+    type: paper
+    title: 3D Gaussian Splatting for Real-Time Radiance Field Rendering
+    publisher: ACM Transactions on Graphics / SIGGRAPH 2023
+    version: DOI 10.1145/3592433
+    canonical_url: https://doi.org/10.1145/3592433
+    accessed: "2026-08-11"
+  - id: REP-OCCWORLD-2024
+    type: paper
+    title: "OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving"
+    publisher: ECCV 2024
+    version: arXiv:2311.16038
+    canonical_url: https://arxiv.org/abs/2311.16038
+    accessed: "2026-08-11"
+  - id: OBJ-BENGIO-LM-2003
+    type: paper
+    title: A Neural Probabilistic Language Model
+    publisher: Journal of Machine Learning Research
+    version: "3:1137-1155"
+    canonical_url: https://www.jmlr.org/papers/v3/bengio03a.html
+    accessed: "2026-08-11"
+  - id: OBJ-PIXELRNN-2016
+    type: paper
+    title: Pixel Recurrent Neural Networks
+    publisher: ICML 2016 / PMLR 48
+    canonical_url: https://proceedings.mlr.press/v48/oord16.html
+    accessed: "2026-08-11"
+  - id: OBJ-SCHEDULED-SAMPLING-2015
+    type: paper
+    title: "Scheduled Sampling for Sequence Prediction with Recurrent Neural Networks"
+    publisher: NeurIPS 2015
+    canonical_url: https://proceedings.neurips.cc/paper/2015/hash/e995f98d56967d946471af29d7bf99f1-Abstract.html
+    accessed: "2026-08-11"
+  - id: OBJ-VIDEOPOET-2024
+    type: paper
+    title: "VideoPoet: A Large Language Model for Zero-Shot Video Generation"
+    publisher: ICML 2024 / PMLR 235
+    canonical_url: https://proceedings.mlr.press/v235/kondratyuk24a.html
+    accessed: "2026-08-11"
+  - id: OBJ-DIFFUSION-2015
+    type: paper
+    title: Deep Unsupervised Learning using Nonequilibrium Thermodynamics
+    publisher: ICML 2015 / PMLR 37
+    canonical_url: https://proceedings.mlr.press/v37/sohl-dickstein15.html
+    accessed: "2026-08-11"
+  - id: OBJ-DDPM-2020
+    type: paper
+    title: Denoising Diffusion Probabilistic Models
+    publisher: NeurIPS 2020
+    canonical_url: https://proceedings.neurips.cc/paper/2020/hash/4c5bcfec8584af0d967f1ab10179ca4b-Abstract.html
+    accessed: "2026-08-11"
+  - id: OBJ-SCORE-SDE-2021
+    type: paper
+    title: Score-Based Generative Modeling through Stochastic Differential Equations
+    publisher: ICLR 2021
+    canonical_url: https://openreview.net/forum?id=PxTIG12RRHS
+    accessed: "2026-08-11"
+  - id: OBJ-VIDEO-DIFFUSION-2022
+    type: paper
+    title: Video Diffusion Models
+    publisher: NeurIPS 2022
+    version: arXiv:2204.03458
+    canonical_url: https://arxiv.org/abs/2204.03458
+    accessed: "2026-08-11"
+  - id: OBJ-FLOW-MATCHING-2023
+    type: paper
+    title: Flow Matching for Generative Modeling
+    publisher: ICLR 2023
+    canonical_url: https://openreview.net/forum?id=PqvMRDCJT9t
+    accessed: "2026-08-11"
+  - id: OBJ-RECTIFIED-FLOW-2023
+    type: paper
+    title: Flow Straight and Fast Learning to Generate and Transfer Data with Rectified Flow
+    publisher: ICLR 2023
+    canonical_url: https://openreview.net/forum?id=XVjTT1nw5z
+    accessed: "2026-08-11"
+  - id: OBJ-LECUN-JEPA-2022
+    type: paper
+    title: A Path Towards Autonomous Machine Intelligence
+    publisher: OpenReview position paper
+    canonical_url: https://openreview.net/forum?id=BZ5a1r-kVsf
+    scope: Position paper; use as a proposed architecture and terminology source, not peer-reviewed empirical evidence.
+    accessed: "2026-08-11"
+  - id: OBJ-IJEPA-2023
+    type: paper
+    title: Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture
+    publisher: CVPR 2023
+    canonical_url: https://openaccess.thecvf.com/content/CVPR2023/html/Assran_Self-Supervised_Learning_From_Images_With_a_Joint-Embedding_Predictive_Architecture_CVPR_2023_paper.html
+    accessed: "2026-08-11"
+  - id: OBJ-VJEPA-2024
+    type: paper
+    title: "V-JEPA: Latent Video Prediction for Visual Representation Learning"
+    publisher: OpenReview
+    version: "ICLR 2024 submission; related arXiv version 2404.08471"
+    canonical_url: https://openreview.net/forum?id=WFYbBOEOtv
+    scope: The OpenReview record is an ICLR 2024 submission, not an accepted-conference record; use it for the reported method and experiments without implying peer-reviewed acceptance.
+    accessed: "2026-08-11"
+  - id: OBJ-VICREG-2022
+    type: paper
+    title: "VICReg: Variance-Invariance-Covariance Regularization for Self-Supervised Learning"
+    publisher: ICLR 2022
+    canonical_url: https://openreview.net/forum?id=xm6YD62D1Ub
+    accessed: "2026-08-11"
+  - id: OBJ-VJEPA2-2025
+    type: paper
+    title: "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning"
+    publisher: arXiv / Meta AI
+    version: arXiv:2506.09985
+    canonical_url: https://arxiv.org/abs/2506.09985
+    scope: Preprint; separate frozen representation learning from the action-conditioned predictor trained on interaction data.
+    accessed: "2026-08-11"
+  - id: DYN-POKE-2016
+    type: paper
+    title: "Learning to Poke by Poking: Experiential Learning of Intuitive Physics"
+    publisher: NeurIPS 2016
+    canonical_url: https://proceedings.neurips.cc/paper/2016/hash/c203d8a151612acf12457e4d67635a95-Abstract.html
+    accessed: "2026-08-11"
+  - id: REP-ICM-2017
+    type: paper
+    title: Curiosity-Driven Exploration by Self-Supervised Prediction
+    publisher: CVPR Workshops 2017
+    canonical_url: https://openaccess.thecvf.com/content_cvpr_2017_workshops/w5/html/Pathak_Curiosity-Driven_Exploration_by_CVPR_2017_paper.html
+    accessed: "2026-08-11"
+  - id: PLAN-VISUAL-FORESIGHT-2017
+    type: paper
+    title: Deep Visual Foresight for Planning Robot Motion
+    publisher: ICRA 2017
+    version: DOI 10.1109/ICRA.2017.7989324
+    canonical_url: https://doi.org/10.1109/ICRA.2017.7989324
+    accessed: "2026-08-11"
+  - id: CTRL-MPC-2000
+    type: paper
+    title: "Constrained Model Predictive Control: Stability and Optimality"
+    publisher: Automatica
+    version: "36(6):789-814; DOI 10.1016/S0005-1098(99)00214-9"
+    canonical_url: https://doi.org/10.1016/S0005-1098(99)00214-9
+    accessed: "2026-08-11"
+  - id: MBRL-PETS-2018
+    type: paper
+    title: Deep Reinforcement Learning in a Handful of Trials using Probabilistic Dynamics Models
+    publisher: NeurIPS 2018
+    canonical_url: https://proceedings.neurips.cc/paper/2018/hash/3de568f8597b94bda53149c7d7f5958c-Abstract.html
+    accessed: "2026-08-11"
+  - id: MBRL-VAML-2017
+    type: paper
+    title: "Value-Aware Loss Function for Model-Based Reinforcement Learning"
+    publisher: AISTATS 2017 / PMLR 54
+    canonical_url: https://proceedings.mlr.press/v54/farahmand17a.html
+    accessed: "2026-08-11"
+  - id: MBRL-MBPO-2019
+    type: paper
+    title: When to Trust Your Model — Model-Based Policy Optimization
+    publisher: NeurIPS 2019
+    canonical_url: https://proceedings.neurips.cc/paper/2019/hash/5faf461eff3099671ad63c6f3f094f7f-Abstract.html
+    accessed: "2026-08-11"
+  - id: MBRL-DREAMER-2020
+    type: paper
+    title: Dream to Control — Learning Behaviors by Latent Imagination
+    publisher: ICLR 2020
+    canonical_url: https://openreview.net/forum?id=S1lOTC4tDS
+    accessed: "2026-08-11"
+  - id: MBRL-TDMPC2-2024
+    type: paper
+    title: "TD-MPC2: Scalable, Robust World Models for Continuous Control"
+    publisher: ICLR 2024
+    canonical_url: https://openreview.net/forum?id=Oxh5CstDJU
+    accessed: "2026-08-11"
+  - id: WFM-UNISIM-2024
+    type: paper
+    title: Learning Interactive Real-World Simulators
+    publisher: ICLR 2024
+    canonical_url: https://openreview.net/forum?id=sFyTZEqmUY
+    accessed: "2026-08-11"
+  - id: WAM-DREAMZERO-2026
+    type: paper
+    title: "DreamZero: World Action Models are Zero-shot Policies"
+    publisher: arXiv
+    version: arXiv:2602.15922
+    canonical_url: https://arxiv.org/abs/2602.15922
+    scope: Preprint; use only for the reported system definition and experiments, not a universal WAM capability claim.
+    accessed: "2026-08-11"
+  - id: EMB-RT2-2023
+    type: paper
+    title: "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control"
+    publisher: CoRL 2023 / PMLR 229
+    canonical_url: https://proceedings.mlr.press/v229/zitkovich23a.html
+    accessed: "2026-08-11"
+  - id: EMB-OCTO-2024
+    type: paper
+    title: "Octo: An Open-Source Generalist Robot Policy"
+    publisher: Robotics — Science and Systems 2024
+    version: DOI 10.15607/RSS.2024.XX.090
+    canonical_url: https://www.roboticsproceedings.org/rss20/p090.html
+    accessed: "2026-08-11"
+  - id: DATA-DROID-2024
+    type: dataset
+    title: "DROID: A Large-Scale In-the-Wild Robot Manipulation Dataset"
+    publisher: Robotics — Science and Systems 2024
+    version: DOI 10.15607/RSS.2024.XX.120
+    canonical_url: https://www.roboticsproceedings.org/rss20/p120.html
+    retrieval_hint: The current paper PDF reports 76k trajectories; the HTML abstract still reports 65k. Preserve the locator and do not merge the figures.
+    accessed: "2026-08-11"
+  - id: DATA-BRIDGEV2-2023
+    type: dataset
+    title: "BridgeData V2: A Dataset for Robot Learning at Scale"
+    publisher: CoRL 2023 / PMLR 229
+    canonical_url: https://proceedings.mlr.press/v229/walke23a.html
+    accessed: "2026-08-11"
+  - id: DATA-EGO4D-2022
+    type: dataset
+    title: "Ego4D: Around the World in 3,000 Hours of Egocentric Video"
+    publisher: CVPR 2022
+    canonical_url: https://openaccess.thecvf.com/content/CVPR2022/html/Grauman_Ego4D_Around_the_World_in_3000_Hours_of_Egocentric_Video_CVPR_2022_paper.html
+    accessed: "2026-08-11"
+  - id: EVAL-FVD-2019
+    type: paper
+    title: "Towards Accurate Generative Models of Video: A New Metric and Challenges"
+    publisher: ICLR 2019 Workshop / OpenReview
+    canonical_url: https://openreview.net/forum?id=rylgEULtdN
+    scope: FVD evaluates distributional video quality; it is not a direct control or physical-correctness metric.
+    accessed: "2026-08-11"
+  - id: EVAL-PHYSION-2021
+    type: benchmark
+    title: "Physion: Evaluating Physical Prediction from Vision in Humans and Machines"
+    publisher: NeurIPS 2021 Datasets and Benchmarks
+    canonical_url: https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/2021/hash/d09bf41544a3365a46c9077ebb5e35c3-Abstract-round1.html
+    accessed: "2026-08-11"
+  - id: BENCH-LIBERO-2023
+    type: benchmark
+    title: "LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning"
+    publisher: NeurIPS 2023 Datasets and Benchmarks
+    canonical_url: https://proceedings.neurips.cc/paper_files/paper/2023/hash/8c3c666820ea055a77726d66fc7d447f-Abstract-Datasets_and_Benchmarks.html
+    accessed: "2026-08-11"
+  - id: BENCH-CALVIN-2022
+    type: benchmark
+    title: "CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks"
+    publisher: IEEE Robotics and Automation Letters
+    version: DOI 10.1109/LRA.2022.3180108
+    canonical_url: https://doi.org/10.1109/LRA.2022.3180108
+    accessed: "2026-08-11"
+  - id: BENCH-ROBOCASA-2024
+    type: benchmark
+    title: "RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots"
+    publisher: Robotics — Science and Systems 2024
+    version: DOI 10.15607/RSS.2024.XX.050
+    canonical_url: https://www.roboticsproceedings.org/rss20/p050.html
+    retrieval_hint: The RSS HTML and BibTeX use "Household Tasks"; the downloadable paper PDF uses "Everyday Tasks." Treat these as title variants of the same RSS 2024 paper.
+    accessed: "2026-08-11"
+  - id: EVAL-RL-MATTERS-2018
+    type: paper
+    title: Deep Reinforcement Learning that Matters
+    publisher: AAAI 2018
+    version: DOI 10.1609/aaai.v32i1.11694
+    canonical_url: https://ojs.aaai.org/index.php/AAAI/article/view/11694
+    accessed: "2026-08-11"

@@ -14,17 +14,17 @@ owners:
 
 **Relevant queries:** unresolved question, missing evidence, dependency, discriminating experiment, source conflict, or open optimization hypothesis.
 
-**Knowledge provided:** a descriptive registry of unresolved questions, known facts, missing evidence, possible discriminating experiments, and closure evidence. Its ordering and impact labels do not schedule AIBuildAI work.
+**Knowledge provided:** a descriptive registry of unresolved questions, known facts, missing evidence, possible discriminating experiments, and closure evidence. Its section order and dependency-impact labels do not schedule AIBuildAI work.
 
-**Related pages:** canonical topic pages contain established model knowledge; [Reproduction](reproduction.md) contains completed execution observations; [Optimization reference](optimization-playbook.md) contains experiment-design patterns.
+**Related pages:** canonical topic pages contain established model knowledge; [Reproduction](reproduction.md) contains completed execution observations; [Optimization reference](optimization-playbook.md) contains experiment-design patterns. [Open problems](../../foundations/research-frontiers/open-problems.md) owns cross-model unknowns; this page retains only Cosmos3-Nano-specific questions.
 
 ## Registry semantics
 
-The `P0`/`P1`/`P2` labels describe dependency impact, not scientific interest or AIBuildAI scheduling priority:
+Dependency-impact labels describe what remains scientifically uninterpretable while evidence is missing; they do not express scientific interest or AIBuildAI scheduling priority:
 
-- `P0`: blocks trustworthy execution, control, or attribution.
-- `P1`: blocks selection among plausible optimization paths.
-- `P2`: improves completeness or historical reproducibility but does not block the current minimum baseline.
+- `critical`: blocks trustworthy execution, control, or attribution.
+- `decision`: blocks selection among plausible optimization paths.
+- `traceability`: improves completeness or historical reproducibility but does not block a minimum baseline.
 
 States are evidence-record states, not Agent or workflow states. `ready` means the listed dependencies appear available; `blocked` means at least one named evidence dependency is absent; `in_progress` records that an immutable experiment contract exists; `resolved` means the closure rule is met; and `superseded` points to a narrower or corrected question. These labels inform reasoning but do not instruct AIBuildAI to start, stop, schedule, or abandon work.
 
@@ -32,7 +32,7 @@ Each item follows this schema:
 
 ```yaml
 id: RQ-<SURFACE>-<NNN>
-priority: P0_or_P1_or_P2
+dependency_impact: critical_or_decision_or_traceability
 state: ready_or_blocked_or_in_progress_or_resolved_or_superseded
 decision: decision unlocked by resolution
 known: facts already owned by canonical pages
@@ -56,10 +56,11 @@ RQ-POLICY-002 -----> safe zero-shot baseline ---> RQ-TRANSFER-001
 RQ-EVAL-001 -------------------------------------> all optimization decisions
 ```
 
-## P0: high dependency impact
+## Critical dependency impact
 
 ### RQ-HOSTED-001 - Hosted Reasoner route availability
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** whether the hosted surface can provide the first real image-conditioned Reasoner baseline.
 - **Known:** the exact `nvidia/cosmos3-nano-reasoner` requests reached the configured chat-completions endpoint in two timestamped runs; both fixed cases returned HTTP 404. No fallback model was used. [LOCAL-REPRO-20260809]
@@ -74,6 +75,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-LOCAL-001 - Local Reasoner reference baseline
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** whether subsequent Reasoner changes can be compared against the fixed open checkpoint without hosted-service ambiguity.
 - **Known:** official backend observations place Reasoner-only BF16 inference at approximately 16-17 GB, while the recorded local GPU has 8,188 MiB. [C3-REASONER-COOKBOOK; LOCAL-ENV-20260809]
@@ -86,6 +88,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-GEN-001 - Fixed Generator T2I baseline and capacity
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** which hardware and runtime configuration may be used for Generator optimization.
 - **Known:** Framework documentation lists a 32 GB Nano inference requirement. Separately, a backend comparison observed approximately 34 GB for a single-GPU Framework **Reasoner** workload; it is not a measured Generator peak. [C3-FW-FAQ; C3-REASONER-COOKBOOK]
@@ -98,6 +101,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-ACTION-001 - Base Nano action-mode contract
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** whether base Nano can serve as the initial forward-dynamics, inverse-dynamics, or WAM model for the target robot domain.
 - **Known:** Framework arguments expose `forward_dynamics`, `inverse_dynamics`, and `wam`; action generation depends on checkpoint configuration, `domain_name`, action metadata, and the action adapter. [C3-FW-ARGS; C3-FW-ACTION]
@@ -110,6 +114,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-POLICY-001 - Target observation and action interface
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** whether Policy-DROID can be connected safely to a selected RoboCasa embodiment and task.
 - **Known:** the DROID policy contract uses language, proprioception, a three-view image canvas, and a 32-step absolute joint-position action chunk at 15 Hz. A same-shaped target tensor does not imply matching semantics. [C3-TR, pp.31-32; C3-POLICY-DROID-HF]
@@ -122,6 +127,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-POLICY-002 - Action-chunk execution policy
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** safe mapping from a 32-step, 15 Hz predicted chunk to simulator control and replanning.
 - **Known:** executing an entire open-loop chunk and receding-horizon execution impose different drift, latency, and compute tradeoffs. [C3-TR, pp.31-32]
@@ -134,6 +140,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-EVAL-001 - Target metric and evaluator contract
 
+- **Dependency impact:** `critical`
 - **State:** `blocked`
 - **Decision:** whether an optimization result is attributable and task-relevant.
 - **Known:** visual similarity does not uniquely measure plausible physical futures; judge-based protocols depend on judge version and prompt; several published evaluations have non-public components. [C3-TR, pp.57 and pp.65-67]
@@ -144,10 +151,11 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 - **Artifacts:** evaluator version/prompt, raw judgments, human rubric if used, per-example metric table, confidence intervals, and disagreement examples.
 - **Closure rule:** resolve when the primary metric and critical regressions can detect seeded failures and have a declared relationship to the target outcome. A convenient but unvalidated proxy does not close the item.
 
-## P1: medium dependency impact
+## Decision dependency impact
 
 ### RQ-REASONER-001 - Does structured Reasoner planning improve policy success?
 
+- **Dependency impact:** `decision`
 - **State:** `blocked`
 - **Decision:** whether Reasoner output should enter the control stack or remain an analysis/evaluation surface.
 - **Known:** Cosmos 3 reports planning and trajectory reasoning, but free-form Reasoner text is not an action tensor and does not establish a causal policy gain. [C3-TR, pp.17-20]
@@ -160,6 +168,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-GEN-002 - Does future-video auxiliary supervision improve action quality?
 
+- **Dependency impact:** `decision`
 - **State:** `blocked`
 - **Decision:** whether to retain visual future prediction during target policy post-training and/or inference.
 - **Known:** Policy-DROID training uses future RGB as an auxiliary output, and inference may skip video-latent decoding. The report does not isolate a complete action-only versus action-plus-vision ablation for the target domain. [C3-TR, pp.31-32]
@@ -172,6 +181,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-TRANSFER-001 - Which initialization transfers best to RoboCasa?
 
+- **Dependency impact:** `decision`
 - **State:** `blocked`
 - **Decision:** choose DROID-specific, multi-task, or base/pre-trained initialization for target post-training.
 - **Known:** published transfer results show that initialization can change early adaptation behavior, but they do not establish zero-shot RoboCasa compatibility under the target protocol. [C3-TR, pp.67-70]
@@ -184,6 +194,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-DATA-001 - Which data mixture improves target physics without catastrophic regression?
 
+- **Dependency impact:** `decision`
 - **State:** `blocked`
 - **Decision:** select target, robotics, and general Physical-AI sampling weights for post-training.
 - **Known:** Cosmos 3 uses staged mixtures across general, Physical-AI, robotics, and action/video data; reported recipes motivate a curriculum but do not define the optimal target-domain mixture. [C3-TR, pp.15-32 and pp.70-72]
@@ -196,6 +207,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-SAMPLER-001 - Minimum-cost Generator inference configuration
 
+- **Dependency impact:** `decision`
 - **State:** `blocked`
 - **Decision:** choose denoising steps, guidance, seed budget, and parallelism before weight adaptation.
 - **Known:** inference arguments and parallelism presets change latency, throughput, memory, and possibly output quality. [C3-FW-INFERENCE; C3-FW-ARGS; C3-INFERENCE-BENCHMARKS]
@@ -208,6 +220,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-REASONER-002 - Visual context and frame-sampling frontier
 
+- **Dependency impact:** `decision`
 - **State:** `blocked`
 - **Decision:** choose image count, frame rate, resolution, and token budget for long visual reasoning.
 - **Known:** longer or denser visual context increases memory and may include more task evidence, but redundant frames can consume tokens without improving decisions. NIM guidance places a practical vision-token recommendation on its deployment path. [C3-NIM-API]
@@ -218,10 +231,11 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 - **Artifacts:** input manifests, timestamps, processor outputs, token counts, raw responses, and resource traces.
 - **Closure rule:** resolve when a sampling policy satisfies target accuracy and runtime limits across declared duration slices.
 
-## P2: lower dependency impact
+## Traceability dependency impact
 
 ### RQ-SOURCE-001 - Training-throughput hardware count conflict
 
+- **Dependency impact:** `traceability`
 - **State:** `ready`
 - **Decision:** whether an exact published training-throughput row can be reproduced or used for capacity planning.
 - **Known:** the Cosmos 3 report body and the Table 8 caption differ in their Nano/Super GB200 counts: 1,024/2,048 versus 2,048/4,096. [C3-TR, pp.45-46]
@@ -233,6 +247,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-SOURCE-002 - Nano HUE I2V value conflict
 
+- **Dependency impact:** `traceability`
 - **State:** `ready`
 - **Decision:** exact value to cite in a benchmark reproduction target.
 - **Known:** Table 14 reports 88.6 while adjacent prose reports 88.5. [C3-TR, p.59]
@@ -244,6 +259,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-SOURCE-003 - PAIBench-G pair-count discrepancy
 
+- **Dependency impact:** `traceability`
 - **State:** `ready`
 - **Decision:** exact evaluation set cardinality for protocol replication.
 - **Known:** the report states 1,044 pairs, while the six listed category counts sum to 1,033, leaving 11 pairs unexplained. The authors also report substituting Qwen2.5-VL-72B when the public protocol's Qwen3-VL-235B judge could not be reproduced. [C3-TR, p.57]
@@ -255,6 +271,7 @@ The hosted service does not expose a checkpoint SHA. Even a successful route wou
 
 ### RQ-SOURCE-004 - Dynamic leaderboard comparability
 
+- **Dependency impact:** `traceability`
 - **State:** `ready`
 - **Decision:** whether current RoboArena or MolmoSpaces ranks can be compared with report-era ranks.
 - **Known:** leaderboard position is time-dependent and may change with models, votes, filters, or protocols. Reported ranks are valid only for their snapshot dates. [C3-TR, pp.67-70]

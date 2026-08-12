@@ -1,6 +1,6 @@
 ---
 id: world-model-kb.models
-title: Part III — Cosmos3-Nano
+title: Part III — Model Entries
 kind: index
 status: maintained
 last_updated: 2026-08-11
@@ -8,13 +8,13 @@ owners:
   - AIBuildAI world-model group
 ---
 
-# Part III — Cosmos3-Nano
+# Part III — Model Entries
 
 ## Retrieval metadata
 
-**Relevant queries:** Cosmos3-Nano mechanism, interface, data, training, evaluation, implementation, execution, or optimization.
+**Relevant queries:** model-specific architecture, checkpoint, interface, data, training, evaluation, implementation, execution, or optimization knowledge.
 
-**Knowledge provided:** the Part III scope and active Cosmos3-Nano model entry.
+**Knowledge provided:** the Part III ownership boundary and its active Cosmos3-Nano model entry.
 
 **Related pages:** [Part I](../foundations/README.md) covers general concepts; [Part II](../papers/README.md) covers paper-specific knowledge; [Cosmos3-Nano](cosmos3-nano/README.md) is the active model entry.
 
@@ -24,4 +24,4 @@ owners:
 |---|---|---|
 | Cosmos3-Nano | Model-specific mechanisms, interfaces, training, evaluation, code, execution state, optimization levers, and decision blockers | [Cosmos3-Nano](cosmos3-nano/README.md) |
 
-The `models/cosmos3-nano/` path is the stable location of Part III, not an unrestricted registry for unrelated models. Any future change to the three-part boundary requires an explicit schema revision.
+Each `models/<model-id>/` entry owns facts for one named model and links reusable concepts back to Foundations. Cosmos3-Nano is the only active entry in this release. A future entry must define its own canonical owners, provenance, retrieval metadata, and execution-evidence boundary; adding an entry does not change the three-part architecture.

@@ -26,7 +26,7 @@ papers/<paper-id>/
 
 ## `README.md`: entrypoint and knowledge map
 
-Provide `## Retrieval metadata` with `Relevant queries`, `Knowledge provided`, and `Related pages`. Record paper identity, version, official artifacts, model family, task boundary, and a page map. Do not narrate who read the paper or why it was selected.
+Provide `## Retrieval metadata` with `Relevant queries`, `Knowledge provided`, and `Related pages`. Record paper identity, version, official artifacts, model family, task boundary, and a page map. Link to applicable canonical [Foundation](../foundations/README.md) owners for the model-independent concepts used by the work. Do not narrate who read the paper or why it was selected.
 
 ## `paper.md`: mechanism and experiments
 
@@ -41,6 +41,8 @@ Reconstruct the work as a decision model:
 - efficiency, scaling behavior, capability limits, and invalid transfer conditions.
 
 Do not follow the paper section order unless it is the clearest causal order.
+
+Keep the paper's proposed mechanism, experiments, and evidence in this entry. Link each reused formalism or mechanism family to its applicable Foundation owner rather than duplicating the general account. A paper may depend on several Foundation subparts, and the links do not establish a mandatory reading sequence.
 
 ## `codebase.md`: implementation graph
 
@@ -63,7 +65,7 @@ Execution status is tracked separately for inference, evaluation, and training.
 
 ## `optimization-transfer.md`: transferable interventions
 
-For each proposed transfer, state the source mechanism, target behavior, target-model attachment point, required data or objective change, expected metric movement, assumptions, compute cost, regression risk, minimum controlled experiment, and falsification result. Label analogy-based proposals as hypotheses; a similar name or architecture is not sufficient transfer support.
+For each proposed transfer, state the source mechanism, target behavior, target-model attachment point, required data or objective change, expected metric movement, assumptions, compute cost, regression risk, minimum controlled experiment, and falsification result. Link the claim to the applicable Foundation owners for its problem formulation, representation, objective, decision use, or evaluation assumptions. Label analogy-based proposals as hypotheses; a similar name or architecture is not sufficient transfer support. Cross-part links provide knowledge context and do not prescribe AIBuildAI workflow orchestration.
 
 ## `sources.yaml`: resolvable provenance
 

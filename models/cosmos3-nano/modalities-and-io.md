@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** typed interface facts covering raw fields, encoder paths, condition and target roles, shapes, time and coordinate conventions, checkpoint/backend scope, and output decoding. "Omnimodal" alone does not establish a specific backend contract.
 
-**Related pages:** [Reproduction](reproduction.md) owns execution observations; mechanism-specific pages describe optimization variables; [Optimization reference](optimization-playbook.md) contains experiment-design patterns.
+**Related pages:** [Reproduction](reproduction.md) owns execution observations; mechanism-specific pages describe optimization variables; [Optimization reference](optimization-playbook.md) contains experiment-design patterns. Foundation owners define the [general problem contract](../../foundations/problem-formulation/problem-formulation.md), [state, observation, and belief](../../foundations/problem-formulation/state-observation-and-belief.md), [actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md), [video representations](../../foundations/representations/video-world-model.md), and [3D/4D representations](../../foundations/representations/3d-and-4d-world-model.md).
 
 ## Four interface layers
 

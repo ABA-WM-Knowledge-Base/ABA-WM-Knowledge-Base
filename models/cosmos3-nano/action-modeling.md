@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** action representations, domain adapters, modeling objectives, failure interpretations, and evaluation dimensions. Tensor shape compatibility alone does not establish semantic control compatibility.
 
-**Related pages:** [Reasoner](reasoner.md) covers natural-language planning; [Policy](policy.md) covers Policy-DROID serving; [Modality contracts](modalities-and-io.md) covers typed I/O.
+**Related pages:** [Reasoner](reasoner.md) covers natural-language planning; [Policy](policy.md) covers Policy-DROID serving; [Modality contracts](modalities-and-io.md) covers typed I/O. Foundation owners define [world action models](../../foundations/definitions-and-taxonomy/world-action-model.md), [actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md), [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md), and [inverse dynamics](../../foundations/problem-formulation/inverse-dynamics.md).
 
 ## Strict task boundaries
 

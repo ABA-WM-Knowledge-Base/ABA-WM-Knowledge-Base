@@ -2,7 +2,7 @@
 id: world-model-kb.foundations
 title: Part I — World Model Foundations
 kind: index
-status: reserved
+status: maintained
 last_updated: 2026-08-11
 owners:
   - AIBuildAI world-model group
@@ -12,54 +12,54 @@ owners:
 
 ## Retrieval metadata
 
-**Relevant queries:** model-independent definitions, formalisms, dynamics, representation, planning, control, data design, or evaluation principles.
+**Relevant queries:** model-independent definitions, problem formulations, dynamics, representations, predictive objectives, planning, control, embodiment, data, evaluation, or open research questions.
 
-**Knowledge provided:** the reserved scope and future topic ownership of Part I. This page currently contains no foundation-topic facts.
+**Knowledge provided:** canonical concepts and decision-relevant principles that transfer across world-model families, together with links to paper evidence and model-specific instantiations.
 
-**Related pages:** [Part II](../papers/README.md) covers paper-specific knowledge; [Part III](../models/README.md) covers model-specific knowledge.
+**Related pages:** [Part II](../papers/README.md) owns paper-specific mechanisms and experiments; [Part III](../models/README.md) owns model-specific implementations and execution evidence.
+
+## Authority boundary
+
+Foundation knowledge can influence Agent understanding, diagnosis, design judgment, and strategy selection. It does not select Agents or repositories, decompose tasks, schedule execution, grant permissions, authorize external actions, or otherwise replace AIBuildAI workflow orchestration. The [retrieval index](retrieval-index.yaml) is an advisory query-to-knowledge map, not a workflow definition.
 
 ## Canonical scope
 
-Part I will own stable knowledge that transfers across model families: problem formulations, state and observation semantics, dynamics, action, planning, representation learning, generative objectives, control, data design, and evaluation methodology. Model entries must link here once a relevant foundation page exists instead of redefining the general concept.
+Part I owns model-independent concepts. A Foundation page explains a reusable definition, formalism, mechanism family, trade-off, or evaluation principle once; paper entries own the evidence reported by individual works, and model entries own concrete architectures, checkpoints, interfaces, results, and execution records.
 
-The current release intentionally contains no concept pages. The following paths reserve canonical ownership; they do not assert that the corresponding content has been reviewed or accepted.
-
-```text
-foundations/
-├── README.md
-├── world-model.md
-├── history-and-taxonomy.md
-├── world-foundation-model.md
-├── world-action-model.md
-├── state-observation-and-belief.md
-├── forward-dynamics.md
-├── inverse-dynamics.md
-├── planning-and-control.md
-├── model-based-rl.md
-├── video-world-model.md
-├── latent-world-model.md
-├── object-centric-world-model.md
-├── 3d-and-4d-world-model.md
-├── autoregressive-modeling.md
-├── diffusion-and-flow-matching.md
-├── representation-learning-and-jepa.md
-├── datasets-and-supervision.md
-├── evaluation-methodology.md
-├── robotics-and-embodied-ai.md
-└── open-problems.md
+```mermaid
+flowchart LR
+    F["Foundation concept or formalism"] --> P["Paper-specific mechanism and evidence"]
+    F --> M["Model-specific instantiation"]
+    P --> M
+    M --> E["Implementation and experiment evidence"]
+    E -.->|refines knowledge without changing ownership| F
 ```
 
-## Future page contract
+These connections are non-exclusive. A task may draw on several Foundation subparts and combine them with paper and model knowledge according to its current information needs.
 
-A foundation page must enable an agent to make or reject a modeling decision. It must provide:
+## Knowledge map
 
-- a precise definition and formal problem statement;
-- assumptions, invariants, and scope boundaries;
-- inputs, outputs, state variables, and objective functions where applicable;
-- competing mechanism families and the conditions under which each is appropriate;
-- optimization levers and expected trade-offs;
-- evaluation protocols and failure modes;
-- links to representative paper entries and model-specific implementations;
-- unresolved conditions that would change a design decision.
+| Subpart | Canonical question | Boundary |
+|---|---|---|
+| [Definitions and taxonomy](definitions-and-taxonomy/README.md) | What counts as a world model, and how do named families relate? | Terminology and family boundaries, not detailed equations or implementations |
+| [Problem formulation](problem-formulation/README.md) | Which variables, distributions, assumptions, and prediction directions define the problem? | Mathematical contracts, not planning algorithms or embodiment-specific interfaces |
+| [Representations](representations/README.md) | What information is encoded or predicted, and with which structural priors? | Representation semantics, not the objective used to fit or sample the model |
+| [Learning objectives](learning-objectives/README.md) | How are predictive distributions or representations trained and sampled? | Objective and inference families, not dataset recipes or state semantics |
+| [Decision-making](decision-making/README.md) | How can learned predictions support planning, control, and policy improvement? | Decision use of a model, not actuator or sensor integration |
+| [Embodied systems](embodied-systems/README.md) | How do abstract model contracts meet physical observations, actions, controllers, and deployment constraints? | Embodiment-specific interfaces and risks, not general dynamics notation |
+| [Data and evaluation](data-and-evaluation/README.md) | What evidence is needed to learn, compare, and falsify world-model claims? | Model-independent data and measurement principles, not model-specific scores |
+| [Research frontiers](research-frontiers/README.md) | Which unresolved conditions could change a modeling or evaluation judgment? | Cross-cutting unknowns, not a task queue or execution schedule |
 
-Use the [canonical page template](../_schema/page-template.md) when a topic is activated. Until then, this part supplies no foundation-topic facts; currently available model-specific knowledge remains in [Part III](../models/README.md).
+## Canonical ownership rule
+
+The subparts answer different questions:
+
+`meaning → formal variables → represented information → learning objective → decision use → physical interface → evidence → unresolved conditions`
+
+Adjacent pages may summarize the dependency needed for a local argument, but they link to the canonical owner for the complete explanation. A paper result is not promoted into a general principle without its assumptions and evidence boundary; a model implementation is not presented as a universal definition.
+
+## Provenance and authoring
+
+Model-independent source identities resolve through the part-local `foundations/sources.yaml` registry. Paper- and model-specific identities remain in their owning entries and may be cited across parts by their globally unique IDs; the same source object is not copied into another registry. Prose retains a precise page, section, table, figure, or symbol locator where available.
+
+Use the [Foundation page template](../_schema/foundation-page-template.md) and [writing style](../_schema/style-guide.md) for canonical concept pages. Retrieval metadata describes discoverability and related knowledge without prescribing a reading order or execution policy.

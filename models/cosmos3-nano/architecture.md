@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** computation-graph invariants, tower and frontend boundaries, parameter groups, compatibility considerations, implementation anchors, and architecture-level experiment variables.
 
-**Related pages:** [Inference](inference.md) contains runtime references; [Reproduction](reproduction.md) contains observed execution state; [Policy](policy.md) owns the specialized policy interface; [Research registry](research-queue.md) records unresolved architecture questions.
+**Related pages:** [Inference](inference.md) contains runtime references; [Reproduction](reproduction.md) contains observed execution state; [Policy](policy.md) owns the specialized policy interface; [Research registry](research-queue.md) records unresolved architecture questions. Model-independent owners include [latent world models](../../foundations/representations/latent-world-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md).
 
 ## Canonical model boundaries
 

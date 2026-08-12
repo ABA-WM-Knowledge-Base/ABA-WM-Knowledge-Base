@@ -92,6 +92,6 @@ rules:
   - Pin code commits and model revisions when an immutable identifier exists.
   - Record an access date for mutable online sources.
   - Record SHA256 for cached papers and local artifacts when available.
-  - Resolve related_path from the model entry root and require the target to exist.
+  - Resolve related_path from the directory that owns the source registry and require the target to exist.
   - Use page, table, section, symbol, or artifact locators in prose when a source is too broad for direct retrieval.
   - Store source identity here and interpretation in the canonical topic page.

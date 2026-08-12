@@ -16,11 +16,13 @@ owners:
 
 **Knowledge provided:** the reserved scope and future paper-entry contract of Part II. This page currently contains no paper-specific facts.
 
-**Related pages:** [Part I](../foundations/README.md) covers general concepts; [Part III](../models/README.md) covers model-specific knowledge.
+**Related pages:** [Part I](../foundations/README.md) owns model-independent concepts and formalisms; [Part III](../models/README.md) owns model-specific knowledge. Individual paper entries connect mechanisms and transfer claims to the applicable Foundation owners without imposing a reading order.
 
 ## Canonical scope
 
 Each paper entry will reconstruct one work as reusable optimization knowledge. It will separate the proposed mechanism, the implemented system, the reported experiments, the local reproduction state, and transfer hypotheses. It will not be a section-by-section summary or a narrative of the reading process.
+
+Paper-specific evidence remains canonical in its entry. When a mechanism, formal assumption, evaluation principle, or transfer claim depends on a model-independent concept, the entry links to that concept's Foundation page instead of redefining it. These links express knowledge ownership and dependencies; they do not prescribe task sequencing or AIBuildAI workflow orchestration.
 
 No paper has been admitted into Part II. Candidate families or titles are not KB facts until their entries exist.
 
@@ -32,7 +34,7 @@ papers/<paper-id>/
 ├── paper.md                     # Mechanism, objectives, assumptions, and results
 ├── codebase.md                  # Implementation graph and change surfaces
 ├── reproduction.md              # Environment, commands, artifacts, failures, fixes
-├── optimization-transfer.md     # Transferable levers and falsifiable adaptations
+├── optimization-transfer.md     # Transferable levers, Foundation links, and falsifiable adaptations
 └── sources.yaml                 # Pinned primary sources and artifact identities
 ```
 

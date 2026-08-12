@@ -20,17 +20,32 @@ The three content roots are fixed:
 - `papers/` for paper-specific knowledge;
 - `models/` for the active Cosmos3-Nano entry.
 
+Foundation concepts use a two-level semantic path:
+
+```text
+foundations/<subpart>/<topic>.md
+```
+
+The stable subparts are `definitions-and-taxonomy`, `problem-formulation`, `representations`, `learning-objectives`, `decision-making`, `embodied-systems`, `data-and-evaluation`, and `research-frontiers`. Subpart `README.md` files are discovery indexes; they do not duplicate the complete concept explanation. The part-level `retrieval-index.yaml` contains advisory query-to-knowledge associations, and the part-level `sources.yaml` owns shared Foundation source identities.
+
 Use role names that expose knowledge scope. `optimization-playbook.md` owns experiment-design references; `research-queue.md` owns unresolved questions; `reproduction.md` owns local execution records. Do not use vague paths such as `misc.md`, `notes.md`, `thoughts.md`, or `relevance.md`.
 
 ## Page IDs
 
-Use dot-separated stable IDs: `world-model-kb.<part>.<entity>.<topic>`. Preserve an ID when a file moves without changing semantic ownership. Change an ID only when the entity or canonical scope changes.
+Use dot-separated stable IDs. Foundation concepts use `world-model-kb.foundations.<subpart>.<topic>`; paper and model entries use `world-model-kb.<part>.<entity>.<topic>`. Preserve an ID when a file moves without changing semantic ownership. Change an ID only when the entity or canonical scope changes.
 
 Examples:
 
-- `world-model-kb.foundations.forward-dynamics`
+- `world-model-kb.foundations.problem-formulation.forward-dynamics`
+- `world-model-kb.foundations.learning-objectives.diffusion-and-flow-matching`
 - `world-model-kb.papers.dreamerv3.reproduction`
 - `world-model-kb.models.cosmos3-nano.action-modeling`
+
+## Source registries and cross-part references
+
+Resolve a source through the nearest owning registry: `foundations/sources.yaml` for model-independent concepts, `papers/<paper-id>/sources.yaml` for one work, and `models/<model-id>/sources.yaml` for one model entry. Use repository-wide unique source IDs and do not copy an identity into several registries.
+
+Cross-part Markdown links may connect a Foundation concept, paper mechanism, and model instantiation. They express knowledge relationships, not required reading order, task priority, or workflow control. Relative paths must remain inside the repository.
 
 ## Product and implementation names
 
