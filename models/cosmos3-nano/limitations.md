@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.limitations
 title: Cosmos3-Nano Failure Modes and Optimization Guardrails
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -158,7 +158,7 @@ The fixed HF checkpoint and Reasoner service card identify OpenMDW-1.1. Hosted G
 
 - Cosmos-Reason1 uses SFT plus GRPO. Cosmos 3 reports Reasoner pre-training plus SFT; do not insert GRPO into Nano without code/config confirmation. [R1-TR, pp.15, 20; C3-TR, pp.25–27]
 - Cosmos-Transfer1/2.5 uses per-control ControlNet/adapter paths; Cosmos 3 uses native control tokens. Earlier adapter weights and limitations are not hidden Nano components. [T1-TR, pp.4–8; C3-TR, p.63]
-- Cosmos-Predict2.5 provides a lineage for flow matching, clean prefix, and multiresolution training, but Cosmos 3 adds MoT, audio/action, and a native Reasoner–Generator interface. Predict2.5 results are not Nano results. [P25-TR, pp.6–11; C3-TR, pp.8–13]
+- [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) provides a lineage for flow matching, clean prefix, and multiresolution training, but Cosmos 3 adds MoT, audio/action, and a native Reasoner–Generator interface. Predict2.5 results are not Nano results, and the predecessor paper entry owns its exact evidence and code boundary. [P25-TR, pp.6–11; C3-TR, pp.8–13]
 - First-generation Cosmos WFM failures in object permanence, contact dynamics, gravity, and fluids are useful probes. Until observed under a fixed Nano protocol, label them hypotheses rather than Nano failures. [C1-TR, p.58]
 
 ## 7. Target-domain transfer risks

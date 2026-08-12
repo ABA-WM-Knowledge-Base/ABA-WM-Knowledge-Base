@@ -1,4 +1,4 @@
-schema_version: 4
+schema_version: 5
 
 page_frontmatter:
   required:
@@ -52,6 +52,17 @@ foundation_entry:
     - embodied-systems
     - data-and-evaluation
     - research-frontiers
+
+paper_entry:
+  required_files:
+    - README.md
+    - paper.md
+    - codebase.md
+    - reproduction.md
+    - optimization-transfer.md
+    - sources.yaml
+  active_entries:
+    - cosmos-predict2-5
 
 foundation_retrieval_index:
   supported_schema_version: 1

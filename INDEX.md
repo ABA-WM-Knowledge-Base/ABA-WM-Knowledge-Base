@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -17,7 +17,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Knowledge area | Entry point | Current scope |
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
-| Representative methods and papers | [Papers](papers/README.md) | Reserved; no paper entries yet |
+| Representative methods and papers | [Papers](papers/README.md) | Cosmos-Predict2.5 video-based world-model entry is active |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -39,17 +39,25 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 
 [`foundations/retrieval-index.yaml`](foundations/retrieval-index.yaml) associates query themes with these canonical owners. It provides knowledge-discovery metadata only; it does not define Agent selection, task order, context budgets, stopping, retries, permissions, or execution policy.
 
+## Representative paper map
+
+| Paper | Family | Mechanisms and evidence | Entry point |
+|---|---|---|---|
+| Cosmos-Predict2.5 | Video-based latent world foundation model | Video curation, rectified-flow DiT, clean-prefix task unification, domain SFT and merging, reward post-training, distillation, multiview and action-conditioned specialists | [Entry](papers/cosmos-predict2-5/README.md) |
+
+The paper entry links its mechanisms to Foundation owners and its successor-specific implications to Cosmos3-Nano. Those links express knowledge dependencies, not a required retrieval sequence.
+
 ## Cross-part ownership
 
 - Foundations owns reusable concepts, formalisms, mechanism families, trade-offs, and evaluation principles.
-- Papers owns the claims, implementations, experiments, and limitations of individual works when paper entries are added.
+- Papers owns the claims, implementations, experiments, limitations, reproduction state, and transfer hypotheses of individual works.
 - Models owns concrete architecture, checkpoint, interface, training, result, code, and execution facts for a named model.
 
 A page in one part links to the relevant canonical owner in another part instead of duplicating its full explanation.
 
 ## Cosmos3-Nano retrieval metadata
 
-[`models/cosmos3-nano/agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with knowledge that can ground design and implementation decisions. It can be combined with Foundation concepts and future paper entries; it is not the mandatory first knowledge path. The index is not a task router or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
+[`models/cosmos3-nano/agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with knowledge that can ground design and implementation decisions. It can be combined with Foundation concepts and representative paper entries; it is not the mandatory first knowledge path. The index is not a task router or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
 
 ## Metadata and maintenance references
 

@@ -3,7 +3,7 @@ id: world-model-kb.schema
 title: Agent Retrieval and Authoring Contract
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -31,7 +31,7 @@ owners:
 
 ## Canonical page contract
 
-Every canonical Foundation or model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. Foundation pages own transferable concepts; paper entries own work-specific evidence; model pages own concrete instantiations. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
+Every canonical Foundation, Paper, or model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. Foundation pages own transferable concepts; paper entries own work-specific evidence; model pages own concrete instantiations. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
 
 Canonical pages must not contain:
 
@@ -62,6 +62,11 @@ Canonical pages must not contain:
 | Model-independent definition, formalism, mechanism family, or evaluation principle | The owning nested page under `foundations/<subpart>/` |
 | Foundation source identity or immutable artifact version | `foundations/sources.yaml` |
 | Foundation query-to-knowledge association | `foundations/retrieval-index.yaml` |
+| One paper's proposed mechanism, assumptions, and reported evidence | `papers/<paper-id>/paper.md` |
+| Paper-claim-to-code mapping, executable interfaces, or release mismatch | `papers/<paper-id>/codebase.md` |
+| Paper-specific command, environment, artifact, deviation, or execution state | `papers/<paper-id>/reproduction.md` |
+| Falsifiable transfer from one paper mechanism to another model | `papers/<paper-id>/optimization-transfer.md` |
+| Paper, code commit, checkpoint revision, benchmark, or entry-local artifact identity | `papers/<paper-id>/sources.yaml` |
 | Stable mechanism, interface, or limitation | The owning topic page |
 | Model identity, revision, license, or component inventory | `manifest.yaml` |
 | Source identity, immutable version, or artifact hash | `sources.yaml` |

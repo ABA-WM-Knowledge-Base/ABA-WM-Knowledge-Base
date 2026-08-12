@@ -3,7 +3,7 @@ id: world-model-kb.foundations.definitions-and-taxonomy.world-foundation-model
 title: World Foundation Models
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -101,6 +101,8 @@ Cross-model comparisons retain checkpoint identity, training-data scope, adaptat
 These are diagnostic categories. Their relevance depends on the model surface and target task.
 
 ## Cross-part instantiations
+
+- [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) is a video-based latent world foundation model whose base and action-conditioned specialist surfaces must be distinguished when inferring intervention or control capability.
 
 - [Cosmos3-Nano architecture](../../models/cosmos3-nano/architecture.md) instantiates an omnimodal mixture-of-transformers design with distinct autoregressive and diffusion computation.
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns media and continuous-modality generation details; [Reasoner](../../models/cosmos3-nano/reasoner.md) owns language prediction and physical reasoning.

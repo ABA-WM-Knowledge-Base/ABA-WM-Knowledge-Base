@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,15 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 0.6.0 - 2026-08-12
+
+- Activated Part II with a standalone Cosmos-Predict2.5 entry classified as a video-based latent world foundation model.
+- Added canonical pages for the paper's mechanisms and experiments, released implementation graph, execution/reproduction state, and falsifiable optimization-transfer knowledge.
+- Pinned report v2, paper-aligned and current code commits, current 2B/14B checkpoint repository revisions, related benchmark and method papers, and the local PDF hash.
+- Preserved paper/code, protocol, and version boundaries: feature-release versus report-date code trees, 2B 32-layer versus 28-block descriptions, the rounded retention-rate mismatch, paper rCM versus released DMD2 distillation, unreleased RL/merge paths, action model/default/FPS conflicts, the current mutable release tag, and the later separate Cosmos Policy extension.
+- Connected Predict2.5 evidence to applicable Foundation owners and Cosmos3-Nano lineage pages without creating a mandatory retrieval order or workflow route.
+- Extended schema and validation contracts to require exact, complete Paper entries, enforce path-derived Paper IDs and retrieval metadata, and report Paper entry/page counts.
 
 ## 0.5.0 - 2026-08-11
 

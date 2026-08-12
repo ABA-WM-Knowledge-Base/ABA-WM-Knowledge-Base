@@ -10,7 +10,7 @@ owners:
 
 # Canonical Model Page Template
 
-Copy the template below for a model-topic page. Replace every angle-bracket field before validation. Remove sections that are structurally inapplicable, but preserve `## Retrieval metadata` so a consuming system can discover the page without inheriting a workflow policy.
+Copy the template below for a model-topic page. For a representative-paper entry, use [`paper-entry-template.md`](paper-entry-template.md), then apply this page-level metadata pattern to each Markdown owner. Replace every angle-bracket field before validation. Remove sections that are structurally inapplicable, but preserve `## Retrieval metadata` so a consuming system can discover the page without inheriting a workflow policy.
 
 ```markdown
 ---

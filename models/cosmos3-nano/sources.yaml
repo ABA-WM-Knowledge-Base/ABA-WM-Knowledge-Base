@@ -1,5 +1,5 @@
 schema_version: 3
-as_of: "2026-08-09"
+as_of: "2026-08-12"
 local_path_policy:
   current_pdf_root: 'C:\Users\94875\Desktop\cosmos'
   portable_identity: canonical_url_plus_sha256
@@ -41,15 +41,6 @@ sources:
     local_path: 'C:\Users\94875\Desktop\cosmos\Cosmos-Transfer1.pdf'
     sha256: c9d0256d1a066ed7a165cb1f62b1fee097f15e776a7f792d1998379c6fb0a6d9
     pages: 28
-    accessed: "2026-08-09"
-  - id: P25-TR
-    type: paper
-    title: World Simulation with Video Foundation Models for Physical AI
-    publisher: NVIDIA
-    canonical_url: https://arxiv.org/abs/2511.00062
-    local_path: 'C:\Users\94875\Desktop\cosmos\cosmos-predict2.5.pdf'
-    sha256: 2597170ef9e8128c1ec3c87aa1eaf321cd599268451da1f61aead325eca576fe
-    pages: 44
     accessed: "2026-08-09"
   - id: C3-HF
     type: model_card

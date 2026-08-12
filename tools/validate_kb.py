@@ -24,6 +24,7 @@ MANIFEST_SCHEMA_PATH = ROOT / "_schema" / "manifest.schema.yaml"
 SOURCES_SCHEMA_PATH = ROOT / "_schema" / "sources.schema.yaml"
 MODEL_ROOT = ROOT / "models" / "cosmos3-nano"
 FOUNDATION_ROOT = ROOT / "foundations"
+PAPER_ROOT = ROOT / "papers"
 MANIFEST_PATH = MODEL_ROOT / "manifest.yaml"
 AGENT_INDEX_PATH = MODEL_ROOT / "agent-index.yaml"
 FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
@@ -358,7 +359,11 @@ def validate_pages(
 
         is_model_page = path.parent == MODEL_ROOT
         is_foundation_page = path.is_relative_to(FOUNDATION_ROOT)
+        is_paper_page = path.is_relative_to(PAPER_ROOT)
         is_foundation_topic = is_foundation_page and path.name != "README.md"
+        is_paper_topic = (
+            is_paper_page and path.parent != PAPER_ROOT and path.name != "README.md"
+        )
         if is_foundation_page:
             foundation_relative = path.relative_to(FOUNDATION_ROOT)
             if path.name == "README.md":
@@ -373,7 +378,21 @@ def validate_pages(
                     f"{relative(path)}: id {page_id!r} does not match canonical "
                     f"path owner {expected_id!r}"
                 )
-        if is_model_page or is_foundation_page:
+        if is_paper_page:
+            paper_relative = path.relative_to(PAPER_ROOT)
+            if path.name == "README.md":
+                owner_parts = paper_relative.parts[:-1]
+            else:
+                owner_parts = paper_relative.with_suffix("").parts
+            expected_id = "world-model-kb.papers"
+            if owner_parts:
+                expected_id += "." + ".".join(owner_parts)
+            if page_id != expected_id:
+                errors.append(
+                    f"{relative(path)}: id {page_id!r} does not match canonical "
+                    f"path owner {expected_id!r}"
+                )
+        if is_model_page or is_foundation_page or is_paper_page:
             if "## Retrieval metadata" not in text:
                 errors.append(f"{relative(path)}: missing '## Retrieval metadata'")
             for label in retrieval_labels:
@@ -383,7 +402,7 @@ def validate_pages(
                     )
             if re.search(r"\b(?:TODO|TBD)\b", text):
                 errors.append(f"{relative(path)}: unfinished placeholder found")
-            minimum_length = 1600 if is_foundation_topic else 1200
+            minimum_length = 1600 if (is_foundation_topic or is_paper_topic) else 1200
             if path.name != "README.md" and len(text) < minimum_length:
                 errors.append(
                     f"{relative(path)}: canonical page is too thin ({len(text)} chars)"
@@ -471,13 +490,52 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
         if not (FOUNDATION_ROOT / subpart / "README.md").is_file():
             errors.append(f"Foundations subpart missing index: {subpart}/README.md")
 
-    papers_root = ROOT / "papers"
-    paper_files = [path for path in papers_root.rglob("*") if path.is_file()]
-    if {path.name for path in paper_files} != {"README.md"}:
+    paper_contract = schema.get("paper_entry", {})
+    active_paper_entries = set(paper_contract.get("active_entries", []))
+    required_paper_files = set(paper_contract.get("required_files", []))
+    root_paper_files = {
+        path.name for path in PAPER_ROOT.iterdir() if path.is_file()
+    }
+    if root_paper_files != {"README.md"}:
         errors.append(
-            "papers/ must remain content-empty in this version; "
-            f"found {[relative(path) for path in paper_files]}"
+            "papers/ root must contain only README.md; "
+            f"found {sorted(root_paper_files)}"
         )
+    actual_paper_entries = {
+        path.name for path in PAPER_ROOT.iterdir() if path.is_dir()
+    }
+    missing_paper_entries = active_paper_entries - actual_paper_entries
+    if missing_paper_entries:
+        errors.append(
+            f"Papers entry missing active directories: {sorted(missing_paper_entries)}"
+        )
+    unexpected_paper_entries = actual_paper_entries - active_paper_entries
+    if unexpected_paper_entries:
+        errors.append(
+            f"Papers contains undeclared entry directories: {sorted(unexpected_paper_entries)}"
+        )
+    for entry in active_paper_entries & actual_paper_entries:
+        entry_root = PAPER_ROOT / entry
+        actual_files = {path.name for path in entry_root.iterdir() if path.is_file()}
+        missing_files = required_paper_files - actual_files
+        if missing_files:
+            errors.append(
+                f"papers/{entry} entry missing files: {sorted(missing_files)}"
+            )
+        unexpected_files = actual_files - required_paper_files
+        if unexpected_files:
+            errors.append(
+                f"papers/{entry} entry contains undeclared files: "
+                f"{sorted(unexpected_files)}"
+            )
+        nested_directories = sorted(
+            path.name for path in entry_root.iterdir() if path.is_dir()
+        )
+        if nested_directories:
+            errors.append(
+                f"papers/{entry} entry contains undeclared directories: "
+                f"{nested_directories}"
+            )
 
     retired = ("concepts", "literature", "evaluation", "resources", "research", "_meta")
     for name in retired:
@@ -1006,6 +1064,12 @@ def main() -> int:
     foundation_pages = sum(
         1 for path in FOUNDATION_ROOT.rglob("*.md") if path.name != "README.md"
     )
+    paper_pages = sum(
+        1 for path in PAPER_ROOT.rglob("*.md") if path.parent != PAPER_ROOT
+    )
+    paper_entry_count = len(
+        load_yaml(SCHEMA_PATH).get("paper_entry", {}).get("active_entries", [])
+    )
     source_count = sum(
         len(load_yaml(path).get("sources", [])) for path in source_registries()
     )
@@ -1018,6 +1082,7 @@ def main() -> int:
     print(
         "KB validation passed: "
         f"3 content parts, {page_count} pages, {foundation_pages} Foundation topics, "
+        f"{paper_entry_count} Paper entry with {paper_pages} pages, "
         f"{model_pages} Cosmos3-Nano pages, {source_count} sources, "
         f"{foundation_profile_count} Foundation and {model_profile_count} model "
         "knowledge-guidance retrieval profiles."

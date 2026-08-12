@@ -22,7 +22,7 @@ A statement such as “the model supports video and action” is insufficient. S
 
 ## Describe retrieval without controlling workflow
 
-Every canonical Foundation or model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
+Every canonical Foundation, Paper, or model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
 
 Foundation `retrieval-index.yaml` and model-entry `agent-index.yaml` map query themes to knowledge, strategies, best practices, and evidence that can ground Agent decisions. They support dynamic retrieval but do not define AIBuildAI's Agent selection, repository selection, task sequencing, execution scheduling, permissions, or external actions.
 

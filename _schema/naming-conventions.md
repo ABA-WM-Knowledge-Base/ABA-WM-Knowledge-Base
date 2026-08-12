@@ -3,7 +3,7 @@ id: world-model-kb.naming
 title: Naming Conventions
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -39,6 +39,7 @@ Examples:
 - `world-model-kb.foundations.problem-formulation.forward-dynamics`
 - `world-model-kb.foundations.learning-objectives.diffusion-and-flow-matching`
 - `world-model-kb.papers.dreamerv3.reproduction`
+- `world-model-kb.papers.cosmos-predict2-5.optimization-transfer`
 - `world-model-kb.models.cosmos3-nano.action-modeling`
 
 ## Source registries and cross-part references

@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.video-world-model
 title: Video World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -86,6 +86,7 @@ Independent environment replay is stronger evidence than action-video self-consi
 - [Action modeling](../../models/cosmos3-nano/action-modeling.md) distinguishes passive continuation from forward and joint action-conditioned generation.
 - [Evaluation](../../models/cosmos3-nano/evaluation.md) and [limitations](../../models/cosmos3-nano/limitations.md) contain model-specific evidence; generic video quality should not be projected onto untested control regimes.
 - [Paper entries](../../papers/README.md) preserve exact protocols for representative video world models.
+- [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) instantiates latent rectified-flow video prediction, clean visual prefixes, and a Bridge action-conditioned specialist; its paper entry preserves exact protocols and evidence limits.
 
 ## Sources
 

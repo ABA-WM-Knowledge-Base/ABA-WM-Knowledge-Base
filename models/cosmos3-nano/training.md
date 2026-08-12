@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.training
 title: Cosmos3-Nano Training State and Optimization Levers
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -77,7 +77,7 @@ loss = masked_MSE(v_pred, v_target)
 
 A shared denoiser predicts velocity for image, video, audio, and action diffusion subsequences. Clean conditional frames in I2V/V2V are conditioning tokens and are excluded from the target loss. Image, audio, and action use logit-normal noise-time sampling; video uses mode sampling. Shift reparameterization biases training toward higher noise. [C3-TR, p.27]
 
-This extends the Cosmos-Predict2.5 flow-matching and clean-prefix lineage, but Cosmos 3 adds audio, action, native transfer controls, and MoT joint attention. Do not assume weight or implementation compatibility with Predict2.5. [P25-TR, pp.6–11; C3-TR, pp.8–13, 27–30]
+This extends the [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) flow-matching and clean-prefix lineage, but Cosmos 3 adds audio, action, native transfer controls, and MoT joint attention. The paper entry owns the predecessor mechanism and its implementation gaps; do not assume weight or implementation compatibility with Predict2.5. [P25-TR, pp.6–11; C3-TR, pp.8–13, 27–30]
 
 ### 3.2 Resolution, time, and packing state
 

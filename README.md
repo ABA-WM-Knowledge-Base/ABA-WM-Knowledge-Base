@@ -3,14 +3,14 @@ id: world-model-kb.home
 title: World Model Knowledge Base
 kind: index
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
 
 # World Model Knowledge Base
 
-This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations and an active NVIDIA Cosmos3-Nano model entry. The content connects general formalisms, representation and learning choices, model mechanisms, interfaces, evaluation conditions, source code, execution records, and candidate optimization experiments.
+This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, representative-paper evidence beginning with Cosmos-Predict2.5, and an active NVIDIA Cosmos3-Nano model entry. The content connects general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, source code, execution records, and candidate optimization experiments.
 
 ## Authority boundary
 
@@ -40,21 +40,21 @@ flowchart TD
     F --> F3["Decision-making and embodied systems"]
     F --> F4["Data, evaluation, and research frontiers"]
 
-    P --> PE["Paper-specific mechanisms and experimental evidence"]
+    P --> P25["Cosmos-Predict2.5: video-based WM mechanisms and evidence"]
     M --> C["Cosmos3-Nano model knowledge and execution evidence"]
 
     F1 --> S["Task-relevant knowledge synthesis"]
     F2 --> S
     F3 --> S
     F4 --> S
-    PE --> S
+    P25 --> S
     C --> S
 
     S --> D["Ground Agent reasoning, diagnosis, and strategy selection"]
     D -.->|informs without controlling| O
 ```
 
-The three content parts are peer, non-exclusive knowledge inputs. Retrieval can combine any relevant Foundation concepts, paper evidence, and model-specific facts; it does not have to enter through Cosmos3-Nano. Foundations and the Cosmos3-Nano entry are active. Papers remains a reserved part until paper-specific entries are added.
+The three content parts are peer, non-exclusive knowledge inputs. Retrieval can combine any relevant Foundation concepts, paper evidence, and model-specific facts; it does not have to enter through Cosmos3-Nano or a paper. Foundations, the Cosmos-Predict2.5 paper entry, and the Cosmos3-Nano model entry are active.
 
 The repository separates five concerns:
 
@@ -83,18 +83,18 @@ The three content parts are peers:
 | Part | Scope | Current content |
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
-| [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Reserved; no paper entries yet |
+| [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Cosmos-Predict2.5 is active |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano is active |
 
 ## How to navigate
 
 Start from [`INDEX.md`](INDEX.md) for the global topic map. AIBuildAI may dynamically combine model-independent foundations, paper-specific evidence, and model-specific knowledge rather than assigning a task to exactly one part. The Foundation [`retrieval-index.yaml`](foundations/retrieval-index.yaml) and Cosmos3-Nano [`agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) expose advisory query-to-knowledge associations without taking workflow authority.
 
-Within a topic page, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through the nearest owning source registry, such as Foundation [`sources.yaml`](foundations/sources.yaml) or Cosmos3-Nano [`sources.yaml`](models/cosmos3-nano/sources.yaml). Observed model execution evidence remains separate in [`reproduction.md`](models/cosmos3-nano/reproduction.md). The `_schema/` directory defines how KB content is represented; it does not define AIBuildAI workflow orchestration.
+Within a topic page, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through the nearest owning source registry, such as Foundation [`sources.yaml`](foundations/sources.yaml), Cosmos-Predict2.5 [`sources.yaml`](papers/cosmos-predict2-5/sources.yaml), or Cosmos3-Nano [`sources.yaml`](models/cosmos3-nano/sources.yaml). Observed execution evidence remains in the relevant entry's `reproduction.md`. The `_schema/` directory defines how KB content is represented; it does not define AIBuildAI workflow orchestration.
 
 ## Validation
 
-[`tools/validate_kb.py`](tools/validate_kb.py) checks UTF-8 and English content, metadata, links, source references, artifact hashes, required files, and both knowledge-guidance retrieval indexes.
+[`tools/validate_kb.py`](tools/validate_kb.py) checks UTF-8 and English content, metadata, links, source references, artifact hashes, required Foundation, Paper, and Model files, and both knowledge-guidance retrieval indexes.
 
 Run from the repository root:
 

@@ -1,32 +1,38 @@
 ---
 id: world-model-kb.papers
-title: Part II — Representative Papers
+title: Part II - Representative Papers
 kind: index
-status: reserved
-last_updated: 2026-08-11
+status: maintained
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
 
-# Part II — Representative Papers
+# Part II - Representative Papers
 
 ## Retrieval metadata
 
 **Relevant queries:** paper mechanism, ablation, benchmark result, implementation, reproduction, or transfer hypothesis.
 
-**Knowledge provided:** the reserved scope and future paper-entry contract of Part II. This page currently contains no paper-specific facts.
+**Knowledge provided:** the canonical scope of Part II, its active paper entries, and the entry contract that converts one work into reusable optimization knowledge.
 
 **Related pages:** [Part I](../foundations/README.md) owns model-independent concepts and formalisms; [Part III](../models/README.md) owns model-specific knowledge. Individual paper entries connect mechanisms and transfer claims to the applicable Foundation owners without imposing a reading order.
 
 ## Canonical scope
 
-Each paper entry will reconstruct one work as reusable optimization knowledge. It will separate the proposed mechanism, the implemented system, the reported experiments, the local reproduction state, and transfer hypotheses. It will not be a section-by-section summary or a narrative of the reading process.
+Each paper entry reconstructs one work as reusable optimization knowledge. It separates the proposed mechanism, the implemented system, the reported experiments, the local reproduction state, and transfer hypotheses. It is not a section-by-section summary or a narrative of the reading process.
 
 Paper-specific evidence remains canonical in its entry. When a mechanism, formal assumption, evaluation principle, or transfer claim depends on a model-independent concept, the entry links to that concept's Foundation page instead of redefining it. These links express knowledge ownership and dependencies; they do not prescribe task sequencing or AIBuildAI workflow orchestration.
 
-No paper has been admitted into Part II. Candidate families or titles are not KB facts until their entries exist.
+## Active entries
 
-## Future entry contract
+| Paper entry | World-model family | Knowledge coverage |
+|---|---|---|
+| [Cosmos-Predict2.5](cosmos-predict2-5/README.md) | Video-based latent world foundation model | Flow-based video prediction, curation, conditional-frame curriculum, post-training, action conditioning, implementation boundary, reproduction contract, and transferable interventions |
+
+An active entry is evidence about that named work, not a claim that its findings generalize to every model. Candidate families or titles are not KB facts until their entries exist.
+
+## Entry contract
 
 ```text
 papers/<paper-id>/

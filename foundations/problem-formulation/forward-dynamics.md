@@ -3,7 +3,7 @@ id: world-model-kb.foundations.problem-formulation.forward-dynamics
 title: Forward Dynamics
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -106,6 +106,8 @@ A claim of learned action dynamics is falsified when predictions remain unchange
 
 ## Cross-part instantiations
 
+- [Cosmos-Predict2.5 action conditioning](../../papers/cosmos-predict2-5/paper.md) instantiates an observation-space forward model over a Bridge-specific action chunk, while the base text/image/video generator remains an observational continuation model.
+
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) instantiates FD with an external action path, domain adapter, padded canonical action tensor, and H-actions/H+1-observations structure.
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the rectified-flow generation mechanism used by continuous modalities.
 - [Cosmos3-Nano modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) owns concrete preprocessing and time-axis contracts.
@@ -122,4 +124,3 @@ A claim of learned action dynamics is falsified when predictions remain unchange
 - [MBRL-DREAMER-2020] Hafner et al., *Dream to Control: Learning Behaviors by Latent Imagination*, ICLR 2020.
 - [PLAN-MUZERO-2020] Schrittwieser et al., *Mastering Atari, Go, Chess and Shogi by Planning with a Learned Model*, Nature 588, DOI:10.1038/s41586-020-03051-4.
 - [MBRL-TDMPC2-2024] Hansen, Su, and Wang, *TD-MPC2: Scalable, Robust World Models for Continuous Control*, ICLR 2024.
-

@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.datasets-and-supervision
 title: Datasets and Supervision for World Models
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-12
 owners:
   - AIBuildAI world-model group
 ---
@@ -122,6 +122,8 @@ A scale hypothesis is falsified or narrowed when gains disappear at equal effect
 
 ## Cross-part instantiations
 
+- [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) supplies a paper-specific example of staged filtering, multi-granularity captions, semantic deduplication, domain sharding, and dataset-unit ambiguity at foundation scale.
+
 - [Cosmos3-Nano data](../../models/cosmos3-nano/data.md) owns its exact pretraining, action, synthetic, and post-training mixtures and source-specific transformations.
 - [Cosmos3-Nano training](../../models/cosmos3-nano/training.md) owns stage schedules, objectives, packing, and optimizer variables that interact with data.
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) owns domain action widths, normalization, and H/H+1 temporal alignment.
@@ -136,4 +138,3 @@ A scale hypothesis is falsified or narrowed when gains disappear at equal effect
 - [DATA-DROID-2024] Khazatsky et al., *DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset*, RSS 2024, DOI:10.15607/RSS.2024.XX.120. The RSS PDF and HTML retain different trajectory counts (76k and 65k respectively).
 - [EMB-OCTO-2024] Ghosh et al., *Octo: An Open-Source Generalist Robot Policy*, RSS 2024, DOI:10.15607/RSS.2024.XX.090.
 - [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots*, RSS 2024, DOI:10.15607/RSS.2024.XX.050.
-

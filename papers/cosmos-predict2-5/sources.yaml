@@ -1,0 +1,117 @@
+schema_version: 3
+as_of: "2026-08-12"
+local_path_policy:
+  current_pdf_root: 'C:\Users\94875\Desktop\cosmos'
+  portable_identity: canonical_url_plus_sha256
+  note: Absolute paths locate material inspected on this workstation; another machine may rebind the root while preserving the filename and SHA256.
+sources:
+  - id: P25-TR
+    type: paper
+    title: World Simulation with Video Foundation Models for Physical AI
+    publisher: NVIDIA
+    version: "arXiv:2511.00062v2; report date 2026-02-24"
+    canonical_url: https://arxiv.org/abs/2511.00062v2
+    local_path: 'C:\Users\94875\Desktop\cosmos\cosmos-predict2.5.pdf'
+    sha256: 2597170ef9e8128c1ec3c87aa1eaf321cd599268451da1f61aead325eca576fe
+    pages: 44
+    license: CC-BY-4.0
+    accessed: "2026-08-12"
+    retrieval_hint: Use the cached v2 PDF for equations, tables, figures, experimental protocols, and exact page locators.
+  - id: P25-CODE-PAPER
+    type: code_repository
+    title: NVIDIA Cosmos-Predict2.5 v1.5.0 feature-release implementation snapshot
+    publisher: NVIDIA / GitHub
+    canonical_url: https://github.com/nvidia-cosmos/cosmos-predict2.5/tree/f2146f47a07abf72459c92a9958484ff447ed37d
+    revision: f2146f47a07abf72459c92a9958484ff447ed37d
+    version: "feature-release commit dated 2026-02-23; ancestor of the current v1.5.0 tag target"
+    license: Apache-2.0
+    accessed: "2026-08-12"
+    retrieval_hint: Use for released inference, SFT, action-conditioning, multiview, and DMD2 implementation facts associated with the report period.
+  - id: P25-CODE-REPORT-UPDATE
+    type: code_repository
+    title: NVIDIA Cosmos-Predict2.5 report-v2 code-tree snapshot
+    publisher: NVIDIA / GitHub
+    canonical_url: https://github.com/nvidia-cosmos/cosmos-predict2.5/tree/a24ac3df55d55f87deff7067907afcaf961045f1
+    revision: a24ac3df55d55f87deff7067907afcaf961045f1
+    version: "report-date tree with release hotfix and README update; 2026-02-24"
+    license: Apache-2.0
+    accessed: "2026-08-12"
+    retrieval_hint: Use as the paper-era execution tree and to delimit the capability list contemporaneous with the report-v2 date.
+  - id: P25-CODE-CURRENT
+    type: code_repository
+    title: NVIDIA Cosmos-Predict2.5 maintained repository snapshot
+    publisher: NVIDIA / GitHub
+    canonical_url: https://github.com/nvidia-cosmos/cosmos-predict2.5/tree/a2c298b0a3df3778b973fe65e9e58877b292d8a7
+    revision: a2c298b0a3df3778b973fe65e9e58877b292d8a7
+    version: "current inspected main; Cosmos 3 redirect; authored 2026-06-07 (committed 2026-06-08 Asia/Shanghai)"
+    license: Apache-2.0
+    accessed: "2026-08-12"
+    retrieval_hint: Use for current setup, maintenance status, fixes, and post-report repository additions; do not project additions backward into the paper.
+  - id: P25-HF-2B
+    type: model_card
+    title: nvidia/Cosmos-Predict2.5-2B model card and checkpoint tree
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos-Predict2.5-2B
+    revision: 85f8ae7bfe8f5525c8d103429524dcf12f98bf7b
+    version: "current inspected repository revision"
+    license: nvidia-open-model-license
+    accessed: "2026-08-12"
+    retrieval_hint: Use for current 2B parameter count, input/output contract, checkpoint families, gating state, and model license.
+  - id: P25-HF-14B
+    type: model_card
+    title: nvidia/Cosmos-Predict2.5-14B model card and checkpoint tree
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos-Predict2.5-14B
+    revision: 18839bf38537b31f191f2ec834a4d9181ee09ca2
+    version: "current inspected repository revision"
+    license: nvidia-open-model-license
+    accessed: "2026-08-12"
+    retrieval_hint: Use for current 14B parameter count, checkpoint families, and model license.
+  - id: P25-PAIBENCH
+    type: benchmark
+    title: "PAI-Bench: A Comprehensive Benchmark for Physical AI"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2512.01989
+    version: arXiv:2512.01989
+    accessed: "2026-08-12"
+    retrieval_hint: Use for the benchmark definition; preserve the exact Predict task and evaluator protocol used by Cosmos-Predict2.5.
+  - id: P25-VIDEOALIGN
+    type: paper
+    title: Improving Video Generation with Human Feedback
+    publisher: NeurIPS 2025
+    canonical_url: https://arxiv.org/abs/2501.13918
+    version: arXiv:2501.13918
+    accessed: "2026-08-12"
+    retrieval_hint: Use for the three-dimensional video reward model underlying the reported RL stage.
+  - id: P25-DDRL
+    type: paper
+    title: Data-regularized Reinforcement Learning for Diffusion Models at Scale
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2512.04332
+    version: arXiv:2512.04332
+    accessed: "2026-08-12"
+    retrieval_hint: Use for the diffusion-loss regularizer and reward-hacking mechanism referenced by the report.
+  - id: P25-RCM
+    type: paper
+    title: Large Scale Diffusion Distillation via Score-Regularized Continuous-Time Consistency
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2510.08431
+    version: arXiv:2510.08431
+    accessed: "2026-08-12"
+    retrieval_hint: Use for the rCM method named by the report, including continuous-time consistency and score-distribution regularization.
+  - id: P25-DMD2
+    type: paper
+    title: Improved Distribution Matching Distillation for Fast Image Synthesis
+    publisher: NeurIPS 2024
+    canonical_url: https://arxiv.org/abs/2405.14867
+    version: arXiv:2405.14867
+    accessed: "2026-08-12"
+    retrieval_hint: Use only for the released repository distillation path; it is not the rCM method reported in the paper.
+  - id: P25-COSMOS-POLICY
+    type: paper
+    title: "Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2601.16163
+    version: arXiv:2601.16163
+    accessed: "2026-08-12"
+    retrieval_hint: Use to identify the policy extension as a separate paper and capability surface rather than evidence from the Cosmos-Predict2.5 report.
