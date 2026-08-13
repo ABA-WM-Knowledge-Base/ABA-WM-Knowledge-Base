@@ -12,12 +12,17 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 0.8.1 - 2026-08-13
+- Added `foundations/data-and-evaluation/data-curation-and-filtering.md` as canonical owner for the candidate-pool selection operator (quality top-k,outcome predicates, influence, diversity, redundancy removal, supervised quotas, label-free stratification), with DATA-* source registrations andretrieval-index coverage.
+- Added MimicGen as a representative-paper entry (data-curation cluster):mechanism/evidence reconstruction from the arXiv v1 PDF with page locators, implementation graph pinned at NVlabs/mimicgen 72bd767c, inspection-only reproduction state, and MG-XFER-01..04 transfer hypotheses. Registered MIMICGEN-* sources and extended the reference-prefix whitelist.
+
 ## 0.8.0 - 2026-08-13
 
 - Rebuilt both representative-paper `paper.md` pages around the source papers' section order: research problem, complete end-to-end architecture, data and training protocol, experimental setup, results, applications, and evidence boundaries.
 - Added explicit input-to-output architecture flows for Cosmos-Predict2.5 and IRASim so retrieval does not require reconstructing the model from scattered mechanism fragments.
 - Restored the Cosmos-Predict2.5 report's omitted Transfer2.5, Real2Real policy augmentation, driving-simulation, multiview, synthetic-VLA, and action-conditioned application sequence while keeping every result bound to its named specialist.
 - Reconciled the Cosmos-Predict2.5 entry scope with the expanded paper page; execution ownership remains in each entry's `reproduction.md`.
+
 
 ## 0.7.0 - 2026-08-13
 

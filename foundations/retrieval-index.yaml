@@ -46,6 +46,7 @@ canonical_owners:
   datasets_and_supervision: data-and-evaluation/datasets-and-supervision.md
   evaluation_methodology: data-and-evaluation/evaluation-methodology.md
   open_research_problems: research-frontiers/open-problems.md
+  data_curation_and_filtering: data-and-evaluation/data-curation-and-filtering.md
 
 retrieval_profiles:
   - id: definitions_and_taxonomy
@@ -181,6 +182,8 @@ retrieval_profiles:
       - data-and-evaluation/README.md
       - data-and-evaluation/datasets-and-supervision.md
       - data-and-evaluation/evaluation-methodology.md
+      - data-and-evaluation/data-curation-and-filtering.md
+
     related_documents:
       model_instantiation:
         - ../models/cosmos3-nano/data.md

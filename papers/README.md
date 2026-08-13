@@ -30,6 +30,8 @@ Paper-specific evidence remains canonical in its entry. When a mechanism, formal
 |---|---|---|
 | [Cosmos-Predict2.5](cosmos-predict2-5/README.md) | Video-based latent world foundation model | Flow-based video prediction, curation, conditional-frame curriculum, post-training, Transfer2.5 and specialist applications, implementation boundary, reproduction contract, and transferable interventions |
 | [IRASim](irasim/README.md) | Action-conditioned visual forward model for robot manipulation | Trajectory-to-video diffusion, frame-level action alignment, failure-rollout data, policy evaluation, model-based planning, released-code boundary, and transferable interventions |
+| [MimicGen](mimicgen/README.md) | Demonstration-generation system for imitation learning (data layer, not a world model) | Object-centric segment replay and transform, success-only acceptance and its measured initial-state bias, generation-rate/policy-success decoupling, selection-strategy ablations, released-code boundary, reproduction contract, and transferable curation interventions |
+
 
 An active entry is evidence about that named work, not a claim that its findings generalize to every model. Candidate families or titles are not KB facts until their entries exist.
 

@@ -45,6 +45,8 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 |---|---|---|---|
 | Cosmos-Predict2.5 | Video-based latent world foundation model | Video curation, rectified-flow DiT, clean-prefix task unification, domain SFT and merging, reward post-training, distillation, Transfer2.5, robot/driving/multiview applications, and action-conditioned specialists | [Entry](papers/cosmos-predict2-5/README.md) |
 | IRASim | Action-conditioned visual forward model for robot manipulation | Latent diffusion transformer, frame-level action conditioning, trajectory prediction, failure-rollout adaptation, policy evaluation, model-based planning, and implementation/reproduction boundaries | [Entry](papers/irasim/README.md) |
+| MimicGen | Demonstration-generation system for imitation learning | Object-centric segment replay, success-only acceptance and its measured initial-state bias, DGR-success decoupling, selection-strategy ablations, stratified-acceptance transfer hypotheses | [Entry](papers/mimicgen/README.md) |
+
 
 Paper entries link their mechanisms to Foundation owners and target-model implications where applicable. Those links express knowledge dependencies, not a required retrieval sequence.
 

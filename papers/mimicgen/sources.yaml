@@ -1,0 +1,36 @@
+schema_version: 3
+as_of: "2026-08-13"
+sources:
+  - id: MIMICGEN-PAPER-V1
+    type: paper
+    title: "MimicGen: A Data Generation System for Scalable Robot Learning using Human Demonstrations"
+    publisher: CoRL 2023
+    version: "arXiv:2310.17596v1 (26 Oct 2023); canonical experimental version for this entry"
+    canonical_url: https://arxiv.org/abs/2310.17596
+    accessed: "2026-08-06"
+    scope: Title and all page locators verified against the locally retrieved v1 PDF and its text extraction.
+  - id: MIMICGEN-CODE-CURRENT
+    type: code_repository
+    title: "NVlabs/mimicgen official release"
+    publisher: NVIDIA
+    revision: 72bd767c255545f462e7ccfb2731f2e5d4c1d9bb
+    version: "current inspected main; merge commit dated 2025-08-16 (PR #64); NVIDIA License; v1.0.0 full generation-code release 2024-07-09"
+    canonical_url: https://github.com/NVlabs/mimicgen
+    accessed: "2026-08-13"
+    scope: Shallow clone inspected at symbol level; no local_path recorded deliberately so validation stays machine-portable.
+  - id: MIMICGEN-DATASETS-HF
+    type: dataset
+    title: "MimicGen released datasets (12 tasks, 48K+ demonstrations)"
+    publisher: Hugging Face
+    version: "hosting per repository v1.0.1 (2024-09-19); license CC-BY 4.0"
+    canonical_url: https://huggingface.co/datasets/amandlek/mimicgen_datasets
+    accessed: "2026-08-13"
+    scope: Identity derived from the pinned repository's HF_REPO_ID constant and README; datasets not downloaded.
+  - id: MIMICGEN-PROJECT
+    type: official_blog
+    title: "MimicGen project and documentation site"
+    publisher: NVIDIA
+    version: "as linked from the paper and repository README"
+    canonical_url: https://mimicgen.github.io
+    accessed: "2026-08-13"
+    scope: URL as printed in the paper abstract and repository README; not independently retrieved.
