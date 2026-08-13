@@ -32,7 +32,7 @@ FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
 FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SOURCE_REFERENCE = re.compile(
-    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|LOCAL|NVIDIA|FND|DYN|FD|REP|"
+    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|LOCAL|NVIDIA|FND|DYN|FD|REP|"
     r"PLAN|CTRL|MBRL|WFM|WAM|EMB|DATA|EVAL|BENCH|OBJ|ACT)-[A-Z0-9-]+)\b"
 )
 NON_ENGLISH_SCRIPT = re.compile(
@@ -1082,7 +1082,7 @@ def main() -> int:
     print(
         "KB validation passed: "
         f"3 content parts, {page_count} pages, {foundation_pages} Foundation topics, "
-        f"{paper_entry_count} Paper entry with {paper_pages} pages, "
+        f"{paper_entry_count} Paper entries with {paper_pages} pages, "
         f"{model_pages} Cosmos3-Nano pages, {source_count} sources, "
         f"{foundation_profile_count} Foundation and {model_profile_count} model "
         "knowledge-guidance retrieval profiles."

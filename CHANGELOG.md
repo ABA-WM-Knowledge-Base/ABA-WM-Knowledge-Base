@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,14 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 0.7.0 - 2026-08-13
+
+- Added IRASim as a standalone representative-paper entry using the peer-reviewed ICCV 2025/arXiv-v2 paper while preserving the 2024 predecessor and narrower public implementation boundary.
+- Added canonical mechanism/experiment, released-code, reproduction, optimization-transfer, and source-registry pages for trajectory-to-video diffusion, frame-level action alignment, policy evaluation, and model-based planning.
+- Pinned the paper hash, official code commit, public 820 GB archive/checkpoint repository revision, SDXL VAE dependency revision, project page, and GPC comparison identity.
+- Preserved material evidence conflicts and gaps: 300K versus 3M training steps, paper-described temporal conditioning versus released Frame-Ada code, legacy unconditioned final layer, non-monotonic Push-T cells, v1 README citation error, training configs that default to debug/validation data, absent v2 planning/evaluation code, and two syntax-invalid public scripts.
+- Linked IRASim to canonical Foundation and Cosmos3-Nano owners without adding task routing or workflow authority, and extended Paper-entry validation to require the new directory.
 
 ## 0.6.0 - 2026-08-12
 

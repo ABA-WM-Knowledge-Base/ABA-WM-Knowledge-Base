@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -17,7 +17,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Knowledge area | Entry point | Current scope |
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
-| Representative methods and papers | [Papers](papers/README.md) | Cosmos-Predict2.5 video-based world-model entry is active |
+| Representative methods and papers | [Papers](papers/README.md) | Cosmos-Predict2.5 and IRASim entries are active |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -44,8 +44,9 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 | Paper | Family | Mechanisms and evidence | Entry point |
 |---|---|---|---|
 | Cosmos-Predict2.5 | Video-based latent world foundation model | Video curation, rectified-flow DiT, clean-prefix task unification, domain SFT and merging, reward post-training, distillation, multiview and action-conditioned specialists | [Entry](papers/cosmos-predict2-5/README.md) |
+| IRASim | Action-conditioned visual forward model for robot manipulation | Latent diffusion transformer, frame-level action conditioning, trajectory prediction, failure-rollout adaptation, policy evaluation, model-based planning, and implementation/reproduction boundaries | [Entry](papers/irasim/README.md) |
 
-The paper entry links its mechanisms to Foundation owners and its successor-specific implications to Cosmos3-Nano. Those links express knowledge dependencies, not a required retrieval sequence.
+Paper entries link their mechanisms to Foundation owners and target-model implications where applicable. Those links express knowledge dependencies, not a required retrieval sequence.
 
 ## Cross-part ownership
 

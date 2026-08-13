@@ -63,6 +63,7 @@ paper_entry:
     - sources.yaml
   active_entries:
     - cosmos-predict2-5
+    - irasim
 
 foundation_retrieval_index:
   supported_schema_version: 1

@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.datasets-and-supervision
 title: Datasets and Supervision for World Models
 kind: reference
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -122,6 +122,7 @@ A scale hypothesis is falsified or narrowed when gains disappear at equal effect
 
 ## Cross-part instantiations
 
+- [IRASim](../../papers/irasim/paper.md) distinguishes episodes from overlapping clips and supplies a decision-use example where expert demonstrations are augmented with policy rollouts containing successes and failures; its entry owns the exact `P x K` evidence and public-data gaps.
 - [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) supplies a paper-specific example of staged filtering, multi-granularity captions, semantic deduplication, domain sharding, and dataset-unit ambiguity at foundation scale.
 
 - [Cosmos3-Nano data](../../models/cosmos3-nano/data.md) owns its exact pretraining, action, synthetic, and post-training mixtures and source-specific transformations.

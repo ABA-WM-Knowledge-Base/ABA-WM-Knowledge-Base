@@ -3,7 +3,7 @@ id: world-model-kb.foundations.embodied-systems.robotics-and-embodied-ai
 title: Robotics and Embodied AI
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -123,6 +123,7 @@ A cross-embodiment transfer claim is falsified or narrowed when the target requi
 
 ## Cross-part instantiations
 
+- [IRASim](../../papers/irasim/README.md) exposes the boundary between an action-conditioned visual forward model, an external proposal policy, an external value function, and physical execution; its public code does not include the ICCV-v2 planning stack.
 - [Cosmos3-Nano Reasoner](../../models/cosmos3-nano/reasoner.md) supplies perception, reasoning, and text planning rather than direct physical commands.
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) supplies base FD, ID, and WAM representations with domain adapters.
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) defines a DROID-specific three-view/proprioceptive input and 32-step action output; it does not establish RoboCasa compatibility.
@@ -137,4 +138,3 @@ A cross-embodiment transfer claim is falsified or narrowed when the target requi
 - [DATA-DROID-2024] Khazatsky et al., *DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset*, RSS 2024, DOI:10.15607/RSS.2024.XX.120.
 - [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots*, RSS 2024, DOI:10.15607/RSS.2024.XX.050.
 - [PLAN-VISUAL-FORESIGHT-2017] Finn and Levine, *Deep Visual Foresight for Planning Robot Motion*, ICRA 2017, DOI:10.1109/ICRA.2017.7989324.
-

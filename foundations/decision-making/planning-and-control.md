@@ -3,7 +3,7 @@ id: world-model-kb.foundations.decision-making.planning-and-control
 title: Planning and Control with World Models
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -112,6 +112,7 @@ Closed-loop evaluation preserves intervention and reset rules, controller freque
 
 ## Cross-part instantiations
 
+- [IRASim model-based planning](../../papers/irasim/paper.md) supplies a concrete candidate-rank experiment in which larger search helps only after the world model sees policy success/failure rollouts; its `P=0` row is direct evidence of search-amplified model/evaluator error.
 - [Cosmos3-Nano Reasoner](../../models/cosmos3-nano/reasoner.md) can emit natural-language plans; these require grounding and control to become physical action.
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) provides FD, ID, and WAM candidates that can participate in planning experiments after domain decoding and calibration.
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) exposes a specialized action chunk and serving contract relevant to feedback rate and latency.

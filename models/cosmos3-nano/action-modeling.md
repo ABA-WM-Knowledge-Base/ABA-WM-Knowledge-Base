@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.action-modeling
 title: Cosmos3-Nano Action Representation and World-Action Modeling
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -285,6 +285,7 @@ Persist observed execution behavior in [reproduction.md](reproduction.md). Promo
 
 ## Related knowledge
 
+- [IRASim paper entry](../../papers/irasim/README.md) supplies a representative action-conditioned visual forward model, per-frame action modulation, success/failure rollout mixture, and candidate-ranking evidence. Its 2-D/5-D/7-D dataset contracts and external value-model boundary are useful comparisons, not Cosmos3-Nano implementation facts.
 - Architecture and DM computation: [architecture.md](architecture.md)
 - I/O fields and time contracts: [modalities-and-io.md](modalities-and-io.md)
 - Generator sampling and media objectives: [generator.md](generator.md)

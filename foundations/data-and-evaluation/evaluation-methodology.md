@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.evaluation-methodology
 title: World-Model Evaluation Methodology
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -124,6 +124,7 @@ Reproduction states remain distinct: a result reported by a source, a command do
 
 ## Cross-part instantiations
 
+- [IRASim](../../papers/irasim/paper.md) separates paired video reconstruction, human preference, simulated policy ordering, candidate-ranking utility, and real-robot outcomes; its small-task correlation and coupled value-model evidence illustrate why these layers cannot be substituted for one another.
 - [Cosmos3-Nano evaluation](../../models/cosmos3-nano/evaluation.md) owns reported benchmark values, task modes, metric directions, and comparison conditions.
 - [Cosmos3-Nano limitations](../../models/cosmos3-nano/limitations.md) owns known model-specific gaps and unsupported inferences.
 - [Cosmos3-Nano reproduction](../../models/cosmos3-nano/reproduction.md) separates documented capability from locally observed execution state.
@@ -139,4 +140,3 @@ Reproduction states remain distinct: a result reported by a source, a command do
 - [BENCH-LIBERO-2023] Liu et al., *LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning*, NeurIPS Datasets and Benchmarks 2023, DOI:10.52202/075280-1939.
 - [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots*, RSS 2024, DOI:10.15607/RSS.2024.XX.050.
 - [EVAL-RL-MATTERS-2018] Henderson et al., *Deep Reinforcement Learning That Matters*, AAAI 2018, DOI:10.1609/aaai.v32i1.11694.
-

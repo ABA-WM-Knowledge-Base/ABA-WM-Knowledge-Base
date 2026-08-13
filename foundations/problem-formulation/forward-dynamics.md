@@ -3,7 +3,7 @@ id: world-model-kb.foundations.problem-formulation.forward-dynamics
 title: Forward Dynamics
 kind: reference
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -106,6 +106,7 @@ A claim of learned action dynamics is falsified when predictions remain unchange
 
 ## Cross-part instantiations
 
+- [IRASim](../../papers/irasim/paper.md) instantiates action-conditioned observation-space forward dynamics over robot action chunks, then uses generated rollouts with external evaluators for policy ranking and planning; the entry preserves its logged-action and decision-validity limits.
 - [Cosmos-Predict2.5 action conditioning](../../papers/cosmos-predict2-5/paper.md) instantiates an observation-space forward model over a Bridge-specific action chunk, while the base text/image/video generator remains an observational continuation model.
 
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) instantiates FD with an external action path, domain adapter, padded canonical action tensor, and H-actions/H+1-observations structure.

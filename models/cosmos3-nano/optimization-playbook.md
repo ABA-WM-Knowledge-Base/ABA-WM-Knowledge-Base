@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.optimization-playbook
 title: Cosmos3-Nano Optimization Design Reference
 kind: guide
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -265,6 +265,8 @@ artifacts: []
 The `hypothesis` is most useful when it predicts which slice moves and why. A single causal change in `primary_factor` strengthens attribution. When multiple coupled changes are technically necessary, ablations or an explicit attribution limitation preserve interpretability.
 
 ## Comparison design
+
+For action-conditioned rollout and planning hypotheses, [IRASim's transfer entry](../../papers/irasim/optimization-transfer.md) provides paper-specific controls for frame/action alignment, success/failure rollout coverage, candidate-count scaling, and independent value-model validation. These are optional knowledge inputs; this page remains the owner of Cosmos3-Nano experiment contracts.
 
 Use these baselines when applicable:
 

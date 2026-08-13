@@ -1,0 +1,73 @@
+schema_version: 3
+as_of: "2026-08-13"
+sources:
+  - id: IRASRC-PAPER-V2
+    type: paper
+    title: "IRASim: A Fine-Grained World Model for Robot Manipulation"
+    publisher: IEEE/CVF International Conference on Computer Vision (ICCV) 2025 / arXiv
+    canonical_url: https://arxiv.org/abs/2406.14540v2
+    version: "arXiv:2406.14540v2; ICCV 2025; proceedings pages 9834-9844"
+    pages: 28
+    sha256: aa781982d5635cbe5afdbb11d074b12151e453f7b8d7c0e41988c3c7aa9b1751
+    accessed: "2026-08-13"
+    retrieval_hint: Use the 28-page arXiv v2 artifact for equations, full appendices, tables, implementation details, and exact page locators; the CVF proceedings page establishes the peer-reviewed venue identity.
+    scope: Canonical paper identity and primary evidence for this entry.
+  - id: IRASRC-PAPER-V1
+    type: paper
+    title: "IRASim: Learning Interactive Real-Robot Action Simulators"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2406.14540v1
+    version: "arXiv:2406.14540v1; submitted 2024-06-20"
+    accessed: "2026-08-13"
+    retrieval_hint: Use only to delimit the original three-dataset benchmark and the implementation surface represented by the public repository.
+    scope: Predecessor revision, not the canonical experimental version for this entry.
+  - id: IRASRC-CODE-CURRENT
+    type: code_repository
+    title: ByteDance IRASim maintained repository snapshot
+    publisher: ByteDance / GitHub
+    canonical_url: https://github.com/bytedance/IRASim/tree/c72b6dade6fcd65971e0aa8ab49ea39b15108c90
+    revision: c72b6dade6fcd65971e0aa8ab49ea39b15108c90
+    version: "current inspected main; commit dated 2025-07-08"
+    license: Apache-2.0
+    accessed: "2026-08-13"
+    retrieval_hint: Use for the released RT-1, Bridge, and Language-Table implementation, configuration, data loaders, checkpoint interface, application scripts, and paper-code gaps.
+    scope: Public implementation identity; it does not contain the complete ICCV v2 evaluation and planning stack.
+  - id: IRASRC-PROJECT
+    type: official_blog
+    title: IRASim project page
+    publisher: IRASim authors
+    canonical_url: https://gen-irasim.github.io/
+    version: "mutable project page reflecting the ICCV 2025 paper"
+    accessed: "2026-08-13"
+    retrieval_hint: Use for official videos and the current public presentation of short, long, policy-evaluation, planning, and controllability results.
+    scope: Mutable presentation surface; numerical claims remain owned by the pinned paper.
+  - id: IRASRC-HF-BUNDLE
+    type: dataset
+    title: fangqi/IRASim public data, evaluation, and checkpoint bundle
+    publisher: IRASim author account / Hugging Face
+    canonical_url: https://huggingface.co/datasets/fangqi/IRASim/tree/dfcbf85c27b2c5d041dbf5df3df272111e758b48
+    revision: dfcbf85c27b2c5d041dbf5df3df272111e758b48
+    version: "820 GB repository view; split archives for RT-1, Bridge, and Language-Table"
+    accessed: "2026-08-13"
+    retrieval_hint: Use for the immutable outer repository tree containing the v1 train, evaluation, and checkpoint archives; reconstruct archives with the released merge script before hashing inner files.
+    scope: Public v1 bundle; no RoboNet, LIBERO, Push-T, or private real-robot planning checkpoint is represented by the documented archive names.
+  - id: IRASRC-SDXL-VAE
+    type: model_card
+    title: stabilityai/stable-diffusion-xl-base-1.0
+    publisher: Stability AI / Hugging Face
+    canonical_url: https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/tree/462165984030d82259a11f4367a4eed129e94a7b
+    revision: 462165984030d82259a11f4367a4eed129e94a7b
+    version: "current inspected repository revision"
+    license: openrail++
+    accessed: "2026-08-13"
+    retrieval_hint: Use to pin the external VAE family named by the paper and expected at a local path by the released configuration; the exact paper-era VAE revision is not disclosed.
+    scope: Current dependency identity, not proof of the exact training artifact.
+  - id: IRASRC-GPC
+    type: paper
+    title: Strengthening Generative Robot Policies through Predictive World Modeling
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2502.00622
+    version: "arXiv:2502.00622"
+    accessed: "2026-08-13"
+    retrieval_hint: Use to identify the GPC-RANK and GPC-RANK+OPT comparison family used in the Push-T experiment.
+    scope: Comparison method; IRASim Table 5 owns the exact values copied into this entry.

@@ -3,7 +3,7 @@ id: world-model-kb.papers
 title: Part II - Representative Papers
 kind: index
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -29,6 +29,7 @@ Paper-specific evidence remains canonical in its entry. When a mechanism, formal
 | Paper entry | World-model family | Knowledge coverage |
 |---|---|---|
 | [Cosmos-Predict2.5](cosmos-predict2-5/README.md) | Video-based latent world foundation model | Flow-based video prediction, curation, conditional-frame curriculum, post-training, action conditioning, implementation boundary, reproduction contract, and transferable interventions |
+| [IRASim](irasim/README.md) | Action-conditioned visual forward model for robot manipulation | Trajectory-to-video diffusion, frame-level action alignment, failure-rollout data, policy evaluation, model-based planning, released-code boundary, and transferable interventions |
 
 An active entry is evidence about that named work, not a claim that its findings generalize to every model. Candidate families or titles are not KB facts until their entries exist.
 

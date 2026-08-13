@@ -3,7 +3,7 @@ id: world-model-kb.foundations.problem-formulation.actions-and-interventions
 title: Actions and Interventions
 kind: concept
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -88,6 +88,7 @@ A causal action claim is weakened when predictions are unchanged under intervent
 
 ## Cross-part instantiations
 
+- [IRASim](../../papers/irasim/paper.md) instantiates frame-indexed action-conditioned visual forward prediction across 2-D, 5-D, and 7-D domain contracts; its paper entry preserves the exact action meanings, alignment mechanism, and missing counterfactual evidence.
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) owns its forward, inverse, and WAM contracts and action adapters.
 - [Policy-DROID](../../models/cosmos3-nano/policy.md) owns the specialized executable observation/action interface; base generation should not inherit that evidence.
 - [Modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) records action tensor, temporal, and conditioning semantics.
