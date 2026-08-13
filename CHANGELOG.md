@@ -12,6 +12,13 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 0.8.0 - 2026-08-13
+
+- Rebuilt both representative-paper `paper.md` pages around the source papers' section order: research problem, complete end-to-end architecture, data and training protocol, experimental setup, results, applications, and evidence boundaries.
+- Added explicit input-to-output architecture flows for Cosmos-Predict2.5 and IRASim so retrieval does not require reconstructing the model from scattered mechanism fragments.
+- Restored the Cosmos-Predict2.5 report's omitted Transfer2.5, Real2Real policy augmentation, driving-simulation, multiview, synthetic-VLA, and action-conditioned application sequence while keeping every result bound to its named specialist.
+- Reconciled the Cosmos-Predict2.5 entry scope with the expanded paper page; execution ownership remains in each entry's `reproduction.md`.
+
 ## 0.7.0 - 2026-08-13
 
 - Added IRASim as a standalone representative-paper entry using the peer-reviewed ICCV 2025/arXiv-v2 paper while preserving the 2024 predecessor and narrower public implementation boundary.

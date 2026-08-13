@@ -3,7 +3,7 @@ id: world-model-kb.paper-entry-template
 title: Representative Paper Entry Template
 kind: guide
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,21 +16,21 @@ A representative-paper entry converts one work into reusable model-improvement k
 
 ```text
 papers/<paper-id>/
-├── README.md
-├── paper.md
-├── codebase.md
-├── reproduction.md
-├── optimization-transfer.md
-└── sources.yaml
+|-- README.md
+|-- paper.md
+|-- codebase.md
+|-- reproduction.md
+|-- optimization-transfer.md
+`-- sources.yaml
 ```
 
 ## `README.md`: entrypoint and knowledge map
 
 Provide `## Retrieval metadata` with `Relevant queries`, `Knowledge provided`, and `Related pages`. Record paper identity, version, official artifacts, model family, task boundary, and a page map. Link to applicable canonical [Foundation](../foundations/README.md) owners for the model-independent concepts used by the work. Do not narrate who read the paper or why it was selected.
 
-## `paper.md`: mechanism and experiments
+## `paper.md`: method, architecture, and experiments
 
-Reconstruct the work as a decision model:
+Reconstruct the work as a decision model. Prefer the source paper's logical section order when it gives the clearest path from problem to architecture to evidence; reorganize only when the source order obscures causal or model boundaries. In either case, include:
 
 - formal problem, inputs, outputs, assumptions, and target behavior;
 - architecture, representations, data flow, objectives, parameter updates, and inference algorithm;
@@ -40,7 +40,7 @@ Reconstruct the work as a decision model:
 - ablations that isolate causal components, including interactions and negative results;
 - efficiency, scaling behavior, capability limits, and invalid transfer conditions.
 
-Do not follow the paper section order unless it is the clearest causal order.
+Place a compact end-to-end architecture and data-flow reconstruction before low-level component details. A reader should not need to combine several distant sections to determine inputs, encoders/tokenizers, condition paths, backbone computation, output head, objective, sampler or inference loop, and decoded outputs. If the paper reports several checkpoint families or application-specific extensions, keep each result bound to the named family and distinguish it from the base model.
 
 Keep the paper's proposed mechanism, experiments, and evidence in this entry. Link each reused formalism or mechanism family to its applicable Foundation owner rather than duplicating the general account. A paper may depend on several Foundation subparts, and the links do not establish a mandatory reading sequence.
 

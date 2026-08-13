@@ -3,7 +3,7 @@ id: world-model-kb.papers.cosmos-predict2-5
 title: Cosmos-Predict2.5 Paper Knowledge Entry
 kind: paper
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
@@ -64,7 +64,7 @@ These associations support knowledge retrieval. They neither impose reading orde
 
 This entry owns paper-specific explanations of Predict2.5 data curation, latent flow training, conditional-frame curriculum, domain specialization, weight merging, reward post-training, rCM distillation, reported benchmarks, action-conditioning ablations, and the corresponding public code boundary. Model-independent definitions remain in Foundations. The later Cosmos3-Nano entry owns Cosmos 3 implementation facts rather than inheriting Predict2.5 results.
 
-Transfer2.5 experiments are included only where they isolate a reusable mechanism or establish a scope boundary for the shared backbone. Full Transfer2.5 architecture and evaluation are outside this entry. Cosmos Policy is named only to prevent version conflation; its algorithms and results belong in a separate paper entry. Local execution claims are restricted to [`reproduction.md`](reproduction.md).
+Because the source is a combined Predict2.5/Transfer2.5 report, [`paper.md`](paper.md) follows the report through both the base model and its Transfer2.5, robot, driving, multiview, synthetic-data, and action-conditioned extensions. Every result remains attached to its named checkpoint family; an extension is not projected onto the base Predict2.5 checkpoint. [`optimization-transfer.md`](optimization-transfer.md) extracts only falsifiable mechanisms rather than reproducing the report's application narrative. Cosmos Policy is named only to prevent version conflation; its algorithms and results belong in a separate paper entry. Local execution claims are restricted to [`reproduction.md`](reproduction.md).
 
 ## High-value evidence anchors
 

@@ -1,82 +1,77 @@
 ---
 id: world-model-kb.papers.cosmos-predict2-5.paper
-title: Cosmos-Predict2.5 Mechanisms and Experimental Evidence
+title: Cosmos-Predict2.5 Method, Architecture, and Experimental Evidence
 kind: paper
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-13
 owners:
   - AIBuildAI world-model group
 ---
 
-# Cosmos-Predict2.5 Mechanisms and Experimental Evidence
+# Cosmos-Predict2.5 Method, Architecture, and Experimental Evidence
 
 ## Retrieval metadata
 
-**Relevant queries:** Predict2.5 objective, latent video architecture, conditional-frame training, video curation, domain SFT, model soup, diffusion reinforcement learning, rCM, PAI-Bench, action-conditioned video, or reported ablation.
+**Relevant queries:** Cosmos-Predict2.5 architecture, Text2World, Image2World, Video2World, video curation, WAN2.1 VAE, Cosmos-Reason1 text encoder, rectified flow, clean-prefix conditioning, progressive pretraining, domain SFT, model merging, diffusion RL, rCM distillation, PAI-Bench, Transfer2.5, robot augmentation, driving simulation, camera-controlled multiview generation, synthetic VLA data, or action-conditioned generation.
 
-**Knowledge provided:** a causal reconstruction of the model, data and optimization pipeline, exact result surfaces, isolated ablations, negative interactions, and the limits of the paper's evidence.
+**Knowledge provided:** the paper's data pipeline, complete input-to-output architecture, training and post-training sequence, base-model evidence, application-specific extensions, ablations, and claim boundaries.
 
-**Related pages:** [Video world models](../../foundations/representations/video-world-model.md) owns the generic predictive surface; [latent world models](../../foundations/representations/latent-world-model.md) owns codec bottlenecks; [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the objective family; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns comparison validity.
+**Related pages:** [Video world models](../../foundations/representations/video-world-model.md) owns the generic predictive surface; [latent world models](../../foundations/representations/latent-world-model.md) owns codec bottlenecks; [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the objective family; [actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md) owns causal action semantics; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns comparison validity.
 
-## 1. Decision model
+## 1. Scope and model family
 
-### 1.1 Target behavior
+### 1.1 Paper scope
 
-The work targets prompt-aligned, temporally coherent, high-resolution future-observation generation for Physical AI. It treats video as the external world-state surface and aims to make one backbone reusable across text-only generation, image-grounded prediction, video continuation, domain specialization, multiview rendering, and action-conditioned robot prediction. The paper's central design chain is:
+The report presents two connected families:
 
-```text
-large, filtered, semantically structured video data
-  + compressed latent observation representation
-  + one conditional rectified-flow DiT
-  + progressive resolution and conditioning curriculum
-  + domain SFT, weight merging, reward post-training, and distillation
-  -> higher visual/conditional benchmark scores and adaptable specialists
-```
+- **Cosmos-Predict2.5** is a latent video world foundation model with Text2World, Image2World, and Video2World generation surfaces.
+- **Cosmos-Transfer2.5** adds spatial control branches for blur, edge, depth, segmentation, world-scenario maps, and related conditional generation.
 
-This chain supports a video-based world model claim. It does not establish that the base checkpoint estimates environment state, action causality, reward, termination, or policy value. The `robot/action-cond` specialist is the paper's clearest interventional forward-model surface because its generated future is indexed by calibrated Bridge action chunks. [P25-TR, pp.3-4, 8-15, 33-35]
+The report also adapts these backbones into robot, driving, multiview, synthetic-data, and action-conditioned specialists. A specialist result establishes that adaptation surface; it is not automatically a capability of the base checkpoint. [P25-TR, pp.3, 8-10, 17-35]
 
-### 1.2 Conditional distributions
+### 1.2 Predictive surfaces
 
-The base family can be represented as one parameterized model with a variable clean prefix:
+The base family can be written as one conditional video distribution with a variable clean prefix:
 
 ```text
-Text2World:  p_theta(o[1:H] | text)
-Image2World: p_theta(o[2:H] | o[1], text)
+Text2World:  p_theta(o[1:H]   | text)
+Image2World: p_theta(o[2:H]   | o[1], text)
 Video2World: p_theta(o[K+1:H] | o[1:K], text)
 ```
 
-The clean image or video prefix is encoded into the same visual latent sequence as the prediction target, but prefix locations are marked and replaced during denoising. The action specialist changes the query to:
+The action-conditioned robot specialist changes the query to:
 
 ```text
 p_theta(o[t+1:t+K] | o[t], a[t:t+K-1])
 ```
 
-and rolls forward by reusing the final generated frame as the next chunk's visual condition. This converts passive continuation into an action-conditioned observation predictor under one dataset-specific action convention. [P25-TR, pp.9-10, 33-34]
-
-### 1.3 Assumptions
-
-- The WAN2.1 causal VAE preserves the visual state necessary for the target evaluation while compressing time, height, and width by `4 x 8 x 8`.
-- Caption-conditioned internet and Physical AI video provide useful statistical regularities even where physical state and actions are not observed.
-- Clean-prefix masking is sufficient for unifying generation and continuation without separate architectures.
-- Higher-noise training coverage improves recovery from weak correlation and reduces temporal transition artifacts.
-- VideoAlign reward dimensions are aligned enough with human preference to guide post-training without excessive reward exploitation when diffusion loss anchors the update.
-- PAI-Bench quality and VQA-derived domain scores are useful evidence for conditional video generation, but not substitutes for environment-grounded closed-loop evaluation.
+Base text/image/video conditioning models observational futures. Only the specialist with calibrated action inputs provides an explicit interventional forward-model surface. None of these surfaces directly produces reward, value, termination, or a control policy. [P25-TR, pp.8-11, 33-35]
 
 ## 2. Data system
 
-### 2.1 General curation pipeline
+### 2.1 General video curation
 
-The report describes more than 200 million raw videos totaling approximately 35 million hours. Shot segmentation yields more than 6 billion clips between 5 and 60 seconds; the report says approximately 4% survive to form about 200 million training clips. These rounded statements are not arithmetically exact: `200M / 6B = 3.33%`, and the `more than 6B` denominator would imply an even lower ratio. Treat 4% as the authors' approximate retention claim, not a recomputable statistic, unless unrounded counts are supplied. The seven stages are shot-aware splitting, GPU transcoding, crop cleanup, filtering, captioning, semantic deduplication, and sharding. [P25-TR, pp.4-6, Figure 1]
+The report begins with more than 200 million raw videos totaling about 35 million hours. Shot segmentation creates more than 6 billion clips of 5-60 seconds. The pipeline then applies:
 
-Filtering is staged from cheaper to more expensive signals: aesthetic score, motion, OCR/text overlay, perceptual quality, semantic-artifact detection, and a final VLM rejection pass. A content classifier removes games, animation, and other physically unrealistic categories. Captioning divides a clip into five-second windows, uses Qwen2.5-VL-7B, and produces short, medium, and long descriptions. Semantic deduplication and a 26-type classifier support mixture construction and domain-specific retrieval. [P25-TR, pp.4-6]
+```text
+shot-aware splitting
+  -> GPU transcoding
+  -> crop and border cleanup
+  -> staged quality/content filtering
+  -> multi-granularity captioning
+  -> semantic deduplication
+  -> domain-aware sharding and mixture construction
+```
 
-The disclosed counts establish scale and selection pressure, not data reproducibility. The source URLs, exact mixture weights, filter models and thresholds, deduplication radius, train/test decontamination procedure, and retained clip manifest are not released in the report.
+Filtering proceeds from cheaper to more expensive checks: aesthetics, motion, OCR/text overlay, perceptual quality, semantic artifacts, category filtering, and a final VLM rejection pass. Captions are generated in five-second windows by Qwen2.5-VL-7B at short, medium, and long granularity. A 26-type classifier and semantic deduplication support mixture design and domain retrieval. [P25-TR, pp.4-6, Fig.1]
 
-### 2.2 Domain data
+The report says about 4% of candidates survive and also reports roughly 200M retained from more than 6B clips. The rounded ratio is at most 3.33%, so 4% must be preserved as an approximate author statement rather than recomputed as exact. Exact URLs, thresholds, filter checkpoints, deduplication radius, retained manifests, mixture weights, and benchmark decontamination are not disclosed.
 
-Five domain pipelines add robotics, autonomous driving, smart spaces, human dynamics, and physics data. The robotics table reports view-specific retained clip counts rather than interchangeable trajectory counts:
+### 2.2 Physical-AI domain data
 
-| Dataset | Central/wrist | Left | Right |
+Five pipelines add robotics, autonomous driving, smart spaces, human dynamics, and physics. Robotics statistics are view-specific clip counts rather than interchangeable trajectory counts: [P25-TR, pp.6-8, Table 2]
+
+| Dataset | Central or wrist | Left | Right |
 |---|---:|---:|---:|
 | AgiBot-Beta | 194K | 30K | 30K |
 | Bridge | 36K | - | - |
@@ -86,66 +81,100 @@ Five domain pipelines add robotics, autonomous driving, smart spaces, human dyna
 | OpenX | 500 | - | - |
 | RoboMIND | 16K | 6K | 7K |
 
-The driving set contains 3.1 million proprietary 20-second clips from seven synchronized cameras; smart-space post-training uses approximately 40K clips. Dataset-aware captions normalize viewpoint and embodiment while emphasizing task, actions, objects, and state changes. Counts in this table cannot be summed with trajectory-level dataset statistics without resolving units. [P25-TR, pp.6-8, Table 2]
+Driving uses 3.1M proprietary 20-second clips from seven synchronized cameras; smart-space post-training uses about 40K clips. Dataset-aware captions describe viewpoint, embodiment, task, actions, objects, and state changes. These counts establish data scale and selection pressure, not a reproducible mixture.
 
 ### 2.3 Post-training partitions
 
-An InternVideo2-based multi-head classifier assigns high-quality video to five specialist sets, plus a separate 4K cooldown set:
+A multi-head classifier over InternVideo2 features builds five specialist partitions and a separate 4K cooldown set: [P25-TR, p.11, Table 5]
 
-| Domain | Videos |
+| Partition | Videos |
 |---|---:|
-| Object permanence | 10.4M |
-| High motion | 1.0M |
-| Complex scenes | 1.6M |
-| Driving | 3.1M |
-| Robotic manipulation | 730K |
+| object permanence | 10.4M |
+| high motion | 1.0M |
+| complex scenes | 1.6M |
+| driving | 3.1M |
+| robotic manipulation | 730K |
 | 4K cooldown | 388K |
 
-The classifier creates an explicit intervention surface: domain boundaries, confidence thresholds, sampling weights, and caption style can change what each specialist learns. The paper does not disclose the classifier training set, accuracy, overlap policy, or whether a clip may enter multiple domains. [P25-TR, p.11, Table 5]
+The classifier dataset, accuracy, thresholding, overlap policy, and exact sampling weights are not reported.
 
-## 3. Representation and architecture
+## 3. Base method and architecture
 
-### 3.1 Latent observation path
+### 3.1 End-to-end data flow
 
-The causal WAN2.1 VAE maps a 93-frame, 16 FPS video to 24 latent frames using `4 x 8 x 8` compression. A `1 x 2 x 2` patchification then forms DiT tokens. The standard output is therefore approximately 5.8 seconds of decoded observation, and the codec determines which small objects, contact events, text, or gripper-state details can influence the denoiser. [P25-TR, p.9]
-
-The DiT uses repeated self-attention, text cross-attention, and feed-forward blocks modulated by time-dependent adaptive layer normalization. Absolute position embeddings are removed while 3D RoPE is retained to improve reuse across unseen resolution or sequence length. The report lists the following configurations: [P25-TR, p.9, Table 3]
-
-| Field | 2B | 14B |
-|---|---:|---:|
-| Reported layers | 32 | 36 |
-| Model width | 2,048 | 5,120 |
-| FFN width | 8,192 | 20,480 |
-| AdaLN-LoRA rank | 256 | 256 |
-| Attention heads | 16 | 40 |
-| Head dimension | 128 | 128 |
-| Activation / position | GELU / 3D RoPE | GELU / 3D RoPE |
-
-The current 2B model card reports 2,059,174,912 parameters and the current 14B card reports 14,368,048,004. These are checkpoint-repository facts at current revisions, not a guarantee that every reported evaluation used byte-identical assets. [P25-HF-2B; P25-HF-14B]
-
-### 3.2 Text representation
-
-Cosmos-Reason1 replaces the earlier T5 text encoder. Rather than use one final hidden state per token, the pipeline concatenates activations from multiple Reason1 blocks and projects them to 1,024 dimensions before DiT cross-attention. This changes both representation capacity and pretraining provenance, so reported prompt-alignment improvement cannot be assigned solely to the projection without a matched encoder ablation. The Reason1 vision encoder is not used by this paper's base conditioning path; visual input through that encoder is named as future work. [P25-TR, pp.9-10]
-
-### 3.3 Clean-prefix unification
-
-Image2World and Video2World replace the leading noisy latent frames with encoded conditions and concatenate a binary mask channel identifying conditional positions. Loss applies only to target frames. The reusable insight is not merely multi-task training: training and inference share an explicit positional contract for which latent frames are evidence and which are predictions. Misalignment in the number of conditional frames, latent temporal stride, or mask semantics can silently change the task. [P25-TR, pp.9-11]
-
-## 4. Learning system
-
-### 4.1 Rectified-flow objective
-
-For clean visual latent `x`, Gaussian noise `epsilon`, and interpolation time `t`:
+Figure 2 and Sections 3.1-3.2 define this pipeline:
 
 ```text
-x_t = (1 - t) * x + t * epsilon
-v_target = epsilon - x
-L_flow = E ||u_theta(x_t, t, c) - v_target||^2
+text prompt
+  -> tokenizer
+  -> Cosmos-Reason1 hidden states from multiple transformer layers
+  -> concatenate selected layer activations
+  -> project each text token to 1,024 dimensions
+  -> text embeddings for DiT cross-attention
+
+RGB image/video target or visual prefix
+  -> causal WAN2.1 VAE (time x height x width compression = 4 x 8 x 8)
+  -> latent sequence
+  -> 1 x 2 x 2 patchification
+  -> clean prefix tokens + noisy target tokens + binary condition mask
+  -> repeated DiT blocks:
+       timestep-modulated self-attention
+       text cross-attention
+       timestep-modulated feed-forward network
+       3D RoPE positions
+  -> velocity prediction
+  -> numerical flow integration from noise to clean latent
+  -> unpatchify + VAE decoder
+  -> 93-frame, 16-FPS RGB video
 ```
 
-The model predicts a velocity field conditioned on text and optional clean frames. A shifted logit-normal time sampler moves more probability toward high noise as resolution increases. This objective represents multimodal video futures through sampling but does not impose physical conservation, action sensitivity, or calibrated uncertainty. [P25-TR, pp.8-9]
+Text2World has no clean visual prefix; Image2World has an image prefix; Video2World has multiple clean video frames. The same denoising backbone handles all three through prefix replacement and the binary mask rather than separate networks. [P25-TR, pp.8-11, Fig.2]
 
-### 4.2 Progressive curriculum
+### 3.2 Visual tokenizer and token geometry
+
+The causal WAN2.1 VAE compresses time, height, and width by `4 x 8 x 8`. A 93-frame video becomes 24 latent frames; patchification further groups `1 x 2 x 2` latent positions. At 16 FPS, the decoded output is about 5.8 seconds. The codec determines whether small objects, contact, text, gripper state, and other task-relevant details remain available to the transformer. [P25-TR, p.9]
+
+### 3.3 Text conditioning
+
+Cosmos-Reason1 replaces the earlier T5 encoder. Instead of using only one final transformer layer, the pipeline concatenates activations from several Reason1 blocks and projects them to 1,024 dimensions before DiT cross-attention. This mixes local and global language features. The report does not provide a matched T5-versus-Reason1 ablation, so final prompt-alignment gains cannot be assigned to this encoder change alone. Reason1's vision input path is shown as future work, not as a base Predict2.5 visual-conditioning mechanism. [P25-TR, pp.9-10, Fig.2]
+
+### 3.4 DiT denoiser
+
+Each block contains self-attention, text cross-attention, and a feed-forward network. Timestep-conditioned adaptive layer normalization supplies scale, shift, and residual gates. The model removes absolute positional embeddings but retains 3D RoPE, aiming to generalize across resolution and sequence length. [P25-TR, pp.9-10]
+
+| Configuration | 2B | 14B |
+|---|---:|---:|
+| reported layers | 32 | 36 |
+| model width | 2,048 | 5,120 |
+| FFN width | 8,192 | 20,480 |
+| AdaLN-LoRA dimension | 256 | 256 |
+| attention heads | 16 | 40 |
+| head dimension | 128 | 128 |
+| activation / position | GELU / 3D RoPE | GELU / 3D RoPE |
+
+The paper's 32-layer 2B description conflicts with the released 2B configuration exposing 28 transformer blocks; [`codebase.md`](codebase.md) owns that implementation mismatch. Current model cards report approximately 2.059B and 14.368B parameters, but their current revisions are not asserted to be the exact evaluation artifacts. [P25-TR, p.9, Table 3; P25-HF-2B; P25-HF-14B]
+
+### 3.5 Rectified-flow objective
+
+For clean latent `x`, Gaussian noise `epsilon`, condition `c`, and interpolation time `t`:
+
+```text
+x_t      = (1 - t) * x + t * epsilon
+v_target = epsilon - x
+L_flow   = E ||u_theta(x_t, t, c) - v_target||^2
+```
+
+At inference, the learned velocity field transports a noise sample toward a clean latent video. The stochastic generator can represent multiple futures, but the objective does not itself impose conservation laws, action sensitivity, or calibrated uncertainty. [P25-TR, pp.8-9]
+
+### 3.6 Clean-prefix task unification
+
+For Image2World and Video2World, clean encoded prefix frames replace the corresponding noisy frames throughout denoising. A binary mask channel marks which positions are conditions, and loss is applied only to target positions. This positional contract is central: frame count, temporal codec stride, token alignment, and mask semantics determine the task presented to the model. [P25-TR, pp.9-11]
+
+## 4. Training
+
+### 4.1 Progressive pretraining
+
+Training increases both resolution and task diversity: [P25-TR, pp.10-11, Table 4]
 
 | Stage | Tasks | Resolution | Pixel frames |
 |---|---|---:|---:|
@@ -155,114 +184,143 @@ The model predicts a velocity field conditioned on text and optional clean frame
 | 4 | Text2Image + Video2World | `1280 x 704` | 1 or 93 |
 | 5 | Text2Image + Video2World + Text2World | `1280 x 704` | 1 or 93 |
 
-Early video stages sample one or five clean frames and predict the remaining 92 or 88 frames. The final stage samples zero, one, or two clean frames with probabilities `0.5`, `0.25`, and `0.25`. The timestep shift increases from `beta=1` at 256p to `beta=5` at 720p. Five percent of samples are explicitly drawn from the top two percent of the noise distribution; the report attributes fewer abrupt transitions to this intervention but publishes no controlled numeric delta. [P25-TR, pp.10-11, Table 4]
+Early video stages provide one or five clean frames and predict the remaining 92 or 88. The final stage samples zero, one, or two clean frames with probabilities `0.5`, `0.25`, and `0.25`. The logit-normal timestep shift grows from `beta=1` at 256p to `beta=5` at 720p. Five percent of samples are drawn explicitly from the highest two percent of noise because the authors observed abrupt transitions under weaker high-noise coverage; no isolated numeric ablation is reported.
 
-AdamW uses betas `(0.9, 0.999)`, weight decay `0.001`, 2,000 warmup iterations, and linear decay. Peak learning rates are `3e-5` for 2B and `1.3e-5` for 14B. The report omits stage iteration counts, total tokens, batch sizes for base pre-training, wall-clock duration, precision, and total training compute. [P25-TR, p.11]
+AdamW uses betas `(0.9, 0.999)`, weight decay `0.001`, 2,000 warmup iterations, and linear decay. Peak learning rates are `3e-5` for 2B and `1.3e-5` for 14B. Stage steps, global pretraining batch size, total tokens, total compute, and precision are omitted. [P25-TR, p.11]
 
-### 4.3 Specialist SFT and merging
+### 4.2 Domain SFT, cooldown, and merging
 
-One model is trained per domain for 30K iterations at global batch 256 using the last pre-training stage's hyperparameters. Human pairwise results show target-domain SFT wins over base at 42.6%-72.6%, with base wins at 19.0%-23.3% and ties at 8.3%-35.4%; the report omits prompt count, raters, aggregation, and uncertainty. [P25-TR, pp.11-12, Figure 3]
+Five domain models are fine-tuned separately for 30K iterations at global batch 256. Human preference shows each specialist beating the base in its target category, with SFT wins ranging from 42.6% to 72.6%. The report omits sample counts, raters, aggregation, and uncertainty. [P25-TR, pp.11-12, Fig.3]
 
-A separate 4K cooldown linearly decays learning rate to zero. Model soup, TIES, DARE-Linear, and DARE-TIES are swept to create more than 20 merged candidates. Selection first uses a small hand-picked challenge set, then a larger human evaluation. Model soup is selected; Figure 4 shows DARE-Linear as the exception to otherwise comparable merges. The exact coefficients, candidate grid, challenge-set size, and final evaluation sample size are not disclosed, so the final merged result is not exactly reproducible from the report. [P25-TR, pp.12-13, Figure 4]
+A 4K cooldown model decays learning rate to zero. More than 20 merged candidates are constructed with model soup, TIES, DARE-Linear, and DARE-TIES. Candidate selection uses a small hand-picked challenge set and then a larger human evaluation; model soup is selected. Exact coefficients, grid, set sizes, and prompt identities are not disclosed, so the merge cannot be reconstructed exactly. [P25-TR, pp.12-13, Fig.4]
 
-### 4.4 Reward post-training
+### 4.3 Reward post-training
 
-VideoAlign supplies text-alignment, motion-quality, and visual-quality rewards. Each condition produces a group of eight samples using 20 diffusion steps; rewards are normalized within the group in a GRPO-like advantage. The implementation computes gradients for two transition probabilities at a time and accumulates ten such pieces per update. Training runs 256 steps at batch 32. Standard diffusion loss on fine-tuning data regularizes the policy against reward hacking. [P25-TR, pp.13-14; P25-VIDEOALIGN; P25-DDRL]
+VideoAlign provides text-alignment, motion-quality, and visual-quality rewards. Each condition produces eight samples with 20 denoising steps; rewards are normalized within each group. Gradients are accumulated over transition-probability pieces, and a diffusion loss on fine-tuning data regularizes the update against reward exploitation. Training runs 256 updates at batch 32. [P25-TR, pp.13-14; P25-VIDEOALIGN; P25-DDRL]
 
-| Starting 2B state | Mode | Reward sum before | Reward sum after |
+| 2B starting state | Task | Reward sum before | After |
 |---|---|---:|---:|
-| Pre-trained | Text2World | 1.08 | 1.69 |
-| Merged | Text2World | 1.23 | 1.74 |
-| Pre-trained | Image2World | 0.23 | 0.42 |
-| Merged | Image2World | 0.24 | 0.45 |
+| pre-trained | Text2World | 1.08 | 1.69 |
+| merged | Text2World | 1.23 | 1.74 |
+| pre-trained | Image2World | 0.23 | 0.42 |
+| merged | Image2World | 0.24 | 0.45 |
 
-Human votes favor the RL model over its starting state 40.0% versus 18.9% for pre-trained and 46.7% versus 16.3% for merged; ties are 41.1% and 37.0%. Missing judge counts and sampling details limit confidence intervals and attribution. Reward increases are partly circular because the same reward family guides training and evaluation; human comparison is the independent check, but its protocol is under-specified. [P25-TR, pp.13-14, Table 6 and Figure 5]
+Human pairwise votes independently favor the RL model over its start, but judge counts and sampling details are missing. Reward improvement is partly circular because the reward family also trains the model; human evaluation is the independent check.
 
-### 4.5 Timestep distillation and infrastructure
+### 4.4 Timestep distillation
 
-The paper reports rCM, a joint consistency/distribution-matching method, producing four-step 2B samples. Text2World overall score changes `0.768 -> 0.764`; Image2World changes `0.810 -> 0.816`. These results support substantial step reduction with similar aggregate benchmark quality, but they do not report latency, throughput, VRAM, diversity, or long-horizon consistency. The public repository's documented trainable distillation path is DMD2 rather than rCM; that release mismatch is owned by [`codebase.md`](codebase.md). [P25-TR, pp.14-15, Tables 7-8; P25-RCM; P25-DMD2]
+The report applies rCM and evaluates a four-step 2B student. Text2World overall changes `0.768 -> 0.764`; Image2World changes `0.810 -> 0.816`. This supports large denoising-step reduction at similar aggregate benchmark score, but latency, throughput, VRAM, diversity, and long-horizon drift are not reported. The public training code exposes DMD2 rather than the report's rCM path. [P25-TR, pp.14-15, Tables 7-8; P25-RCM; P25-DMD2]
 
-Training infrastructure combines FSDP2 hybrid sharding, Ulysses context parallelism, selective activation checkpointing, and an elastic decoded-latent reward service. At 720p and 93 frames on 4,096 H100 GPUs, the report lists `36.49%` MFU for 2B with context parallelism 2 and `33.08%` for 14B with context parallelism 8. Total tokens and iteration count are absent, so the table cannot be converted into total training cost. [P25-TR, pp.14-15, Table 9]
+### 4.5 Training infrastructure
 
-## 5. Main generation evidence
+The stack combines FSDP2 hybrid sharding, Ulysses context parallelism, selective activation checkpointing, asynchronous checkpointing, and an elastic reward service that decodes latents and computes reward models in a producer-consumer pipeline. At 720p and 93 frames on 4,096 H100 GPUs, the report gives 36.49% MFU for 2B with context parallelism 2 and 33.08% for 14B with context parallelism 8. Missing iteration and token counts prevent conversion to total training cost. [P25-TR, pp.14-15, Table 9]
 
-PAI-Bench Predict defines `Overall = (Domain + Quality) / 2`. Domain is VQA-derived across seven Physical AI domains; Quality aggregates eight adapted video metrics. It is a composite conditional-generation benchmark, not a direct measurement of physical state accuracy or control utility. [P25-TR, pp.15-16; P25-PAIBENCH]
+## 5. Base-model results
+
+PAI-Bench Predict defines `Overall = (Domain + Quality) / 2`. Domain is a VQA-derived score across seven Physical-AI domains; Quality aggregates eight adapted video metrics. It measures conditional generation, not physical state error or closed-loop utility. [P25-TR, pp.15-16; P25-PAIBENCH]
 
 ### 5.1 Text2World
 
 | Model | Domain | Quality | Overall |
 |---|---:|---:|---:|
-| Predict2.5-2B pre-trained | 0.782 | 0.720 | 0.751 |
-| Predict2.5-2B post-trained | 0.804 | 0.732 | 0.768 |
-| Predict2.5-14B pre-trained | 0.791 | 0.722 | 0.757 |
-| Predict2.5-14B post-trained | 0.803 | 0.732 | 0.768 |
+| 2B pre-trained | 0.782 | 0.720 | 0.751 |
+| 2B post-trained | 0.804 | 0.732 | 0.768 |
+| 14B pre-trained | 0.791 | 0.722 | 0.757 |
+| 14B post-trained | 0.803 | 0.732 | 0.768 |
 | Wan2.2-5B | 0.797 | 0.730 | 0.764 |
 | Wan2.2-27B-A14B | 0.810 | 0.728 | 0.769 |
 
-Post-training raises overall score by `+0.017` for 2B and `+0.011` for 14B. The 2B and 14B post-trained variants tie at 0.768 despite different component scores; scale does not improve this aggregate surface. [P25-TR, p.16, Table 10]
+Post-training adds 0.017 for 2B and 0.011 for 14B. Both post-trained scales score 0.768, so this aggregate does not show a scale gain. [P25-TR, p.16, Table 10]
 
-### 5.2 Image2World
+### 5.2 Image2World and human preference
 
 | Model | Domain | Quality | Overall |
 |---|---:|---:|---:|
-| Predict2.5-2B pre-trained | 0.824 | 0.775 | 0.799 |
-| Predict2.5-2B post-trained | 0.840 | 0.779 | 0.810 |
-| Predict2.5-14B pre-trained | 0.835 | 0.777 | 0.806 |
-| Predict2.5-14B post-trained | 0.838 | 0.781 | 0.810 |
+| 2B pre-trained | 0.824 | 0.775 | 0.799 |
+| 2B post-trained | 0.840 | 0.779 | 0.810 |
+| 14B pre-trained | 0.835 | 0.777 | 0.806 |
+| 14B post-trained | 0.838 | 0.781 | 0.810 |
 | Wan2.2-5B | 0.834 | 0.774 | 0.804 |
 | Wan2.2-27B-A14B | 0.841 | 0.772 | 0.806 |
 
-Post-training raises overall score by `+0.011` for 2B and `+0.004` for 14B. Again, both post-trained scales tie at 0.810. Human comparison exposes a scale effect not visible in the aggregate: 2B versus Wan2.1-14B is `33.0%/34.8%/32.2%` Predict/Wan/tie, whereas 14B versus the same baseline is `48.6%/31.8%/19.6%`. The paper does not report sample sizes or significance. [P25-TR, pp.16-17, Table 11 and Figures 6-7]
+Post-training adds 0.011 for 2B and 0.004 for 14B. Both finish at 0.810. Human comparison reveals a scale difference hidden by the aggregate: 2B versus Wan2.1-14B is `33.0/34.8/32.2` Predict/Wan/tie, while 14B versus the same baseline is `48.6/31.8/19.6`. Prompt count, judge count, and significance are not reported. [P25-TR, pp.16-17, Table 11, Figs.6-7]
 
-## 6. Specialist evidence with transfer value
+## 6. Applications and specialist extensions
 
-### 6.1 Action-conditioned forward prediction
+The following subsections follow the report's Section 6 order. Each extension changes the conditional interface, data, or trainable modules; its evidence must remain attached to that named specialist.
 
-Bridge experiments use approximately 20K episodes at `320 x 256`, 5 FPS. Each frame has a seven-dimensional relative gripper action: three translations, three rotations, and a gripper scalar. The paper calls the final value `GripperWidth`, while the released loader describes a binary current open/close state; [`codebase.md`](codebase.md) preserves this interface discrepancy. One hundred official test episodes are sampled. [P25-TR, pp.33-34; P25-CODE-PAPER]
+### 6.1 Cosmos-Transfer2.5 spatial control
+
+Cosmos-Transfer2.5-2B adds four control blocks to the Predict2.5-2B main branch. Unlike Transfer1, which places four blocks near the start, Transfer2.5 inserts one after every seven main blocks, distributing control through depth. Separate branches are trained for blur, edge, depth, and segmentation. Training data includes 14M edge/blur videos, 10M depth videos, and 3M segmentation videos; each control branch trains for 100K iterations at effective batch 64. [P25-TR, pp.17-19]
+
+PAI-Bench Transfer contains 600 videos. Single-control and uniform four-control variants are evaluated for alignment and overall quality. The uniform Transfer2.5 model improves overall quality from 9.24 for Transfer1 to 9.31; per-modality specialists reach higher alignment for their own condition. In autoregressive 93-frame chunks, normalized relative DOVER curves remain more stable than Transfer1 for the tested controls, but this metric is still a perceptual proxy rather than environment-state verification. [P25-TR, pp.18-20, Table 12, Figs.9-10]
+
+### 6.2 Real2Real augmentation for robot policy learning
+
+A dual-arm robot collects 100 teleoperated demonstrations at 10 FPS. Transfer2.5 generates five visually modified versions of each demonstration while retaining the original actions and joint states. A diffusion policy is trained on these augmented observations and evaluated in the base setting plus nine object/environment variations, three trials each. [P25-TR, pp.20-24]
+
+| Policy training data | Total successes |
+|---|---:|
+| original demonstrations only | `1/30` |
+| standard image augmentation | `5/30` |
+| Transfer2.5 video augmentation | `24/30` |
+
+This is evidence for label-preserving Transfer2.5 augmentation under the stated setup. It is not a direct base Predict2.5 result, and the small per-scenario sample leaves wide uncertainty. The validity of retaining actions depends on the generated visual edit not changing task-relevant geometry or action semantics.
+
+### 6.3 Driving simulation
+
+The driving model concatenates up to seven independently encoded 720p views along the latent temporal axis, adds a learned seven-way view embedding, and constructs 3D RoPE separately for each view. Predict2.5-auto/multiview trains for two epochs on 1.5M 20-second, seven-camera clips at global batch 64 and context parallelism 8. Transfer2.5-auto/multiview adds per-view world-scenario-map controls built from HD maps and projected dynamic objects and trains on 140K controlled scenes. Evaluation uses 1,000 disjoint clips. [P25-TR, pp.25-28]
+
+Compared with Predict1-7B-Sample-AV, Predict2.5-2B-auto/multiview improves FVD StyleGAN `63.685 -> 23.060`, FVD I3D `69.613 -> 25.308`, and FID `25.341 -> 12.095`; temporal and cross-camera Sampson errors are mixed relative to real-video references. Transfer2.5 improves several lane and cuboid detection metrics over Transfer1, but not every temporal/cross-view metric. Repurposing the time axis is efficient, yet it couples view ordering with temporal representation and does not create an explicit persistent 3D state. [P25-TR, pp.25-28, Tables 14-15]
+
+### 6.4 Camera-controlled robot multiview generation
+
+The robot extension takes a source video plus target camera trajectories and predicts multiple target views. Source and target video tokens are concatenated along time; camera intrinsics/extrinsics are sampled at the VAE's temporal stride, converted to Plucker raymaps, patchified, and projected into the DiT. The report describes updating self-attention and the camera projection while freezing other components. [P25-TR, pp.28-31]
+
+On 80 in-the-wild manipulation videos and 16 camera trajectories, multiview leaves translation error at 0.08, changes rotation error from `0.19` to `0.20`, and improves cross-view Sampson error from `26.61` to `19.73`. Synchronization improves without uniform camera-pose improvement; that negative rotation interaction must be retained. [P25-TR, pp.30-31, Table 17]
+
+### 6.5 Synthetic video for VLA training
+
+A 14B robot specialist generates instruction-conditioned demonstration videos. The proposed pipeline then recovers pseudo-actions with a latent-action or inverse-dynamics model to form vision-language-action training samples. On DreamGen GR1, the Predict2.5 specialist improves several object, behavior, and environment instruction-following scores over earlier video generators. [P25-TR, pp.31-34, Table 18]
+
+These results establish instruction-conditioned video adaptability. The report does not validate the recovered pseudo-actions or show downstream policy improvement from the generated samples, so the complete VLA-data claim requires an independent action-fidelity and policy experiment.
+
+### 6.6 Action-conditioned robot world generation
+
+The Bridge specialist receives one image and a sequence of seven-dimensional relative gripper actions at 5 FPS, embeds each action with an MLP, and adds the resulting action tensor to DiT timestep embeddings. It generates a future chunk, then autoregressively conditions the next chunk on the last generated frame. About 20K Bridge episodes are used; evaluation samples 100 official test episodes. [P25-TR, pp.33-35]
 
 | Model | PSNR up | SSIM up | Latent L2 down | FVD down |
 |---|---:|---:|---:|---:|
-| Predict1-7B action-conditioned baseline | 21.14 | 0.82 | 0.32 | 190 |
-| Predict2.5-2B `robot/action-cond` | 24.95 | 0.85 | 0.28 | 146 |
+| Predict1-7B action baseline | 21.14 | 0.82 | 0.32 | 190 |
+| Predict2.5-2B action specialist | 24.95 | 0.85 | 0.28 | 146 |
 
-The architecture ablation holds backbone and task family closer than the cross-generation baselines:
+The action-injection ablation is the report's strongest direct specialist-architecture comparison: [P25-TR, pp.34-35, Tables 19-20]
 
-| Action injection | PSNR up | SSIM up | Latent L2 down | FVD down |
+| Injection | PSNR | SSIM | Latent L2 | FVD |
 |---|---:|---:|---:|---:|
-| Time embedding | 24.95 | 0.85 | 0.28 | 146 |
-| Cross-attention | 24.41 | 0.84 | 0.28 | 159 |
-| Channel concatenation | 23.11 | 0.78 | 0.35 | 267 |
+| timestep embedding | 24.95 | 0.85 | 0.28 | 146 |
+| cross-attention | 24.41 | 0.84 | 0.28 | 159 |
+| channel concatenation | 23.11 | 0.78 | 0.35 | 267 |
 
-Time-embedding injection is the best tested interface for this fixed Bridge setup. It does not prove that global action modulation is optimal for other action dimensionalities, variable horizons, multimodal actions, or architectures with native action tokens. No action-counterfactual, feasibility, or closed-loop task-success metric is reported. [P25-TR, pp.34-35, Tables 19-20]
+Timestep injection is best for this fixed Bridge setting. The experiment does not establish universality across embodiments, horizons, action dimensions, or architectures with native action tokens; it also lacks matched action-counterfactual and closed-loop evaluation.
 
-### 6.2 Multiview representation reuse
+## 7. Conclusions and evidence boundaries
 
-The driving specialist concatenates seven views along the latent temporal axis, independently encodes and decodes each view, adds a seven-dimensional learned view embedding, and constructs 3D RoPE separately per view. It trains for two epochs on 1.5M 20-second, seven-camera clips at batch 64 and context parallelism 8; evaluation uses 1,000 disjoint clips. This is a compute-efficient reuse of a temporal DiT, but temporal/view-axis aliasing and cross-view attention are coupled. [P25-TR, pp.24-28]
+The report supports a coherent system claim: large filtered video data, a latent flow DiT, clean-prefix task unification, progressive training, domain adaptation, merge selection, reward optimization, and specialist post-training form a reusable Physical-AI video platform. It does not isolate the causal contribution of every component.
 
-The robot multiview branch adds Plucker raymaps and updates only self-attention plus camera projection. On 80 in-the-wild videos across 16 camera trajectories, multiview leaves translation error at 0.08, worsens rotation error `0.19 -> 0.20`, and improves Sampson error `26.61 -> 19.73`. The negative rotation interaction must be retained: cross-view synchronization improved without uniform camera-pose improvement. [P25-TR, pp.28-31, Table 17]
-
-### 6.3 Synthetic VLA data
-
-The paper post-trains a 14B robot-video specialist, generates instruction-conditioned demonstrations, and proposes recovering pseudo-actions using a latent action or inverse-dynamics model. DreamGen automated judges show improvement on several object, behavior, and environment instruction-following slices. This establishes conditional-video adaptability, not that recovered actions are correct or that a downstream policy improves. The latter requires an independent IDM/action-fidelity check and policy evaluation. [P25-TR, pp.31-34, Table 18]
-
-Transfer2.5 also generates five synthetic variants per each of 100 demonstrations while retaining original joint/action labels; a real-robot study reports `24/30` successes versus `5/30` with standard augmentation and `1/30` without augmentation. This is evidence for a Transfer2.5-controlled augmentation pipeline, not a direct base Predict2.5 effect, and the small 30-trial protocol limits scenario-level uncertainty. [P25-TR, pp.20-24]
-
-## 7. Evidence boundaries and unresolved attribution
-
-| Claim surface | Evidence available | Missing discriminator |
+| Claim surface | Available evidence | Missing discriminator |
 |---|---|---|
-| `CP25-PAPER-GAP-01`: final curation retention | report states `>6B` candidates, `~200M` retained, and `~4%` retention | unrounded candidate/retained counts and the exact denominator used for the percentage |
-| Better prompt/video quality | PAI-Bench, VideoAlign, pairwise preferences | fixed original checkpoint hashes, evaluator versions, seeds, sample counts, confidence intervals |
-| Better physics | VQA/perceptual composites and qualitative samples | object-state/contact trajectories, counterfactual interventions, environment replay |
-| High-noise tail fixes transitions | report observation | isolated metric, exact scheduler implementation, matched compute |
-| Reason1 improves grounding | final architecture and aggregate results | matched T5 versus Reason1 ablation |
-| Domain SFT plus merging avoids forgetting | domain preferences and merged comparisons | exact coefficients, candidate grid, held-out selection protocol |
-| RL improves human preference | reward and pairwise votes | complete run details, sample size, diversity/calibration, reward-model independence |
-| Four-step distillation preserves quality | PAI-Bench teacher/student tables | released rCM recipe, latency, diversity, long-horizon drift |
-| Action specialist models controllable dynamics | held-out video similarity and injection ablation | matched action counterfactuals, action calibration, closed-loop outcome |
-| Multiview is geometrically consistent | pose proxy and Sampson error | persistent scene geometry, occlusion correctness, causal camera calibration |
+| final curation retention | `>6B`, `~200M`, and `~4%` statements | unrounded counts and denominator |
+| stronger physical simulation | PAI-Bench composites, human votes, qualitative videos | object/contact trajectories and environment replay |
+| high-noise sampling removes transition artifacts | author observation | isolated numeric ablation and scheduler identity |
+| Reason1 improves prompt grounding | final architecture and aggregate results | matched encoder ablation |
+| SFT and merging retain generality | specialist preferences and merged comparisons | coefficients, candidate grid, selection-set identities |
+| reward post-training improves preference | reward and pairwise gains | full judge protocol, independent reward, diversity/calibration |
+| four-step rCM preserves quality | aggregate teacher/student tables | released rCM code, latency, diversity, long-horizon drift |
+| multiview specialists model geometry | pose and cross-view proxy metrics | persistent scene state, occlusion correctness, calibrated geometry |
+| action specialist models controllable dynamics | logged-action video metrics and injection ablation | action counterfactuals, feasibility, closed-loop task outcome |
 
-The paper combines data scale, architecture changes, text representation, curriculum, SFT, merge selection, reward optimization, and possibly updated checkpoint assets. Final model comparisons therefore support the composition, not an independent causal effect for every component. Transfer hypotheses should begin from the few isolated interventions rather than treating the whole system as one portable recipe.
+Transfer2.5, driving, multiview, VLA-data, and action-conditioned results belong to their named extensions. [`codebase.md`](codebase.md) owns release mismatches; [`reproduction.md`](reproduction.md) owns what was actually executed; [`optimization-transfer.md`](optimization-transfer.md) turns only evidence-backed mechanisms into falsifiable transfer hypotheses.
 
 ## Sources
 
