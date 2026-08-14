@@ -1,0 +1,39 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: DIASRC-PAPER
+    type: paper
+    title: "Diffusion for World Modeling: Visual Details Matter in Atari"
+    publisher: NeurIPS 2024 Spotlight
+    canonical_url: https://arxiv.org/abs/2405.12399
+    version: "arXiv:2405.12399; NeurIPS 2024 Spotlight"
+    accessed: "2026-08-14"
+    retrieval_hint: Primary evidence for image-space diffusion WM, in-WM RL agent, Atari 100k mean HNS 1.46, and ablations; cross-entry registry remains REP-DIAMOND-2024 in foundations.
+    scope: Canonical paper identity for this entry.
+  - id: DIASRC-CODE-CURRENT
+    type: code_repository
+    title: eloialonso/diamond Atari main snapshot
+    publisher: Eloi Alonso / GitHub
+    canonical_url: https://github.com/eloialonso/diamond/tree/5bcd1599755b4f2fae8e5e079e02f0728e174965
+    revision: 5bcd1599755b4f2fae8e5e079e02f0728e174965
+    version: "inspected main; commit dated 2024-12-06"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for Atari 100k WM and in-model RL training paths; quantitative paper scores bind to this branch surface.
+    scope: Atari implementation; not the CSGO qualitative branch.
+  - id: DIASRC-CODE-CSGO-BRANCH
+    type: code_repository
+    title: eloialonso/diamond CSGO branch (qualitative demo)
+    publisher: Eloi Alonso / GitHub
+    canonical_url: https://github.com/eloialonso/diamond
+    version: "separate git branch; not pinned to Atari main commit"
+    accessed: "2026-08-14"
+    retrieval_hint: Interactive CSGO diffusion engine demos; never bind qualitative CSGO claims to Atari 100k HNS tables on main.
+    scope: Qualitative demo boundary only.
+  - id: DIASRC-HF-MODEL
+    type: model_card
+    title: eloialonso/diamond on Hugging Face
+    publisher: Hugging Face
+    canonical_url: https://huggingface.co/eloialonso/diamond
+    accessed: "2026-08-14"
+    retrieval_hint: Pretrained checkpoints for documented play.py --pretrained demo; not executed in this KB.
+    scope: Public weight and demo artifact surface.

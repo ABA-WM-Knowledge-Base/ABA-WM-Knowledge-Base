@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.representation-learning-and-jepa
 title: Representation Learning and JEPA
 kind: concept
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -85,6 +85,7 @@ A world-model claim is weakened when the predictor has no autonomous state updat
 - [Cosmos3-Nano training](../../models/cosmos3-nano/training.md) owns the documented objectives; JEPA should be treated as an alternative or auxiliary hypothesis unless the source specifies it.
 - [Generator](../../models/cosmos3-nano/generator.md) uses a generative objective and should not be redescribed as JEPA based only on latent prediction.
 - [Action modeling](../../models/cosmos3-nano/action-modeling.md) supplies the model-specific intervention interface required for an action-conditioned representation claim.
+- [V-JEPA 2](../../papers/v-jepa-2/paper.md) instantiates action-free video JEPA pretraining; V-JEPA 2-AC and 2.1 are separate variants and must not inherit each other's robot or representation tables.
 - [Optimization playbook](../../models/cosmos3-nano/optimization-playbook.md) can compare feature-predictive auxiliaries against documented autoregressive or flow objectives with task and regression metrics.
 
 ## Sources

@@ -3,7 +3,7 @@ id: world-model-kb.foundations.decision-making.model-based-rl
 title: Model-Based Reinforcement Learning
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -110,6 +110,9 @@ A model-improvement hypothesis is falsified when predictive fit rises but realiz
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) can supply generated futures; their use as MBRL experience requires independent calibration and task semantics.
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) is supervised/post-trained policy evidence, not automatically evidence of MBRL.
 - [Cosmos3-Nano data](../../models/cosmos3-nano/data.md), [training](../../models/cosmos3-nano/training.md), and [evaluation](../../models/cosmos3-nano/evaluation.md) expose model-specific variables and reported results.
+- [DreamerV3](../../papers/dreamerv3/paper.md) instantiates imagination-based actor-critic with a compact RSSM under a fixed hyperparameter set; Nature and arXiv titles must not be collapsed.
+- [TD-MPC2](../../papers/td-mpc2/paper.md) instantiates TD-trained latent models with MPPI; 104-task single-hyperparameter claims remain bound to the ICLR 2024 protocol.
+- [DIAMOND](../../papers/diamond/paper.md) instantiates agent training inside an image-space diffusion world model on Atari 100k.
 - [Paper entries](../../papers/README.md) can preserve Dyna, VAML, PETS, MBPO, PlaNet, Dreamer, MuZero, and TD-MPC2 algorithm details and experiments.
 
 ## Sources

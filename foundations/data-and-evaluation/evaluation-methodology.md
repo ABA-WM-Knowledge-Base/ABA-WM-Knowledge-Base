@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.evaluation-methodology
 title: World-Model Evaluation Methodology
 kind: reference
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -125,6 +125,8 @@ Reproduction states remain distinct: a result reported by a source, a command do
 ## Cross-part instantiations
 
 - [IRASim](../../papers/irasim/paper.md) separates paired video reconstruction, human preference, simulated policy ordering, candidate-ranking utility, and real-robot outcomes; its small-task correlation and coupled value-model evidence illustrate why these layers cannot be substituted for one another.
+- [DIAMOND](../../papers/diamond/paper.md) binds Atari 100k human-normalized scores to the main branch; CSGO is a separate qualitative surface.
+- [OccWorld](../../papers/occworld/paper.md) binds occupancy and planning metrics to nuScenes license terms and named OccWorld variants.
 - [Cosmos3-Nano evaluation](../../models/cosmos3-nano/evaluation.md) owns reported benchmark values, task modes, metric directions, and comparison conditions.
 - [Cosmos3-Nano limitations](../../models/cosmos3-nano/limitations.md) owns known model-specific gaps and unsupported inferences.
 - [Cosmos3-Nano reproduction](../../models/cosmos3-nano/reproduction.md) separates documented capability from locally observed execution state.

@@ -1,0 +1,85 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: IVG-PAPER
+    type: paper
+    title: "iVideoGPT: Interactive VideoGPTs are Scalable World Models"
+    publisher: Neural Information Processing Systems (NeurIPS) 2024 / arXiv
+    canonical_url: https://arxiv.org/abs/2405.15223
+    version: "arXiv:2405.15223; camera-ready v3 noted 2024-11-01; NeurIPS 2024"
+    accessed: "2026-08-14"
+    retrieval_hint: Use the camera-ready v3 artifact for tokenizer design, autoregressive modeling objective, OXE pretraining protocol, downstream MBRL/planning experiments, and tables.
+    scope: Canonical paper identity and primary evidence for this entry.
+  - id: IVG-CODE
+    type: code_repository
+    title: thuml/iVideoGPT maintained repository snapshot
+    publisher: Tsinghua University / GitHub
+    canonical_url: https://github.com/thuml/iVideoGPT/tree/d601d5cac9e96c6aa0c17cb37ed6a7c7ca1fb210
+    revision: d601d5cac9e96c6aa0c17cb37ed6a7c7ca1fb210
+    version: "inspected commit dated 2025-09-23"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for compressive conditional VQGAN training, autoregressive transformer code, finetuning scripts, and evaluation utilities.
+    scope: Public implementation identity pinned for mechanism-to-code mapping.
+  - id: IVG-HF-COLLECTION
+    type: model_card
+    title: thuml/iVideoGPT Hugging Face collection
+    publisher: thuml / Hugging Face
+    canonical_url: https://huggingface.co/collections/thuml/ivideogpt-674c59cae32231024d82d6c5
+    version: "collection binding ivideogpt-oxe checkpoints"
+    accessed: "2026-08-14"
+    retrieval_hint: Use to select named checkpoints; do not treat later RLVR-World 2025 artifacts as iVideoGPT evidence.
+    scope: Checkpoint naming and artifact grouping surface.
+  - id: IVG-HF-OXE-64-ACT-FREE
+    type: model_card
+    title: ivideogpt-oxe-64-act-free
+    publisher: thuml / Hugging Face
+    canonical_url: https://huggingface.co/thuml/ivideogpt-oxe-64-act-free
+    version: "64-token context; action-free pretraining variant"
+    accessed: "2026-08-14"
+    retrieval_hint: Bind action-free OXE pretrain claims to this checkpoint name.
+    scope: Named weight identity for act-free comparisons.
+  - id: IVG-HF-OXE-64-ACT-COND
+    type: model_card
+    title: ivideogpt-oxe-64-act-cond
+    publisher: thuml / Hugging Face
+    canonical_url: https://huggingface.co/thuml/ivideogpt-oxe-64-act-cond
+    version: "64-token context; action-conditioned variant"
+    accessed: "2026-08-14"
+    retrieval_hint: Bind action-conditioned video prediction and control claims to this checkpoint.
+    scope: Named weight identity for action-conditioned rollouts.
+  - id: IVG-HF-OXE-64-GOAL-COND
+    type: model_card
+    title: ivideogpt-oxe-64-goal-cond
+    publisher: thuml / Hugging Face
+    canonical_url: https://huggingface.co/thuml/ivideogpt-oxe-64-goal-cond
+    version: "64-token context; goal-conditioned variant"
+    accessed: "2026-08-14"
+    retrieval_hint: Bind goal-conditioned planning/visual planning claims to this checkpoint.
+    scope: Named weight identity for goal conditioning.
+  - id: IVG-HF-OXE-256
+    type: model_card
+    title: ivideogpt-oxe-256
+    publisher: thuml / Hugging Face
+    canonical_url: https://huggingface.co/thuml/ivideogpt-oxe-256
+    version: "256-token context variant"
+    accessed: "2026-08-14"
+    retrieval_hint: Bind long-context scaling claims to this checkpoint rather than the 64-token variants.
+    scope: Named weight identity for context-length comparisons.
+  - id: IVG-HF-OXE-MEDIUM
+    type: model_card
+    title: ivideogpt-oxe-medium
+    publisher: thuml / Hugging Face
+    canonical_url: https://huggingface.co/thuml/ivideogpt-oxe-medium
+    version: "medium model scale variant"
+    accessed: "2026-08-14"
+    retrieval_hint: Bind medium-scale parameter comparisons to this checkpoint.
+    scope: Named weight identity for model-size ablations.
+  - id: IVG-PROJECT
+    type: official_blog
+    title: iVideoGPT project page
+    publisher: thuml authors
+    canonical_url: https://thuml.github.io/iVideoGPT/
+    version: "mutable project page reflecting NeurIPS 2024 paper"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for official videos and the interactive world-model presentation; numerical claims remain paper-owned.
+    scope: Mutable presentation surface.

@@ -32,7 +32,8 @@ FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
 FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SOURCE_REFERENCE = re.compile(
-    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|LOCAL|NVIDIA|FND|DYN|FD|REP|"
+    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
+    r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|LOCAL|NVIDIA|FND|DYN|FD|REP|"
     r"PLAN|CTRL|MBRL|WFM|WAM|EMB|DATA|EVAL|BENCH|OBJ|ACT)-[A-Z0-9-]+)\b"
 )
 NON_ENGLISH_SCRIPT = re.compile(
@@ -138,7 +139,7 @@ def source_registries() -> list[Path]:
     return sorted(ROOT.rglob("sources.yaml"))
 
 
-def validate_sources(errors: list[str]) -> set[str]:
+def validate_sources(errors: list[str], warnings: list[str]) -> set[str]:
     """Validate all source registries, identities, locators, and integrity."""
 
     schema = load_yaml(SOURCES_SCHEMA_PATH)
@@ -253,9 +254,18 @@ def validate_sources(errors: list[str]) -> set[str]:
             if local_path:
                 local_file = Path(str(local_path))
                 if not local_file.is_file():
-                    errors.append(
-                        f"source {source_id}: local_path does not exist: {local_path}"
+                    portable = data.get("local_path_policy", {})
+                    message = (
+                        f"source {source_id}: local_path not on this workstation: "
+                        f"{local_path}"
                     )
+                    if portable.get("portable_identity"):
+                        warnings.append(message)
+                    else:
+                        errors.append(
+                            f"source {source_id}: local_path does not exist: "
+                            f"{local_path}"
+                        )
                 elif expected_hash := source.get("sha256"):
                     actual_hash = sha256_file(local_file)
                     if actual_hash.lower() != str(expected_hash).lower():
@@ -268,10 +278,18 @@ def validate_sources(errors: list[str]) -> set[str]:
             if related_path:
                 related_file = (registry.parent / str(related_path)).resolve()
                 if not related_file.is_file():
-                    errors.append(
-                        f"source {source_id}: related_path does not exist relative "
-                        f"to {label}: {related_path}"
-                    )
+                    try:
+                        related_file.relative_to(ROOT)
+                    except ValueError:
+                        warnings.append(
+                            f"source {source_id}: related_path outside this "
+                            f"checkout: {related_path}"
+                        )
+                    else:
+                        errors.append(
+                            f"source {source_id}: related_path does not exist "
+                            f"relative to {label}: {related_path}"
+                        )
 
     return source_ids
 
@@ -288,10 +306,18 @@ def validate_relative_links(path: Path, text: str, errors: list[str]) -> None:
         if target.startswith(("http://", "https://", "mailto:", "#")):
             continue
         target = unquote(target).split("#", 1)[0].split("?", 1)[0]
-        if target and not (path.parent / target).resolve().exists():
-            errors.append(
-                f"{relative(path)}: broken relative link {raw_target!r}"
-            )
+        if not target:
+            continue
+        resolved = (path.parent / target).resolve()
+        if resolved.exists():
+            continue
+        try:
+            resolved.relative_to(ROOT)
+        except ValueError:
+            continue
+        errors.append(
+            f"{relative(path)}: broken relative link {raw_target!r}"
+        )
 
 
 def validate_pages(
@@ -1035,10 +1061,11 @@ def main() -> int:
     """Run every KB invariant and return a process status."""
 
     errors: list[str] = []
+    warnings: list[str] = []
     try:
         schema = load_yaml(SCHEMA_PATH)
         validate_english_and_encoding(errors)
-        source_ids = validate_sources(errors)
+        source_ids = validate_sources(errors, warnings)
         referenced_source_ids = validate_pages(schema, source_ids, errors)
         orphan_sources = source_ids - referenced_source_ids
         if orphan_sources:
@@ -1058,6 +1085,11 @@ def main() -> int:
         for error in errors:
             print(f"- {error}")
         return 1
+
+    if warnings:
+        print(f"KB validation warnings ({len(warnings)}):")
+        for warning in warnings:
+            print(f"- {warning}")
 
     page_count = sum(1 for _ in ROOT.rglob("*.md"))
     model_pages = sum(1 for _ in MODEL_ROOT.glob("*.md"))

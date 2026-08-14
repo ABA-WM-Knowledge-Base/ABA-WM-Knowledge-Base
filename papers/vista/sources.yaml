@@ -1,0 +1,40 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: VISTA-PAPER
+    type: paper
+    title: "Vista: A Generalizable Driving World Model with High Fidelity and Versatile Controllability"
+    publisher: Neural Information Processing Systems (NeurIPS) 2024 / arXiv
+    canonical_url: https://arxiv.org/abs/2405.17398
+    version: "arXiv:2405.17398; NeurIPS 2024"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for driving future prediction architecture, control modes (trajectory/command/steer/goal), learned reward without GT actions, OpenDV data references, and quantitative driving benchmarks.
+    scope: Canonical paper identity and primary evidence for this entry. Do not cite Wayve GAIA as this model's implementation.
+  - id: VISTA-CODE
+    type: code_repository
+    title: OpenDriveLab/Vista maintained repository snapshot
+    publisher: OpenDriveLab / GitHub
+    canonical_url: https://github.com/OpenDriveLab/Vista/tree/cc9821b4253ca7987c32757613d2fc2448fa9f5d
+    revision: cc9821b4253ca7987c32757613d2fc2448fa9f5d
+    version: "inspected commit dated 2025-07-02"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for training configs, sampling scripts, control interfaces, low-VRAM flags, and evaluation utilities.
+    scope: Public implementation identity pinned for mechanism-to-code mapping.
+  - id: VISTA-HF
+    type: model_card
+    title: OpenDriveLab/Vista
+    publisher: OpenDriveLab / Hugging Face
+    canonical_url: https://huggingface.co/OpenDriveLab/Vista
+    version: "vista.safetensors; README notes earlier EMA merge error—use latest upload"
+    accessed: "2026-08-14"
+    retrieval_hint: Download the latest `vista.safetensors` revision advertised on the model card; discard weights known to suffer from the documented EMA merge error in an earlier upload.
+    scope: Primary public weight identity for inference-oriented reproduction.
+  - id: VISTA-OPENDV
+    type: dataset
+    title: OpenDV driving video dataset (paper reference)
+    publisher: OpenDriveLab / community release per paper
+    canonical_url: https://github.com/OpenDriveLab/DriveAGI
+    version: "dataset identity referenced by Vista paper training narrative"
+    accessed: "2026-08-14"
+    retrieval_hint: Use paper and OpenDriveLab documentation to locate OpenDV splits and licensing; exact snapshot must be pinned per reproduction run.
+    scope: Training data identity referenced by the paper; not a substitute for the Vista checkpoint.

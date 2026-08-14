@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.video-world-model
 title: Video World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -88,6 +88,10 @@ Independent environment replay is stronger evidence than action-video self-consi
 - [Paper entries](../../papers/README.md) preserve exact protocols for representative video world models.
 - [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) instantiates latent rectified-flow video prediction, clean visual prefixes, and a Bridge action-conditioned specialist; its paper entry preserves exact protocols and evidence limits.
 - [IRASim](../../papers/irasim/paper.md) instantiates SDXL-latent trajectory-to-video diffusion with a clean historical prefix, per-frame action modulation, autoregressive clip chaining, and downstream candidate ranking.
+- [iVideoGPT](../../papers/ivideogpt/paper.md) instantiates an autoregressive interactive video world model over OXE; results bind to named action-free versus action-conditioned checkpoints, and RLVR-World is a later separate paper.
+- [Vista](../../papers/vista/paper.md) instantiates a controllable driving video world model; it is not Wayve GAIA, and local high-VRAM sampling is not attempted.
+- [DIAMOND](../../papers/diamond/paper.md) instantiates pixel-space diffusion world modeling for Atari MBRL; CSGO-branch qualitative claims must not inherit Atari 100k scores.
+- [Cosmos Policy](../../papers/cosmos-policy/paper.md) reuses a Predict2 video denoiser as a robot policy via latent-frame injection rather than as a standalone video-generation benchmark.
 
 ## Sources
 

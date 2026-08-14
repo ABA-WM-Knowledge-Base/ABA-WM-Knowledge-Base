@@ -1,0 +1,31 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: VJ2-PAPER
+    type: paper
+    title: "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2506.09985
+    version: "arXiv:2506.09985"
+    accessed: "2026-08-14"
+    retrieval_hint: Primary preprint; tag every claim with V-JEPA 2 vs V-JEPA 2-AC vs V-JEPA 2.1. Foundation ID OBJ-VJEPA2-2025 is not duplicated here.
+    scope: Paper snapshot for mechanisms and experiments in this entry.
+  - id: VJ2-CODE
+    type: code_repository
+    title: facebookresearch/vjepa2 maintained repository snapshot
+    publisher: Meta / GitHub
+    canonical_url: https://github.com/facebookresearch/vjepa2/tree/204698b45b3712590f06245fbfba32d3be539812
+    revision: 204698b45b3712590f06245fbfba32d3be539812
+    version: "inspected main; commit dated 2026-03-23"
+    accessed: "2026-08-14"
+    retrieval_hint: Pretraining, action-conditioned (AC) finetune, latent planning demos, and optional V-JEPA 2.1 checkpoints at pinned commit.
+    scope: Public implementation; variant labels in code may differ from paper section titles—map explicitly.
+  - id: VJ2-PROJECT
+    type: official_blog
+    title: V-JEPA 2 project and release materials
+    publisher: Meta AI
+    canonical_url: https://ai.meta.com/research/publications/v-jepa-2-self-supervised-video-models-enable-understanding-prediction-and-planning/
+    version: "mutable publication page"
+    accessed: "2026-08-14"
+    retrieval_hint: High-level videos and summaries; numerical robot results must cite VJ2-PAPER 2-AC sections.
+    scope: Presentation surface for action-free pretrain narrative.

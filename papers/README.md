@@ -3,7 +3,7 @@ id: world-model-kb.papers
 title: Part II - Representative Papers
 kind: index
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -30,6 +30,16 @@ Paper-specific evidence remains canonical in its entry. When a mechanism, formal
 |---|---|---|
 | [Cosmos-Predict2.5](cosmos-predict2-5/README.md) | Video-based latent world foundation model | Flow-based video prediction, curation, conditional-frame curriculum, post-training, Transfer2.5 and specialist applications, implementation boundary, reproduction contract, and transferable interventions |
 | [IRASim](irasim/README.md) | Action-conditioned visual forward model for robot manipulation | Trajectory-to-video diffusion, frame-level action alignment, failure-rollout data, policy evaluation, model-based planning, released-code boundary, and transferable interventions |
+| [Cosmos Policy](cosmos-policy/README.md) | Video world model post-trained as a visuomotor policy | Predict2-2B latent-frame injection, joint policy/world-model/value training, LIBERO/RoboCasa/ALOHA, dual planning checkpoint, and the Predict2 versus Predict2.5 code-tree split |
+| [DreamZero](dreamzero/README.md) | World action model | Joint video-action prediction evaluated as a closed-loop policy, DROID/AgiBot 14B checkpoints, and scoped zero-shot language |
+| [LAPA](lapa/README.md) | Latent-action pretraining | Unlabeled-video latent-action quantization, remapping to robot actions, Open-X finetuning; not a Genie-style interactive environment generator |
+| [iVideoGPT](ivideogpt/README.md) | Interactive autoregressive video world model | Compressive VQ plus GPT-style multimodal prediction on OXE, with results bound to named action-free versus action-conditioned checkpoints |
+| [DreamerV3](dreamerv3/README.md) | Compact latent MBRL | Nature RSSM imagination agent, fixed-hyperparameter cross-domain evidence, and a public DreamerV2-based reimplementation boundary |
+| [TD-MPC2](td-mpc2/README.md) | Decoder-free latent planning | Temporal-difference latent dynamics with MPPI, 104-task single-hyperparameter claims, and post-paper Q-ensemble initialization fixes |
+| [V-JEPA 2](v-jepa-2/README.md) | Non-generative predictive representation | Strict separation of V-JEPA 2, 2-AC, and 2.1, plus latent-planning evidence that must not leak across variants |
+| [DIAMOND](diamond/README.md) | Pixel-space diffusion world model | Atari 100k MBRL inside an image-space diffusion model, with the CSGO branch kept as a separate qualitative surface |
+| [OccWorld](occworld/README.md) | 3D occupancy driving world model | Occupancy-token forecasting plus ego-trajectory prediction on nuScenes, including license and variant boundaries |
+| [Vista](vista/README.md) | Controllable driving video world model | OpenDV control modes and official weights; not Wayve GAIA; high-VRAM sampling is not locally attempted |
 
 An active entry is evidence about that named work, not a claim that its findings generalize to every model. Candidate families or titles are not KB facts until their entries exist.
 

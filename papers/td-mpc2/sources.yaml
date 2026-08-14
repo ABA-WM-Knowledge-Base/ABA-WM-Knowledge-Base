@@ -1,0 +1,22 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: TDMPC2-PAPER
+    type: paper
+    title: "TD-MPC2: Scalable, Robust World Models for Continuous Control"
+    publisher: ICLR 2024 / arXiv
+    canonical_url: https://arxiv.org/abs/2310.16828
+    version: "arXiv:2310.16828; ICLR 2024"
+    accessed: "2026-08-14"
+    retrieval_hint: Canonical algorithm, 104-task single-hparam experiments, 317M multitask agent. Foundation ID MBRL-TDMPC2-2024 not duplicated.
+    scope: Peer-reviewed paper evidence for this entry.
+  - id: TDMPC2-CODE
+    type: code_repository
+    title: nicklashansen/tdmpc2 maintained repository snapshot
+    publisher: Nicklas Hansen / GitHub
+    canonical_url: https://github.com/nicklashansen/tdmpc2/tree/e9f59321933cbc8e11a002b842adc7d4ffae8ff1
+    revision: e9f59321933cbc8e11a002b842adc7d4ffae8ff1
+    version: "inspected main; commit dated 2026-07-13; includes Q-ensemble init fix post-paper"
+    accessed: "2026-08-14"
+    retrieval_hint: Training, evaluation, MPPI planner, 300+ checkpoints; bind paper numbers to pre-fix commit if strict replication required.
+    scope: Implementation and checkpoint bundle; maintenance commits are not retroactive paper evidence.

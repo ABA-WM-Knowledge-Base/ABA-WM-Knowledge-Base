@@ -1,0 +1,31 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: OCCSRC-PAPER
+    type: paper
+    title: "OccWorld: Learning a 3D Occupancy World Model for Autonomous Driving"
+    publisher: ECCV 2024
+    canonical_url: https://arxiv.org/abs/2311.16038
+    version: "arXiv:2311.16038; ECCV 2024"
+    accessed: "2026-08-14"
+    retrieval_hint: Primary evidence for VQ-VAE occupancy tokenizer, GPT-like spatial-temporal forecasting, joint ego trajectory prediction, OccWorld-O variant, and nuScenes metrics; cross-entry registry remains REP-OCCWORLD-2024 in foundations.
+    scope: Canonical paper identity for this entry.
+  - id: OCCSRC-CODE-CURRENT
+    type: code_repository
+    title: wzzheng/OccWorld public snapshot
+    publisher: Wenzhao Zheng / GitHub
+    canonical_url: https://github.com/wzzheng/OccWorld/tree/1ee7f77ecc4c984a4f7f6411d95c2e6e73806b6e
+    revision: 1ee7f77ecc4c984a4f7f6411d95c2e6e73806b6e
+    version: "inspected commit dated 2024-04-12"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for VQ-VAE, transformer training configs, nuScenes occupancy dataloaders, and visualize_demo.py; README historically misspelled visulize_demo.py.
+    scope: Public implementation identity at pinned commit.
+  - id: OCCSRC-NUSCENES
+    type: dataset
+    title: nuScenes dataset terms and download portal
+    publisher: Motional / nuScenes
+    canonical_url: https://www.nuscenes.org/
+    version: "license-gated; terms block casual local eval without registration"
+    accessed: "2026-08-14"
+    retrieval_hint: Required for full metric reproduction; occupancy labels via Occ3D/OpenOccup pipelines referenced by OccWorld README.
+    scope: Data and license boundary; this entry does not redistribute nuScenes or derived labels.
