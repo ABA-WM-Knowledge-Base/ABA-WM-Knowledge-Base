@@ -1,5 +1,5 @@
 schema_version: 3
-as_of: "2026-08-11"
+as_of: "2026-08-13"
 sources:
   - id: FND-KALMAN-1960
     type: paper
@@ -409,3 +409,87 @@ sources:
     version: DOI 10.1609/aaai.v32i1.11694
     canonical_url: https://ojs.aaai.org/index.php/AAAI/article/view/11694
     accessed: "2026-08-11"
+  - id: DATA-SORSCHER-2022
+    type: paper
+    title: "Beyond neural scaling laws: beating power law scaling via data pruning"
+    publisher: NeurIPS 2022
+    version: "arXiv:2206.14486"
+    canonical_url: https://arxiv.org/abs/2206.14486
+    accessed: "2026-08-06"
+  - id: DATA-MIMICGEN-2023
+    type: paper
+    title: "MimicGen: A Data Generation System for Scalable Robot Learning using Human Demonstrations"
+    publisher: CoRL 2023
+    version: "arXiv:2310.17596"
+    canonical_url: https://arxiv.org/abs/2310.17596
+    accessed: "2026-08-06"
+  - id: DATA-ATHENA-2026
+    type: paper
+    title: "ATHENA: Accelerated Multi-Task Heterogeneous Influence Functions for Robot Data Curation"
+    publisher: arXiv
+    version: "arXiv:2606.16208"
+    canonical_url: https://arxiv.org/abs/2606.16208
+    accessed: "2026-08-08"
+  - id: DATA-DATAMIL-2025
+    type: paper
+    title: "DataMIL: Selecting Data for Robot Imitation Learning with Datamodels"
+    publisher: arXiv
+    version: "arXiv:2505.09603"
+    canonical_url: https://arxiv.org/abs/2505.09603
+    accessed: "2026-08-06"
+  - id: DATA-FAKTUAL-2026
+    type: paper
+    title: "Diversity You Can Actually Measure: A Fast, Model-Free Diversity Metric for Robotics Datasets"
+    publisher: arXiv
+    version: "arXiv:2603.11634"
+    canonical_url: https://arxiv.org/abs/2603.11634
+    accessed: "2026-08-08"
+  - id: DATA-SCIZOR-2025
+    type: paper
+    title: "SCIZOR: A Self-Supervised Approach to Data Curation for Large-Scale Imitation Learning"
+    publisher: arXiv
+    version: "arXiv:2505.22626"
+    canonical_url: https://arxiv.org/abs/2505.22626
+    accessed: "2026-08-08"
+  - id: DATA-PERCLASS-2025
+    type: paper
+    title: "Class-Proportional Coreset Selection for Difficulty-Separable Data"
+    publisher: arXiv
+    version: "arXiv:2507.10904"
+    canonical_url: https://arxiv.org/abs/2507.10904
+    accessed: "2026-08-06"
+  - id: DATA-PSD-2026
+    type: paper
+    title: "An Efficient Metric for Data Quality Measurement in Imitation Learning"
+    publisher: arXiv
+    version: "arXiv:2605.01544"
+    canonical_url: https://arxiv.org/abs/2605.01544
+    accessed: "2026-08-06"
+  - id: DATA-DEMOSCORE-2025
+    type: paper
+    title: "Curating Demonstrations using Online Experience"
+    publisher: arXiv
+    version: "arXiv:2503.03707"
+    canonical_url: https://arxiv.org/abs/2503.03707
+    accessed: "2026-08-06"
+  - id: DATA-DREAMGEN-2025
+    type: paper
+    title: "DreamGen: Unlocking Generalization in Robot Learning through Video World Models"
+    publisher: arXiv
+    version: "arXiv:2505.12705v2"
+    canonical_url: https://arxiv.org/abs/2505.12705
+    accessed: "2026-08-08"
+  - id: DATA-DATAQUALITY-2023
+    type: paper
+    title: "Data Quality in Imitation Learning"
+    publisher: NeurIPS 2023
+    version: "arXiv:2306.02437"
+    canonical_url: https://arxiv.org/abs/2306.02437
+    accessed: "2026-08-06"
+  - id: DATA-DIVERSITY-2026
+    type: paper
+    title: "Geometric Entropy: When Trajectory Diversity Helps and Hurts in Imitation Learning"
+    publisher: arXiv
+    version: "arXiv:2606.20871"
+    canonical_url: https://arxiv.org/abs/2606.20871
+    accessed: "2026-08-06"

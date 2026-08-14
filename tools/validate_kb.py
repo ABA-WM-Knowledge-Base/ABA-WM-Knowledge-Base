@@ -32,7 +32,7 @@ FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
 FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SOURCE_REFERENCE = re.compile(
-    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
+    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|MIMICGEN|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
     r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|LOCAL|NVIDIA|FND|DYN|FD|REP|"
     r"PLAN|CTRL|MBRL|WFM|WAM|EMB|DATA|EVAL|BENCH|OBJ|ACT)-[A-Z0-9-]+)\b"
 )

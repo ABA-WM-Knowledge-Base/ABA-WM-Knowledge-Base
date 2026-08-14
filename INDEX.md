@@ -17,7 +17,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Knowledge area | Entry point | Current scope |
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
-| Representative methods and papers | [Papers](papers/README.md) | Twelve active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
+| Representative methods and papers | [Papers](papers/README.md) | Thirteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -45,6 +45,7 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 |---|---|---|---|
 | Cosmos-Predict2.5 | Video-based latent world foundation model | Video curation, rectified-flow DiT, clean-prefix task unification, domain SFT and merging, reward post-training, distillation, Transfer2.5, robot/driving/multiview applications, and action-conditioned specialists | [Entry](papers/cosmos-predict2-5/README.md) |
 | IRASim | Action-conditioned visual forward model for robot manipulation | Latent diffusion transformer, frame-level action conditioning, trajectory prediction, failure-rollout adaptation, policy evaluation, model-based planning, and implementation/reproduction boundaries | [Entry](papers/irasim/README.md) |
+| MimicGen | Demonstration-generation system for imitation learning | Object-centric segment replay, success-only acceptance and its measured initial-state bias, generation-rate/policy-success decoupling, selection-strategy ablations, and stratified-acceptance transfer hypotheses | [Entry](papers/mimicgen/README.md) |
 | Cosmos Policy | Video WM post-trained as a visuomotor policy | Predict2-2B latent-frame injection, joint policy/world-model/value training, LIBERO/RoboCasa/ALOHA, dual planning checkpoint, Predict2 versus Predict2.5 code split | [Entry](papers/cosmos-policy/README.md) |
 | DreamZero | World action model | Joint video-action WAM, DROID/AgiBot 14B checkpoints, scoped zero-shot policy language, H100/GB200 inference not locally executed | [Entry](papers/dreamzero/README.md) |
 | LAPA | Latent-action pretraining | Unlabeled-video latent-action quantization, robot-action remapping, Open-X finetuning; not Genie | [Entry](papers/lapa/README.md) |

@@ -28,5 +28,6 @@ This subpart owns data identity, sampling, supervision, coverage, leakage, evalu
 |---|---|
 | [Datasets and supervision](datasets-and-supervision.md) | Data domains, sequence construction, labels, synthetic data, filtering, mixture design, contamination, and provenance |
 | [Evaluation methodology](evaluation-methodology.md) | Capability decomposition, one-step and rollout metrics, physical and causal validity, downstream control, calibration, protocols, and statistical comparison |
+| [Data curation and filtering](data-curation-and-filtering.md) | The selection operator over candidate pools: quality scores, predicates, influence, diversity, and stratification, their retention-budget semantics, and coverage consequences |
 
 Evidence criteria guide interpretation and strategy selection; they do not schedule experiments or determine AIBuildAI stopping and retry behavior.

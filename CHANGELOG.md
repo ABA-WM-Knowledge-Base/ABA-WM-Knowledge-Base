@@ -21,6 +21,11 @@ This file records changes that affect retrieval metadata, canonical ownership, s
 - Linked the new entries from applicable Foundation Cross-part instantiations without rewriting Foundation definitions, and without pushing the local KB copy to GitHub.
 - Honored documented `local_path_policy`: a missing workstation PDF or reproduction path is a warning when `portable_identity` is set; relative links that point outside this checkout are not treated as KB-internal broken links.
 
+## 0.8.1 - 2026-08-13
+
+- Added `foundations/data-and-evaluation/data-curation-and-filtering.md` as the canonical owner for candidate-pool selection operators: quality top-k, outcome predicates, influence, diversity, redundancy removal, supervised quotas, and label-free stratification. Registered the supporting `DATA-*` sources and retrieval-index associations.
+- Added MimicGen as a representative-paper entry for demonstration generation and data curation: paper evidence with page locators, the official implementation pinned at `NVlabs/mimicgen` commit `72bd767c`, inspection-only reproduction state, and `MG-XFER-01` through `MG-XFER-04` transfer hypotheses. Registered the `MIMICGEN-*` sources and extended the source-reference prefix whitelist.
+
 ## 0.8.0 - 2026-08-13
 
 - Rebuilt both representative-paper `paper.md` pages around the source papers' section order: research problem, complete end-to-end architecture, data and training protocol, experimental setup, results, applications, and evidence boundaries.

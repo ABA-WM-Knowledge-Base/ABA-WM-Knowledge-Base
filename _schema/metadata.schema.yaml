@@ -64,6 +64,7 @@ paper_entry:
   active_entries:
     - cosmos-predict2-5
     - irasim
+    - mimicgen
     - cosmos-policy
     - dreamzero
     - lapa
