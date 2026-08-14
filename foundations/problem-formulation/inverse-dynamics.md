@@ -3,7 +3,7 @@ id: world-model-kb.foundations.problem-formulation.inverse-dynamics
 title: Inverse Dynamics
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -113,6 +113,7 @@ Cycle consistency alone is insufficient if the forward and inverse models share 
 - [Cosmos3-Nano modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) owns concrete shape and time contracts.
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) owns a specialized executable DROID action representation and is not interchangeable with base ID output.
 - [Cosmos3-Nano evaluation](../../models/cosmos3-nano/evaluation.md) records report-specific inverse metrics and their conditions.
+- [LAPA](../../papers/lapa/paper.md) instantiates latent-action quantization from unlabeled video followed by robot-action remapping; it is not Genie-style interactive environment generation.
 - [Paper entries](../../papers/README.md) can preserve the evaluated data and architectures of Learning to Poke, ICM, Genie, and future latent-action systems.
 
 ## Sources

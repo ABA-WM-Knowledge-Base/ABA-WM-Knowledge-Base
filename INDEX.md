@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -17,7 +17,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Knowledge area | Entry point | Current scope |
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
-| Representative methods and papers | [Papers](papers/README.md) | Cosmos-Predict2.5 and IRASim entries are active |
+| Representative methods and papers | [Papers](papers/README.md) | Twelve active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -45,6 +45,16 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 |---|---|---|---|
 | Cosmos-Predict2.5 | Video-based latent world foundation model | Video curation, rectified-flow DiT, clean-prefix task unification, domain SFT and merging, reward post-training, distillation, Transfer2.5, robot/driving/multiview applications, and action-conditioned specialists | [Entry](papers/cosmos-predict2-5/README.md) |
 | IRASim | Action-conditioned visual forward model for robot manipulation | Latent diffusion transformer, frame-level action conditioning, trajectory prediction, failure-rollout adaptation, policy evaluation, model-based planning, and implementation/reproduction boundaries | [Entry](papers/irasim/README.md) |
+| Cosmos Policy | Video WM post-trained as a visuomotor policy | Predict2-2B latent-frame injection, joint policy/world-model/value training, LIBERO/RoboCasa/ALOHA, dual planning checkpoint, Predict2 versus Predict2.5 code split | [Entry](papers/cosmos-policy/README.md) |
+| DreamZero | World action model | Joint video-action WAM, DROID/AgiBot 14B checkpoints, scoped zero-shot policy language, H100/GB200 inference not locally executed | [Entry](papers/dreamzero/README.md) |
+| LAPA | Latent-action pretraining | Unlabeled-video latent-action quantization, robot-action remapping, Open-X finetuning; not Genie | [Entry](papers/lapa/README.md) |
+| iVideoGPT | Interactive autoregressive video world model | Compressive VQ plus GPT-style OXE pretraining; results bound to named action-free versus action-conditioned checkpoints | [Entry](papers/ivideogpt/README.md) |
+| DreamerV3 | Compact latent MBRL | Nature RSSM imagination agent; public repository is a DreamerV2-based reimplementation | [Entry](papers/dreamerv3/README.md) |
+| TD-MPC2 | Decoder-free latent planning | TD latent dynamics with MPPI, 104-task single-hyperparameter claims, post-paper Q-ensemble init fix | [Entry](papers/td-mpc2/README.md) |
+| V-JEPA 2 | Non-generative predictive representation | V-JEPA 2 versus 2-AC versus 2.1 split; latent planning evidence must not leak across variants | [Entry](papers/v-jepa-2/README.md) |
+| DIAMOND | Pixel-space diffusion world model | Atari 100k MBRL inside an image-space diffusion model; CSGO branch is a separate qualitative surface | [Entry](papers/diamond/README.md) |
+| OccWorld | 3D occupancy driving world model | Occupancy-token forecasting plus ego-trajectory prediction; nuScenes license and variant boundaries | [Entry](papers/occworld/README.md) |
+| Vista | Controllable driving video world model | OpenDV control modes and official `vista.safetensors`; not Wayve GAIA; high-VRAM sampling not attempted | [Entry](papers/vista/README.md) |
 
 Paper entries link their mechanisms to Foundation owners and target-model implications where applicable. Those links express knowledge dependencies, not a required retrieval sequence.
 

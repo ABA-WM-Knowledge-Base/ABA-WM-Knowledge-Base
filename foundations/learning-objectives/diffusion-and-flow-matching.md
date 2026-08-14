@@ -3,7 +3,7 @@ id: world-model-kb.foundations.learning-objectives.diffusion-and-flow-matching
 title: Diffusion and Flow Matching
 kind: concept
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -99,6 +99,9 @@ A diffusion-world-model claim is weakened when strong metrics require best-of-N 
 ## Cross-part instantiations
 
 - [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) instantiates straight-interpolation velocity matching, shifted time sampling, and low-step distillation; the paper entry owns the exact objective and rCM-versus-public-DMD2 boundary.
+- [DIAMOND](../../papers/diamond/paper.md) instantiates image-space diffusion as a world model for Atari MBRL; CSGO-branch sampling is a separate surface.
+- [Vista](../../papers/vista/paper.md) instantiates a high-resolution controllable driving video diffusion model whose official weights include a corrected `vista.safetensors` upload.
+- [Cosmos Policy](../../papers/cosmos-policy/paper.md) keeps the Predict2 DiT unchanged and injects actions, proprioception, and values as latent frames.
 
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns its exact rectified-flow interpolation, masked loss, conditioning, and sampler; the generic equations above do not replace that contract.
 - [Training](../../models/cosmos3-nano/training.md) records checkpoint-specific time sampling, masking, modality balancing, and post-training objectives.

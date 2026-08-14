@@ -1,0 +1,49 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: LAPA-PAPER
+    type: paper
+    title: "LAPA: Latent Action Pretraining from Videos"
+    publisher: International Conference on Learning Representations (ICLR) 2025 / arXiv
+    canonical_url: https://arxiv.org/abs/2410.11758
+    version: "arXiv:2410.11758; ICLR 2025"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for the latent-action quantizer, latent VLA pretraining objective, robot finetuning protocol, world-model decoder, and all quantitative tables.
+    scope: Canonical paper identity and primary evidence for this entry. This work is not Genie and must not be described as a generative interactive environment.
+  - id: LAPA-CODE
+    type: code_repository
+    title: LatentActionPretraining/LAPA maintained repository snapshot
+    publisher: LAPA authors / GitHub
+    canonical_url: https://github.com/LatentActionPretraining/LAPA/tree/46aca51d7faebcec02d7d323bbb3820c2df07bc6
+    revision: 46aca51d7faebcec02d7d323bbb3820c2df07bc6
+    version: "inspected commit dated 2025-01-22"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for JAX training scripts, LAQ tokenizer training, latent VLA pretraining, robot finetuning, decoder rollout, and configuration files.
+    scope: Public implementation identity pinned for mechanism-to-code mapping.
+  - id: LAPA-HF
+    type: model_card
+    title: latent-action-pretraining/LAPA-7B-openx
+    publisher: LAPA authors / Hugging Face
+    canonical_url: https://huggingface.co/latent-action-pretraining/LAPA-7B-openx
+    version: "tokenizer.model, vqgan, params, laq_openx.pt"
+    accessed: "2026-08-14"
+    retrieval_hint: Use to pin the released 7B latent VLA checkpoint, LAQ tokenizer weights, and associated tokenizer/VQ artifacts for Open-X-style robot pretraining.
+    scope: Primary public weight bundle for inference and finetuning; exact inner file hashes remain run-time verification targets.
+  - id: LAPA-PROJECT
+    type: official_blog
+    title: LAPA project page
+    publisher: LAPA authors
+    canonical_url: https://latentactionpretraining.github.io/
+    version: "mutable project page reflecting the ICLR 2025 paper"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for official videos, stage diagrams, and the current public presentation of latent-action pretraining and robot results.
+    scope: Mutable presentation surface; numerical claims remain owned by the pinned paper.
+  - id: LAPA-LWM
+    type: model_card
+    title: Large-World-Model/LWM-Chat-1M-Jax
+    publisher: Large World Model authors / Hugging Face
+    canonical_url: https://huggingface.co/Large-World-Model/LWM-Chat-1M-Jax
+    version: "backbone lineage for LAPA latent VLA"
+    accessed: "2026-08-14"
+    retrieval_hint: Use to identify the multimodal JAX backbone family LAPA extends for image-plus-language latent-action prediction.
+    scope: Architectural predecessor identity; LAPA training code and checkpoints are not interchangeable with raw LWM weights without adaptation.

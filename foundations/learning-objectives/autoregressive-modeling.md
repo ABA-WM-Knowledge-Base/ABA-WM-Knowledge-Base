@@ -3,7 +3,7 @@ id: world-model-kb.foundations.learning-objectives.autoregressive-modeling
 title: Autoregressive Modeling
 kind: concept
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -84,6 +84,9 @@ A world-model claim is weakened when the serialization uses future or privileged
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns its media/action generation objective; it should not be classified as autoregressive output generation when the documented surface uses rectified flow.
 - [Modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) defines token/modal ordering and conditioning contracts where exposed.
 - [Training](../../models/cosmos3-nano/training.md) and [evaluation](../../models/cosmos3-nano/evaluation.md) own checkpoint-specific losses and metrics rather than inheriting generic autoregressive assumptions.
+- [iVideoGPT](../../papers/ivideogpt/paper.md) instantiates compressive VQ plus GPT-style multimodal next-token prediction; RLVR-World is a later separate paper.
+- [OccWorld](../../papers/occworld/paper.md) instantiates GPT-style occupancy-token forecasting plus ego-trajectory prediction.
+- [DreamerV3](../../papers/dreamerv3/paper.md) uses recurrent latent dynamics rather than pixel-token autoregression; do not recast it as a VideoGPT.
 - [Paper entries](../../papers/README.md) preserve implementation-specific tokenizers and sequence layouts.
 
 ## Sources

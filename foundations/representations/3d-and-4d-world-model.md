@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.3d-and-4d-world-model
 title: 3D and 4D World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -92,6 +92,7 @@ A 4D dynamics claim is weakened when time-conditioned frames lack persistent ide
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) should not be assumed to contain an explicit persistent 3D state unless the model documentation establishes it.
 - [Modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) records camera, image, video, pose, or spatial conditioning that constrains geometric claims.
 - [Evaluation](../../models/cosmos3-nano/evaluation.md) can separate perceptual video quality from 3D consistency; [limitations](../../models/cosmos3-nano/limitations.md) owns missing spatial evidence.
+- [OccWorld](../../papers/occworld/paper.md) instantiates 3D occupancy-token forecasting plus ego-trajectory prediction on nuScenes; license constraints and OccWorld-O versus supervised extensions remain entry-owned.
 - [Action modeling](../../models/cosmos3-nano/action-modeling.md) provides the model-specific surface for intervention-conditioned scene change.
 
 ## Sources

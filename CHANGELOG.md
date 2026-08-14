@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,15 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 0.9.0 - 2026-08-14
+
+- Activated ten additional representative-paper entries with official code (and, where released, official weights): Cosmos Policy, DreamZero, LAPA, iVideoGPT, DreamerV3, TD-MPC2, V-JEPA 2, DIAMOND, OccWorld, and Vista.
+- Registered the new directories in `paper_entry.active_entries` and extended `SOURCE_REFERENCE` prefixes with `CPOL`, `DZ`, `LAPA`, `IVG`, `DV3`/`DV3SRC`, `TDMPC2`, `VJ2`, `DIA`/`DIASRC`, `OCC`/`OCCSRC`, and `VISTA`.
+- Kept Cosmos Policy paper identity on existing `P25-COSMOS-POLICY`; the new entry owns only Predict2 code, Cookbook Predict2.5-path documentation, and named Hugging Face checkpoints.
+- Preserved identity boundaries that affect retrieval: Predict2 versus Predict2.5 for Cosmos Policy; WAM zero-shot language for DreamZero; Nature versus arXiv titles and the public reimplementation for DreamerV3; V-JEPA 2 versus 2-AC versus 2.1; DIAMOND Atari versus CSGO; LAPA versus Genie; iVideoGPT versus later RLVR-World; Vista versus Wayve GAIA; OccWorld nuScenes license.
+- Linked the new entries from applicable Foundation Cross-part instantiations without rewriting Foundation definitions, and without pushing the local KB copy to GitHub.
+- Honored documented `local_path_policy`: a missing workstation PDF or reproduction path is a warning when `portable_identity` is set; relative links that point outside this checkout are not treated as KB-internal broken links.
 
 ## 0.8.0 - 2026-08-13
 

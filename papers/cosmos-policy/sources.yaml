@@ -1,0 +1,77 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: CPOL-CODE
+    type: code_repository
+    title: NVlabs Cosmos Policy official implementation snapshot
+    publisher: NVIDIA / GitHub
+    canonical_url: https://github.com/NVlabs/cosmos-policy/tree/18a2accadf4e7a3531e56754102af5a24d2316da
+    revision: 18a2accadf4e7a3531e56754102af5a24d2316da
+    version: "inspected main; commit dated 2026-01-23"
+    license: Apache-2.0
+    accessed: "2026-08-14"
+    retrieval_hint: Use for Predict2-based training, evaluation, latent-frame injection, LIBERO/RoboCasa/ALOHA scripts, and documented inference VRAM.
+    scope: Official Predict2 Cosmos Policy code tree; it does not own Predict2.5 cookbook paths.
+  - id: CPOL-COOKBOOK
+    type: documentation
+    title: Cosmos Cookbook recipe for Cosmos Policy post-training
+    publisher: NVIDIA
+    canonical_url: https://nvidia-cosmos.github.io/cosmos-cookbook/recipes/post_training/predict2/cosmos_policy/post_training.html
+    version: "mutable cookbook page inspected 2026-08-14"
+    accessed: "2026-08-14"
+    retrieval_hint: Use to delimit the Predict2 GitHub path versus the Predict2.5 in-tree cosmos_policy path; numerical claims remain owned by the paper.
+    scope: Mutable documentation; not a paper-era identity.
+  - id: CPOL-PROJECT
+    type: official_blog
+    title: Cosmos Policy project page
+    publisher: NVIDIA
+    canonical_url: https://research.nvidia.com/labs/dir/cosmos-policy/
+    version: "mutable project page"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for official videos and the current public presentation surface.
+    scope: Mutable presentation; paper claims remain owned by P25-COSMOS-POLICY.
+  - id: CPOL-HF-LIBERO
+    type: model_card
+    title: nvidia/Cosmos-Policy-LIBERO-Predict2-2B
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos-Policy-LIBERO-Predict2-2B
+    version: "current inspected model card"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for the LIBERO Predict2-2B policy checkpoint identity and reported 98.5% average success.
+    scope: Hosted checkpoint family; not proof of the exact evaluated snapshot SHA.
+  - id: CPOL-HF-ROBOCASA
+    type: model_card
+    title: nvidia/Cosmos-Policy-RoboCasa-Predict2-2B
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos-Policy-RoboCasa-Predict2-2B
+    version: "current inspected model card"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for the RoboCasa Predict2-2B policy checkpoint identity.
+    scope: Hosted checkpoint family for RoboCasa, not LIBERO or ALOHA.
+  - id: CPOL-HF-ALOHA
+    type: model_card
+    title: nvidia/Cosmos-Policy-ALOHA-Predict2-2B
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos-Policy-ALOHA-Predict2-2B
+    version: "current inspected model card"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for the real-world ALOHA policy checkpoint identity.
+    scope: Policy checkpoint; the separate ALOHA planning-model checkpoint is not this ID.
+  - id: CPOL-HF-ALOHA-PLAN
+    type: model_card
+    title: nvidia/Cosmos-Policy-ALOHA-Planning-Model-Predict2-2B
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/nvidia/Cosmos-Policy-ALOHA-Planning-Model-Predict2-2B
+    version: "current inspected model card"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for the dual-deployment planning checkpoint that ranks action proposals; it is not a standalone policy.
+    scope: Planning-model checkpoint intended to be paired with CPOL-HF-ALOHA.
+  - id: CPOL-DATA-LIBERO
+    type: dataset
+    title: nvidia/LIBERO-Cosmos-Policy preprocessed training data
+    publisher: NVIDIA / Hugging Face
+    canonical_url: https://huggingface.co/datasets/nvidia/LIBERO-Cosmos-Policy
+    version: "current inspected dataset card"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for the released LIBERO preprocessing identity used with the Predict2 policy tree.
+    scope: Preprocessed training surface, not the original LIBERO benchmark paper.

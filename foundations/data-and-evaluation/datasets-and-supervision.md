@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.datasets-and-supervision
 title: Datasets and Supervision for World Models
 kind: reference
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -124,6 +124,8 @@ A scale hypothesis is falsified or narrowed when gains disappear at equal effect
 
 - [IRASim](../../papers/irasim/paper.md) distinguishes episodes from overlapping clips and supplies a decision-use example where expert demonstrations are augmented with policy rollouts containing successes and failures; its entry owns the exact `P x K` evidence and public-data gaps.
 - [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) supplies a paper-specific example of staged filtering, multi-granularity captions, semantic deduplication, domain sharding, and dataset-unit ambiguity at foundation scale.
+- [LAPA](../../papers/lapa/paper.md) distinguishes unlabeled video latent-action pretraining from labeled Open-X robot finetuning.
+- [iVideoGPT](../../papers/ivideogpt/paper.md) pretrains on heterogeneous OXE human and robot trajectories; checkpoint names encode action-free versus action-conditioned supervision.
 
 - [Cosmos3-Nano data](../../models/cosmos3-nano/data.md) owns its exact pretraining, action, synthetic, and post-training mixtures and source-specific transformations.
 - [Cosmos3-Nano training](../../models/cosmos3-nano/training.md) owns stage schedules, objectives, packing, and optimizer variables that interact with data.

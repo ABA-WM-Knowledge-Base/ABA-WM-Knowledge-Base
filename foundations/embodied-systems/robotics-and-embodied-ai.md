@@ -3,7 +3,7 @@ id: world-model-kb.foundations.embodied-systems.robotics-and-embodied-ai
 title: Robotics and Embodied AI
 kind: reference
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -124,6 +124,9 @@ A cross-embodiment transfer claim is falsified or narrowed when the target requi
 ## Cross-part instantiations
 
 - [IRASim](../../papers/irasim/README.md) exposes the boundary between an action-conditioned visual forward model, an external proposal policy, an external value function, and physical execution; its public code does not include the ICCV-v2 planning stack.
+- [Cosmos Policy](../../papers/cosmos-policy/README.md) exposes Predict2-2B post-training on LIBERO, RoboCasa, and real ALOHA, with dual policy/planning checkpoints that are not Policy-DROID.
+- [DreamZero](../../papers/dreamzero/README.md) exposes a 14B WAM closed-loop policy surface; local inference is not executed in this KB.
+- [LAPA](../../papers/lapa/README.md) exposes latent-action pretraining plus Open-X finetuning rather than a Genie environment generator.
 - [Cosmos3-Nano Reasoner](../../models/cosmos3-nano/reasoner.md) supplies perception, reasoning, and text planning rather than direct physical commands.
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) supplies base FD, ID, and WAM representations with domain adapters.
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) defines a DROID-specific three-view/proprioceptive input and 32-step action output; it does not establish RoboCasa compatibility.

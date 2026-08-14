@@ -1,0 +1,49 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: DZ-PAPER
+    type: paper
+    title: "World Action Models are Zero-shot Policies"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2602.15922
+    version: "arXiv:2602.15922"
+    accessed: "2026-08-14"
+    retrieval_hint: Primary preprint for equations, tables, real-robot protocols, and ablations. Foundation bibliographic identity is WAM-DREAMZERO-2026; do not duplicate that ID here.
+    scope: Paper snapshot referenced by this entry's mechanism and experiment pages.
+  - id: DZ-CODE
+    type: code_repository
+    title: dreamzero0/dreamzero maintained repository snapshot
+    publisher: dreamzero0 / GitHub
+    canonical_url: https://github.com/dreamzero0/dreamzero/tree/ab790c198fbce33503358efbbd4187ce9a89adf3
+    revision: ab790c198fbce33503358efbbd4187ce9a89adf3
+    version: "inspected main; commit dated 2026-04-19"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for training, inference, embodiment adapters, and DreamZero-Flash deployment scripts at the pinned commit.
+    scope: Public implementation identity for mechanism-to-code mapping.
+  - id: DZ-HF-DROID
+    type: model_card
+    title: GEAR-Dreams/DreamZero-DROID
+    publisher: GEAR-Dreams / Hugging Face
+    canonical_url: https://huggingface.co/GEAR-Dreams/DreamZero-DROID
+    version: "14B; Wan2.1-I2V-14B-480P backbone; DROID ~75k episodes"
+    accessed: "2026-08-14"
+    retrieval_hint: Primary released checkpoint for DROID-pretrained DreamZero evaluation and finetune starting points.
+    scope: Weight artifact; training-data composition claims remain paper-owned.
+  - id: DZ-HF-AGIBOT
+    type: model_card
+    title: GEAR-Dreams/DreamZero-AgiBot
+    publisher: GEAR-Dreams / Hugging Face
+    canonical_url: https://huggingface.co/GEAR-Dreams/DreamZero-AgiBot
+    version: "~45 GB; embodiment-specialized finetune surface"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for AgiBot-target deployment and cross-embodiment finetune experiments described in the paper narrative.
+    scope: Embodiment checkpoint; not a universal zero-shot policy for all robots.
+  - id: DZ-PROJECT
+    type: official_blog
+    title: DreamZero project page
+    publisher: DreamZero authors
+    canonical_url: https://dreamzero0.github.io/
+    version: "mutable project page"
+    accessed: "2026-08-14"
+    retrieval_hint: Official videos, Flash demo claims, and task visualizations; bind numerical claims to DZ-PAPER.
+    scope: Presentation surface only.

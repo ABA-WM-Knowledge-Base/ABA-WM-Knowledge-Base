@@ -1,0 +1,31 @@
+schema_version: 3
+as_of: "2026-08-14"
+sources:
+  - id: DV3SRC-PAPER-NATURE
+    type: paper
+    title: "Mastering diverse control tasks through world models"
+    publisher: Nature
+    canonical_url: https://doi.org/10.1038/s41586-025-08744-2
+    version: "Nature 640:647-653 (2025); DOI 10.1038/s41586-025-08744-2"
+    accessed: "2026-08-14"
+    retrieval_hint: Canonical scientific identity for equations, tables, ablations, and headline benchmark claims in this entry.
+    scope: Primary peer-reviewed evidence; cross-entry registry remains in foundations as MBRL-DREAMERV3-2025.
+  - id: DV3SRC-PAPER-ARXIV
+    type: paper
+    title: "Mastering Diverse Domains through World Models"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2301.04104
+    version: "arXiv:2301.04104; former preprint title"
+    accessed: "2026-08-14"
+    retrieval_hint: Preprint locator and revision-history reference only; do not treat the old title as canonical.
+    scope: Preprint identity boundary, not the primary evidence surface for results in this entry.
+  - id: DV3SRC-CODE-CURRENT
+    type: code_repository
+    title: danijar/dreamerv3 public reimplementation
+    publisher: Danijar Hafner / GitHub
+    canonical_url: https://github.com/danijar/dreamerv3/tree/e3f02248693a79dc8b0ebd62c93683888ddaccfe
+    revision: e3f02248693a79dc8b0ebd62c93683888ddaccfe
+    version: "inspected main; commit dated 2026-05-25"
+    accessed: "2026-08-14"
+    retrieval_hint: Use for RSSM, imagination training loop, configs, and environment wrappers; README states DreamerV2-lineage reimplementation unrelated to internal Google/DeepMind training code.
+    scope: Public implementation identity; not proof of parity with undisclosed internal infrastructure.

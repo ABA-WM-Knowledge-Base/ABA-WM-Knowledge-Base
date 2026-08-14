@@ -3,14 +3,14 @@ id: world-model-kb.home
 title: World Model Knowledge Base
 kind: index
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
 
 # World Model Knowledge Base
 
-This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, representative-paper evidence for Cosmos-Predict2.5 and IRASim, and an active NVIDIA Cosmos3-Nano model entry. The content connects general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, source code, execution records, and candidate optimization experiments.
+This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, twelve representative-paper entries, and an active NVIDIA Cosmos3-Nano model entry. The content connects general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, source code, execution records, and candidate optimization experiments.
 
 ## Authority boundary
 
@@ -83,7 +83,7 @@ The three content parts are peers:
 | Part | Scope | Current content |
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
-| [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Cosmos-Predict2.5 and IRASim are active |
+| [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Twelve active entries including Cosmos-Predict2.5, IRASim, Cosmos Policy, DreamZero, LAPA, iVideoGPT, DreamerV3, TD-MPC2, V-JEPA 2, DIAMOND, OccWorld, and Vista |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano is active |
 
 ## How to navigate

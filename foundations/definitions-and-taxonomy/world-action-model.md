@@ -3,7 +3,7 @@ id: world-model-kb.foundations.definitions-and-taxonomy.world-action-model
 title: World Action Models
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-14
 owners:
   - AIBuildAI world-model group
 ---
@@ -115,6 +115,8 @@ Claims that the future branch improves actions are falsified when current-only a
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) is a specialized checkpoint with a concrete observation/action and serving contract; it is not the base WAM identity.
 - [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns diffusion/flow computation, while [modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) owns typed modality contracts.
 - [Cosmos3-Nano evaluation](../../models/cosmos3-nano/evaluation.md) and [limitations](../../models/cosmos3-nano/limitations.md) record checkpoint-specific evidence and missing conditions.
+- [DreamZero](../../papers/dreamzero/paper.md) instantiates a joint video-action WAM evaluated as a closed-loop robot policy; its entry preserves 14B checkpoint, DROID/AgiBot, and scoped zero-shot language boundaries.
+- [Cosmos Policy](../../papers/cosmos-policy/paper.md) instantiates Predict2-2B latent-frame injection as a visuomotor policy with optional best-of-N planning; it is not Cosmos3-Nano Policy-DROID and does not inherit Predict2.5 video scores.
 - [Paper entries](../../papers/README.md) can preserve DreamZero and Cosmos 3 architectures, datasets, and protocols without treating their terminology as a universal definition.
 
 ## Sources
