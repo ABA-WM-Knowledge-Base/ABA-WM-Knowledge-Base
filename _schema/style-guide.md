@@ -22,7 +22,7 @@ A statement such as “the model supports video and action” is insufficient. S
 
 ## Describe retrieval without controlling workflow
 
-Every canonical Foundation, Paper, Component, or model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
+Every canonical Foundation, Paper, or model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
 
 Foundation `retrieval-index.yaml` and model-entry `agent-index.yaml` map query themes to knowledge, strategies, best practices, and evidence that can ground Agent decisions. They support dynamic retrieval but do not define AIBuildAI's Agent selection, repository selection, task sequencing, execution scheduling, permissions, or external actions.
 
@@ -46,16 +46,6 @@ A Foundation page owns a transferable concept rather than a single paper's narra
 - connect to representative-paper evidence and model-specific instantiations without duplicating their results or implementation detail.
 
 Do not universalize terminology coined by one product or paper. Labels such as world foundation model and world action model require an explicit capability and interface boundary. A Foundation comparison may influence design judgment, but it must not encode task priority, required reading order, Agent selection, or execution policy.
-
-## Write cross-paper Component syntheses
-
-A Component page follows one capability across several works. Its main structure is causal and historical:
-
-`inherited bottleneck → exact intervention → mechanism → scoped evidence → remaining limitation`
-
-Preserve chronological order when it clarifies why a mechanism appeared, but never treat recency as evidence of superiority. Compare milestones on stable axes such as representation, objective, conditioning, inference, evidence surface, compute, and failure boundary. Keep one paper's full architecture and results in its Paper entry, general definitions in Foundations, and one model's exact implementation in Models.
-
-State whether an extracted pattern is source-reported, a cross-source synthesis, or a hypothesis. A recurring pattern becomes reusable knowledge only when its operating conditions and falsifying evidence are explicit. Component pages may inform intervention design; they must not encode work priorities, required reading sequences, Agent selection, or execution policy.
 
 ## Use decision-ready facts
 
@@ -96,7 +86,7 @@ Every result retains model variant, task, dataset, metric definition and directi
 
 ## Sources and locators
 
-Resolve every source ID through the nearest owning registry: `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, `components/<component-id>/sources.yaml`, or `models/<model-id>/sources.yaml`. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; existing examples include `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
+Resolve every source ID through its owning registry. The standard owners are `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, and `models/<model-id>/sources.yaml`; a Component may place an optional `sources.yaml` in a directory chosen by its author. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; existing examples include `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
 
 Source type, venue, and version describe provenance; they do not substitute for claim-level reasoning. For broad or contested claims, triangulate primary sources with different assumptions and identify the resulting synthesis explicitly.
 

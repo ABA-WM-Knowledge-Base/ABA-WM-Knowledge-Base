@@ -18,7 +18,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
 | Representative methods and papers | [Papers](papers/README.md) | Thirteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
-| Cross-paper capability evolution | [Components](components/README.md) | Reasoning and Generative Modeling |
+| Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use cross-paper evolution |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -42,14 +42,14 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 
 ## Component map
 
-Components reconstruct how one capability changed across several works. They connect earlier bottlenecks, technical interventions, evidence, and remaining gaps without duplicating the general definitions in Foundations or the complete facts of each Paper or Model entry.
+The two current Components reconstruct how one capability changed across several works. They connect earlier bottlenecks, technical interventions, evidence, and remaining gaps without duplicating the general definitions in Foundations or the complete facts of each Paper or Model entry. This is the design of these two entries, not a required form for future Components.
 
 | Component | Knowledge scope | Entry point |
 |---|---|---|
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Entry](components/reasoning/README.md) |
 | Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Entry](components/generative-modeling/README.md) |
 
-The Component map is advisory and non-exclusive. A task can retrieve either or both Components together with the applicable Foundation, Paper, and Model owners.
+The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with the applicable Foundation, Paper, and Model owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
 
 ## Representative paper map
 
@@ -75,14 +75,14 @@ Paper entries link their mechanisms to Foundation owners and target-model implic
 
 - Foundations owns reusable concepts, formalisms, mechanism families, trade-offs, and evaluation principles.
 - Papers owns the claims, implementations, experiments, limitations, reproduction state, and transfer hypotheses of individual works.
-- Components owns cross-paper capability evolution, recurring mechanism patterns, and component-level unresolved gaps.
+- Each Component owns the knowledge boundary it explicitly declares; the current Reasoning and Generative Modeling entries own their respective cross-paper syntheses.
 - Models owns concrete architecture, checkpoint, interface, training, result, code, and execution facts for a named model.
 
 A page in one part links to the relevant canonical owner in another part instead of duplicating its full explanation.
 
 ## Cosmos3-Nano retrieval metadata
 
-[`models/cosmos3-nano/agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with knowledge that can ground design and implementation decisions. It can be combined with Foundation concepts, representative Paper entries, and cross-paper Components; it is not the mandatory first knowledge path. The index is not a task router or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
+[`models/cosmos3-nano/agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with knowledge that can ground design and implementation decisions. It can be combined with Foundation concepts, representative Paper entries, and relevant Component knowledge; it is not the mandatory first knowledge path. The index is not a task router or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
 
 ## Metadata and maintenance references
 
@@ -90,7 +90,6 @@ A page in one part links to the relevant canonical owner in another part instead
 |---|---|
 | Add or revise a canonical page | [Foundation template](_schema/foundation-page-template.md), [model template](_schema/page-template.md), and [style guide](_schema/style-guide.md) |
 | Add a representative paper entry | [Paper entry template](_schema/paper-entry-template.md) |
-| Add a cross-paper capability synthesis | [Component entry template](_schema/component-entry-template.md) |
 | Add or rename a page ID or path | [Naming conventions](_schema/naming-conventions.md) |
 | Change model identity, revisions, interfaces, or the execution-state pointer | [Manifest schema](_schema/manifest.schema.yaml); mutable states remain in [Reproduction](models/cosmos3-nano/reproduction.md) |
 | Add or update a source | [Source schema](_schema/sources.schema.yaml) |

@@ -12,25 +12,19 @@ owners:
 
 ## Retrieval metadata
 
-**Relevant queries:** world-model capability evolution, cross-paper mechanism lineage, reasoning component, generative modeling component, recurring intervention pattern, historical bottleneck, component-level research gap.
+**Relevant queries:** world-model component knowledge, reasoning component, generative modeling component, independently scoped component entry, current Component entrypoints.
 
-**Knowledge provided:** Cross-paper syntheses that explain how a major world-model capability evolved, which mechanism changes addressed earlier bottlenecks, what evidence supports each change, and which limitations remain unresolved.
+**Knowledge provided:** The current Component entrypoints, the knowledge boundary declared by each entry, and the relationship between Component knowledge and the other three KB parts.
 
 **Related pages:** [Foundations](../foundations/README.md) owns model-independent definitions and formalisms; [Papers](../papers/README.md) owns individual-work methods and experiments; [Models](../models/README.md) owns concrete model implementations and execution state; the [global index](../INDEX.md) exposes all four parts as peer knowledge inputs.
 
 ## Scope
 
-Components is the cross-paper synthesis layer of the KB. A Component follows one capability across several model families and historical stages. Its primary unit is not a paper, checkpoint, or taxonomy category, but a recurring technical problem such as producing decision-relevant reasoning or learning a conditional distribution over future observations.
+`components/` is an extension space for independently scoped world-model knowledge. Each Component declares what it owns, how its material is organized, and how it connects to Foundations, Papers, Models, or other Components. The part does not impose a common chapter outline, evidence-question sequence, file inventory, retrieval index, or internal directory depth.
 
-Each Component answers the same evidence-oriented questions:
+Reasoning and Generative Modeling currently use a cross-paper evolutionary synthesis because that structure fits these two topics. Their shared sequence—earlier bottleneck, intervention, mechanism, evidence, and remaining limitation—is a local design choice for these entries, not a template for future Components.
 
-1. What limitation existed at the preceding stage?
-2. What representation, objective, architecture, data, or inference change was introduced?
-3. Through what mechanism could that change improve the target capability?
-4. Which experiments or ablations support the claim, under which protocol?
-5. Which limitation survived, and what measurement would distinguish the next proposed improvement?
-
-The resulting synthesis can inform model diagnosis, intervention design, and experiment interpretation. It does not select Agents, repositories, task order, execution schedules, permissions, or stopping behavior; those remain properties of AIBuildAI and the active task.
+Component knowledge can inform model diagnosis, intervention design, and experiment interpretation. It does not select Agents, repositories, task order, execution schedules, permissions, or stopping behavior; those remain properties of AIBuildAI and the active task.
 
 ## Knowledge map
 
@@ -47,13 +41,15 @@ The two entries are non-exclusive. For example, action-conditioned video plannin
 |---|---|
 | General definition, formalism, or method family | [Foundations](../foundations/README.md) |
 | One paper's architecture, protocol, code, result, or reproduction state | [Papers](../papers/README.md) |
-| Cross-paper evolution, recurring mechanism pattern, and unresolved component gap | Components |
+| Knowledge declared by one Component entry | That Component's declared owner page or pages |
 | One named model's checkpoint, interface, training recipe, metric, or execution state | [Models](../models/README.md) |
 
-Component pages cite and link to those owners instead of reproducing their full accounts. Their source registries contain only identities not already owned elsewhere in the repository.
+The two current entries cite and link to other canonical owners instead of reproducing their full accounts. Their local source registries contain only identities not already owned elsewhere in the repository.
 
-## Entry contract
+## Extensibility
 
-Each active entry contains a canonical `README.md` and a local `sources.yaml`. The page begins with retrieval metadata, defines the capability boundary, reconstructs the historical sequence, compares supported intervention patterns, records failure boundaries, maps model-specific attachment points, and preserves open questions as scientific uncertainties rather than work assignments.
+Future Components may use a single page, several topic pages, machine-readable metadata, a local source registry, or another structure appropriate to their knowledge surface. They do not need to copy either current directory layout or section order.
 
-No separate Component retrieval index is needed at the present scale. The [global index](../INDEX.md), this knowledge map, page-level retrieval metadata, and semantic retrieval expose both entries without introducing a second routing or orchestration layer.
+For repository interoperability, a new entry should expose a stable entrypoint in this knowledge map or the [global index](../INDEX.md), state its canonical knowledge boundary, keep links resolvable, and reuse globally unique source IDs when it cites registered evidence. These are repository-level discoverability and provenance properties, not a prescribed Component design.
+
+No part-level Component retrieval index is currently used. The two current entries expose page-level retrieval metadata by their own design; another Component may choose a different retrieval representation without introducing workflow-orchestration authority.

@@ -10,7 +10,7 @@ owners:
 
 # World Model Knowledge Base
 
-This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, thirteen representative-paper entries, two cross-paper Components, and an active NVIDIA Cosmos3-Nano model entry. The content connects general formalisms, representation and learning choices, capability evolution, paper mechanisms and ablations, model interfaces, evaluation conditions, source code, execution records, and candidate optimization experiments.
+This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, thirteen representative-paper entries, independently scoped Components, and an active NVIDIA Cosmos3-Nano model entry. The current Reasoning and Generative Modeling Components use cross-paper evolution to connect general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, and candidate optimization experiments.
 
 ## Authority boundary
 
@@ -59,7 +59,7 @@ flowchart TD
     D -.->|informs without controlling| O
 ```
 
-The four content parts are peer, non-exclusive knowledge inputs. Retrieval can combine relevant Foundation concepts, paper evidence, cross-paper Component syntheses, and model-specific facts; it does not have to enter through Cosmos3-Nano, a Component, or a paper. All four parts are active.
+The four content parts are peer, non-exclusive knowledge inputs. Retrieval can combine relevant Foundation concepts, Paper evidence, independently scoped Component knowledge, and model-specific facts; it does not have to enter through Cosmos3-Nano, a Component, or a Paper. All four parts are active.
 
 The repository separates five concerns:
 
@@ -79,7 +79,7 @@ world_model_kb/
 |-- _schema/                          # Content and metadata contracts
 |-- foundations/                      # Part I: model-independent knowledge
 |-- papers/                           # Part II: paper-specific knowledge
-|-- components/                       # Cross-paper capability evolution
+|-- components/                       # Independently scoped component knowledge
 |-- models/                           # Part III: model-specific knowledge
 `-- tools/                            # Structural validation
 ```
@@ -90,18 +90,18 @@ The four content parts are peers:
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
 | [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Thirteen active entries |
-| [Components](components/README.md) | Cross-paper capability evolution, recurring intervention patterns, and unresolved component gaps | Reasoning and Generative Modeling are active |
+| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Reasoning and Generative Modeling are active |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano is active |
 
 ## How to navigate
 
-Start from [`INDEX.md`](INDEX.md) for the global topic map. AIBuildAI may dynamically combine model-independent Foundations, Paper-specific evidence, cross-paper Components, and Model-specific knowledge rather than assigning a task to exactly one part. The Foundation [`retrieval-index.yaml`](foundations/retrieval-index.yaml), Component page metadata, and Cosmos3-Nano [`agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) expose advisory query-to-knowledge associations without taking workflow authority.
+Start from [`INDEX.md`](INDEX.md) for the global topic map. AIBuildAI may dynamically combine model-independent Foundations, Paper-specific evidence, independently scoped Components, and Model-specific knowledge rather than assigning a task to exactly one part. The Foundation [`retrieval-index.yaml`](foundations/retrieval-index.yaml) and Cosmos3-Nano [`agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) expose advisory query-to-knowledge associations. The current Component pages also expose retrieval metadata by local choice, not by a part-wide contract.
 
-Within a topic page, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through the nearest owning source registry, such as Foundation [`sources.yaml`](foundations/sources.yaml), a Paper entry's registry such as IRASim [`sources.yaml`](papers/irasim/sources.yaml), a Component registry such as Reasoning [`sources.yaml`](components/reasoning/sources.yaml), or Cosmos3-Nano [`sources.yaml`](models/cosmos3-nano/sources.yaml). Observed execution evidence remains in the relevant entry's `reproduction.md`. The `_schema/` directory defines how KB content is represented; it does not define AIBuildAI workflow orchestration.
+Within canonical Foundation, Paper, and Model pages, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through their owning registry, such as Foundation [`sources.yaml`](foundations/sources.yaml), a Paper entry's registry such as IRASim [`sources.yaml`](papers/irasim/sources.yaml), the current Reasoning Component's optional local [`sources.yaml`](components/reasoning/sources.yaml), or Cosmos3-Nano [`sources.yaml`](models/cosmos3-nano/sources.yaml). Observed execution evidence remains in the relevant entry's `reproduction.md`. The `_schema/` directory defines repository interoperability; it does not prescribe future Component structure or AIBuildAI workflow orchestration.
 
 ## Validation
 
-[`tools/validate_kb.py`](tools/validate_kb.py) checks UTF-8 and English content, metadata, links, source references, artifact hashes, required Foundation, Paper, Component, and Model files, and both knowledge-guidance retrieval indexes.
+[`tools/validate_kb.py`](tools/validate_kb.py) checks UTF-8 and English content, metadata, links, source references, artifact hashes, required Foundation, Paper, and Model files, and both knowledge-guidance retrieval indexes. It discovers Component directories without enforcing one internal layout.
 
 Run from the repository root:
 

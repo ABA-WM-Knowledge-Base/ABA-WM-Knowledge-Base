@@ -12,6 +12,14 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 1.0.1 - 2026-08-19
+
+- Scoped the historical bottleneck–intervention–mechanism–evidence structure to the Reasoning and Generative Modeling entries that chose it; it is no longer represented as a rule for all Components.
+- Reframed `components/` as an extension space whose future authors choose their own content structure, file layout, directory depth, source-registry placement, and retrieval representation.
+- Removed the shared Component entry template, universal `README.md`/`sources.yaml` inventory, path-derived Component ID check, required Component retrieval fields, minimum Component page length, registered-directory allowlist, and rejection of extra Component files or nested directories.
+- Kept only repository-wide interoperability properties: discoverable entrypoints, stable page metadata, resolvable links, globally unique source IDs when sources are registered, and the existing AIBuildAI orchestration boundary.
+- Advanced the metadata contract to schema version 7, made Component counts dynamically discovered, and made registered source references discoverable without requiring a predeclared Component-specific ID prefix.
+
 ## 1.0.0 - 2026-08-19
 
 - Activated @@components/@@ as the fourth peer content part, with Reasoning for World Models and Generative Modeling as its first two entries.

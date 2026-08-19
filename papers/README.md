@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** the canonical scope of Part II, its active paper entries, and the entry contract that converts one work into reusable optimization knowledge.
 
-**Related pages:** [Part I](../foundations/README.md) owns model-independent concepts and formalisms; [Part III](../models/README.md) owns model-specific knowledge; [Components](../components/README.md) owns cross-paper capability evolution. Individual paper entries connect mechanisms and transfer claims to the applicable owners without imposing a reading order.
+**Related pages:** [Part I](../foundations/README.md) owns model-independent concepts and formalisms; [Part III](../models/README.md) owns model-specific knowledge; [Components](../components/README.md) contains independently scoped component knowledge. Individual paper entries connect mechanisms and transfer claims to the applicable owners without imposing a reading order.
 
 ## Canonical scope
 
@@ -24,7 +24,7 @@ Each paper entry reconstructs one work as reusable optimization knowledge. It se
 
 Paper-specific evidence remains canonical in its entry. When a mechanism, formal assumption, evaluation principle, or transfer claim depends on a model-independent concept, the entry links to that concept's Foundation page instead of redefining it. These links express knowledge ownership and dependencies; they do not prescribe task sequencing or AIBuildAI workflow orchestration.
 
-Components may synthesize a mechanism across several Paper entries, but the source paper's exact architecture, protocol, results, code, and reproduction state remain canonical here.
+The current Reasoning and Generative Modeling Components synthesize mechanisms across several Paper entries, but the source paper's exact architecture, protocol, results, code, and reproduction state remain canonical here. Future Components may declare a different scope.
 
 ## Active entries
 

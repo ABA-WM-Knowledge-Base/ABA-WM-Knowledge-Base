@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** canonical concepts and decision-relevant principles that transfer across world-model families, together with links to paper evidence and model-specific instantiations.
 
-**Related pages:** [Part II](../papers/README.md) owns paper-specific mechanisms and experiments; [Part III](../models/README.md) owns model-specific implementations and execution evidence; [Components](../components/README.md) owns cross-paper capability evolution.
+**Related pages:** [Part II](../papers/README.md) owns paper-specific mechanisms and experiments; [Part III](../models/README.md) owns model-specific implementations and execution evidence; [Components](../components/README.md) contains independently scoped component knowledge.
 
 ## Authority boundary
 
@@ -29,7 +29,7 @@ Part I owns model-independent concepts. A Foundation page explains a reusable de
 ```mermaid
 flowchart LR
     F["Foundation concept or formalism"] --> P["Paper-specific mechanism and evidence"]
-    F --> C["Cross-paper Component synthesis"]
+    F --> C["Component-specific knowledge"]
     F --> M["Model-specific instantiation"]
     P --> M
     P --> C

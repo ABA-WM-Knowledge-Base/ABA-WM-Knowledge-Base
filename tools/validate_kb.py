@@ -377,6 +377,16 @@ def validate_pages(
 
         validate_relative_links(path, text, errors)
 
+        registered_in_page = {
+            source_id
+            for source_id in source_ids
+            if re.search(
+                rf"(?<![A-Z0-9-]){re.escape(source_id)}(?![A-Z0-9-])",
+                text,
+            )
+        }
+        referenced_source_ids.update(registered_in_page)
+
         for source_id in SOURCE_REFERENCE.findall(text):
             referenced_source_ids.add(source_id)
             if source_id not in source_ids:
@@ -387,15 +397,9 @@ def validate_pages(
         is_model_page = path.parent == MODEL_ROOT
         is_foundation_page = path.is_relative_to(FOUNDATION_ROOT)
         is_paper_page = path.is_relative_to(PAPER_ROOT)
-        is_component_page = path.is_relative_to(COMPONENT_ROOT)
         is_foundation_topic = is_foundation_page and path.name != "README.md"
         is_paper_topic = (
             is_paper_page and path.parent != PAPER_ROOT and path.name != "README.md"
-        )
-        is_component_topic = (
-            is_component_page
-            and path.parent != COMPONENT_ROOT
-            and path.name == "README.md"
         )
         if is_foundation_page:
             foundation_relative = path.relative_to(FOUNDATION_ROOT)
@@ -425,26 +429,7 @@ def validate_pages(
                     f"{relative(path)}: id {page_id!r} does not match canonical "
                     f"path owner {expected_id!r}"
                 )
-        if is_component_page:
-            component_relative = path.relative_to(COMPONENT_ROOT)
-            if path.name == "README.md":
-                owner_parts = component_relative.parts[:-1]
-            else:
-                owner_parts = component_relative.with_suffix("").parts
-            expected_id = "world-model-kb.components"
-            if owner_parts:
-                expected_id += "." + ".".join(owner_parts)
-            if page_id != expected_id:
-                errors.append(
-                    f"{relative(path)}: id {page_id!r} does not match canonical "
-                    f"path owner {expected_id!r}"
-                )
-        if (
-            is_model_page
-            or is_foundation_page
-            or is_paper_page
-            or is_component_page
-        ):
+        if is_model_page or is_foundation_page or is_paper_page:
             if "## Retrieval metadata" not in text:
                 errors.append(f"{relative(path)}: missing '## Retrieval metadata'")
             for label in retrieval_labels:
@@ -454,14 +439,8 @@ def validate_pages(
                     )
             if re.search(r"\b(?:TODO|TBD)\b", text):
                 errors.append(f"{relative(path)}: unfinished placeholder found")
-            minimum_length = (
-                1600
-                if (is_foundation_topic or is_paper_topic or is_component_topic)
-                else 1200
-            )
-            if (
-                path.name != "README.md" or is_component_topic
-            ) and len(text) < minimum_length:
+            minimum_length = 1600 if (is_foundation_topic or is_paper_topic) else 1200
+            if path.name != "README.md" and len(text) < minimum_length:
                 errors.append(
                     f"{relative(path)}: canonical page is too thin ({len(text)} chars)"
                 )
@@ -592,57 +571,6 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
         if nested_directories:
             errors.append(
                 f"papers/{entry} entry contains undeclared directories: "
-                f"{nested_directories}"
-            )
-
-    component_contract = schema.get("component_entry", {})
-    active_component_entries = set(component_contract.get("active_entries", []))
-    required_component_files = set(component_contract.get("required_files", []))
-    root_component_files = {
-        path.name for path in COMPONENT_ROOT.iterdir() if path.is_file()
-    }
-    if root_component_files != {"README.md"}:
-        errors.append(
-            "components/ root must contain only README.md; "
-            f"found {sorted(root_component_files)}"
-        )
-    actual_component_entries = {
-        path.name for path in COMPONENT_ROOT.iterdir() if path.is_dir()
-    }
-    missing_component_entries = active_component_entries - actual_component_entries
-    if missing_component_entries:
-        errors.append(
-            "Components entry missing active directories: "
-            f"{sorted(missing_component_entries)}"
-        )
-    unexpected_component_entries = (
-        actual_component_entries - active_component_entries
-    )
-    if unexpected_component_entries:
-        errors.append(
-            "Components contains undeclared entry directories: "
-            f"{sorted(unexpected_component_entries)}"
-        )
-    for entry in active_component_entries & actual_component_entries:
-        entry_root = COMPONENT_ROOT / entry
-        actual_files = {path.name for path in entry_root.iterdir() if path.is_file()}
-        missing_files = required_component_files - actual_files
-        if missing_files:
-            errors.append(
-                f"components/{entry} entry missing files: {sorted(missing_files)}"
-            )
-        unexpected_files = actual_files - required_component_files
-        if unexpected_files:
-            errors.append(
-                f"components/{entry} entry contains undeclared files: "
-                f"{sorted(unexpected_files)}"
-            )
-        nested_directories = sorted(
-            path.name for path in entry_root.iterdir() if path.is_dir()
-        )
-        if nested_directories:
-            errors.append(
-                f"components/{entry} entry contains undeclared directories: "
                 f"{nested_directories}"
             )
 
@@ -1189,7 +1117,7 @@ def main() -> int:
         1 for path in COMPONENT_ROOT.rglob("*.md") if path.parent != COMPONENT_ROOT
     )
     component_entry_count = len(
-        load_yaml(SCHEMA_PATH).get("component_entry", {}).get("active_entries", [])
+        [path for path in COMPONENT_ROOT.iterdir() if path.is_dir()]
     )
     source_count = sum(
         len(load_yaml(path).get("sources", [])) for path in source_registries()
