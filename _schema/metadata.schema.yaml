@@ -1,4 +1,4 @@
-schema_version: 5
+schema_version: 6
 
 page_frontmatter:
   required:
@@ -13,6 +13,7 @@ page_frontmatter:
     - overview
     - concept
     - paper
+    - component
     - model
     - reference
     - guide
@@ -76,6 +77,14 @@ paper_entry:
     - occworld
     - vista
 
+component_entry:
+  required_files:
+    - README.md
+    - sources.yaml
+  active_entries:
+    - reasoning
+    - generative-modeling
+
 foundation_retrieval_index:
   supported_schema_version: 1
   path: foundations/retrieval-index.yaml
@@ -118,6 +127,7 @@ directory_contract:
   content_parts:
     - foundations
     - papers
+    - components
     - models
   shared_files:
     - README.md
@@ -133,6 +143,7 @@ directory_contract:
     - page-template.md
     - foundation-page-template.md
     - paper-entry-template.md
+    - component-entry-template.md
 
 cosmos3_nano_required_files:
   - README.md
@@ -160,6 +171,7 @@ canonical_ownership:
   rules:
     - One page owns the complete reusable explanation of a topic.
     - Dependent pages summarize only the local implication and link to the owner.
+    - Components own cross-paper capability evolution and recurring mechanism syntheses; Foundations own general concepts, Papers own individual-work evidence, and Models own concrete instantiations.
     - Reproduction owns execution state; topic pages own stable model knowledge.
     - Optimization references own reusable intervention strategies; research registries own unresolved evidence questions.
     - Retrieved knowledge may influence Agent reasoning and strategy, but retrieval metadata does not define AIBuildAI orchestration, permissions, Agent selection, repository selection, or execution scheduling.

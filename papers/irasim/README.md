@@ -3,7 +3,7 @@ id: world-model-kb.papers.irasim
 title: IRASim Paper Knowledge Entry
 kind: paper
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** the paper's predictive and decision interfaces, action-frame conditioning mechanism, training and evaluation evidence, released implementation boundary, reproduction state, and falsifiable optimization transfers.
 
-**Related pages:** [Forward dynamics](../../foundations/problem-formulation/forward-dynamics.md) owns the generic action-conditioned prediction problem; [video world models](../../foundations/representations/video-world-model.md) owns observation-space rollout modeling; [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the objective family; [planning and control](../../foundations/decision-making/planning-and-control.md) owns candidate selection and model exploitation; [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) owns the target model's FD/WAM interfaces.
+**Related pages:** [Forward dynamics](../../foundations/problem-formulation/forward-dynamics.md) owns the generic action-conditioned prediction problem; [video world models](../../foundations/representations/video-world-model.md) owns observation-space rollout modeling; [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the objective family; [planning and control](../../foundations/decision-making/planning-and-control.md) owns candidate selection and model exploitation; the [Generative Modeling Component](../../components/generative-modeling/README.md) owns the cross-paper lineage; [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) owns the target model's FD/WAM interfaces.
 
 The official [project page](https://gen-irasim.github.io/) provides the current video presentation surface; numerical and protocol claims remain bound to the pinned paper revision. [IRASRC-PROJECT; IRASRC-PAPER-V2]
 

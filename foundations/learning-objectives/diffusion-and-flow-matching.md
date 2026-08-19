@@ -3,7 +3,7 @@ id: world-model-kb.foundations.learning-objectives.diffusion-and-flow-matching
 title: Diffusion and Flow Matching
 kind: concept
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** diffusion and continuous-flow formulations, distinctions between flow matching and rectified flow, optimization/sampling levers, and tests for conditional dynamics and downstream rollout quality.
 
-**Related pages:** [Video world models](../representations/video-world-model.md) covers the predicted observation surface; [latent world models](../representations/latent-world-model.md) covers codec and state choices; [autoregressive modeling](autoregressive-modeling.md) covers ordered likelihood factorization.
+**Related pages:** [Video world models](../representations/video-world-model.md) covers the predicted observation surface; [latent world models](../representations/latent-world-model.md) covers codec and state choices; [autoregressive modeling](autoregressive-modeling.md) covers ordered likelihood factorization; the [Generative Modeling Component](../../components/generative-modeling/README.md) owns the cross-paper historical synthesis.
 
 ## Definition and formalism
 

@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.generator
 title: Cosmos3-Nano Generator Optimization Reference
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Generator mechanisms, task surfaces, condition and target semantics, sampling variables, training lineage, failure interpretations, and published evaluation anchors.
 
-**Related pages:** [Reasoner](reasoner.md) covers text output; [Action modeling](action-modeling.md) covers action schemas; [Policy](policy.md) covers DROID control; [Reproduction](reproduction.md) records actual load and run outcomes. Foundation owners cover [video world models](../../foundations/representations/video-world-model.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md).
+**Related pages:** [Reasoner](reasoner.md) covers text output; [Action modeling](action-modeling.md) covers action schemas; [Policy](policy.md) covers DROID control; [Reproduction](reproduction.md) records actual load and run outcomes. Foundation owners cover [video world models](../../foundations/representations/video-world-model.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). The [Generative Modeling Component](../../components/generative-modeling/README.md) owns the cross-paper evolution from autoregressive prediction through latent flow and omnimodal generation.
 
 ## Identity and strict boundaries
 

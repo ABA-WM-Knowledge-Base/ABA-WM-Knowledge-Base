@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,16 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.0.0 - 2026-08-19
+
+- Activated @@components/@@ as the fourth peer content part, with Reasoning for World Models and Generative Modeling as its first two entries.
+- Defined Component ownership as cross-paper capability evolution, recurring mechanism patterns, evidence boundaries, and unresolved component gaps; Foundations retain general concepts, Papers retain individual-work evidence, and Models retain concrete implementations and execution state.
+- Reconstructed the Reasoning lineage from stochastic latent simulation through Dreamer imagination, DreamerV3 robustness, V-JEPA 2 predictive representation, Cosmos-Reason1 explicit physical reasoning, and Cosmos 3 reasoning–generation coupling.
+- Reconstructed the Generative Modeling lineage from recurrent/autoregressive prediction through DDPM, latent diffusion, DiT, flow matching, rectified flow, interactive and action-conditioned video models, Cosmos-Predict2.5, and Cosmos 3.
+- Added Component-local primary-source identities for the World Models companion article, latent diffusion, and DiT while reusing existing globally unique Foundation, Paper, and Model source IDs; pinned the reused Cosmos-Reason1 report identity to arXiv v3 because earlier revisions describe a different model/training surface.
+- Added a Component entry template, metadata-schema version 6 contract, path/ID/provenance conventions, writing guidance, reciprocal cross-part links, and four-part structural validation.
+- Kept Component retrieval advisory and page-based at the current scale; no task router, Agent selector, required reading order, execution schedule, or other AIBuildAI orchestration authority was introduced.
 
 ## 0.9.0 - 2026-08-14
 

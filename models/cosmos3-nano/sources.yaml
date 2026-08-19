@@ -1,5 +1,5 @@
 schema_version: 3
-as_of: "2026-08-12"
+as_of: "2026-08-19"
 local_path_policy:
   current_pdf_root: 'C:\Users\94875\Desktop\cosmos'
   portable_identity: canonical_url_plus_sha256
@@ -28,7 +28,8 @@ sources:
     type: paper
     title: "Cosmos-Reason1: From Physical Common Sense To Embodied Reasoning"
     publisher: NVIDIA
-    canonical_url: https://arxiv.org/abs/2503.15558
+    version: "arXiv:2503.15558v3; report date 2025-05-20"
+    canonical_url: https://arxiv.org/abs/2503.15558v3
     local_path: 'C:\Users\94875\Desktop\cosmos\Cosmos-Reason1.pdf'
     sha256: cd88d0a653bd4979ffa9dbd2e290c55a0ad3260d8647f6cfd3c96e2ff8cf7972
     pages: 36

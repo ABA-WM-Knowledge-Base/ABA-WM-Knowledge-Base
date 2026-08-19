@@ -3,7 +3,7 @@ id: world-model-kb.models
 title: Part III — Model Entries
 kind: index
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** the Part III ownership boundary and its active Cosmos3-Nano model entry.
 
-**Related pages:** [Part I](../foundations/README.md) covers general concepts; [Part II](../papers/README.md) covers paper-specific knowledge; [Cosmos3-Nano](cosmos3-nano/README.md) is the active model entry.
+**Related pages:** [Part I](../foundations/README.md) covers general concepts; [Part II](../papers/README.md) covers paper-specific knowledge; [Components](../components/README.md) covers cross-paper capability evolution; [Cosmos3-Nano](cosmos3-nano/README.md) is the active model entry.
 
 ## Active entry
 
@@ -24,4 +24,4 @@ owners:
 |---|---|---|
 | Cosmos3-Nano | Model-specific mechanisms, interfaces, training, evaluation, code, execution state, optimization levers, and decision blockers | [Cosmos3-Nano](cosmos3-nano/README.md) |
 
-Each `models/<model-id>/` entry owns facts for one named model and links reusable concepts back to Foundations. Cosmos3-Nano is the only active entry in this release. A future entry must define its own canonical owners, provenance, retrieval metadata, and execution-evidence boundary; adding an entry does not change the three-part architecture.
+Each `models/<model-id>/` entry owns facts for one named model and links reusable concepts back to Foundations and cross-paper evolution back to Components. Cosmos3-Nano is the only active entry in this release. A future entry must define its own canonical owners, provenance, retrieval metadata, and execution-evidence boundary; adding an entry does not change the four-part architecture.

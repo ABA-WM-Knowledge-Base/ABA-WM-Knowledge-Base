@@ -3,7 +3,7 @@ id: world-model-kb.papers.v-jepa-2
 title: V-JEPA 2 Paper Knowledge Entry
 kind: paper
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** strict separation of action-free pretraining versus action-conditioned control versus 2.1, released code and checkpoint boundaries, reproduction state, and falsifiable transfers toward Cosmos3-Nano Reasoner representation and latent planning — not Generator pixels.
 
-**Related pages:** [Representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md); [latent world models](../../foundations/representations/latent-world-model.md); [planning and control](../../foundations/decision-making/planning-and-control.md); [Cosmos3-Nano reasoner](../../models/cosmos3-nano/reasoner.md); [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) for FD/WAM contrast.
+**Related pages:** [Representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md); [latent world models](../../foundations/representations/latent-world-model.md); [planning and control](../../foundations/decision-making/planning-and-control.md); [Reasoning Component](../../components/reasoning/README.md); [Cosmos3-Nano reasoner](../../models/cosmos3-nano/reasoner.md); [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) for FD/WAM contrast.
 
 Foundation bibliographic identity: [OBJ-VJEPA2-2025] for *V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning* (`arXiv:2506.09985`). This entry adds variant boundaries and code mapping without re-registering that Foundation ID. [VJ2-PAPER; VJ2-PROJECT]
 
