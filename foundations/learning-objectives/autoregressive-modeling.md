@@ -3,7 +3,7 @@ id: world-model-kb.foundations.learning-objectives.autoregressive-modeling
 title: Autoregressive Modeling
 kind: concept
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** the autoregressive factorization, serialization and tokenizer design choices, optimization trade-offs, and tests for likelihood, rollout, conditioning, and downstream utility.
 
-**Related pages:** [Video world models](../representations/video-world-model.md) covers observation rollouts; [latent world models](../representations/latent-world-model.md) covers learned tokens and states; [diffusion and flow matching](diffusion-and-flow-matching.md) covers non-autoregressive generative objectives.
+**Related pages:** [Video world models](../representations/video-world-model.md) covers observation rollouts; [latent world models](../representations/latent-world-model.md) covers learned tokens and states; [diffusion and flow matching](diffusion-and-flow-matching.md) covers non-autoregressive generative objectives; [autoregressive and recurrent generation](../../components/generative-modeling/autoregressive.md) owns the cross-paper method synthesis.
 
 ## Definition and formalism
 

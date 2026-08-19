@@ -3,7 +3,7 @@ id: world-model-kb.foundations
 title: Part I — World Model Foundations
 kind: index
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** canonical concepts and decision-relevant principles that transfer across world-model families, together with links to paper evidence and model-specific instantiations.
 
-**Related pages:** [Part II](../papers/README.md) owns paper-specific mechanisms and experiments; [Part III](../models/README.md) owns model-specific implementations and execution evidence.
+**Related pages:** [Part II](../papers/README.md) owns paper-specific mechanisms and experiments; [Part III](../models/README.md) owns model-specific implementations and execution evidence; [Components](../components/README.md) contains independently scoped component knowledge.
 
 ## Authority boundary
 
@@ -29,13 +29,16 @@ Part I owns model-independent concepts. A Foundation page explains a reusable de
 ```mermaid
 flowchart LR
     F["Foundation concept or formalism"] --> P["Paper-specific mechanism and evidence"]
+    F --> C["Component-specific knowledge"]
     F --> M["Model-specific instantiation"]
     P --> M
+    P --> C
+    C --> M
     M --> E["Implementation and experiment evidence"]
     E -.->|refines knowledge without changing ownership| F
 ```
 
-These connections are non-exclusive. A task may draw on several Foundation subparts and combine them with paper and model knowledge according to its current information needs.
+These connections are non-exclusive. A task may draw on several Foundation subparts and combine them with Paper, Component, and Model knowledge according to its current information needs.
 
 ## Knowledge map
 

@@ -3,7 +3,7 @@ id: world-model-kb.style
 title: Knowledge-Oriented Writing Style
 kind: guide
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -86,7 +86,7 @@ Every result retains model variant, task, dataset, metric definition and directi
 
 ## Sources and locators
 
-Resolve every source ID through the nearest owning registry: `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, or `models/<model-id>/sources.yaml`. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; existing examples include `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
+Resolve every source ID through its owning registry. The standard owners are `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, and `models/<model-id>/sources.yaml`; a Component may place an optional `sources.yaml` in a directory chosen by its author. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; existing examples include `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
 
 Source type, venue, and version describe provenance; they do not substitute for claim-level reasoning. For broad or contested claims, triangulate primary sources with different assumptions and identify the resulting synthesis explicitly.
 

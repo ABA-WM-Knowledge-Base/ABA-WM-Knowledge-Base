@@ -3,7 +3,7 @@ id: world-model-kb.papers.dreamerv3
 title: DreamerV3 Paper Knowledge Entry
 kind: paper
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Nature-canonical identity, robustness mechanisms, eight-domain protocol, public-code boundary, reproduction state, FD/WAM transfers.
 
-**Related pages:** [model-based RL](../../foundations/decision-making/model-based-rl.md); [latent world models](../../foundations/representations/latent-world-model.md); [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md).
+**Related pages:** [model-based RL](../../foundations/decision-making/model-based-rl.md); [latent world models](../../foundations/representations/latent-world-model.md); [latent simulation and imagination](../../components/reasoning/latent-simulation-and-imagination.md); [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md).
 
 Foundation: [MBRL-DREAMERV3-2025]. Website: [danijar.com/dreamerv3](https://danijar.com/dreamerv3). Do not duplicate the Foundation ID in [`sources.yaml`](sources.yaml).
 

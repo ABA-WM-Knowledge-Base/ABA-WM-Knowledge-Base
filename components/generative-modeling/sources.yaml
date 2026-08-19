@@ -1,0 +1,21 @@
+schema_version: 3
+as_of: "2026-08-19"
+sources:
+  - id: COMP-GEN-LDM-2022
+    type: paper
+    title: High-Resolution Image Synthesis With Latent Diffusion Models
+    publisher: IEEE/CVF Conference on Computer Vision and Pattern Recognition 2022
+    canonical_url: https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.html
+    version: "CVPR 2022; proceedings pages 10684-10695"
+    accessed: "2026-08-19"
+    retrieval_hint: Use for the latent-space diffusion factorization, autoencoder rate–distortion trade-off, cross-attention conditioning, and matched pixel-versus-latent efficiency evidence.
+    scope: Image-generation evidence; it does not establish temporal dynamics, physical fidelity, or control utility.
+  - id: COMP-GEN-DIT-2023
+    type: paper
+    title: Scalable Diffusion Models with Transformers
+    publisher: IEEE/CVF International Conference on Computer Vision 2023
+    canonical_url: https://openaccess.thecvf.com/content/ICCV2023/html/Peebles_Scalable_Diffusion_Models_with_Transformers_ICCV_2023_paper.html
+    version: "ICCV 2023; proceedings pages 4195-4205"
+    accessed: "2026-08-19"
+    retrieval_hint: Use for latent-patch Transformer diffusion, conditioning-block ablations, compute scaling measured in Gflops, and ImageNet class-conditional FID results.
+    scope: Image-generation and architecture-scaling evidence; it does not establish video rollout consistency or action-conditioned prediction.

@@ -25,6 +25,7 @@ SOURCES_SCHEMA_PATH = ROOT / "_schema" / "sources.schema.yaml"
 MODEL_ROOT = ROOT / "models" / "cosmos3-nano"
 FOUNDATION_ROOT = ROOT / "foundations"
 PAPER_ROOT = ROOT / "papers"
+COMPONENT_ROOT = ROOT / "components"
 MANIFEST_PATH = MODEL_ROOT / "manifest.yaml"
 AGENT_INDEX_PATH = MODEL_ROOT / "agent-index.yaml"
 FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
@@ -33,7 +34,7 @@ FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SOURCE_REFERENCE = re.compile(
     r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|MIMICGEN|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
-    r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|LOCAL|NVIDIA|FND|DYN|FD|REP|"
+    r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|COMP|LOCAL|NVIDIA|FND|DYN|FD|REP|"
     r"PLAN|CTRL|MBRL|WFM|WAM|EMB|DATA|EVAL|BENCH|OBJ|ACT)-[A-Z0-9-]+)\b"
 )
 NON_ENGLISH_SCRIPT = re.compile(
@@ -376,6 +377,16 @@ def validate_pages(
 
         validate_relative_links(path, text, errors)
 
+        registered_in_page = {
+            source_id
+            for source_id in source_ids
+            if re.search(
+                rf"(?<![A-Z0-9-]){re.escape(source_id)}(?![A-Z0-9-])",
+                text,
+            )
+        }
+        referenced_source_ids.update(registered_in_page)
+
         for source_id in SOURCE_REFERENCE.findall(text):
             referenced_source_ids.add(source_id)
             if source_id not in source_ids:
@@ -445,7 +456,7 @@ def validate_pages(
 
 
 def validate_structure(schema: dict, errors: list[str]) -> None:
-    """Validate the three-part layout and model-entry file contract."""
+    """Validate the four-part layout and entry file contracts."""
 
     directory_contract = schema["directory_contract"]
     for part in directory_contract["content_parts"]:
@@ -1102,6 +1113,12 @@ def main() -> int:
     paper_entry_count = len(
         load_yaml(SCHEMA_PATH).get("paper_entry", {}).get("active_entries", [])
     )
+    component_pages = sum(
+        1 for path in COMPONENT_ROOT.rglob("*.md") if path.parent != COMPONENT_ROOT
+    )
+    component_entry_count = len(
+        [path for path in COMPONENT_ROOT.iterdir() if path.is_dir()]
+    )
     source_count = sum(
         len(load_yaml(path).get("sources", [])) for path in source_registries()
     )
@@ -1113,8 +1130,9 @@ def main() -> int:
     )
     print(
         "KB validation passed: "
-        f"3 content parts, {page_count} pages, {foundation_pages} Foundation topics, "
+        f"4 content parts, {page_count} pages, {foundation_pages} Foundation topics, "
         f"{paper_entry_count} Paper entries with {paper_pages} pages, "
+        f"{component_entry_count} Component entries with {component_pages} pages, "
         f"{model_pages} Cosmos3-Nano pages, {source_count} sources, "
         f"{foundation_profile_count} Foundation and {model_profile_count} model "
         "knowledge-guidance retrieval profiles."

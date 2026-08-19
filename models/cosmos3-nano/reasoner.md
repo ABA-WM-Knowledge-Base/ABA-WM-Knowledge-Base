@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.reasoner
 title: Cosmos3-Nano Reasoner Optimization Reference
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Reasoner identity, mechanisms, deployment contracts, output schemas, capability-specific levers, failure interpretations, and published evaluation evidence.
 
-**Related pages:** [Generator](generator.md) covers continuous media; [Action modeling](action-modeling.md) covers action decoding; [Policy](policy.md) covers DROID control; [Reproduction](reproduction.md) records runtime outcomes. Foundation context is owned by [world foundation models](../../foundations/definitions-and-taxonomy/world-foundation-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), and [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md).
+**Related pages:** [Generator](generator.md) covers continuous media; [Action modeling](action-modeling.md) covers action decoding; [Policy](policy.md) covers DROID control; [Reproduction](reproduction.md) records runtime outcomes. Foundation context is owned by [world foundation models](../../foundations/definitions-and-taxonomy/world-foundation-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), and [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md). [Explicit physical reasoning](../../components/reasoning/explicit-physical-reasoning.md) and [reasoning–generation–action integration](../../components/reasoning/reasoning-generation-action.md) own the applicable cross-paper method syntheses.
 
 ## Identity and capability boundary
 

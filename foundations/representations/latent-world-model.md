@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.latent-world-model
 title: Latent World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** latent-state formulations, major continuous and discrete families, objective trade-offs, and tests for whether compression preserves dynamics and task-relevant information.
 
-**Related pages:** [State, observation, and belief](../problem-formulation/state-observation-and-belief.md) distinguishes latent state from belief; [video world models](video-world-model.md) covers decoded observation rollouts; [problem formulation](../problem-formulation/problem-formulation.md) owns transition and task heads.
+**Related pages:** [State, observation, and belief](../problem-formulation/state-observation-and-belief.md) distinguishes latent state from belief; [video world models](video-world-model.md) covers decoded observation rollouts; [problem formulation](../problem-formulation/problem-formulation.md) owns transition and task heads; [latent simulation and imagination](../../components/reasoning/latent-simulation-and-imagination.md) and [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md) own cross-paper syntheses for two distinct uses of learned latents.
 
 ## Definition and formalism
 

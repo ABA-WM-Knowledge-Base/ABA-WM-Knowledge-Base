@@ -3,7 +3,7 @@ id: world-model-kb.foundations.definitions-and-taxonomy.history-and-taxonomy
 title: History and Taxonomy of World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** a non-exclusive historical map, an orthogonal classification tuple, and terminology boundaries that prevent architecture, objective, representation, and use from being collapsed into one label.
 
-**Related pages:** [World models](world-model.md) owns the operational definition; [problem formulation](../problem-formulation/problem-formulation.md) owns process notation; the [representations](../representations/README.md) and [learning objectives](../learning-objectives/README.md) indexes own their respective axes.
+**Related pages:** [World models](world-model.md) owns the operational definition; [problem formulation](../problem-formulation/problem-formulation.md) owns process notation; the [representations](../representations/README.md) and [learning objectives](../learning-objectives/README.md) indexes own their respective axes; [Components](../../components/README.md) owns cross-paper capability evolution rather than the field-level taxonomy.
 
 ## Definition and formalism
 

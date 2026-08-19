@@ -3,7 +3,7 @@ id: world-model-kb.schema
 title: Agent Retrieval and Authoring Contract
 kind: reference
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -18,7 +18,7 @@ owners:
 |---|---|
 | Retrieval profile | A machine-readable association between query themes and decision-grounding knowledge. It supports dynamic loading without carrying workflow-orchestration authority. |
 | Canonical ownership | One page owns the full reusable explanation of a topic. Other pages summarize only the dependency and link to the owner. |
-| Part-local provenance | Foundation, paper, and model entries keep source identities in the nearest owning `sources.yaml`; source IDs remain unique across the repository. |
+| Part-local provenance | Foundation, Paper, and Model entries keep source identities in their owning registries. A Component may use a local registry when that suits its design; source IDs remain unique across the repository. |
 | Progressive disclosure | An optional retrieval pattern in which additional sources are opened when more detail is useful. |
 | Workflow authority | AIBuildAI runtime, Agent configuration, task instructions, and policies remain authoritative. |
 | Decision-ready fact | A scoped statement that includes mechanism, operating conditions, optimization consequence, failure boundary, and source locator. |
@@ -27,11 +27,13 @@ owners:
 
 ## Retrieval metadata use
 
-[The global index](../INDEX.md) exposes non-exclusive knowledge areas. The Foundation [`retrieval-index.yaml`](../foundations/retrieval-index.yaml) associates model-independent queries with canonical concepts, while the Cosmos3-Nano [`agent-index.yaml`](../models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with decision-grounding knowledge. AIBuildAI may dynamically combine these inputs according to the current task and state. Neither index selects Agents, repositories, task order, or execution schedule.
+[The global index](../INDEX.md) exposes non-exclusive knowledge areas. The Foundation [`retrieval-index.yaml`](../foundations/retrieval-index.yaml) associates model-independent queries with canonical concepts, and the Cosmos3-Nano [`agent-index.yaml`](../models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with decision-grounding knowledge. The current Reasoning and Generative Modeling Components expose page-level retrieval metadata by local design; `components/` has no required common retrieval representation. AIBuildAI may dynamically combine these inputs according to the current task and state. None of these knowledge interfaces selects Agents, repositories, task order, or execution schedule.
 
 ## Canonical page contract
 
-Every canonical Foundation, Paper, or model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. Foundation pages own transferable concepts; paper entries own work-specific evidence; model pages own concrete instantiations. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
+Every canonical Foundation, Paper, or model-topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. Foundation pages own transferable concepts; Paper entries own work-specific evidence; Model pages own concrete instantiations. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
+
+Component authors choose the content structure, file layout, and retrieval representation appropriate to their own knowledge surface. The two current Components voluntarily use the same retrieval fields and historical evidence pattern; that choice is not part of the canonical page contract for future Components.
 
 Canonical pages must not contain:
 
@@ -67,6 +69,8 @@ Canonical pages must not contain:
 | Paper-specific command, environment, artifact, deviation, or execution state | `papers/<paper-id>/reproduction.md` |
 | Falsifiable transfer from one paper mechanism to another model | `papers/<paper-id>/optimization-transfer.md` |
 | Paper, code commit, checkpoint revision, benchmark, or entry-local artifact identity | `papers/<paper-id>/sources.yaml` |
+| Component-specific knowledge or retrieval representation | The owner path declared by that Component; no shared internal layout is required |
+| Source identity unique to a Component | An optional `sources.yaml` placed in a directory chosen by that Component |
 | Stable mechanism, interface, or limitation | The owning topic page |
 | Model identity, revision, license, or component inventory | `manifest.yaml` |
 | Source identity, immutable version, or artifact hash | `sources.yaml` |

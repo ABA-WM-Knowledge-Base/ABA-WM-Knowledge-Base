@@ -1,0 +1,11 @@
+schema_version: 3
+as_of: "2026-08-19"
+sources:
+  - id: COMP-REASONING-WORLD-MODELS-PROJECT
+    type: official_blog
+    title: World Models interactive article and reference implementation
+    publisher: David Ha and Jürgen Schmidhuber
+    canonical_url: https://worldmodels.github.io/
+    accessed: "2026-08-19"
+    retrieval_hint: Use for the authors' executable VAE–MDN-RNN–controller decomposition, virtual-environment demonstrations, and temperature-dependent model-exploitation discussion; use FND-WORLD-MODELS-2018 for the archival paper identity.
+    scope: Official companion article for the 2018 World Models work; it does not establish results for later Dreamer, JEPA, or Cosmos systems.
