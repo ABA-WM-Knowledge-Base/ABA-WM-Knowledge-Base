@@ -22,16 +22,16 @@ owners:
 
 `components/` is an extension space for independently scoped world-model knowledge. Each Component declares what it owns, how its material is organized, and how it connects to Foundations, Papers, Models, or other Components. The part does not impose a common chapter outline, evidence-question sequence, file inventory, retrieval index, or internal directory depth.
 
-Reasoning and Generative Modeling currently use a cross-paper evolutionary synthesis because that structure fits these two topics. Their shared sequence—earlier bottleneck, intervention, mechanism, evidence, and remaining limitation—is a local design choice for these entries, not a template for future Components.
+Reasoning and Generative Modeling currently organize their cross-paper syntheses into method-oriented pages because that structure fits these two topics. Each entry `README.md` is a compact boundary and discovery map; the linked pages own the detailed method knowledge. This is a local design choice for these entries, not a template for future Components.
 
 Component knowledge can inform model diagnosis, intervention design, and experiment interpretation. It does not select Agents, repositories, task order, execution schedules, permissions, or stopping behavior; those remain properties of AIBuildAI and the active task.
 
 ## Knowledge map
 
-| Component | Capability boundary | Historical span | Entry |
+| Component | Capability boundary | Current organization | Entry |
 |---|---|---|---|
-| Reasoning for World Models | Latent simulation, imagined decision learning, predictive representation, explicit physical reasoning, and reasoning-to-generation coupling | World Models through Cosmos 3 | [Reasoning](reasoning/README.md) |
-| Generative Modeling | Conditional future modeling across autoregressive, diffusion, latent, flow, video, and action-conditioned systems | Early recurrent prediction through Cosmos 3 | [Generative Modeling](generative-modeling/README.md) |
+| Reasoning for World Models | Latent simulation, imagined decision learning, predictive representation, explicit physical reasoning, and reasoning-to-generation coupling | Five method and comparison pages | [Reasoning](reasoning/README.md) |
+| Generative Modeling | Conditional future modeling across autoregressive, diffusion, latent, flow, video, and action-conditioned systems | Seven method and comparison pages | [Generative Modeling](generative-modeling/README.md) |
 
 The two entries are non-exclusive. For example, action-conditioned video planning may require both the reasoning synthesis and the generative-modeling synthesis, together with canonical action, planning, and evaluation pages from Foundations.
 

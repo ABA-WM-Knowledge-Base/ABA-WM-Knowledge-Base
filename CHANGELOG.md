@@ -12,6 +12,14 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 1.1.0 - 2026-08-19
+
+- Replaced the single long page in each current Component with method-oriented pages so retrieval can target a mechanism directly instead of loading a broad review.
+- Split Reasoning into latent simulation and imagination, predictive representation and planning, explicit physical reasoning, reasoning–generation–action integration, and cross-method comparison.
+- Split Generative Modeling into autoregressive modeling, diffusion, latent diffusion and DiT, flow matching and rectified flow, action-conditioned video, omnimodal generation, and cross-method comparison.
+- Reduced each Component `README.md` to a concise boundary and method map, while retaining the existing local source registries and evidence ownership.
+- Updated applicable Foundation, Paper, and Cosmos3-Nano links to point to the method-level owner pages. The multi-page organization remains local to these two Components and does not constrain future Component designs or AIBuildAI orchestration.
+
 ## 1.0.1 - 2026-08-19
 
 - Scoped the historical bottleneck–intervention–mechanism–evidence structure to the Reasoning and Generative Modeling entries that chose it; it is no longer represented as a rule for all Components.
@@ -22,7 +30,7 @@ This file records changes that affect retrieval metadata, canonical ownership, s
 
 ## 1.0.0 - 2026-08-19
 
-- Activated @@components/@@ as the fourth peer content part, with Reasoning for World Models and Generative Modeling as its first two entries.
+- Activated `components/` as the fourth peer content part, with Reasoning for World Models and Generative Modeling as its first two entries.
 - Defined Component ownership as cross-paper capability evolution, recurring mechanism patterns, evidence boundaries, and unresolved component gaps; Foundations retain general concepts, Papers retain individual-work evidence, and Models retain concrete implementations and execution state.
 - Reconstructed the Reasoning lineage from stochastic latent simulation through Dreamer imagination, DreamerV3 robustness, V-JEPA 2 predictive representation, Cosmos-Reason1 explicit physical reasoning, and Cosmos 3 reasoning–generation coupling.
 - Reconstructed the Generative Modeling lineage from recurrent/autoregressive prediction through DDPM, latent diffusion, DiT, flow matching, rectified flow, interactive and action-conditioned video models, Cosmos-Predict2.5, and Cosmos 3.

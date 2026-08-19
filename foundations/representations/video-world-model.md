@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.video-world-model
 title: Video World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** the conditional distribution represented by video world models, major representation and conditioning families, optimization trade-offs, and tests that separate visual plausibility from usable dynamics.
 
-**Related pages:** [World models](../definitions-and-taxonomy/world-model.md) defines the broader category; [actions and interventions](../problem-formulation/actions-and-interventions.md) owns control semantics; [autoregressive modeling](../learning-objectives/autoregressive-modeling.md) and [diffusion and flow matching](../learning-objectives/diffusion-and-flow-matching.md) own objective families.
+**Related pages:** [World models](../definitions-and-taxonomy/world-model.md) defines the broader category; [actions and interventions](../problem-formulation/actions-and-interventions.md) owns control semantics; [autoregressive modeling](../learning-objectives/autoregressive-modeling.md) and [diffusion and flow matching](../learning-objectives/diffusion-and-flow-matching.md) own objective families; [action-conditioned video modeling](../../components/generative-modeling/action-conditioned-video.md) owns the cross-paper method comparison.
 
 ## Definition and formalism
 

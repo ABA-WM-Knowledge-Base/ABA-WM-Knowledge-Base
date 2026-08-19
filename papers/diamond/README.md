@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** NeurIPS 2024 Spotlight identity, image-space EDM world model, Atari 100k evidence, CSGO branch separation, Hugging Face play surface, reproduction state, and Cosmos3-Nano FD/WAM transfer hypotheses.
 
-**Related pages:** [Video world models](../../foundations/representations/video-world-model.md); [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md); [model-based RL](../../foundations/decision-making/model-based-rl.md); [Generative Modeling Component](../../components/generative-modeling/README.md); [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
+**Related pages:** [Video world models](../../foundations/representations/video-world-model.md); [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md); [model-based RL](../../foundations/decision-making/model-based-rl.md); [diffusion generative modeling](../../components/generative-modeling/diffusion.md); [action-conditioned video modeling](../../components/generative-modeling/action-conditioned-video.md); [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
 
 Foundation registry [REP-DIAMOND-2024](../../foundations/representations/video-world-model.md) owns the bibliographic identity — this entry does not duplicate that ID in [`sources.yaml`](sources.yaml).
 

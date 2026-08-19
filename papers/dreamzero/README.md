@@ -3,7 +3,7 @@ id: world-model-kb.papers.dreamzero
 title: DreamZero Paper Knowledge Entry
 kind: paper
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** identity, WAM operational model, table anchors, embodiment-specific checkpoints, reproduction state, Generator FD/WAM transfers.
 
-**Related pages:** [world action models](../../foundations/definitions-and-taxonomy/world-action-model.md); [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
+**Related pages:** [world action models](../../foundations/definitions-and-taxonomy/world-action-model.md); [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [action-conditioned video modeling](../../components/generative-modeling/action-conditioned-video.md); [reasoning–generation–action integration](../../components/reasoning/reasoning-generation-action.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
 
 Foundation identity: [WAM-DREAMZERO-2026]. Do not duplicate that ID in [`sources.yaml`](sources.yaml). Project page: [dreamzero0.github.io](https://dreamzero0.github.io/). [DZ-PROJECT]
 

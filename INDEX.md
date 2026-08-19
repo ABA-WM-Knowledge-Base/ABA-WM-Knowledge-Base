@@ -18,7 +18,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
 | Representative methods and papers | [Papers](papers/README.md) | Thirteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
-| Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use cross-paper evolution |
+| Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use method-oriented, cross-paper synthesis |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -42,12 +42,12 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 
 ## Component map
 
-The two current Components reconstruct how one capability changed across several works. They connect earlier bottlenecks, technical interventions, evidence, and remaining gaps without duplicating the general definitions in Foundations or the complete facts of each Paper or Model entry. This is the design of these two entries, not a required form for future Components.
+The two current Components compare how related method families address a capability across several works. Their entry pages expose concise method maps; detailed knowledge is owned by the linked method pages rather than compressed into a single review. This is the design of these two entries, not a required form for future Components.
 
 | Component | Knowledge scope | Entry point |
 |---|---|---|
-| Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Entry](components/reasoning/README.md) |
-| Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Entry](components/generative-modeling/README.md) |
+| Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
+| Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
 
 The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with the applicable Foundation, Paper, and Model owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
 

@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** diffusion and continuous-flow formulations, distinctions between flow matching and rectified flow, optimization/sampling levers, and tests for conditional dynamics and downstream rollout quality.
 
-**Related pages:** [Video world models](../representations/video-world-model.md) covers the predicted observation surface; [latent world models](../representations/latent-world-model.md) covers codec and state choices; [autoregressive modeling](autoregressive-modeling.md) covers ordered likelihood factorization; the [Generative Modeling Component](../../components/generative-modeling/README.md) owns the cross-paper historical synthesis.
+**Related pages:** [Video world models](../representations/video-world-model.md) covers the predicted observation surface; [latent world models](../representations/latent-world-model.md) covers codec and state choices; [autoregressive modeling](autoregressive-modeling.md) covers ordered likelihood factorization; [diffusion](../../components/generative-modeling/diffusion.md), [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md), and [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md) own the cross-paper method syntheses.
 
 ## Definition and formalism
 

@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.training
 title: Cosmos3-Nano Training State and Optimization Levers
 kind: reference
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** published training state, objectives, curricula, trainable-group semantics, system characteristics, controllable variables, confounders, and candidate intervention patterns.
 
-**Related pages:** [Data](data.md) contains dataset construction; [Post-training](post-training.md) contains public SFT recipes; [Inference](inference.md) contains runtime commands; [Evaluation](evaluation.md) contains benchmark definitions; [Reproduction](reproduction.md) contains execution status. Foundation owners cover [datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md).
+**Related pages:** [Data](data.md) contains dataset construction; [Post-training](post-training.md) contains public SFT recipes; [Inference](inference.md) contains runtime commands; [Evaluation](evaluation.md) contains benchmark definitions; [Reproduction](reproduction.md) contains execution status. Foundation owners cover [datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). Cross-paper method context is owned by [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md) and [omnimodal generation](../../components/generative-modeling/omnimodal-generation.md).
 
 ## 1. Checkpoint lineage is part of the experimental state
 

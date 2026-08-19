@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.architecture
 title: Cosmos3-Nano Architecture and Computation Semantics
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-19
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** computation-graph invariants, tower and frontend boundaries, parameter groups, compatibility considerations, implementation anchors, and architecture-level experiment variables.
 
-**Related pages:** [Inference](inference.md) contains runtime references; [Reproduction](reproduction.md) contains observed execution state; [Policy](policy.md) owns the specialized policy interface; [Research registry](research-queue.md) records unresolved architecture questions. Model-independent owners include [latent world models](../../foundations/representations/latent-world-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md).
+**Related pages:** [Inference](inference.md) contains runtime references; [Reproduction](reproduction.md) contains observed execution state; [Policy](policy.md) owns the specialized policy interface; [Research registry](research-queue.md) records unresolved architecture questions. Model-independent owners include [latent world models](../../foundations/representations/latent-world-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). Cross-paper method context is owned by [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md), [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md), and [reasoning–generation–action integration](../../components/reasoning/reasoning-generation-action.md).
 
 ## Canonical model boundaries
 
