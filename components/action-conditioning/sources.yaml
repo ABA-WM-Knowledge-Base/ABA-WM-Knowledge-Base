@@ -1,0 +1,12 @@
+schema_version: 3
+as_of: "2026-08-20"
+sources:
+  - id: COMP-ACT-XWAM-2026
+    type: paper
+    title: "Unified 4D World Action Modeling from Video Priors with Asynchronous Denoising"
+    publisher: arXiv
+    version: "arXiv:2604.26694v2"
+    canonical_url: https://arxiv.org/abs/2604.26694
+    accessed: "2026-08-03"
+    retrieval_hint: Use for the bidirectional RGB/state/action denoising sequence, Asynchronous Noise Sampling (t_O >= t_a) with its 66.4-to-67.8 and 4,665-to-1,033 ms ablation, the 79.2% RoboCasa protocol (24 tasks x 100 episodes), and the 67.8%-without-pretraining data-scale ablation.
+    scope: Generator-policy evidence with a 1.49M-episode pretraining confound at the headline number; seeds and demonstrations per task are not stated; not evidence about reasoner components.

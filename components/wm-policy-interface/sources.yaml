@@ -1,0 +1,48 @@
+schema_version: 3
+as_of: "2026-08-20"
+sources:
+  - id: COMP-WPI-WORLD2ACT-2026
+    type: paper
+    title: "WORLD2ACT: Latent Action Post-Training from World Model Dynamics"
+    publisher: arXiv
+    version: "arXiv:2603.10422"
+    canonical_url: https://arxiv.org/abs/2603.10422
+    accessed: "2026-08-08"
+    retrieval_hint: Use for pre-decoding latent trajectory transfer, the 18%/19% decode-noise measurement on pseudo-actions, the 70.1-to-72.6 RoboCasa result under its 50-trial five-seed protocol, and the absence of generated-trajectory filtering.
+    scope: Generator-side post-training evidence on GR00T-N1.6; its protocol differs from other RoboCasa conventions; not evidence about reasoner components.
+  - id: COMP-WPI-CONSISTENCY-2026
+    type: paper
+    title: "Is the Future Compatible? Diagnosing Dynamic Consistency in World Action Models"
+    publisher: arXiv
+    version: "arXiv:2605.07514"
+    canonical_url: https://arxiv.org/abs/2605.07514
+    accessed: "2026-08-03"
+    retrieval_hint: Use for exp(-alpha*d) action-state consistency, best-of-8 Consistency-Consensus selection (66.6 to 67.3 against its own reimplemented baseline), the 67.4/68.0 sibling variants, and the static-future failure mode.
+    scope: Inference-time selection evidence at 1,200 rollouts with no stated seed count; gains belong to the generator-policy line, not training improvements.
+  - id: COMP-WPI-GIGAWORLD-2026
+    type: paper
+    title: "GigaWorld-1: A Roadmap to Build World Models for Robot Policy Evaluation"
+    publisher: arXiv
+    version: "arXiv:2607.02642"
+    canonical_url: https://arxiv.org/abs/2607.02642
+    accessed: "2026-08-03"
+    retrieval_hint: Use for the verbatim evaluator criterion (long-horizon action-faithful rollout consistency dominates short-term visual realism), the WMBench 2,989 paired trajectories and 324,000 annotated segments, and 40-second rollout degradation.
+    scope: Evaluator-benchmarking evidence; Cosmos 3 multiview evaluation was unavailable in the paper.
+  - id: COMP-WPI-WAMROBUST-2026
+    type: paper
+    title: "Do World Action Models Generalize Better than VLAs? A Robustness Study"
+    publisher: arXiv
+    version: "arXiv:2603.22078v5"
+    canonical_url: https://arxiv.org/abs/2603.22078
+    accessed: "2026-08-03"
+    retrieval_hint: Use for the perturbation-axis comparison (WAMs lead noise/lighting/layout, VLAs lead geometry), pi0.5 at 85.7 LIBERO-Plus overall, Fast-WAM 97.6 clean to 51.5 perturbed, and the >=4.8x WAM inference-cost measurement.
+    scope: Open-checkpoint comparison; the paper itself notes architecture is confounded with training-data diversity; DreamZero and GigaWorld-Policy were not evaluable.
+  - id: COMP-WPI-LAWAM-2026
+    type: paper
+    title: "LaWAM: Latent World Action Models for Efficient Dynamics-Aware Robot Policies"
+    publisher: arXiv
+    version: "arXiv:2606.15768"
+    canonical_url: https://arxiv.org/abs/2606.15768
+    accessed: "2026-08-03"
+    retrieval_hint: Use for the latent-subgoal policy interface and the 98.6% LIBERO at 187 ms per action chunk latency counterexample.
+    scope: LIBERO evidence with benchmark-specific post-training; no RoboCasa or Cosmos connection.

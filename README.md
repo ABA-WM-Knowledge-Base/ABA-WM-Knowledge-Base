@@ -90,7 +90,7 @@ The four content parts are peers:
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
 | [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Thirteen active entries |
-| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Reasoning and Generative Modeling are active |
+| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Reasoning, Generative Modeling, Action Conditioning, and WM-Policy Interface are active are active |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano is active |
 
 ## How to navigate

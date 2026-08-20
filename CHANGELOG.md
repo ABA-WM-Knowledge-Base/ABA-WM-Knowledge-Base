@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-20
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,10 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.1.1 - 2026-08-20
+
+- Added components/action-conditioning and components/wm-policy-interface (six-component split, topics 3 and 6): action representation routes, denoising schedules, future-prediction coupling; five WM-to-policy consumption modes, deployment boundaries, and the reasoner-to-policy evidence gap. Registered six new component source identities (X-WAM, World2Act, Consistency-Consensus, GigaWorld-1, the WAM-versus-VLA robustness study, and LaWAM).
 
 ## 1.1.0 - 2026-08-19
 
