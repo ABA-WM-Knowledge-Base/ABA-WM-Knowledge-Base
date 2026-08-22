@@ -22,18 +22,19 @@ ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "_schema" / "metadata.schema.yaml"
 MANIFEST_SCHEMA_PATH = ROOT / "_schema" / "manifest.schema.yaml"
 SOURCES_SCHEMA_PATH = ROOT / "_schema" / "sources.schema.yaml"
-MODEL_ROOT = ROOT / "models" / "cosmos3-nano"
+MODELS_ROOT = ROOT / "models"
+# Every models/<entry>/ that carries a manifest.yaml is a model entry; all
+# validators iterate the full set (generalized 2026-08-22, second entry).
+MODEL_ROOTS = tuple(sorted(p.parent for p in (ROOT / "models").glob("*/manifest.yaml")))
 FOUNDATION_ROOT = ROOT / "foundations"
 PAPER_ROOT = ROOT / "papers"
 COMPONENT_ROOT = ROOT / "components"
-MANIFEST_PATH = MODEL_ROOT / "manifest.yaml"
-AGENT_INDEX_PATH = MODEL_ROOT / "agent-index.yaml"
 FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
 
 FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SOURCE_REFERENCE = re.compile(
-    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|MIMICGEN|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
+    r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:XR1|XR0|QWEN3VL|VLAB|ERV|C3|C1|R1|T1|P25|IRASRC|MIMICGEN|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
     r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|COMP|LOCAL|NVIDIA|FND|DYN|FD|REP|"
     r"PLAN|CTRL|MBRL|WFM|WAM|EMB|DATA|EVAL|BENCH|OBJ|ACT)-[A-Z0-9-]+)\b"
 )
@@ -394,7 +395,7 @@ def validate_pages(
                     f"{relative(path)}: unknown source reference {source_id}"
                 )
 
-        is_model_page = path.parent == MODEL_ROOT
+        is_model_page = path.parent in MODEL_ROOTS
         is_foundation_page = path.is_relative_to(FOUNDATION_ROOT)
         is_paper_page = path.is_relative_to(PAPER_ROOT)
         is_foundation_topic = is_foundation_page and path.name != "README.md"
@@ -483,20 +484,36 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
         if not (ROOT / "_schema" / schema_file).is_file():
             errors.append(f"missing schema file: _schema/{schema_file}")
 
-    required_model_files = set(schema["cosmos3_nano_required_files"])
-    actual_model_files = {
-        path.name for path in MODEL_ROOT.iterdir() if path.is_file()
-    }
-    missing = required_model_files - actual_model_files
-    if missing:
-        errors.append(f"Cosmos3-Nano entry missing files: {sorted(missing)}")
+    model_contracts = schema["model_required_files"]
+    for model_root in MODEL_ROOTS:
+        entry = model_root.name
+        if entry not in model_contracts:
+            errors.append(
+                f"model entry {entry} has no required-files contract in "
+                "_schema/metadata.schema.yaml (model_required_files)"
+            )
+            continue
+        required_model_files = set(model_contracts[entry])
+        actual_model_files = {
+            path.name for path in model_root.iterdir() if path.is_file()
+        }
+        missing = required_model_files - actual_model_files
+        if missing:
+            errors.append(f"{entry} entry missing files: {sorted(missing)}")
 
-    stale_files = {"project-relevance.md", "open-questions.md"}
-    remaining_stale = stale_files & actual_model_files
-    if remaining_stale:
+        stale_files = {"project-relevance.md", "open-questions.md"}
+        remaining_stale = stale_files & actual_model_files
+        if remaining_stale:
+            errors.append(
+                f"{entry} entry contains stale human-facing paths: "
+                f"{sorted(remaining_stale)}"
+            )
+    unlisted_model_dirs = {
+        p.name for p in MODELS_ROOT.iterdir() if p.is_dir()
+    } - {r.name for r in MODEL_ROOTS}
+    if unlisted_model_dirs:
         errors.append(
-            f"Cosmos3-Nano entry contains stale human-facing paths: "
-            f"{sorted(remaining_stale)}"
+            f"models/ entries without a manifest.yaml: {sorted(unlisted_model_dirs)}"
         )
 
     foundation_contract = schema.get("foundation_entry", {})
@@ -586,7 +603,14 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
 def validate_manifest(errors: list[str]) -> None:
     """Validate model identity, reproduction state, and document ownership."""
 
-    manifest = load_yaml(MANIFEST_PATH)
+    for model_root in MODEL_ROOTS:
+        local: list[str] = []
+        _validate_one_manifest(model_root, local)
+        errors.extend(f"{model_root.name}: {e}" for e in local)
+
+
+def _validate_one_manifest(model_root: Path, errors: list[str]) -> None:
+    manifest = load_yaml(model_root / "manifest.yaml")
     schema = load_yaml(MANIFEST_SCHEMA_PATH)
     contract = schema["manifest"]
 
@@ -673,7 +697,7 @@ def validate_manifest(errors: list[str]) -> None:
         )
     registry_heading = reproduction.get("registry_heading")
     if isinstance(registry_heading, str):
-        reproduction_text = read_text(MODEL_ROOT / "reproduction.md")
+        reproduction_text = read_text(model_root / "reproduction.md")
         if f"## {registry_heading}" not in reproduction_text:
             errors.append(
                 "manifest.yaml: reproduction.registry_heading does not exist in reproduction.md"
@@ -689,17 +713,24 @@ def validate_manifest(errors: list[str]) -> None:
             f"manifest.yaml: documents missing ownership entries {sorted(route_missing)}"
         )
     for name, target in documents.items():
-        if not isinstance(target, str) or not (MODEL_ROOT / target).resolve().is_file():
+        if not isinstance(target, str) or not (model_root / target).resolve().is_file():
             errors.append(f"manifest document {name}: missing {target}")
 
-    if documents.get("agent_index") != AGENT_INDEX_PATH.name:
+    if documents.get("agent_index") != "agent-index.yaml":
         errors.append("manifest document agent_index must resolve to agent-index.yaml")
 
 
 def validate_agent_index(schema: dict, errors: list[str]) -> None:
     """Validate machine-readable retrieval metadata and referenced document paths."""
 
-    index = load_yaml(AGENT_INDEX_PATH)
+    for model_root in MODEL_ROOTS:
+        local: list[str] = []
+        _validate_one_agent_index(model_root, schema, local)
+        errors.extend(f"{model_root.name}: {e}" for e in local)
+
+
+def _validate_one_agent_index(model_root: Path, schema: dict, errors: list[str]) -> None:
+    index = load_yaml(model_root / "agent-index.yaml")
     contract = schema["agent_index"]
     missing = set(contract["required"]) - index.keys()
     if missing:
@@ -711,13 +742,13 @@ def validate_agent_index(schema: dict, errors: list[str]) -> None:
         )
 
     try:
-        overview_metadata, _ = load_frontmatter(MODEL_ROOT / "README.md")
+        overview_metadata, _ = load_frontmatter(model_root / "README.md")
     except ValueError as exc:
         errors.append(str(exc))
         overview_metadata = {}
     if index.get("model_entry") != overview_metadata.get("id"):
         errors.append(
-            "agent-index.yaml: model_entry must equal the Cosmos3-Nano README id"
+            "agent-index.yaml: model_entry must equal the model README id"
         )
 
     def validate_model_path(owner: str, target: object) -> None:
@@ -725,10 +756,10 @@ def validate_agent_index(schema: dict, errors: list[str]) -> None:
             errors.append(f"agent-index.yaml: {owner} path must be a string")
             return
         path = Path(target)
-        resolved = (MODEL_ROOT / path).resolve()
+        resolved = (model_root / path).resolve()
         if (
             path.is_absolute()
-            or not resolved.is_relative_to(MODEL_ROOT.resolve())
+            or not resolved.is_relative_to(model_root.resolve())
             or not resolved.is_file()
         ):
             errors.append(
@@ -743,7 +774,7 @@ def validate_agent_index(schema: dict, errors: list[str]) -> None:
     else:
         for owner, target in canonical_owners.items():
             validate_model_path(f"canonical owner {owner}", target)
-        manifest_documents = set(load_yaml(MANIFEST_PATH).get("documents", {}).values())
+        manifest_documents = set(load_yaml(model_root / "manifest.yaml").get("documents", {}).values())
         owned_documents = set(canonical_owners.values())
         unowned_documents = manifest_documents - owned_documents
         if unowned_documents:
@@ -1103,7 +1134,7 @@ def main() -> int:
             print(f"- {warning}")
 
     page_count = sum(1 for _ in ROOT.rglob("*.md"))
-    model_pages = sum(1 for _ in MODEL_ROOT.glob("*.md"))
+    model_pages = sum(1 for root in MODEL_ROOTS for _ in root.glob("*.md"))
     foundation_pages = sum(
         1 for path in FOUNDATION_ROOT.rglob("*.md") if path.name != "README.md"
     )
@@ -1122,8 +1153,9 @@ def main() -> int:
     source_count = sum(
         len(load_yaml(path).get("sources", [])) for path in source_registries()
     )
-    model_profile_count = len(
-        load_yaml(AGENT_INDEX_PATH).get("retrieval_profiles", [])
+    model_profile_count = sum(
+        len(load_yaml(root / "agent-index.yaml").get("retrieval_profiles", []))
+        for root in MODEL_ROOTS
     )
     foundation_profile_count = len(
         load_yaml(FOUNDATION_INDEX_PATH).get("retrieval_profiles", [])
@@ -1133,7 +1165,8 @@ def main() -> int:
         f"4 content parts, {page_count} pages, {foundation_pages} Foundation topics, "
         f"{paper_entry_count} Paper entries with {paper_pages} pages, "
         f"{component_entry_count} Component entries with {component_pages} pages, "
-        f"{model_pages} Cosmos3-Nano pages, {source_count} sources, "
+        f"{len(MODEL_ROOTS)} model entries with {model_pages} pages, "
+        f"{source_count} sources, "
         f"{foundation_profile_count} Foundation and {model_profile_count} model "
         "knowledge-guidance retrieval profiles."
     )

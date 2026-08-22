@@ -63,6 +63,9 @@ paper_entry:
     - optimization-transfer.md
     - sources.yaml
   active_entries:
+    - xiaomi-robotics-1
+    - vlabench
+    - ervla
     - cosmos-predict2-5
     - irasim
     - mimicgen
@@ -98,7 +101,7 @@ foundation_retrieval_index:
 
 agent_index:
   supported_schema_version: 3
-  path: models/cosmos3-nano/agent-index.yaml
+  path: models/<entry>/agent-index.yaml
   required:
     - schema_version
     - model_entry
@@ -136,27 +139,49 @@ directory_contract:
     - foundation-page-template.md
     - paper-entry-template.md
 
-cosmos3_nano_required_files:
-  - README.md
-  - agent-index.yaml
-  - manifest.yaml
-  - architecture.md
-  - modalities-and-io.md
-  - reasoner.md
-  - generator.md
-  - action-modeling.md
-  - policy.md
-  - data.md
-  - training.md
-  - post-training.md
-  - evaluation.md
-  - limitations.md
-  - codebase.md
-  - inference.md
-  - reproduction.md
-  - optimization-playbook.md
-  - research-queue.md
-  - sources.yaml
+model_required_files:
+  cosmos3-nano:
+    - README.md
+    - agent-index.yaml
+    - manifest.yaml
+    - architecture.md
+    - modalities-and-io.md
+    - reasoner.md
+    - generator.md
+    - action-modeling.md
+    - policy.md
+    - data.md
+    - training.md
+    - post-training.md
+    - evaluation.md
+    - limitations.md
+    - codebase.md
+    - inference.md
+    - reproduction.md
+    - optimization-playbook.md
+    - research-queue.md
+    - sources.yaml
+  xiaomi-robotics-1:
+    - README.md
+    - agent-index.yaml
+    - manifest.yaml
+    - architecture.md
+    - modalities-and-io.md
+    - vlm-backbone.md
+    - action-head.md
+    - action-modeling.md
+    - policy.md
+    - data.md
+    - training.md
+    - post-training.md
+    - evaluation.md
+    - limitations.md
+    - codebase.md
+    - inference.md
+    - reproduction.md
+    - optimization-playbook.md
+    - research-queue.md
+    - sources.yaml
 
 canonical_ownership:
   rules:
