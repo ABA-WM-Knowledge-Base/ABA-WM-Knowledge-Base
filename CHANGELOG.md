@@ -12,6 +12,12 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 1.2.0 - 2026-08-22
+
+- Second model entry `models/xiaomi-robotics-1/` (routes: reasoner -> vlm-backbone.md, generator -> action-head.md).
+- Paper entries `xiaomi-robotics-1`, `vlabench`, `ervla`; source prefixes XR1|XR0|QWEN3VL|VLAB|ERV.
+- Validator generalized: every `models/*/manifest.yaml` is validated; per-entry required files moved to `model_required_files`.
+
 ## 1.1.0 - 2026-08-19
 
 - Replaced the single long page in each current Component with method-oriented pages so retrieval can target a mechanism directly instead of loading a broad review.

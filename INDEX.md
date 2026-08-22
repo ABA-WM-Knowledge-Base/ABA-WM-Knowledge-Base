@@ -20,6 +20,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Representative methods and papers | [Papers](papers/README.md) | Thirteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
 | Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use method-oriented, cross-paper synthesis |
 | Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
+| Xiaomi-Robotics-1 model knowledge | [Xiaomi-Robotics-1](models/xiaomi-robotics-1/README.md) | Active model entry (xr1_vlabench campaign) |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
 

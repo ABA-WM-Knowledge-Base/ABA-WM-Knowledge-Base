@@ -1,0 +1,110 @@
+schema_version: 3
+as_of: "2026-08-21"
+sources:
+  - id: XR1-CODE
+    type: code_repository
+    title: XiaomiRobotics/Xiaomi-Robotics-1 official repository snapshot
+    publisher: Xiaomi Robotics / GitHub
+    canonical_url: https://github.com/XiaomiRobotics/Xiaomi-Robotics-1/tree/556cca33963a2b36d835a40374c3b4c8eef68401
+    revision: 556cca33963a2b36d835a40374c3b4c8eef68401
+    version: "main; commit dated 2026-08-17; code and checkpoints released 2026-08-03"
+    license: Apache-2.0
+    accessed: "2026-08-21"
+    retrieval_hint: Use for the xr1 trainer (Lightning + DeepSpeed), deploy/server.py, deploy/client.py, eval_vlabench, eval_robocasa, eval_robocasa365, and docs/DEPLOYMENT.md.
+    scope: Post-training, deployment, and benchmark-evaluation code; pre-training code and the UMI corpus are not released.
+  - id: XR1-CODE-XR1-README
+    type: code_documentation
+    title: xr1/README.md post-training and deployment guide
+    publisher: Xiaomi Robotics / GitHub
+    canonical_url: https://github.com/XiaomiRobotics/Xiaomi-Robotics-1/blob/556cca33963a2b36d835a40374c3b4c8eef68401/xr1/README.md
+    revision: 556cca33963a2b36d835a40374c3b4c8eef68401
+    accessed: "2026-08-21"
+    retrieval_hint: Installation pins, the model_states.pt warm start, the JSON data format, the train.sh launcher, and the mibot server.
+  - id: XR1-CODE-EVAL-VLABENCH
+    type: code_documentation
+    title: eval_vlabench/README.md and the VLABench evaluation client
+    publisher: Xiaomi Robotics / GitHub
+    canonical_url: https://github.com/XiaomiRobotics/Xiaomi-Robotics-1/blob/556cca33963a2b36d835a40374c3b4c8eef68401/eval_vlabench/README.md
+    revision: 556cca33963a2b36d835a40374c3b4c8eef68401
+    accessed: "2026-08-21"
+    retrieval_hint: Two-environment client/server split, the vlabench env recipe (mujoco 3.2.2, dm_control 1.0.22, transformers 4.57.1), raw action shape [10, 60], chunk 10 / replan 5, five-track launcher.
+  - id: XR1-HF-5B
+    type: model_card
+    title: XiaomiRobotics/Xiaomi-Robotics-1-5B
+    publisher: Xiaomi Robotics / Hugging Face
+    canonical_url: https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-5B
+    revision: ee21d524b5c52ac961d941e1bc7d6d92836c3d5e
+    version: "model_states.pt, 10.23 GB; last modified 2026-08-14"
+    license: Apache-2.0
+    accessed: "2026-08-21"
+    retrieval_hint: The post-trained base checkpoint in xr1 trainer format; the only artifact carrying the training-only choice heads.
+    scope: Base checkpoint for fine-tuning; it is not a benchmark fine-tune and has no HF-format inference weights.
+  - id: XR1-HF-VLABENCH
+    type: model_card
+    title: XiaomiRobotics/Xiaomi-Robotics-1-VLABench
+    publisher: Xiaomi Robotics / Hugging Face
+    canonical_url: https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-VLABench
+    revision: f4986843002d86502e2e53079ca06d00a33abffc
+    version: "three safetensors shards, 10.11 GB; remote code modeling_mibot.py / processing_mibot.py; last modified 2026-08-14"
+    license: Apache-2.0
+    accessed: "2026-08-21"
+    retrieval_hint: Per-track SR/IS/PS table, the vlabench_choice action_config (10 x 60 stats), the inference-only MiBoTForActionGeneration.
+    scope: VLABench fine-tune served by deploy/server.py; it is not loadable by the xr1 trainer without the importer described in the deploy tree.
+  - id: XR1-HF-ROBOCASA
+    type: model_card
+    title: XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa
+    publisher: Xiaomi Robotics / Hugging Face
+    canonical_url: https://huggingface.co/XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa
+    accessed: "2026-08-21"
+    retrieval_hint: 74.21% episode success over 2,400 episodes (24 tasks x 100), robot type robocasa_mg, crop ratio 0.95.
+    scope: RoboCasa fine-tune; distinct weights and action config from the VLABench checkpoint.
+  - id: XR1-HF-COLLECTION
+    type: service_page
+    title: Xiaomi-Robotics-1 Hugging Face collection
+    publisher: Xiaomi Robotics / Hugging Face
+    canonical_url: https://huggingface.co/collections/XiaomiRobotics/xiaomi-robotics-1
+    version: "mutable collection page"
+    accessed: "2026-08-21"
+    retrieval_hint: Lists the base 5B checkpoint and the RoboCasa, RoboCasa365, and VLABench fine-tunes.
+  - id: XR1-ISSUE-4
+    type: forum_thread
+    title: Xiaomi-Robotics-1 GitHub issue 4, Training details
+    publisher: Xiaomi Robotics / GitHub
+    canonical_url: https://github.com/XiaomiRobotics/Xiaomi-Robotics-1/issues/4
+    version: "maintainer reply read 2026-08-21"
+    accessed: "2026-08-21"
+    retrieval_hint: RoboCasa365 recipe (120k steps, global batch 512, peak lr 3e-5, 4-frame history, 16-step chunks, 12-D actions) and RoboDojo recipe (60k steps, batch 256, lr 1e-5); VLABench details are not given.
+  - id: XR1-ISSUE-12
+    type: forum_thread
+    title: Xiaomi-Robotics-1 GitHub issue 12, Hardware requirements for inference
+    publisher: Xiaomi Robotics / GitHub
+    canonical_url: https://github.com/XiaomiRobotics/Xiaomi-Robotics-1/issues/12
+    version: "maintainer reply read 2026-08-21"
+    accessed: "2026-08-21"
+    retrieval_hint: About 13 GB VRAM at inference; about 70 ms latency on an RTX 4090; up to about 300 ms end-to-end tolerated with asynchronous inference on the real robot.
+  - id: XR1-PROJECT
+    type: official_blog
+    title: Xiaomi-Robotics-1 project page
+    publisher: Xiaomi Robotics
+    canonical_url: https://robotics.xiaomi.com/xiaomi-robotics-1.html
+    version: "mutable project page"
+    accessed: "2026-08-21"
+    retrieval_hint: Demo videos and the public presentation surface; numerical claims remain paper-owned.
+  - id: XR0-TR
+    type: paper
+    title: "Xiaomi-Robotics-0: An Open-Sourced Vision-Language-Action Model with Real-Time Execution"
+    publisher: Xiaomi Robotics / arXiv
+    canonical_url: https://arxiv.org/abs/2602.12684
+    version: "arXiv:2602.12684; submitted 2026-02-13, revised 2026-03-25"
+    accessed: "2026-08-21"
+    retrieval_hint: The asynchronous-execution training recipe that Xiaomi-Robotics-1 cites as reference [8]; consecutive action chunks are time-aligned for seamless real-time rollouts.
+    scope: Predecessor model; its benchmark numbers are not Xiaomi-Robotics-1 numbers.
+  - id: QWEN3VL-HF-4B
+    type: model_card
+    title: Qwen/Qwen3-VL-4B-Instruct
+    publisher: Alibaba Qwen / Hugging Face
+    canonical_url: https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct
+    version: "resolved at bootstrap; revision recorded in the deploy bootstrap log"
+    license: Apache-2.0
+    accessed: "2026-08-21"
+    retrieval_hint: The VLM backbone the 5B model loads by name (36 layers, hidden 2560); the collate and the trainer load its processor by name.

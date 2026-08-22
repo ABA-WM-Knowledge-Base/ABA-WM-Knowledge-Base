@@ -24,4 +24,6 @@ owners:
 |---|---|---|
 | Cosmos3-Nano | Model-specific mechanisms, interfaces, training, evaluation, code, execution state, optimization levers, and decision blockers | [Cosmos3-Nano](cosmos3-nano/README.md) |
 
-Each `models/<model-id>/` entry owns facts for one named model and links reusable concepts back to Foundations and relevant entry-specific knowledge back to Components. Cosmos3-Nano is the only active entry in this release. A future entry must define its own canonical owners, provenance, retrieval metadata, and execution-evidence boundary; adding an entry does not change the four-part architecture.
+Each `models/<model-id>/` entry owns facts for one named model and links reusable concepts back to Foundations and relevant entry-specific knowledge back to Components. Active entries: Cosmos3-Nano and Xiaomi-Robotics-1. A future entry must define its own canonical owners, provenance, retrieval metadata, and execution-evidence boundary; adding an entry does not change the four-part architecture.
+
+- [Xiaomi-Robotics-1](xiaomi-robotics-1/README.md) - 5B VLA (DiT action head over a Qwen3-VL backbone), VLABench campaign entry.

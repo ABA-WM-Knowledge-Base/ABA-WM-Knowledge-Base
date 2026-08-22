@@ -69,3 +69,7 @@ An entry is useful to an optimization agent only if it answers all of the follow
 7. What has actually been reproduced, with which artifacts and deviations?
 
 Use the [representative paper entry template](../_schema/paper-entry-template.md) when an entry is activated.
+
+- [Xiaomi-Robotics-1](xiaomi-robotics-1/README.md) - VLA report; 100K h UMI pre-training; benchmark fine-tunes.
+- [VLABench](vlabench/README.md) - benchmark entry: track protocol, metrics as implemented, evaluator defects.
+- [ERVLA](ervla/README.md) - embodied chain-of-thought, reasoning dropout.

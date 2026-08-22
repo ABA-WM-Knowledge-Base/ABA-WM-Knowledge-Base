@@ -1,0 +1,186 @@
+schema_version: 3
+model_entry: world-model-kb.models.xiaomi-robotics-1
+entrypoint: README.md
+purpose: >-
+  Help AIBuildAI dynamically locate Xiaomi-Robotics-1 knowledge, strategies,
+  best practices, and evidence that can ground design and implementation
+  decisions for VLABench post-training. This index is not a
+  workflow-orchestration definition.
+
+authority_boundary:
+  mode: knowledge_guidance_without_orchestration
+  knowledge_role: >-
+    Influence Agent understanding, judgment, strategy selection, failure diagnosis,
+    experiment design, and interpretation through retrieved knowledge.
+  workflow_authority: AIBuildAI runtime, orchestrator, Agent configuration, and task instructions
+  does_not_define:
+    - which Agent is invoked
+    - which solution repository is advanced, paused, or abandoned
+    - task decomposition, execution order, or scheduling
+    - permissions, approvals, or external side effects
+    - model-training or deployment authorization
+  integration_note: >-
+    AIBuildAI may dynamically select and combine these profiles based on the current
+    task and state. Retrieved content grounds decisions; higher-level AIBuildAI
+    orchestration, instructions, and policies remain authoritative.
+
+canonical_owners:
+  model_identity: manifest.yaml
+  retrieval_metadata: agent-index.yaml
+  model_overview: README.md
+  architecture_and_attention: architecture.md
+  modality_contracts: modalities-and-io.md
+  vlm_behavior: vlm-backbone.md
+  action_head_behavior: action-head.md
+  action_semantics: action-modeling.md
+  policy_runtime: policy.md
+  data_composition: data.md
+  training_curriculum: training.md
+  adaptation_recipes: post-training.md
+  benchmark_protocols: evaluation.md
+  known_limits: limitations.md
+  code_navigation: codebase.md
+  runtime_reference: inference.md
+  executed_state: reproduction.md
+  optimization_reference: optimization-playbook.md
+  unresolved_questions: research-queue.md
+  source_resolution: sources.yaml
+
+retrieval_profiles:
+  - id: model_identity
+    related_intents:
+      - identify the base 5B checkpoint versus a benchmark fine-tune
+      - resolve which artifact the xr1 trainer can load
+      - resolve revision, license, or lineage
+    query_terms: [Xiaomi-Robotics-1, XR-1, 5B, model_states.pt, VLABench checkpoint, RoboCasa checkpoint, revision, license]
+    primary_documents: [manifest.yaml, sources.yaml]
+    additional_documents:
+      architecture_or_lineage_detail: [architecture.md]
+      capability_boundaries: [limitations.md]
+    knowledge_supported:
+      - exact checkpoint identity and format (trainer .pt versus HF safetensors)
+      - fixed revisions of code, checkpoints, and the pinned VLABench commit
+      - invalid equivalences between fine-tunes
+
+  - id: architecture_and_interfaces
+    related_intents:
+      - inspect the Mixture-of-Transformers coupling between Qwen3-VL and the DiT
+      - resolve the 60-D action slot layout, state tensor, or chunk length
+      - resolve the three-view prompt contract
+    query_terms: [architecture, MoT, DiT, KV cache, action slots, state 60, chunk 10, prompt, views, processor]
+    primary_documents: [architecture.md, modalities-and-io.md, manifest.yaml]
+    additional_documents:
+      implementation_locations: [codebase.md]
+      action_or_policy_semantics: [action-modeling.md, policy.md]
+    knowledge_supported:
+      - computation and information-flow semantics
+      - served input and output contracts per robot type
+      - which contracts the released VLABench checkpoint fixes
+
+  - id: vlm_knowledge
+    related_intents:
+      - analyze the language and vision side, chain-of-thought, or instruction grounding
+      - decide whether a CoT auxiliary loss applies
+    query_terms: [Qwen3-VL, VLM, chain-of-thought, CoT, /cot, /no_cot, instruction, reasoning dropout, next-token loss]
+    primary_documents: [vlm-backbone.md, architecture.md, evaluation.md]
+    additional_documents:
+      data_and_learning: [data.md, training.md, post-training.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - VLM mechanisms and frozen/trainable scope
+      - CoT training evidence and its inference-time absence
+      - instruction-track failure interpretation
+
+  - id: action_head_knowledge
+    related_intents:
+      - analyze or improve the flow-matching action head
+      - inspect denoising steps, timestep sampling, the choice heads, or the frequency loss
+    query_terms: [flow matching, Euler steps, num_steps, Beta timestep, choice head, score head, frequency loss, async prefix]
+    primary_documents: [action-head.md, action-modeling.md, training.md]
+    additional_documents:
+      execution_observations: [reproduction.md, inference.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - objective terms and their weights
+      - inference-time levers exposed without retraining
+      - training-only heads and their checkpoint consequences
+
+  - id: action_and_policy_knowledge
+    related_intents:
+      - resolve action semantics for VLABench (per-step deltas, absolute gripper)
+      - inspect the closed-loop client, replanning, or the IK controller
+      - design a data path that matches the served checkpoint
+    query_terms: [per-step delta, Euler, gripper threshold, replan, vlabench_choice, robot frame, position offset, client, server]
+    primary_documents: [action-modeling.md, policy.md, modalities-and-io.md]
+    additional_documents:
+      data_and_learning: [data.md, post-training.md]
+      evaluation_and_risk: [evaluation.md, limitations.md]
+      execution_observations: [reproduction.md, inference.md]
+    knowledge_supported:
+      - the exact conventions the released checkpoint was served with
+      - the mismatch between the public trainer dataset and those conventions
+      - closed-loop failure signatures
+
+  - id: data_and_training_knowledge
+    related_intents:
+      - inspect pre-training and post-training data mixtures
+      - choose batch, learning rate, steps, or CoT mixing for a fine-tune
+    query_terms: [UMI, 100K hours, auto-labeling, post-training mixture, batch 48, lr 2e-5, save_interval, DeepSpeed, ZeRO-2]
+    primary_documents: [data.md, training.md, post-training.md]
+    additional_documents:
+      implementation_locations: [codebase.md]
+      experiment_design_reference: [optimization-playbook.md, research-queue.md]
+    knowledge_supported:
+      - disclosed versus undisclosed recipe variables
+      - framework defaults and their measured-or-not status
+      - checkpoint lifecycle in the xr1 trainer
+
+  - id: implementation_knowledge
+    related_intents:
+      - locate a mechanism in xr1/, deploy/, or eval_vlabench/
+      - convert between trainer and HF checkpoint formats
+    query_terms: [xr1, mibot, JsonDataset, CustomCollate, XR1.py, weight_convert, deploy/server.py, dispatch.py, config.py]
+    primary_documents: [codebase.md, sources.yaml]
+    additional_documents:
+      runtime: [inference.md]
+    knowledge_supported:
+      - fixed-revision code locations and call chains
+      - the two incompatible server paths
+      - the importer and exporter the aibuildai deploy adds
+
+  - id: runtime_knowledge
+    related_intents:
+      - serve a checkpoint, size GPU memory, or diagnose a dead server
+      - read episode timing and eval wall clock
+    query_terms: [inference, VRAM, 13 GB, 70 ms, port, tmux, EGL, eval wall clock, retry]
+    primary_documents: [inference.md, reproduction.md]
+    additional_documents:
+      evaluation: [evaluation.md]
+    knowledge_supported:
+      - runtime references and measured observations
+      - failure classification for serving and evaluation
+
+  - id: evaluation_knowledge
+    related_intents:
+      - interpret VLABench SR, PS, IS per track
+      - compare against the leaderboard with the correct protocol
+    query_terms: [VLABench, track, success rate, progress score, intention score, "59.1 SR average", "69.2 PS average", leaderboard, Awesome-WAM, "RoboCasa 74.5"]
+    primary_documents: [evaluation.md, limitations.md]
+    additional_documents:
+      protocol_and_defects: [evaluation.md, limitations.md]
+    knowledge_supported:
+      - checkpoint- and protocol-bound results
+      - which leaderboard statistic a number refers to
+      - evaluator defects that confound comparison
+
+  - id: optimization_and_open_questions
+    related_intents:
+      - choose an intervention for a generalization track
+      - find the discriminating experiment for an open question
+    query_terms: [optimization, hypothesis, generalization, cross-category, commonsense, texture, ablation, open question]
+    primary_documents: [optimization-playbook.md, research-queue.md]
+    additional_documents:
+      evidence_and_guardrails: [evaluation.md, limitations.md, reproduction.md]
+    knowledge_supported:
+      - failure-to-lever mapping on this model's surfaces
+      - evidence gaps that block attribution

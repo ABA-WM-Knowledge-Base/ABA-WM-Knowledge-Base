@@ -1,0 +1,28 @@
+schema_version: 3
+as_of: "2026-08-21"
+sources:
+  - id: XR1-TR
+    type: paper
+    title: "Xiaomi-Robotics-1: Scaling Vision-Language-Action Models with over 100K Hours of Real-World Trajectories"
+    publisher: Xiaomi Robotics / arXiv
+    canonical_url: https://arxiv.org/abs/2607.15330
+    version: "arXiv:2607.15330v1; released 2026-07-16"
+    accessed: "2026-08-21"
+    retrieval_hint: Architecture (Table 1), pre-training corpus and auto-labeling, post-training mixture, scaling curves, RoboCasa (Table 2), RoboCasa365 (Table 3), VLABench (Table 4), RoboDojo (Table 5), real-robot adaptation.
+    scope: Technical report; training hyperparameters for the VLABench fine-tune are not disclosed in it.
+  - id: XR1-PWC
+    type: service_page
+    title: Papers with Code entry for arXiv:2607.15330
+    publisher: Hugging Face Papers with Code
+    canonical_url: https://paperswithcode.co/paper/2607.15330
+    version: "mutable leaderboard page; RoboCasa row verified by the authors in GitHub issue 5 (2026-08)"
+    accessed: "2026-08-21"
+    retrieval_hint: The RoboCasa leaderboard row the authors confirmed; no VLABench row exists there.
+  - id: XR1-MODELSCOPE
+    type: service_page
+    title: Xiaomi-Robotics-1 ModelScope collection
+    publisher: Xiaomi Robotics / ModelScope
+    canonical_url: https://www.modelscope.cn/collections/XiaomiRobotics/Xiaomi-Robotics-1
+    version: "mutable mirror collection"
+    accessed: "2026-08-21"
+    retrieval_hint: Mirror of the Hugging Face checkpoints for mainland-China download; identity follows the Hugging Face revisions.

@@ -63,6 +63,9 @@ Preserve official capitalization and identifiers:
 | Hosted Reasoner model | `nvidia/cosmos3-nano-reasoner` |
 | Policy checkpoint | `nvidia/Cosmos3-Nano-Policy-DROID` |
 | Prior-generation model | Cosmos-Predict2.5; never abbreviate it to Cosmos3 |
+| Model product (VLA) | Xiaomi-Robotics-1 |
+| Base checkpoint | `XiaomiRobotics/Xiaomi-Robotics-1-5B` |
+| VLABench fine-tune checkpoint | `XiaomiRobotics/Xiaomi-Robotics-1-VLABench` |
 
 Distinguish a product family, downloadable checkpoint, hosted service ID, post-trained checkpoint, and local run. Similar names do not establish revision identity or behavioral equivalence.
 
