@@ -48,7 +48,7 @@ The two current Components compare how related method families address a capabil
 | Component | Knowledge scope | Entry point |
 |---|---|---|
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
-| Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
+| Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, MeanFlow, Pixel MeanFlow, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
 
 The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with applicable Foundation, Paper, Model, and Benchmark owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
 
