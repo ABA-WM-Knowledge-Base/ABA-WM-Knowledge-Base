@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.research-queue
 title: Cosmos3-Nano Open Research Registry
 kind: record
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** a descriptive registry of unresolved questions, known facts, missing evidence, possible discriminating experiments, and closure evidence. Its section order and dependency-impact labels do not schedule AIBuildAI work.
 
-**Related pages:** canonical topic pages contain established model knowledge; [Reproduction](reproduction.md) contains completed execution observations; [Optimization reference](optimization-playbook.md) contains experiment-design patterns. [Open problems](../../foundations/research-frontiers/open-problems.md) owns cross-model unknowns; this page retains only Cosmos3-Nano-specific questions.
+**Related pages:** canonical topic pages contain established model knowledge; [Reproduction](reproduction.md) contains completed execution observations; [Optimization reference](optimization-playbook.md) contains experiment-design patterns. [Open problems](../../foundations/research-frontiers/open-problems.md) owns cross-model unknowns; [Original RoboCasa](../../benchmarks/robocasa/README.md) owns benchmark uncertainties; [X-WAM research](../x-wam/research-queue.md) owns comparator-specific unknowns. This page retains only Cosmos3-Nano-specific questions.
 
 ## Registry semantics
 

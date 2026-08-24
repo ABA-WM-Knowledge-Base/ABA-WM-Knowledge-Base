@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -17,9 +17,10 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Knowledge area | Entry point | Current scope |
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
-| Representative methods and papers | [Papers](papers/README.md) | Thirteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, and driving |
+| Representative methods and papers | [Papers](papers/README.md) | Fourteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, robotics, and driving |
 | Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use method-oriented, cross-paper synthesis |
-| Cosmos3-Nano model knowledge | [Cosmos3-Nano](models/cosmos3-nano/README.md) | Active model entry |
+| Concrete model knowledge | [Models](models/README.md) | Cosmos3-Nano and X-WAM architecture, artifacts, interfaces, results, code, execution state, and optimization knowledge |
+| Versioned benchmark knowledge | [Benchmarks](benchmarks/README.md) | Original RoboCasa tasks, environments, datasets, protocol, baselines, evaluator, and reproduction state |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
 
@@ -49,7 +50,7 @@ The two current Components compare how related method families address a capabil
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
 | Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
 
-The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with the applicable Foundation, Paper, and Model owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
+The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with applicable Foundation, Paper, Model, and Benchmark owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
 
 ## Representative paper map
 
@@ -68,8 +69,26 @@ The Component map is advisory and non-exclusive. A task can retrieve either or b
 | DIAMOND | Pixel-space diffusion world model | Atari 100k MBRL inside an image-space diffusion model; CSGO branch is a separate qualitative surface | [Entry](papers/diamond/README.md) |
 | OccWorld | 3D occupancy driving world model | Occupancy-token forecasting plus ego-trajectory prediction; nuScenes license and variant boundaries | [Entry](papers/occworld/README.md) |
 | Vista | Controllable driving video world model | OpenDV control modes and official `vista.safetensors`; not Wayve GAIA; high-VRAM sampling not attempted | [Entry](papers/vista/README.md) |
+| X-WAM | Unified RGB-D world action model | Wan2.2-based multi-view RGB/depth/state/action denoising, copied depth branch, asynchronous noise scheduling and inference, cross-embodiment pretraining, and RoboCasa/RoboTwin evidence | [Entry](papers/x-wam/README.md) |
 
 Paper entries link their mechanisms to Foundation owners and target-model implications where applicable. Those links express knowledge dependencies, not a required retrieval sequence.
+
+## Model map
+
+| Model | Concrete knowledge scope | Entry point |
+|---|---|---|
+| Cosmos3-Nano | Unified Reasoner/Generator towers, multimodal and action interfaces, Policy-DROID, training and post-training, evaluation, code, execution evidence, and optimization questions | [Entry](models/cosmos3-nano/README.md) |
+| X-WAM | Released Wan2.2-based RGB-D/state/action graph, checkpoint and dataset revisions, asynchronous inference, RoboCasa/RoboTwin adapters and results, code, execution evidence, and model-specific interventions | [Entry](models/x-wam/README.md) |
+
+Model entries bind facts to a named architecture and artifact identity. Conceptual mechanisms remain in Foundations, work-specific claims remain in Papers, and benchmark semantics remain in Benchmarks.
+
+## Benchmark map
+
+| Benchmark | Versioned knowledge scope | Entry point |
+|---|---|---|
+| Original RoboCasa | RSS 2024 / official v0.2 tasks, 120 kitchen scenes, demonstration sets, observation/action environment, paper protocols, evaluator code, baselines, and reproduction state | [Entry](benchmarks/robocasa/README.md) |
+
+The Original RoboCasa entry explicitly excludes RoboCasa365 v1.0+ identities. A paper or model result links to the exact benchmark version and records any protocol deviations rather than using “RoboCasa” as an unversioned score label.
 
 ## Cross-part ownership
 
@@ -77,20 +96,22 @@ Paper entries link their mechanisms to Foundation owners and target-model implic
 - Papers owns the claims, implementations, experiments, limitations, reproduction state, and transfer hypotheses of individual works.
 - Each Component owns the knowledge boundary it explicitly declares; the current Reasoning and Generative Modeling entries own their respective cross-paper syntheses.
 - Models owns concrete architecture, checkpoint, interface, training, result, code, and execution facts for a named model.
+- Benchmarks owns versioned tasks, environments, datasets, observation/action contracts, rollout protocols, success evaluators, aggregation, baseline context, and benchmark execution state.
 
 A page in one part links to the relevant canonical owner in another part instead of duplicating its full explanation.
 
-## Cosmos3-Nano retrieval metadata
+## Model and Benchmark retrieval metadata
 
-[`models/cosmos3-nano/agent-index.yaml`](models/cosmos3-nano/agent-index.yaml) associates model-specific query themes with knowledge that can ground design and implementation decisions. It can be combined with Foundation concepts, representative Paper entries, and relevant Component knowledge; it is not the mandatory first knowledge path. The index is not a task router or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
+Model indexes for [Cosmos3-Nano](models/cosmos3-nano/agent-index.yaml) and [X-WAM](models/x-wam/agent-index.yaml) associate model-specific query themes with knowledge that can ground design and implementation decisions. The [Original RoboCasa retrieval index](benchmarks/robocasa/retrieval-index.yaml) associates benchmark questions with the owning version, task, data, protocol, result, code, and reproduction pages. These indexes can be combined with Foundation concepts, Paper entries, and relevant Component knowledge; none is a mandatory first path, task router, or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
 
 ## Metadata and maintenance references
 
 | Knowledge change | Reference |
 |---|---|
-| Add or revise a canonical page | [Foundation template](_schema/foundation-page-template.md), [model template](_schema/page-template.md), and [style guide](_schema/style-guide.md) |
+| Add or revise a canonical page | [Foundation template](_schema/foundation-page-template.md), [model template](_schema/page-template.md), [Benchmark template](_schema/benchmark-entry-template.md), and [style guide](_schema/style-guide.md) |
 | Add a representative paper entry | [Paper entry template](_schema/paper-entry-template.md) |
+| Add a versioned benchmark entry | [Benchmark entry template](_schema/benchmark-entry-template.md) and [Benchmark schema](_schema/benchmark.schema.yaml) |
 | Add or rename a page ID or path | [Naming conventions](_schema/naming-conventions.md) |
-| Change model identity, revisions, interfaces, or the execution-state pointer | [Manifest schema](_schema/manifest.schema.yaml); mutable states remain in [Reproduction](models/cosmos3-nano/reproduction.md) |
+| Change model identity, revisions, interfaces, or the execution-state pointer | [Manifest schema](_schema/manifest.schema.yaml); mutable states remain in the model entry's `reproduction.md` |
 | Add or update a source | [Source schema](_schema/sources.schema.yaml) |
 | Change required files or page metadata | [Metadata schema](_schema/metadata.schema.yaml) |

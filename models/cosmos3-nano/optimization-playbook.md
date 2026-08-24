@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.optimization-playbook
 title: Cosmos3-Nano Optimization Design Reference
 kind: guide
 status: maintained
-last_updated: 2026-08-13
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** optional experiment-design patterns connecting failure signatures, mechanisms, controllable variables, measurements, confounders, and evidence quality. This page does not prescribe AIBuildAI task planning or execution.
 
-**Related pages:** [Reproduction](reproduction.md) contains observed execution state; [Inference](inference.md) contains runtime references; [Evaluation](evaluation.md) contains benchmark definitions and reported results. Foundation owners provide the [general problem formulation](../../foundations/problem-formulation/problem-formulation.md), [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md), and [open problems](../../foundations/research-frontiers/open-problems.md) relevant to experiment hypotheses.
+**Related pages:** [Reproduction](reproduction.md) contains observed execution state; [Inference](inference.md) contains runtime references; [Evaluation](evaluation.md) contains model-bound results. Foundation owners provide the [general problem formulation](../../foundations/problem-formulation/problem-formulation.md), [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md), and [open problems](../../foundations/research-frontiers/open-problems.md). [Original RoboCasa optimization knowledge](../../benchmarks/robocasa/optimization-reference.md) owns benchmark-side slices; the [X-WAM playbook](../x-wam/optimization-playbook.md) provides a distinct RGB-D/action comparator.
 
 ## Experiment description model
 

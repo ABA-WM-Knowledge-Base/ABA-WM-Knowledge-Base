@@ -1,0 +1,46 @@
+schema_version: 3
+as_of: "2026-08-24"
+sources:
+  - id: XWAM-PAPER-V2
+    type: paper
+    title: "Unified 4D World Action Modeling from Video Priors with Asynchronous Denoising"
+    publisher: arXiv
+    version: "arXiv:2604.26694v2 (7 May 2026)"
+    canonical_url: https://arxiv.org/abs/2604.26694
+    accessed: "2026-08-24"
+    pages: "1-21"
+    sha256: 2de8a99be736c0a4715238aa61b9610802f7e4c961e1e23ede6bebb426a20332
+    scope: PDF text, architecture figures, result tables, algorithms, and appendices were checked against v2; the PDF is not stored in this repository.
+  - id: XWAM-CODE-72CF
+    type: code_repository
+    title: "sharinka0715/X-WAM official implementation"
+    publisher: X-WAM authors
+    revision: 72cfb86b33fc5060963ef63412f16439fcfa472f
+    version: "main snapshot dated 10 Jun 2026"
+    license: Apache-2.0
+    canonical_url: https://github.com/sharinka0715/X-WAM/tree/72cfb86b33fc5060963ef63412f16439fcfa472f
+    accessed: "2026-08-24"
+    scope: Full tracked tree inspected at symbol level, including model, runner, data, training, evaluation, configs, and submodule revisions; code was not executed.
+  - id: XWAM-PROJECT
+    type: documentation
+    title: "X-WAM project page"
+    publisher: X-WAM authors
+    canonical_url: https://sharinka0715.github.io/X-WAM/
+    accessed: "2026-08-24"
+    scope: Official qualitative and artifact landing page linked by the paper and code repository.
+  - id: XWAM-ROBOSUITE-PIN
+    type: code_repository
+    title: "ARISE-Initiative/robosuite revision pinned by X-WAM"
+    publisher: ARISE Initiative
+    revision: 232ce7d4a6ed89c949a9aba024a05c8c32fdd08b
+    canonical_url: https://github.com/ARISE-Initiative/robosuite/tree/232ce7d4a6ed89c949a9aba024a05c8c32fdd08b
+    accessed: "2026-08-24"
+    scope: Git submodule identity for the released X-WAM RoboCasa evaluation environment.
+  - id: XWAM-ROBOTWIN-PIN
+    type: code_repository
+    title: "RoboTwin-Platform/RoboTwin revision pinned by X-WAM"
+    publisher: RoboTwin Platform
+    revision: c3ddfa8b97d5519efa828b075999bd0006778e5e
+    canonical_url: https://github.com/RoboTwin-Platform/RoboTwin/tree/c3ddfa8b97d5519efa828b075999bd0006778e5e
+    accessed: "2026-08-24"
+    scope: Git submodule identity for the released X-WAM RoboTwin evaluation environment.

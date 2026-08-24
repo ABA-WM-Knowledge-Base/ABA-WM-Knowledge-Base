@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,16 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.2.0 - 2026-08-24
+
+- Activated `benchmarks/` as the fifth peer knowledge part. Benchmark entries own versioned tasks, environments, datasets, observation/action contracts, protocols, evaluators, baseline context, limitations, and execution state without controlling AIBuildAI workflow orchestration.
+- Added Original RoboCasa as the first Benchmark entry, pinned to paper `arXiv:2406.02523v1` and official `v0.2` commit `756598a5be52e052339bb2d957426e39015c2afb`. The entry explicitly excludes RoboCasa365 `v1.0+` semantics and preserves the original task, scene, dataset, protocol, result, code, and reproduction boundaries.
+- Added X-WAM as the fourteenth Paper entry and second Model entry. The Paper entry owns the proposed RGB-D/state/action mechanism, asynchronous noise scheduling, experiments, paper-to-code mapping, reproduction scope, and transfer hypotheses; the Model entry owns pinned public checkpoints and data, released interfaces, runtime semantics, checkpoint-bound evaluation, execution state, and falsifiable optimization knowledge.
+- Pinned X-WAM code at `72cfb86b33fc5060963ef63412f16439fcfa472f`, checkpoint metadata at HF revision `bb6fd1643cfa8bdc751612a7ace0bd8062a8917a`, both released SFT dataset revisions, the Wan2.2 base, UMT5 tokenizer, and benchmark submodules. Source inspection and remote metadata inspection remain distinct from checkpoint download or execution.
+- Preserved paper-to-release conflicts for pretraining batch per GPU, SFT learning rate, RoboTwin step count, and CFG execution semantics instead of merging them into one synthetic recipe.
+- Added generic multi-model manifest/index validation plus Benchmark schema, template, retrieval-index, source, path, metadata, and document-map validation. Advanced the metadata schema to version 8 and the model manifest schema to version 4.
+- Updated the repository architecture, global maps, Foundation retrieval associations, schema guidance, and cross-part links for five non-exclusive parts. Migrated the existing RoboCasa paper source identity from the Foundation registry to the canonical Original RoboCasa registry.
 
 ## 1.1.0 - 2026-08-19
 

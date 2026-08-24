@@ -1,0 +1,65 @@
+schema_version: 3
+as_of: "2026-08-24"
+sources:
+  - id: RC24-PAPER-V1
+    type: paper
+    title: "RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots"
+    publisher: "Robotics: Science and Systems 2024"
+    version: "arXiv:2406.02523v1 (4 Jun 2024); RSS 2024 paper"
+    canonical_url: https://arxiv.org/abs/2406.02523
+    accessed: "2026-08-24"
+    pages: "1-16"
+    sha256: 7aca93ca3f157e32a46e02d675b3b2c24e3073a7807c038f7f566b73db87bde3
+    scope: PDF text and key figures and tables were checked against the fixed v1 document; the PDF is not stored in this repository.
+  - id: RC24-CODE-V02
+    type: code_repository
+    title: "robocasa/robocasa official Original RoboCasa release"
+    publisher: RoboCasa project
+    revision: 756598a5be52e052339bb2d957426e39015c2afb
+    version: "tag v0.2; package version 0.2.0"
+    license: MIT for code; CC-BY-4.0 for assets and datasets
+    canonical_url: https://github.com/robocasa/robocasa/tree/756598a5be52e052339bb2d957426e39015c2afb
+    accessed: "2026-08-24"
+    scope: Repository tree, setup metadata, docs, task classes, dataset registry, and evaluation utilities inspected at the fixed commit.
+  - id: RC24-RELEASE-V02
+    type: code_documentation
+    title: "v0.2 (Original RoboCasa Release)"
+    publisher: RoboCasa project on GitHub
+    revision: 756598a5be52e052339bb2d957426e39015c2afb
+    version: v0.2
+    canonical_url: https://github.com/robocasa/robocasa/releases/tag/v0.2
+    accessed: "2026-08-24"
+    scope: Official release identity and Original RoboCasa feature boundary.
+  - id: RC24-PROJECT
+    type: documentation
+    title: "RoboCasa project site"
+    publisher: RoboCasa project
+    canonical_url: https://robocasa.ai/
+    accessed: "2026-08-24"
+    scope: Original project and paper landing surface; mutable pages may now foreground RoboCasa365.
+  - id: RC24-ROBOMIMIC-BRANCH
+    type: code_repository
+    title: "ARISE-Initiative/robomimic RoboCasa policy-learning branch"
+    publisher: ARISE Initiative
+    revision: 271a76c2d55c8b0f94d3d589f26fcae0d47f64a1
+    version: "robocasa branch head observed on 24 Aug 2026; not a paper-era pin"
+    canonical_url: https://github.com/ARISE-Initiative/robomimic/tree/robocasa
+    accessed: "2026-08-24"
+    scope: The v0.2 documentation delegates BC-Transformer training and checkpoint evaluation to this mutable branch.
+  - id: RC24-EVAL-DOC-V02
+    type: code_documentation
+    title: "Original RoboCasa evaluation and policy-learning documentation"
+    publisher: RoboCasa project
+    revision: 756598a5be52e052339bb2d957426e39015c2afb
+    canonical_url: https://github.com/robocasa/robocasa/tree/756598a5be52e052339bb2d957426e39015c2afb/docs/use_cases
+    accessed: "2026-08-24"
+    scope: create_eval_env, random-rollout example, dataset downloads, and external robomimic evaluation entrypoint.
+  - id: RC365-RELEASE-V10
+    type: code_documentation
+    title: "v1.0 (RoboCasa365 Release)"
+    publisher: RoboCasa project on GitHub
+    revision: 8f3c96ec8d1bfcd8126cad2bca887da98d30e997
+    version: v1.0
+    canonical_url: https://github.com/robocasa/robocasa/releases/tag/v1.0
+    accessed: "2026-08-24"
+    scope: Successor identity used only to prevent RoboCasa365 tasks, assets, datasets, and protocols from being attributed to Original RoboCasa.

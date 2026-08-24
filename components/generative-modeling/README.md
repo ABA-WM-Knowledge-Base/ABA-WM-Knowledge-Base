@@ -3,7 +3,7 @@ id: world-model-kb.components.generative-modeling
 title: Generative Modeling for World Models
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -48,6 +48,6 @@ The pages are compositional. A model may use a latent codec, Transformer backbon
 
 ## Evidence ownership
 
-Individual system details remain in the [iVideoGPT](../../papers/ivideogpt/README.md), [IRASim](../../papers/irasim/README.md), [DIAMOND](../../papers/diamond/README.md), and [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) Paper entries. Cosmos 3 implementation and execution facts remain in the [Cosmos3-Nano Model entry](../../models/cosmos3-nano/README.md). The local [source registry](sources.yaml) owns only latent diffusion and DiT identities not already registered elsewhere.
+Individual system details remain in the [iVideoGPT](../../papers/ivideogpt/README.md), [IRASim](../../papers/irasim/README.md), [DIAMOND](../../papers/diamond/README.md), [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md), and [X-WAM](../../papers/x-wam/README.md) Paper entries. Concrete Cosmos 3 and X-WAM implementation and execution facts remain in their [Model entries](../../models/README.md). The local [source registry](sources.yaml) owns only latent diffusion and DiT identities not already registered elsewhere.
 
 This method decomposition belongs to the current Generative Modeling entry. It is not a structure requirement for other Components.

@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.evaluation
 title: Cosmos3-Nano Evaluation and Optimization Decision Rules
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** checkpoint- and protocol-bound published results, evaluator conditions, aggregation rules, confounders, capability slices, and comparison-validity criteria.
 
-**Related pages:** [Training](training.md) contains learning configuration; [Post-training](post-training.md) contains adaptation recipes; [Inference](inference.md) contains runtime references; [Limitations](limitations.md) contains risk boundaries; [Reproduction](reproduction.md) contains local results. [Evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns the model-independent evidence and comparison principles.
+**Related pages:** [Training](training.md) contains learning configuration; [Post-training](post-training.md) contains adaptation recipes; [Inference](inference.md) contains runtime references; [Limitations](limitations.md) contains risk boundaries; [Reproduction](reproduction.md) contains local results. [Evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns model-independent principles; [Original RoboCasa](../../benchmarks/robocasa/README.md) owns the benchmark contract; [X-WAM evaluation](../x-wam/evaluation.md) owns comparator-specific results.
 
 ## 1. Comparison key and score grammar
 
@@ -256,4 +256,5 @@ An evaluation cannot support its intended claim when:
 - Inference commands and engine configuration are owned by [inference.md](inference.md).
 - Unresolved research questions are registered in [research-queue.md](research-queue.md), while reusable experiment strategies are owned by [optimization-playbook.md](optimization-playbook.md).
 - Actual run state and artifacts are owned by [reproduction.md](reproduction.md).
+- Original RoboCasa task, simulator, dataset, and protocol semantics are owned by the [Benchmark entry](../../benchmarks/robocasa/README.md); X-WAM's 24-task result is owned by [X-WAM evaluation](../x-wam/evaluation.md).
 - Source IDs and fixed revisions resolve through [sources.yaml](sources.yaml).

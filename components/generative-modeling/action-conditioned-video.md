@@ -3,7 +3,7 @@ id: world-model-kb.components.generative-modeling.action-conditioned-video
 title: Action-Conditioned Video Modeling
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -12,11 +12,11 @@ owners:
 
 ## Retrieval metadata
 
-**Relevant queries:** action-conditioned video world model, interactive simulator, action timing, control conditioning, UniSim, iVideoGPT action model, IRASim, DIAMOND planning, counterfactual actions.
+**Relevant queries:** action-conditioned video world model, interactive simulator, action timing, control conditioning, UniSim, iVideoGPT action model, IRASim, X-WAM, DIAMOND planning, counterfactual actions.
 
 **Knowledge provided:** The interface that turns generic video generation into an intervention-conditioned transition model, cross-architecture evidence, alignment and planning mechanisms, and failure diagnostics.
 
-**Related pages:** [Actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md) owns causal action semantics; [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md) owns prediction direction; [planning and control](../../foundations/decision-making/planning-and-control.md) owns candidate selection.
+**Related pages:** [Actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md) owns causal action semantics; [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md) owns prediction direction; [planning and control](../../foundations/decision-making/planning-and-control.md) owns candidate selection; the [X-WAM Paper](../../papers/x-wam/README.md) owns its joint RGB-D/state/action evidence.
 
 ## Method definition
 
@@ -45,6 +45,12 @@ iVideoGPT first learns action-free video tokens, then adapts task-specific actio
 IRASim uses a latent diffusion Transformer with frame-level action modulation inside its blocks. Aligning each action segment with the corresponding future-frame latent directly addresses temporal conditioning. The paper reports robot-rollout results and a Push-T planning improvement from IoU 0.637 to 0.961 under its specified candidate and value-model protocol. [IRASRC-PAPER-V2, Secs. 3–4 and Table 5]
 
 The released implementation, paper training steps, final-layer conditioning, and planning code have documented gaps in the [IRASim Paper entry](../../papers/irasim/README.md). The result therefore supports the paper mechanism, not complete public reproducibility.
+
+### X-WAM
+
+X-WAM places multi-view video, action, and state tokens in one bidirectional denoising sequence and trains separate modality timesteps. Its coupled asynchronous noise schedule includes states where actions are clean while video remains noisy, so later video generation can be conditioned on an already decoded action chunk. The copied depth branch adds future geometry supervision while remaining disabled during released policy inference. [XWAM-PAPER-V2, pp.4-6; XWAM-CODE-72CF]
+
+This implementation exposes a strong counterfactual test: hold observation, language, and noise fixed; replace one feasible action chunk after the action schedule; continue RGB-D generation; compare the predicted difference with independent simulator rollouts. Internal action-video agreement alone remains insufficient. Exact tensors, schedulers, and execution state belong to the [X-WAM Model entry](../../models/x-wam/README.md).
 
 ### DIAMOND
 
@@ -118,4 +124,5 @@ Exact input/output modes belong to [action modeling](../../models/cosmos3-nano/a
 - [IVG-PAPER] identifies iVideoGPT.
 - [IRASRC-PAPER-V2] identifies IRASim v2.
 - [DIASRC-PAPER] identifies DIAMOND.
+- [XWAM-PAPER-V2] and [XWAM-CODE-72CF] identify X-WAM; their source records are owned by the [X-WAM Paper entry](../../papers/x-wam/sources.yaml).
 - [C3-TR] identifies Cosmos 3 action surfaces.

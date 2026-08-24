@@ -3,14 +3,14 @@ id: world-model-kb.page-template
 title: Canonical Model Page Template
 kind: guide
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
 
 # Canonical Model Page Template
 
-Copy the template below for a model-topic page. For a representative-paper entry, use [`paper-entry-template.md`](paper-entry-template.md), then apply this page-level metadata pattern to each Markdown owner. Replace every angle-bracket field before validation. Remove sections that are structurally inapplicable, but preserve `## Retrieval metadata` so a consuming system can discover the page without inheriting a workflow policy.
+Copy the template below for a model-topic page. For a representative-paper entry, use [`paper-entry-template.md`](paper-entry-template.md). For a versioned evaluation system, use [`benchmark-entry-template.md`](benchmark-entry-template.md). Replace every angle-bracket field before validation. Remove sections that are structurally inapplicable, but preserve `## Retrieval metadata` so a consuming system can discover the page without inheriting a workflow policy.
 
 ```markdown
 ---

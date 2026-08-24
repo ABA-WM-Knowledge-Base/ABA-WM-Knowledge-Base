@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.policy
 title: Cosmos3-Nano Policy-DROID Adaptation Reference
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** checkpoint lineage, DROID-specific interfaces, server semantics, adaptation variables, failure interpretations, safety evidence, and published policy results. DROID and RoboLab metrics belong to the specialized checkpoint, not base Nano.
 
-**Related pages:** [Architecture](architecture.md) covers base-model structure; [Reasoner](reasoner.md) covers text plans; [Action modeling](action-modeling.md) covers base action modes; [Generator](generator.md) covers media generation. Model-independent decision and deployment knowledge is owned by [planning and control](../../foundations/decision-making/planning-and-control.md), [model-based reinforcement learning](../../foundations/decision-making/model-based-rl.md), and [robotics and embodied AI](../../foundations/embodied-systems/robotics-and-embodied-ai.md).
+**Related pages:** [Architecture](architecture.md) covers base-model structure; [Reasoner](reasoner.md) covers text plans; [Action modeling](action-modeling.md) covers base action modes; [Generator](generator.md) covers media generation. Model-independent decision and deployment knowledge is owned by [planning and control](../../foundations/decision-making/planning-and-control.md), [model-based reinforcement learning](../../foundations/decision-making/model-based-rl.md), and [robotics and embodied AI](../../foundations/embodied-systems/robotics-and-embodied-ai.md). [Original RoboCasa](../../benchmarks/robocasa/README.md) owns the target benchmark interface and protocol; [X-WAM modalities](../x-wam/modalities-and-io.md) provides a released alternative adapter contract.
 
 ## Canonical identity and lineage
 
@@ -296,4 +296,6 @@ Execution outcomes belong in [reproduction.md](reproduction.md). Stable adaptati
 - Action representation and WAM: [action-modeling.md](action-modeling.md)
 - Input and server contracts: [modalities-and-io.md](modalities-and-io.md), [codebase.md](codebase.md), [inference.md](inference.md)
 - Published protocols and limitations: [evaluation.md](evaluation.md), [limitations.md](limitations.md)
+- Target benchmark semantics: [Original RoboCasa](../../benchmarks/robocasa/README.md)
+- Released comparator interface: [X-WAM modalities and I/O](../x-wam/modalities-and-io.md)
 - Source registry: [sources.yaml](sources.yaml)

@@ -3,7 +3,7 @@ id: world-model-kb.foundations.definitions-and-taxonomy.world-action-model
 title: World Action Models
 kind: reference
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** a scoped definition of the emerging WAM category, probability factorizations that distinguish it from forward dynamics, inverse dynamics, and direct policies, and evidence criteria for policy and transfer claims.
 
-**Related pages:** [Forward dynamics](../problem-formulation/forward-dynamics.md) and [inverse dynamics](../problem-formulation/inverse-dynamics.md) own the component objectives; [planning and control](../decision-making/planning-and-control.md) owns closed-loop model use; [robotics and embodied AI](../embodied-systems/robotics-and-embodied-ai.md) owns embodiment contracts.
+**Related pages:** [Forward dynamics](../problem-formulation/forward-dynamics.md) and [inverse dynamics](../problem-formulation/inverse-dynamics.md) own the component objectives; [planning and control](../decision-making/planning-and-control.md) owns closed-loop model use; [robotics and embodied AI](../embodied-systems/robotics-and-embodied-ai.md) owns embodiment contracts. [X-WAM](../../models/x-wam/README.md) is a concrete unified RGB-D/state/action instantiation.
 
 ## Definition and formalism
 
@@ -117,6 +117,7 @@ Claims that the future branch improves actions are falsified when current-only a
 - [Cosmos3-Nano evaluation](../../models/cosmos3-nano/evaluation.md) and [limitations](../../models/cosmos3-nano/limitations.md) record checkpoint-specific evidence and missing conditions.
 - [DreamZero](../../papers/dreamzero/paper.md) instantiates a joint video-action WAM evaluated as a closed-loop robot policy; its entry preserves 14B checkpoint, DROID/AgiBot, and scoped zero-shot language boundaries.
 - [Cosmos Policy](../../papers/cosmos-policy/paper.md) instantiates Predict2-2B latent-frame injection as a visuomotor policy with optional best-of-N planning; it is not Cosmos3-Nano Policy-DROID and does not inherit Predict2.5 video scores.
+- [X-WAM Paper](../../papers/x-wam/paper.md) instantiates joint multi-view RGB/depth/state/action flow modeling with asynchronous noise scheduling; its exact release and interfaces remain in the [X-WAM Model entry](../../models/x-wam/README.md).
 - [Paper entries](../../papers/README.md) can preserve DreamZero and Cosmos 3 architectures, datasets, and protocols without treating their terminology as a universal definition.
 
 ## Sources

@@ -1,14 +1,14 @@
 ---
 id: world-model-kb.foundations
-title: Part I — World Model Foundations
+title: World Model Foundations
 kind: index
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
 
-# Part I — World Model Foundations
+# World Model Foundations
 
 ## Retrieval metadata
 
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** canonical concepts and decision-relevant principles that transfer across world-model families, together with links to paper evidence and model-specific instantiations.
 
-**Related pages:** [Part II](../papers/README.md) owns paper-specific mechanisms and experiments; [Part III](../models/README.md) owns model-specific implementations and execution evidence; [Components](../components/README.md) contains independently scoped component knowledge.
+**Related pages:** [Papers](../papers/README.md) owns paper-specific mechanisms and experiments; [Models](../models/README.md) owns model-specific implementations and execution evidence; [Components](../components/README.md) contains independently scoped component knowledge; [Benchmarks](../benchmarks/README.md) owns versioned evaluation systems.
 
 ## Authority boundary
 
@@ -24,16 +24,18 @@ Foundation knowledge can influence Agent understanding, diagnosis, design judgme
 
 ## Canonical scope
 
-Part I owns model-independent concepts. A Foundation page explains a reusable definition, formalism, mechanism family, trade-off, or evaluation principle once; paper entries own the evidence reported by individual works, and model entries own concrete architectures, checkpoints, interfaces, results, and execution records.
+Foundations owns model-independent concepts. A Foundation page explains a reusable definition, formalism, mechanism family, trade-off, or evaluation principle once; Paper entries own evidence reported by individual works, Model entries own concrete architectures, checkpoints, interfaces, results, and execution records, and Benchmark entries own versioned evaluation systems.
 
 ```mermaid
 flowchart LR
     F["Foundation concept or formalism"] --> P["Paper-specific mechanism and evidence"]
     F --> C["Component-specific knowledge"]
     F --> M["Model-specific instantiation"]
+    F --> B["Benchmark-specific protocol"]
     P --> M
     P --> C
     C --> M
+    B --> M
     M --> E["Implementation and experiment evidence"]
     E -.->|refines knowledge without changing ownership| F
 ```

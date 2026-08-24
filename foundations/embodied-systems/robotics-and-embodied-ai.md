@@ -3,7 +3,7 @@ id: world-model-kb.foundations.embodied-systems.robotics-and-embodied-ai
 title: Robotics and Embodied AI
 kind: reference
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** a systems boundary for embodied agents, distinctions among VLA, world-model, WAM, planner, and controller surfaces, reusable adaptation variables, and evidence criteria for executable behavior.
 
-**Related pages:** [Planning and control](../decision-making/planning-and-control.md) covers decision mechanisms; [world action models](../definitions-and-taxonomy/world-action-model.md) covers joint action-and-future generation; [datasets and supervision](../data-and-evaluation/datasets-and-supervision.md) covers embodiment data.
+**Related pages:** [Planning and control](../decision-making/planning-and-control.md) covers decision mechanisms; [world action models](../definitions-and-taxonomy/world-action-model.md) covers joint action-and-future generation; [datasets and supervision](../data-and-evaluation/datasets-and-supervision.md) covers embodiment data; [Original RoboCasa](../../benchmarks/robocasa/README.md) owns the versioned household-manipulation benchmark.
 
 ## Definition and formalism
 
@@ -72,7 +72,7 @@ One implementation can span several surfaces, but evidence does not transfer aut
 | Hierarchical embodied agent | high-level language/goal planner plus low-level skills | long task composition | subgoal feasibility and error propagation |
 | Simulator-trained policy | policy learning in analytic or learned environment | scalable experience and controlled variation | simulation-to-real gap |
 
-RoboCasa provides a large-scale simulation framework with 100 household task definitions and synthetic demonstration generation. Its paper reports scaling evidence in simulation and selected real-world experiments; each result remains bound to its corresponding domain and protocol. Simulation visual realism is not sufficient evidence of matching contact, actuator, sensor, or recovery distributions. [BENCH-ROBOCASA-2024]
+Original RoboCasa provides a large-scale simulation framework with 100 household task definitions and synthetic demonstration generation. Its paper reports scaling evidence in simulation and selected real-world experiments; each result remains bound to its corresponding domain and protocol. Simulation visual realism is not sufficient evidence of matching contact, actuator, sensor, or recovery distributions. [RC24-PAPER-V1]
 
 ## Design implications and trade-offs
 
@@ -132,6 +132,8 @@ A cross-embodiment transfer claim is falsified or narrowed when the target requi
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) defines a DROID-specific three-view/proprioceptive input and 32-step action output; it does not establish RoboCasa compatibility.
 - [Cosmos3-Nano modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) owns concrete modality types and time contracts.
 - [Cosmos3-Nano limitations](../../models/cosmos3-nano/limitations.md) and [evaluation](../../models/cosmos3-nano/evaluation.md) record model-specific evidence boundaries.
+- [X-WAM](../../models/x-wam/README.md) instantiates a multi-view RGB-D/state/action world-action model with benchmark-specific RoboCasa and RoboTwin adapters.
+- [Original RoboCasa](../../benchmarks/robocasa/README.md) owns its simulator, task, dataset, protocol, evaluator, and v0.2-versus-RoboCasa365 boundary.
 - [Paper entries](../../papers/README.md) can preserve RT-2, Octo, DROID, RoboCasa, and other embodied-system protocols and results.
 
 ## Sources
@@ -139,5 +141,5 @@ A cross-embodiment transfer claim is falsified or narrowed when the target requi
 - [EMB-RT2-2023] Zitkovich et al., *RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control*, CoRL 2023, PMLR 229:2165-2183.
 - [EMB-OCTO-2024] Ghosh et al., *Octo: An Open-Source Generalist Robot Policy*, RSS 2024, DOI:10.15607/RSS.2024.XX.090.
 - [DATA-DROID-2024] Khazatsky et al., *DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset*, RSS 2024, DOI:10.15607/RSS.2024.XX.120.
-- [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots*, RSS 2024, DOI:10.15607/RSS.2024.XX.050.
+- [RC24-PAPER-V1] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots*, arXiv:2406.02523v1 / RSS 2024; identity owned by the [Original RoboCasa registry](../../benchmarks/robocasa/sources.yaml).
 - [PLAN-VISUAL-FORESIGHT-2017] Finn and Levine, *Deep Visual Foresight for Planning Robot Motion*, ICRA 2017, DOI:10.1109/ICRA.2017.7989324.

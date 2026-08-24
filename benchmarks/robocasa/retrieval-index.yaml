@@ -1,0 +1,143 @@
+schema_version: 1
+benchmark_entry: world-model-kb.benchmarks.robocasa
+entrypoint: README.md
+purpose: >-
+  Associate Original RoboCasa questions with benchmark-definition knowledge,
+  protocol evidence, and reproduction boundaries that can ground model design
+  and evaluation decisions without defining AIBuildAI workflow orchestration.
+
+authority_boundary:
+  mode: knowledge_guidance_without_orchestration
+  knowledge_role: >-
+    Influence benchmark identification, protocol matching, evaluator diagnosis,
+    failure slicing, experiment design, and result interpretation.
+  workflow_authority: AIBuildAI runtime, orchestrator, Agent configuration, and task instructions
+  does_not_define:
+    - which Agent is invoked
+    - which model or solution repository is selected
+    - task decomposition, execution order, or scheduling
+    - permissions, approvals, or external side effects
+    - whether benchmark execution or model training is authorized
+  integration_note: >-
+    AIBuildAI may dynamically combine these associations with relevant Foundation,
+    Paper, Component, and Model knowledge. The associations describe knowledge,
+    not a mandatory route or execution plan.
+
+canonical_owners:
+  benchmark_identity: benchmark.yaml
+  overview: README.md
+  retrieval_metadata: retrieval-index.yaml
+  release_boundaries: scope-and-versions.md
+  tasks_scenes_assets_and_interfaces: tasks-and-environments.md
+  demonstration_data: datasets.md
+  evaluation_protocols_and_metrics: protocol-and-metrics.md
+  published_baselines_and_results: baselines-and-results.md
+  implementation_map: codebase.md
+  executed_state: reproduction.md
+  validity_limits: limitations.md
+  model_improvement_use: optimization-reference.md
+  source_resolution: sources.yaml
+
+retrieval_profiles:
+  - id: identity_and_version
+    related_intents:
+      - distinguish Original RoboCasa from RoboCasa365
+      - pin the simulator, paper, task suite, or license
+    query_terms: [RoboCasa, Original RoboCasa, RSS 2024, v0.2, RoboCasa365, version, license]
+    primary_documents: [scope-and-versions.md, benchmark.yaml, sources.yaml]
+    additional_documents:
+      implementation_boundary: [codebase.md]
+      invalid_comparisons: [limitations.md]
+    knowledge_supported:
+      - exact included benchmark identity
+      - successor exclusions and migration hazards
+      - immutable source and license boundaries
+
+  - id: tasks_and_environment
+    related_intents:
+      - resolve a task class, skill family, scene, object, embodiment, controller, or camera contract
+      - diagnose environment-distribution mismatch
+    query_terms: [atomic task, composite task, kitchen scene, object split, PandaOmron, controller, camera]
+    primary_documents: [tasks-and-environments.md, scope-and-versions.md]
+    additional_documents:
+      code_symbols: [codebase.md]
+      evaluation_conditions: [protocol-and-metrics.md]
+    knowledge_supported:
+      - task and success-predicate semantics
+      - scene, object, embodiment, and observation distributions
+      - environment variables that invalidate a comparison
+
+  - id: datasets
+    related_intents:
+      - identify human or MimicGen demonstrations
+      - inspect trajectory volume, filtering, supervision, or license
+    query_terms: [dataset, demonstration, human teleoperation, MimicGen, trajectory, synthetic data]
+    primary_documents: [datasets.md, sources.yaml]
+    additional_documents:
+      task_coverage: [tasks-and-environments.md]
+      reported_scaling: [baselines-and-results.md]
+      data_risks: [limitations.md, optimization-reference.md]
+    knowledge_supported:
+      - dataset provenance and task coverage
+      - paper-scale and released-data distinctions
+      - data-quality and distribution confounders
+
+  - id: protocol_and_evaluator
+    related_intents:
+      - define or compare a rollout protocol
+      - inspect success, horizon, seeds, scenarios, or aggregation
+    query_terms: [evaluation, success rate, rollout, horizon, seed, task success, aggregation, protocol]
+    primary_documents: [protocol-and-metrics.md, codebase.md]
+    additional_documents:
+      version_constraints: [scope-and-versions.md]
+      validity_limits: [limitations.md]
+      execution_records: [reproduction.md]
+    knowledge_supported:
+      - protocol tuples required for comparison
+      - task-success and aggregation semantics
+      - evaluator implementation and missing standardization
+
+  - id: baselines_and_results
+    related_intents:
+      - interpret a published RoboCasa number
+      - compare data scaling, composite transfer, sim-to-real, or later WAM results
+    query_terms: [baseline, result, BC-Transformer, scaling, composite task, sim-to-real, X-WAM]
+    primary_documents: [baselines-and-results.md, protocol-and-metrics.md]
+    additional_documents:
+      data_conditions: [datasets.md]
+      comparison_risks: [limitations.md]
+      model_evidence: [../../models/x-wam/evaluation.md]
+    knowledge_supported:
+      - protocol-bound original-paper results
+      - later 24-task result interpretation
+      - conditions under which result tables are not commensurate
+
+  - id: reproduction_and_implementation
+    related_intents:
+      - install or inspect Original RoboCasa
+      - reproduce environments, datasets, or policy evaluation
+      - diagnose dependency or code-version failure
+    query_terms: [installation, code, robosuite, robomimic, environment, reproduction, dependency]
+    primary_documents: [codebase.md, reproduction.md, sources.yaml]
+    additional_documents:
+      expected_protocol: [protocol-and-metrics.md]
+      known_risks: [limitations.md]
+    knowledge_supported:
+      - pinned code paths and mutable dependencies
+      - documented commands versus locally observed state
+      - reproducibility gates and required artifacts
+
+  - id: optimization_evidence
+    related_intents:
+      - turn RoboCasa failures into model-improvement hypotheses
+      - select diagnostic slices or controlled ablations
+    query_terms: [optimization, failure slice, object generalization, long horizon, action chunk, depth, data scaling]
+    primary_documents: [optimization-reference.md, limitations.md]
+    additional_documents:
+      protocol_controls: [protocol-and-metrics.md]
+      task_structure: [tasks-and-environments.md]
+      model_specific_levers: [../../models/x-wam/optimization-playbook.md]
+    knowledge_supported:
+      - benchmark-grounded diagnostic axes
+      - controllable experiments and falsification signals
+      - regression and protocol-confound controls
