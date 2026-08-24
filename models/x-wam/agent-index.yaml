@@ -1,0 +1,145 @@
+schema_version: 3
+model_entry: world-model-kb.models.x-wam
+entrypoint: README.md
+purpose: >-
+  Associate X-WAM model questions with released-artifact facts, implementation
+  knowledge, evaluation evidence, and optimization hypotheses that can ground
+  design decisions without defining AIBuildAI workflow orchestration.
+
+authority_boundary:
+  mode: knowledge_guidance_without_orchestration
+  knowledge_role: >-
+    Influence model identification, architecture reasoning, interface matching,
+    failure diagnosis, experiment design, and result interpretation.
+  workflow_authority: AIBuildAI runtime, orchestrator, Agent configuration, and task instructions
+  does_not_define:
+    - which Agent is invoked
+    - which solution repository is advanced, paused, or abandoned
+    - task decomposition, execution order, or scheduling
+    - permissions, approvals, or external side effects
+    - whether checkpoint download, training, or deployment is authorized
+  integration_note: >-
+    AIBuildAI may dynamically combine these associations with relevant Foundation,
+    Paper, Component, Benchmark, and other Model knowledge. They are advisory
+    knowledge metadata, not a mandatory route or control plane.
+
+canonical_owners:
+  model_identity: manifest.yaml
+  retrieval_metadata: agent-index.yaml
+  model_overview: README.md
+  released_architecture: architecture.md
+  input_output_and_action_contracts: modalities-and-io.md
+  released_data_and_training: data-and-training.md
+  runtime_and_sampling: inference.md
+  checkpoint_and_protocol_results: evaluation.md
+  known_limits_and_source_conflicts: limitations.md
+  implementation_navigation: codebase.md
+  executed_state: reproduction.md
+  optimization_reference: optimization-playbook.md
+  unresolved_decision_questions: research-queue.md
+  source_resolution: sources.yaml
+
+retrieval_profiles:
+  - id: model_identity
+    related_intents:
+      - identify an X-WAM checkpoint, revision, license, or upstream base
+      - distinguish pretrained, RoboCasa SFT, and RoboTwin SFT artifacts
+    query_terms: [X-WAM, checkpoint, revision, pretrained, RoboCasa SFT, RoboTwin SFT, Wan2.2, license]
+    primary_documents: [manifest.yaml, README.md, sources.yaml]
+    additional_documents:
+      artifact_details: [data-and-training.md]
+      compatibility_limits: [limitations.md]
+    knowledge_supported:
+      - exact public artifact and dependency identities
+      - checkpoint role and invalid equivalences
+      - paper versus released-config boundary
+
+  - id: architecture_and_geometry
+    related_intents:
+      - inspect unified token flow, depth adaptation, multi-view geometry, or attention
+      - modify the RGB, state, action, or depth computation graph
+    query_terms: [architecture, DiT, depth branch, unilateral attention, RGB-D, view embedding, RoPE, point cloud]
+    primary_documents: [architecture.md, modalities-and-io.md]
+    additional_documents:
+      paper_mechanism: [../../papers/x-wam/paper.md]
+      code_symbols: [codebase.md]
+      optimization_tests: [optimization-playbook.md]
+    knowledge_supported:
+      - released computation and parameter boundaries
+      - geometry and camera-pose assumptions
+      - depth-policy coupling and branch-off behavior
+
+  - id: data_and_training
+    related_intents:
+      - inspect pretraining mixture, SFT data, pseudo-depth, losses, or optimizer config
+      - compare paper training values with released checkpoint configs
+    query_terms: [pretraining, fine-tuning, dataset, pseudo-depth, flow matching, loss, learning rate, H20]
+    primary_documents: [data-and-training.md, limitations.md]
+    additional_documents:
+      paper_evidence: [../../papers/x-wam/paper.md, ../../papers/x-wam/codebase.md]
+      data_artifacts: [sources.yaml]
+      candidate_interventions: [optimization-playbook.md]
+    knowledge_supported:
+      - data composition and preprocessing
+      - objective and released configuration values
+      - documented source conflicts and confounders
+
+  - id: interfaces_and_runtime
+    related_intents:
+      - run action-only or full RGB-D inference
+      - inspect action/state coordinates, normalization, denoising, or serving
+    query_terms: [inference, action chunk, policy server, broker, denoising steps, early stop, normalization, gripper]
+    primary_documents: [modalities-and-io.md, inference.md, codebase.md]
+    additional_documents:
+      artifact_identity: [manifest.yaml, sources.yaml]
+      runtime_state: [reproduction.md]
+      failure_boundaries: [limitations.md]
+    knowledge_supported:
+      - mode-specific inputs and outputs
+      - scheduler and early-stop semantics
+      - environment adapter and resource requirements
+
+  - id: evaluation
+    related_intents:
+      - interpret X-WAM policy, RGB, depth, point-cloud, or latency results
+      - compare an intervention with the released baseline
+    query_terms: [RoboCasa, RoboTwin, success rate, PSNR, LPIPS, AbsRel, Chamfer Distance, latency, ablation]
+    primary_documents: [evaluation.md, limitations.md]
+    additional_documents:
+      benchmark_definition: [../../benchmarks/robocasa/protocol-and-metrics.md]
+      paper_tables: [../../papers/x-wam/paper.md]
+      local_results: [reproduction.md]
+    knowledge_supported:
+      - checkpoint- and protocol-bound result interpretation
+      - metric decomposition and ablation scope
+      - invalid comparison boundaries
+
+  - id: implementation
+    related_intents:
+      - locate a class, function, config, dataset field, or evaluation call path
+      - diagnose checkpoint or environment integration
+    query_terms: [source file, class, function, config, load_state_dict, dataset parser, submodule, client]
+    primary_documents: [codebase.md, manifest.yaml]
+    additional_documents:
+      runtime_contract: [inference.md, modalities-and-io.md]
+      paper_code_mapping: [../../papers/x-wam/codebase.md]
+      execution_observations: [reproduction.md]
+    knowledge_supported:
+      - fixed-revision symbol and call-path map
+      - checkpoint/config layout
+      - implementation and documentation mismatches
+
+  - id: optimization
+    related_intents:
+      - formulate an X-WAM improvement experiment
+      - connect a failure to a controllable model, data, or inference surface
+    query_terms: [optimization, depth layers, ANS, history, action steps, data mixture, loss weight, experiment]
+    primary_documents: [optimization-playbook.md, research-queue.md]
+    additional_documents:
+      baseline_constraints: [evaluation.md, limitations.md, reproduction.md]
+      mechanism_reference: [architecture.md, data-and-training.md, inference.md]
+      benchmark_slices: [../../benchmarks/robocasa/optimization-reference.md]
+    knowledge_supported:
+      - mechanism-grounded intervention cards
+      - controlled tests, regressions, and falsification
+      - unresolved questions that can change a design decision

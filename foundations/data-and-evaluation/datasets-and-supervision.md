@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.datasets-and-supervision
 title: Datasets and Supervision for World Models
 kind: reference
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -132,6 +132,8 @@ A scale hypothesis is falsified or narrowed when gains disappear at equal effect
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) owns domain action widths, normalization, and H/H+1 temporal alignment.
 - [Cosmos3-Nano Policy-DROID](../../models/cosmos3-nano/policy.md) owns the checkpoint-specific DROID observation/action contract.
 - [Cosmos3-Nano evaluation](../../models/cosmos3-nano/evaluation.md) records reported model results; data claims retain the associated checkpoint and protocol.
+- [X-WAM data and training](../../models/x-wam/data-and-training.md) owns the cross-embodiment mixture, public SFT artifacts, masks, pseudo-depth, and paper-to-release configuration boundary.
+- [Original RoboCasa datasets](../../benchmarks/robocasa/datasets.md) owns the human, MimicGen, and AI-object demonstration identities for the v0.2 benchmark.
 - [Paper entries](../../papers/README.md) can preserve dataset-specific collection, licenses, schema, statistics, and empirical results for Ego4D, BridgeData V2, DROID, Open X-Embodiment, and RoboCasa.
 
 ## Sources
@@ -140,4 +142,4 @@ A scale hypothesis is falsified or narrowed when gains disappear at equal effect
 - [DATA-BRIDGEV2-2023] Walke et al., *BridgeData V2: A Dataset for Robot Learning at Scale*, CoRL 2023, PMLR 229:1723-1736.
 - [DATA-DROID-2024] Khazatsky et al., *DROID: A Large-Scale In-The-Wild Robot Manipulation Dataset*, RSS 2024, DOI:10.15607/RSS.2024.XX.120. The RSS PDF and HTML retain different trajectory counts (76k and 65k respectively).
 - [EMB-OCTO-2024] Ghosh et al., *Octo: An Open-Source Generalist Robot Policy*, RSS 2024, DOI:10.15607/RSS.2024.XX.090.
-- [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots*, RSS 2024, DOI:10.15607/RSS.2024.XX.050.
+- [RC24-PAPER-V1] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots*, arXiv:2406.02523v1 / RSS 2024; benchmark data identity is owned by the [Original RoboCasa entry](../../benchmarks/robocasa/datasets.md).

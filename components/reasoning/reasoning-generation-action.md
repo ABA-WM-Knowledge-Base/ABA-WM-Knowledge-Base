@@ -3,7 +3,7 @@ id: world-model-kb.components.reasoning.reasoning-generation-action
 title: Reasoning–Generation–Action Integration
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** How Cosmos 3 places explicit reasoning and continuous generation in one sequence model, what information can flow between the streams, which action surfaces remain distinct, and how to test transfer across the interface.
 
-**Related pages:** [Generative Modeling omnimodal generation](../generative-modeling/omnimodal-generation.md) owns the generative lineage; [Cosmos3-Nano architecture](../../models/cosmos3-nano/architecture.md) owns exact model implementation; [action modeling](../../models/cosmos3-nano/action-modeling.md) owns FD/ID/WAM interfaces.
+**Related pages:** [Generative Modeling omnimodal generation](../generative-modeling/omnimodal-generation.md) owns the generative lineage; [Cosmos3-Nano architecture](../../models/cosmos3-nano/architecture.md) owns its exact Reasoner/Generator implementation; [action modeling](../../models/cosmos3-nano/action-modeling.md) owns Cosmos FD/ID/WAM interfaces; [X-WAM architecture](../../models/x-wam/architecture.md) provides a generation-action system without an explicit language-reasoning tower.
 
 ## Integration problem
 
@@ -45,6 +45,8 @@ The attention rule is directional:
 This lets semantic context influence continuous generation. It does not let the current diffusion state update the current autoregressive hidden state within the same pass. A reason–generate–inspect–revise loop would therefore require an explicit iterative interface or a later pass. [C3-TR, Fig. 3]
 
 Separate parameter streams also mean that a shared sequence does not imply a shared objective. The Reasoner is autoregressive; the Generator uses rectified flow. Any claim that one tower improves the other needs an ablation at the coupling surface.
+
+X-WAM is a useful boundary case: language conditions a joint RGB-D/state/action denoiser, but the release does not expose a separate autoregressive reasoning stream or a text-plan-to-policy interface. It therefore informs generation-action coupling and action-conditioned continuation, not explicit reasoning capability. [XWAM-PAPER-V2; XWAM-CODE-72CF]
 
 ## Distinct action surfaces
 
@@ -103,8 +105,9 @@ Media quality, text accuracy, action error, and closed-loop success remain separ
 
 ## Ownership boundary
 
-This page owns the cross-surface integration logic. Exact MoT tensors and parameterization belong to [architecture](../../models/cosmos3-nano/architecture.md); media generation belongs to [Generator](../../models/cosmos3-nano/generator.md); action schemas belong to [action modeling](../../models/cosmos3-nano/action-modeling.md); and executable DROID behavior belongs to [policy](../../models/cosmos3-nano/policy.md).
+This page owns the cross-surface integration logic. Exact Cosmos MoT tensors and parameterization belong to [architecture](../../models/cosmos3-nano/architecture.md); media generation belongs to [Generator](../../models/cosmos3-nano/generator.md); Cosmos action schemas belong to [action modeling](../../models/cosmos3-nano/action-modeling.md); and executable DROID behavior belongs to [policy](../../models/cosmos3-nano/policy.md). X-WAM's non-reasoning joint-denoising boundary belongs to its [Model entry](../../models/x-wam/README.md).
 
 ## Sources
 
 - [C3-TR] identifies Cosmos 3 report v4 and supplies the MoT attention, Reasoner, Generator, action, and policy surfaces.
+- [XWAM-PAPER-V2] and [XWAM-CODE-72CF] identify X-WAM's language-conditioned generation-action surface; records are owned by the [X-WAM Paper registry](../../papers/x-wam/sources.yaml).

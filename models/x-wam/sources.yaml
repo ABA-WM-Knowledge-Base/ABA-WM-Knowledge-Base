@@ -1,0 +1,51 @@
+schema_version: 3
+as_of: "2026-08-24"
+sources:
+  - id: XWAM-HF-CHECKPOINTS
+    type: model_card
+    title: "sharinka0715/X-WAM-checkpoints"
+    publisher: Hugging Face / X-WAM authors
+    revision: bb6fd1643cfa8bdc751612a7ace0bd8062a8917a
+    version: "pretrained, robocasa_sft, and robotwin_sft snapshot"
+    license: Apache-2.0
+    canonical_url: https://huggingface.co/sharinka0715/X-WAM-checkpoints/tree/bb6fd1643cfa8bdc751612a7ace0bd8062a8917a
+    accessed: "2026-08-24"
+    scope: Public, ungated snapshot with three configs and three DeepSpeed-style state files; file sizes are 38,892,887,339 bytes for pretrained and 38,892,887,211 bytes for each SFT state file. Weights were not downloaded.
+  - id: XWAM-HF-ROBOCASA
+    type: dataset
+    title: "sharinka0715/X-WAM-RoboCasa"
+    publisher: Hugging Face / X-WAM authors
+    revision: f439f3cee3e227065ac27e7aab92bfc62667c9ca
+    version: "1,235 episodes; 341,017 frames; approximately 5.1 GB"
+    license: Apache-2.0 subject to upstream RoboCasa terms
+    canonical_url: https://huggingface.co/datasets/sharinka0715/X-WAM-RoboCasa/tree/f439f3cee3e227065ac27e7aab92bfc62667c9ca
+    accessed: "2026-08-24"
+    scope: Public, ungated 24-task single-arm multi-view RGB-D/state/action/language SFT dataset; metadata inspected, payload not downloaded.
+  - id: XWAM-HF-ROBOTWIN
+    type: dataset
+    title: "sharinka0715/X-WAM-RoboTwin"
+    publisher: Hugging Face / X-WAM authors
+    revision: 383c3bb7db3ba1e3baa44c1bd33f0bc94d69a20f
+    version: "27,500 episodes; 6,138,940 frames; approximately 94 GB"
+    license: Apache-2.0 subject to upstream RoboTwin 2.0 terms
+    canonical_url: https://huggingface.co/datasets/sharinka0715/X-WAM-RoboTwin/tree/383c3bb7db3ba1e3baa44c1bd33f0bc94d69a20f
+    accessed: "2026-08-24"
+    scope: Public, ungated 50-task dual-arm multi-view RGB-D/state/action/language SFT dataset; metadata inspected, payload not downloaded.
+  - id: XWAM-WAN22-HF
+    type: model_card
+    title: "Wan-AI/Wan2.2-TI2V-5B"
+    publisher: Wan-AI on Hugging Face
+    revision: 921dbaf3f1674a56f47e83fb80a34bac8a8f203e
+    license: Apache-2.0
+    canonical_url: https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B/tree/921dbaf3f1674a56f47e83fb80a34bac8a8f203e
+    accessed: "2026-08-24"
+    scope: Upstream base identity referenced by X-WAM; the X-WAM release expects the original-format base directory, not merely an arbitrary Diffusers conversion.
+  - id: XWAM-UMT5-HF
+    type: model_card
+    title: "google/umt5-xxl"
+    publisher: Google on Hugging Face
+    revision: 66cb9e7e85526fe440a945569e42c72fb6cbc0ad
+    license: Apache-2.0
+    canonical_url: https://huggingface.co/google/umt5-xxl/tree/66cb9e7e85526fe440a945569e42c72fb6cbc0ad
+    accessed: "2026-08-24"
+    scope: Tokenizer identity named by the released config; X-WAM loads its BF16 encoder weights from the Wan-style checkpoint directory.

@@ -1,22 +1,22 @@
 ---
 id: world-model-kb.papers
-title: Part II - Representative Papers
+title: Representative Paper Entries
 kind: index
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
 
-# Part II - Representative Papers
+# Representative Paper Entries
 
 ## Retrieval metadata
 
 **Relevant queries:** paper mechanism, ablation, benchmark result, implementation, reproduction, or transfer hypothesis.
 
-**Knowledge provided:** the canonical scope of Part II, its active paper entries, and the entry contract that converts one work into reusable optimization knowledge.
+**Knowledge provided:** the canonical Paper scope, its active entries, and the entry contract that converts one work into reusable optimization knowledge.
 
-**Related pages:** [Part I](../foundations/README.md) owns model-independent concepts and formalisms; [Part III](../models/README.md) owns model-specific knowledge; [Components](../components/README.md) contains independently scoped component knowledge. Individual paper entries connect mechanisms and transfer claims to the applicable owners without imposing a reading order.
+**Related pages:** [Foundations](../foundations/README.md) owns model-independent concepts and formalisms; [Models](../models/README.md) owns model-specific knowledge; [Components](../components/README.md) contains independently scoped component knowledge; [Benchmarks](../benchmarks/README.md) owns versioned evaluation systems. Individual paper entries connect mechanisms and transfer claims to the applicable owners without imposing a reading order.
 
 ## Canonical scope
 
@@ -43,6 +43,7 @@ The current Reasoning and Generative Modeling Components synthesize mechanisms a
 | [DIAMOND](diamond/README.md) | Pixel-space diffusion world model | Atari 100k MBRL inside an image-space diffusion model, with the CSGO branch kept as a separate qualitative surface |
 | [OccWorld](occworld/README.md) | 3D occupancy driving world model | Occupancy-token forecasting plus ego-trajectory prediction on nuScenes, including license and variant boundaries |
 | [Vista](vista/README.md) | Controllable driving video world model | OpenDV control modes and official weights; not Wayve GAIA; high-VRAM sampling is not locally attempted |
+| [X-WAM](x-wam/README.md) | Unified RGB-D world action model | Wan2.2-based multi-view RGB/depth/state/action denoising, copied depth branch, asynchronous noise scheduling and inference, cross-embodiment pretraining, RoboCasa/RoboTwin evidence, released-code boundary, and transferable interventions |
 
 An active entry is evidence about that named work, not a claim that its findings generalize to every model. Candidate families or titles are not KB facts until their entries exist.
 

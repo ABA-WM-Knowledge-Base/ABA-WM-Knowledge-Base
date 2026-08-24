@@ -394,14 +394,6 @@ sources:
     version: DOI 10.1109/LRA.2022.3180108
     canonical_url: https://doi.org/10.1109/LRA.2022.3180108
     accessed: "2026-08-11"
-  - id: BENCH-ROBOCASA-2024
-    type: benchmark
-    title: "RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots"
-    publisher: Robotics — Science and Systems 2024
-    version: DOI 10.15607/RSS.2024.XX.050
-    canonical_url: https://www.roboticsproceedings.org/rss20/p050.html
-    retrieval_hint: The RSS HTML and BibTeX use "Household Tasks"; the downloadable paper PDF uses "Everyday Tasks." Treat these as title variants of the same RSS 2024 paper.
-    accessed: "2026-08-11"
   - id: EVAL-RL-MATTERS-2018
     type: paper
     title: Deep Reinforcement Learning that Matters

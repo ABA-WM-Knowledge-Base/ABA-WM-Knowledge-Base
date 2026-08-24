@@ -22,19 +22,19 @@ ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "_schema" / "metadata.schema.yaml"
 MANIFEST_SCHEMA_PATH = ROOT / "_schema" / "manifest.schema.yaml"
 SOURCES_SCHEMA_PATH = ROOT / "_schema" / "sources.schema.yaml"
-MODEL_ROOT = ROOT / "models" / "cosmos3-nano"
+BENCHMARK_SCHEMA_PATH = ROOT / "_schema" / "benchmark.schema.yaml"
+MODELS_ROOT = ROOT / "models"
 FOUNDATION_ROOT = ROOT / "foundations"
 PAPER_ROOT = ROOT / "papers"
 COMPONENT_ROOT = ROOT / "components"
-MANIFEST_PATH = MODEL_ROOT / "manifest.yaml"
-AGENT_INDEX_PATH = MODEL_ROOT / "agent-index.yaml"
+BENCHMARK_ROOT = ROOT / "benchmarks"
 FOUNDATION_INDEX_PATH = FOUNDATION_ROOT / "retrieval-index.yaml"
 
 FRONTMATTER = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 MARKDOWN_LINK = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 SOURCE_REFERENCE = re.compile(
     r"(?<!RQ-)\b(?!DATA-H\d+\b)((?:C3|C1|R1|T1|P25|IRASRC|MIMICGEN|CPOL|DZ|LAPA|IVG|DV3SRC|DV3|"
-    r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|COMP|LOCAL|NVIDIA|FND|DYN|FD|REP|"
+    r"TDMPC2|VJ2|DIASRC|DIA|OCCSRC|OCC|VISTA|XWAM|RC24|RC365|COMP|LOCAL|NVIDIA|FND|DYN|FD|REP|"
     r"PLAN|CTRL|MBRL|WFM|WAM|EMB|DATA|EVAL|BENCH|OBJ|ACT)-[A-Z0-9-]+)\b"
 )
 NON_ENGLISH_SCRIPT = re.compile(
@@ -394,12 +394,19 @@ def validate_pages(
                     f"{relative(path)}: unknown source reference {source_id}"
                 )
 
-        is_model_page = path.parent == MODEL_ROOT
+        is_model_page = path.is_relative_to(MODELS_ROOT)
         is_foundation_page = path.is_relative_to(FOUNDATION_ROOT)
         is_paper_page = path.is_relative_to(PAPER_ROOT)
+        is_benchmark_page = path.is_relative_to(BENCHMARK_ROOT)
         is_foundation_topic = is_foundation_page and path.name != "README.md"
         is_paper_topic = (
             is_paper_page and path.parent != PAPER_ROOT and path.name != "README.md"
+        )
+        is_model_topic = is_model_page and path.parent != MODELS_ROOT and path.name != "README.md"
+        is_benchmark_topic = (
+            is_benchmark_page
+            and path.parent != BENCHMARK_ROOT
+            and path.name != "README.md"
         )
         if is_foundation_page:
             foundation_relative = path.relative_to(FOUNDATION_ROOT)
@@ -429,7 +436,35 @@ def validate_pages(
                     f"{relative(path)}: id {page_id!r} does not match canonical "
                     f"path owner {expected_id!r}"
                 )
-        if is_model_page or is_foundation_page or is_paper_page:
+        if is_model_page:
+            model_relative = path.relative_to(MODELS_ROOT)
+            if path.name == "README.md":
+                owner_parts = model_relative.parts[:-1]
+            else:
+                owner_parts = model_relative.with_suffix("").parts
+            expected_id = "world-model-kb.models"
+            if owner_parts:
+                expected_id += "." + ".".join(owner_parts)
+            if page_id != expected_id:
+                errors.append(
+                    f"{relative(path)}: id {page_id!r} does not match canonical "
+                    f"path owner {expected_id!r}"
+                )
+        if is_benchmark_page:
+            benchmark_relative = path.relative_to(BENCHMARK_ROOT)
+            if path.name == "README.md":
+                owner_parts = benchmark_relative.parts[:-1]
+            else:
+                owner_parts = benchmark_relative.with_suffix("").parts
+            expected_id = "world-model-kb.benchmarks"
+            if owner_parts:
+                expected_id += "." + ".".join(owner_parts)
+            if page_id != expected_id:
+                errors.append(
+                    f"{relative(path)}: id {page_id!r} does not match canonical "
+                    f"path owner {expected_id!r}"
+                )
+        if is_model_page or is_foundation_page or is_paper_page or is_benchmark_page:
             if "## Retrieval metadata" not in text:
                 errors.append(f"{relative(path)}: missing '## Retrieval metadata'")
             for label in retrieval_labels:
@@ -439,7 +474,16 @@ def validate_pages(
                     )
             if re.search(r"\b(?:TODO|TBD)\b", text):
                 errors.append(f"{relative(path)}: unfinished placeholder found")
-            minimum_length = 1600 if (is_foundation_topic or is_paper_topic) else 1200
+            minimum_length = (
+                1600
+                if (
+                    is_foundation_topic
+                    or is_paper_topic
+                    or is_model_topic
+                    or is_benchmark_topic
+                )
+                else 1200
+            )
             if path.name != "README.md" and len(text) < minimum_length:
                 errors.append(
                     f"{relative(path)}: canonical page is too thin ({len(text)} chars)"
@@ -456,7 +500,7 @@ def validate_pages(
 
 
 def validate_structure(schema: dict, errors: list[str]) -> None:
-    """Validate the four-part layout and entry file contracts."""
+    """Validate the peer-part layout and declared entry file contracts."""
 
     directory_contract = schema["directory_contract"]
     for part in directory_contract["content_parts"]:
@@ -483,21 +527,55 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
         if not (ROOT / "_schema" / schema_file).is_file():
             errors.append(f"missing schema file: _schema/{schema_file}")
 
-    required_model_files = set(schema["cosmos3_nano_required_files"])
-    actual_model_files = {
-        path.name for path in MODEL_ROOT.iterdir() if path.is_file()
+    model_contracts = schema.get("model_entry", {}).get("active_entries", {})
+    active_model_entries = set(model_contracts)
+    root_model_files = {
+        path.name for path in MODELS_ROOT.iterdir() if path.is_file()
     }
-    missing = required_model_files - actual_model_files
-    if missing:
-        errors.append(f"Cosmos3-Nano entry missing files: {sorted(missing)}")
-
-    stale_files = {"project-relevance.md", "open-questions.md"}
-    remaining_stale = stale_files & actual_model_files
-    if remaining_stale:
+    if root_model_files != {"README.md"}:
         errors.append(
-            f"Cosmos3-Nano entry contains stale human-facing paths: "
-            f"{sorted(remaining_stale)}"
+            "models/ root must contain only README.md; "
+            f"found {sorted(root_model_files)}"
         )
+    actual_model_entries = {
+        path.name for path in MODELS_ROOT.iterdir() if path.is_dir()
+    }
+    missing_model_entries = active_model_entries - actual_model_entries
+    if missing_model_entries:
+        errors.append(
+            "Models entry missing active directories: "
+            f"{sorted(missing_model_entries)}"
+        )
+    unexpected_model_entries = actual_model_entries - active_model_entries
+    if unexpected_model_entries:
+        errors.append(
+            "Models contains undeclared entry directories: "
+            f"{sorted(unexpected_model_entries)}"
+        )
+    stale_files = {"project-relevance.md", "open-questions.md"}
+    for entry in active_model_entries & actual_model_entries:
+        entry_root = MODELS_ROOT / entry
+        required_files = set(model_contracts[entry].get("required_files", []))
+        actual_files = {
+            path.name for path in entry_root.iterdir() if path.is_file()
+        }
+        missing_files = required_files - actual_files
+        if missing_files:
+            errors.append(
+                f"models/{entry} entry missing files: {sorted(missing_files)}"
+            )
+        unexpected_files = actual_files - required_files
+        if unexpected_files:
+            errors.append(
+                f"models/{entry} entry contains undeclared files: "
+                f"{sorted(unexpected_files)}"
+            )
+        remaining_stale = stale_files & actual_files
+        if remaining_stale:
+            errors.append(
+                f"models/{entry} contains stale human-facing paths: "
+                f"{sorted(remaining_stale)}"
+            )
 
     foundation_contract = schema.get("foundation_entry", {})
     required_foundation_files = set(foundation_contract.get("required_files", []))
@@ -574,6 +652,66 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
                 f"{nested_directories}"
             )
 
+    benchmark_contracts = schema.get("benchmark_entry", {}).get(
+        "active_entries", {}
+    )
+    active_benchmark_entries = set(benchmark_contracts)
+    root_benchmark_files = {
+        path.name for path in BENCHMARK_ROOT.iterdir() if path.is_file()
+    }
+    if root_benchmark_files != {"README.md"}:
+        errors.append(
+            "benchmarks/ root must contain only README.md; "
+            f"found {sorted(root_benchmark_files)}"
+        )
+    actual_benchmark_entries = {
+        path.name for path in BENCHMARK_ROOT.iterdir() if path.is_dir()
+    }
+    missing_benchmark_entries = (
+        active_benchmark_entries - actual_benchmark_entries
+    )
+    if missing_benchmark_entries:
+        errors.append(
+            "Benchmarks entry missing active directories: "
+            f"{sorted(missing_benchmark_entries)}"
+        )
+    unexpected_benchmark_entries = (
+        actual_benchmark_entries - active_benchmark_entries
+    )
+    if unexpected_benchmark_entries:
+        errors.append(
+            "Benchmarks contains undeclared entry directories: "
+            f"{sorted(unexpected_benchmark_entries)}"
+        )
+    for entry in active_benchmark_entries & actual_benchmark_entries:
+        entry_root = BENCHMARK_ROOT / entry
+        required_files = set(
+            benchmark_contracts[entry].get("required_files", [])
+        )
+        actual_files = {
+            path.name for path in entry_root.iterdir() if path.is_file()
+        }
+        missing_files = required_files - actual_files
+        if missing_files:
+            errors.append(
+                f"benchmarks/{entry} entry missing files: "
+                f"{sorted(missing_files)}"
+            )
+        unexpected_files = actual_files - required_files
+        if unexpected_files:
+            errors.append(
+                f"benchmarks/{entry} entry contains undeclared files: "
+                f"{sorted(unexpected_files)}"
+            )
+        nested_directories = sorted(
+            path.name for path in entry_root.iterdir() if path.is_dir()
+        )
+        if nested_directories:
+            errors.append(
+                f"benchmarks/{entry} entry contains undeclared directories: "
+                f"{nested_directories}"
+            )
+
     retired = ("concepts", "literature", "evaluation", "resources", "research", "_meta")
     for name in retired:
         path = ROOT / name
@@ -583,280 +721,705 @@ def validate_structure(schema: dict, errors: list[str]) -> None:
             )
 
 
-def validate_manifest(errors: list[str]) -> None:
-    """Validate model identity, reproduction state, and document ownership."""
+def validate_model_manifests(schema: dict, errors: list[str]) -> None:
+    """Validate every declared model manifest and its document ownership map."""
 
-    manifest = load_yaml(MANIFEST_PATH)
-    schema = load_yaml(MANIFEST_SCHEMA_PATH)
-    contract = schema["manifest"]
+    manifest_schema = load_yaml(MANIFEST_SCHEMA_PATH)
+    contract = manifest_schema["manifest"]
+    artifact_fields = set(
+        manifest_schema["identity_artifacts"]["at_least_one_of"]
+    )
+    model_contracts = schema.get("model_entry", {}).get("active_entries", {})
 
-    if manifest.get("schema_version") != schema.get("schema_version"):
-        errors.append(
-            "manifest.yaml: schema_version does not match _schema/manifest.schema.yaml"
-        )
+    for entry, entry_contract in sorted(model_contracts.items()):
+        model_root = MODELS_ROOT / entry
+        manifest_path = model_root / "manifest.yaml"
+        label = relative(manifest_path)
+        manifest = load_yaml(manifest_path)
 
-    missing = set(contract["required"]) - manifest.keys()
-    if missing:
-        errors.append(f"manifest.yaml: missing fields {sorted(missing)}")
-    if manifest.get("entity_type") not in set(contract["entity_type_values"]):
-        errors.append(
-            f"manifest.yaml: invalid entity_type {manifest.get('entity_type')!r}"
-        )
+        if manifest.get("schema_version") != manifest_schema.get("schema_version"):
+            errors.append(
+                f"{label}: schema_version does not match "
+                "_schema/manifest.schema.yaml"
+            )
 
-    checkpoint = manifest.get("checkpoint", {})
-    checkpoint_missing = set(schema["checkpoint"]["required"]) - checkpoint.keys()
-    if checkpoint_missing:
-        errors.append(
-            f"manifest.yaml: checkpoint missing {sorted(checkpoint_missing)}"
-        )
+        missing = set(contract["required"]) - manifest.keys()
+        if missing:
+            errors.append(f"{label}: missing fields {sorted(missing)}")
+        if manifest.get("entity_type") not in set(
+            contract["entity_type_values"]
+        ):
+            errors.append(
+                f"{label}: invalid entity_type "
+                f"{manifest.get('entity_type')!r}"
+            )
+        if not artifact_fields.intersection(manifest):
+            errors.append(
+                f"{label}: expected one identity artifact field from "
+                f"{sorted(artifact_fields)}"
+            )
 
-    revisions = manifest.get("revisions", {})
-    revision_missing = set(schema["revisions"]["required"]) - revisions.keys()
-    if revision_missing:
-        errors.append(
-            f"manifest.yaml: revisions missing {sorted(revision_missing)}"
-        )
+        revisions = manifest.get("revisions")
+        if not isinstance(revisions, dict) or len(revisions) < int(
+            manifest_schema["revisions"]["minimum_entries"]
+        ):
+            errors.append(f"{label}: revisions must be a non-empty mapping")
+        elif any(not isinstance(value, str) or not value.strip() for value in revisions.values()):
+            errors.append(f"{label}: revision values must be non-empty strings")
 
-    interfaces = manifest.get("interfaces", {})
-    interface_missing = set(schema["interfaces"]["required"]) - interfaces.keys()
-    if interface_missing:
-        errors.append(
-            f"manifest.yaml: interfaces missing {sorted(interface_missing)}"
+        interfaces = manifest.get("interfaces", {})
+        interface_missing = set(
+            manifest_schema["interfaces"]["required"]
+        ) - interfaces.keys()
+        if interface_missing:
+            errors.append(
+                f"{label}: interfaces missing {sorted(interface_missing)}"
+            )
+
+        owner = interfaces.get("canonical_owner")
+        if not isinstance(owner, str) or not (model_root / owner).is_file():
+            errors.append(
+                f"{label}: interfaces.canonical_owner must resolve to a file"
+            )
+
+        contracts = interfaces.get("contracts", [])
+        if not isinstance(contracts, list) or not contracts:
+            errors.append(f"{label}: interfaces.contracts must be non-empty")
+            contracts = []
+        contract_required = set(
+            manifest_schema["interfaces"]["contract_required"]
         )
-    if interfaces.get("canonical_owner") != "modalities-and-io.md":
-        errors.append(
-            "manifest.yaml: interfaces.canonical_owner must be modalities-and-io.md"
-        )
-    contracts = interfaces.get("contracts", [])
-    if not isinstance(contracts, list) or not contracts:
-        errors.append("manifest.yaml: interfaces.contracts must be a non-empty list")
-    else:
-        required_contract_fields = set(schema["interfaces"]["contract_required"])
         seen_modes: set[str] = set()
-        for index, mode_contract in enumerate(contracts):
+        for position, mode_contract in enumerate(contracts):
+            mode_label = f"{label}: interface contract #{position}"
             if not isinstance(mode_contract, dict):
-                errors.append(
-                    f"manifest.yaml: interface contract #{index} is not a mapping"
-                )
+                errors.append(f"{mode_label} is not a mapping")
                 continue
-            mode_missing = required_contract_fields - mode_contract.keys()
+            mode_missing = contract_required - mode_contract.keys()
             if mode_missing:
                 errors.append(
-                    f"manifest.yaml: interface contract #{index} missing "
-                    f"{sorted(mode_missing)}"
+                    f"{mode_label} missing {sorted(mode_missing)}"
                 )
             mode = mode_contract.get("mode")
             if not isinstance(mode, str) or not mode:
-                errors.append(
-                    f"manifest.yaml: interface contract #{index} has invalid mode"
-                )
+                errors.append(f"{mode_label} has an invalid mode")
             elif mode in seen_modes:
-                errors.append(f"manifest.yaml: duplicate interface mode {mode}")
+                errors.append(f"{label}: duplicate interface mode {mode}")
             else:
                 seen_modes.add(mode)
             for field in ("inputs", "outputs"):
                 values = mode_contract.get(field)
                 if not isinstance(values, list) or not values:
                     errors.append(
-                        f"manifest.yaml: interface {mode} {field} must be non-empty"
+                        f"{label}: interface {mode} {field} must be non-empty"
                     )
 
-    reproduction = manifest.get("reproduction", {})
-    reproduction_missing = set(schema["reproduction"]["required"]) - reproduction.keys()
-    if reproduction_missing:
-        errors.append(
-            f"manifest.yaml: reproduction missing {sorted(reproduction_missing)}"
-        )
-    if reproduction.get("canonical_owner") != "reproduction.md":
-        errors.append(
-            "manifest.yaml: reproduction.canonical_owner must be reproduction.md"
-        )
-    registry_heading = reproduction.get("registry_heading")
-    if isinstance(registry_heading, str):
-        reproduction_text = read_text(MODEL_ROOT / "reproduction.md")
-        if f"## {registry_heading}" not in reproduction_text:
+        reproduction = manifest.get("reproduction", {})
+        reproduction_missing = set(
+            manifest_schema["reproduction"]["required"]
+        ) - reproduction.keys()
+        if reproduction_missing:
             errors.append(
-                "manifest.yaml: reproduction.registry_heading does not exist in reproduction.md"
+                f"{label}: reproduction missing "
+                f"{sorted(reproduction_missing)}"
             )
-
-    documents = manifest.get("documents", {})
-    if not isinstance(documents, dict):
-        errors.append("manifest.yaml: documents must be a mapping")
-        documents = {}
-    route_missing = set(schema["documents"]["required_routes"]) - documents.keys()
-    if route_missing:
-        errors.append(
-            f"manifest.yaml: documents missing ownership entries {sorted(route_missing)}"
-        )
-    for name, target in documents.items():
-        if not isinstance(target, str) or not (MODEL_ROOT / target).resolve().is_file():
-            errors.append(f"manifest document {name}: missing {target}")
-
-    if documents.get("agent_index") != AGENT_INDEX_PATH.name:
-        errors.append("manifest document agent_index must resolve to agent-index.yaml")
-
-
-def validate_agent_index(schema: dict, errors: list[str]) -> None:
-    """Validate machine-readable retrieval metadata and referenced document paths."""
-
-    index = load_yaml(AGENT_INDEX_PATH)
-    contract = schema["agent_index"]
-    missing = set(contract["required"]) - index.keys()
-    if missing:
-        errors.append(f"agent-index.yaml: missing fields {sorted(missing)}")
-    if index.get("schema_version") != contract.get("supported_schema_version"):
-        errors.append(
-            "agent-index.yaml: unsupported schema_version; update metadata.schema.yaml "
-            "with the retrieval contract"
-        )
-
-    try:
-        overview_metadata, _ = load_frontmatter(MODEL_ROOT / "README.md")
-    except ValueError as exc:
-        errors.append(str(exc))
-        overview_metadata = {}
-    if index.get("model_entry") != overview_metadata.get("id"):
-        errors.append(
-            "agent-index.yaml: model_entry must equal the Cosmos3-Nano README id"
-        )
-
-    def validate_model_path(owner: str, target: object) -> None:
-        if not isinstance(target, str):
-            errors.append(f"agent-index.yaml: {owner} path must be a string")
-            return
-        path = Path(target)
-        resolved = (MODEL_ROOT / path).resolve()
+        reproduction_owner = reproduction.get("canonical_owner")
+        reproduction_path = model_root / str(reproduction_owner)
+        if reproduction_owner != "reproduction.md" or not reproduction_path.is_file():
+            errors.append(
+                f"{label}: reproduction.canonical_owner must resolve to "
+                "reproduction.md"
+            )
+        registry_heading = reproduction.get("registry_heading")
         if (
-            path.is_absolute()
-            or not resolved.is_relative_to(MODEL_ROOT.resolve())
-            or not resolved.is_file()
+            isinstance(registry_heading, str)
+            and reproduction_path.is_file()
+            and f"## {registry_heading}" not in read_text(reproduction_path)
         ):
             errors.append(
-                f"agent-index.yaml: {owner} references missing path {target!r}"
+                f"{label}: reproduction.registry_heading does not exist in "
+                "reproduction.md"
             )
 
-    validate_model_path("entrypoint", index.get("entrypoint"))
+        documents = manifest.get("documents", {})
+        if not isinstance(documents, dict):
+            errors.append(f"{label}: documents must be a mapping")
+            documents = {}
+        route_missing = set(
+            manifest_schema["documents"]["required_routes"]
+        ) - documents.keys()
+        if route_missing:
+            errors.append(
+                f"{label}: documents missing ownership entries "
+                f"{sorted(route_missing)}"
+            )
+        document_values: set[str] = set()
+        for route, target in documents.items():
+            if not isinstance(target, str):
+                errors.append(
+                    f"{label}: document route {route} must be a string"
+                )
+                continue
+            document_values.add(target)
+            resolved = (model_root / target).resolve()
+            if (
+                Path(target).is_absolute()
+                or not resolved.is_relative_to(model_root.resolve())
+                or not resolved.is_file()
+            ):
+                errors.append(
+                    f"{label}: document route {route} references missing "
+                    f"path {target!r}"
+                )
+        if documents.get("agent_index") != "agent-index.yaml":
+            errors.append(
+                f"{label}: agent_index must resolve to agent-index.yaml"
+            )
 
-    canonical_owners = index.get("canonical_owners", {})
-    if not isinstance(canonical_owners, dict) or not canonical_owners:
-        errors.append("agent-index.yaml: canonical_owners must be a non-empty mapping")
-    else:
-        for owner, target in canonical_owners.items():
-            validate_model_path(f"canonical owner {owner}", target)
-        manifest_documents = set(load_yaml(MANIFEST_PATH).get("documents", {}).values())
+        required_files = set(entry_contract.get("required_files", []))
+        unmapped = (
+            required_files - {"manifest.yaml"} - document_values
+        )
+        if unmapped:
+            errors.append(
+                f"{label}: declared model files without document ownership "
+                f"{sorted(unmapped)}"
+            )
+
+
+def validate_model_indexes(schema: dict, errors: list[str]) -> None:
+    """Validate every model's advisory knowledge-guidance index."""
+
+    contract = schema["agent_index"]
+    model_contracts = schema.get("model_entry", {}).get("active_entries", {})
+
+    for entry in sorted(model_contracts):
+        model_root = MODELS_ROOT / entry
+        index_path = model_root / "agent-index.yaml"
+        manifest_path = model_root / "manifest.yaml"
+        label = relative(index_path)
+        index = load_yaml(index_path)
+
+        missing = set(contract["required"]) - index.keys()
+        if missing:
+            errors.append(f"{label}: missing fields {sorted(missing)}")
+        if index.get("schema_version") != contract.get(
+            "supported_schema_version"
+        ):
+            errors.append(f"{label}: unsupported schema_version")
+
+        try:
+            overview_metadata, _ = load_frontmatter(model_root / "README.md")
+        except ValueError as exc:
+            errors.append(str(exc))
+            overview_metadata = {}
+        if index.get("model_entry") != overview_metadata.get("id"):
+            errors.append(
+                f"{label}: model_entry must equal the model README id"
+            )
+
+        def validate_model_path(
+            owner: str,
+            target: object,
+            *,
+            allow_cross_part: bool = False,
+        ) -> None:
+            if not isinstance(target, str):
+                errors.append(f"{label}: {owner} path must be a string")
+                return
+            path = Path(target)
+            resolved = (model_root / path).resolve()
+            required_root = ROOT.resolve() if allow_cross_part else model_root.resolve()
+            if (
+                path.is_absolute()
+                or not resolved.is_relative_to(required_root)
+                or not resolved.is_file()
+            ):
+                errors.append(
+                    f"{label}: {owner} references missing path {target!r}"
+                )
+
+        validate_model_path("entrypoint", index.get("entrypoint"))
+
+        canonical_owners = index.get("canonical_owners", {})
+        if not isinstance(canonical_owners, dict) or not canonical_owners:
+            errors.append(
+                f"{label}: canonical_owners must be a non-empty mapping"
+            )
+            canonical_owners = {}
+        else:
+            for owner, target in canonical_owners.items():
+                validate_model_path(f"canonical owner {owner}", target)
+
+        manifest_documents = set(
+            load_yaml(manifest_path).get("documents", {}).values()
+        )
         owned_documents = set(canonical_owners.values())
         unowned_documents = manifest_documents - owned_documents
         if unowned_documents:
             errors.append(
-                "agent-index.yaml: manifest documents without a canonical owner "
+                f"{label}: manifest documents without a canonical owner "
                 f"{sorted(unowned_documents)}"
             )
 
-    forbidden_control_fields = {
-        "retrieval_policy",
-        "routes",
-        "context_bundles",
-        "global_stop_rules",
-    }
-    present_control_fields = forbidden_control_fields & index.keys()
-    if present_control_fields:
-        errors.append(
-            "agent-index.yaml: workflow-control fields are not allowed in the "
-            f"knowledge-guidance index: {sorted(present_control_fields)}"
-        )
-
-    authority = index.get("authority_boundary", {})
-    authority_required = {
-        "mode",
-        "knowledge_role",
-        "workflow_authority",
-        "does_not_define",
-        "integration_note",
-    }
-    if not isinstance(authority, dict):
-        errors.append("agent-index.yaml: authority_boundary must be a mapping")
-    else:
-        authority_missing = authority_required - authority.keys()
-        if authority_missing:
+        forbidden_control_fields = {
+            "retrieval_policy",
+            "routes",
+            "context_bundles",
+            "global_stop_rules",
+            "priorities",
+            "execution_order",
+        }
+        present_control_fields = forbidden_control_fields & index.keys()
+        if present_control_fields:
             errors.append(
-                "agent-index.yaml: authority_boundary missing fields "
-                f"{sorted(authority_missing)}"
-            )
-        if authority.get("mode") != "knowledge_guidance_without_orchestration":
-            errors.append(
-                "agent-index.yaml: authority_boundary.mode must be "
-                "knowledge_guidance_without_orchestration"
-            )
-        non_authorities = authority.get("does_not_define")
-        if not isinstance(non_authorities, list) or not non_authorities:
-            errors.append(
-                "agent-index.yaml: authority_boundary.does_not_define must be non-empty"
+                f"{label}: workflow-control fields are not allowed: "
+                f"{sorted(present_control_fields)}"
             )
 
-    profiles = index.get("retrieval_profiles", [])
-    if not isinstance(profiles, list) or not profiles:
-        errors.append("agent-index.yaml: retrieval_profiles must be a non-empty list")
-        profiles = []
-    profile_required = set(contract["profile_required"])
-    profile_ids: set[str] = set()
-    for position, profile in enumerate(profiles):
-        if not isinstance(profile, dict):
-            errors.append(
-                f"agent-index.yaml: retrieval profile #{position} is not a mapping"
-            )
-            continue
-        profile_missing = profile_required - profile.keys()
-        if profile_missing:
-            errors.append(
-                f"agent-index.yaml: retrieval profile #{position} missing "
-                f"{sorted(profile_missing)}"
-            )
-        profile_id = profile.get("id")
-        if not isinstance(profile_id, str) or not ROUTE_ID.fullmatch(profile_id):
-            errors.append(f"agent-index.yaml: invalid profile id {profile_id!r}")
-        elif profile_id in profile_ids:
-            errors.append(f"agent-index.yaml: duplicate profile id {profile_id}")
+        authority = index.get("authority_boundary", {})
+        authority_required = {
+            "mode",
+            "knowledge_role",
+            "workflow_authority",
+            "does_not_define",
+            "integration_note",
+        }
+        if not isinstance(authority, dict):
+            errors.append(f"{label}: authority_boundary must be a mapping")
         else:
-            profile_ids.add(profile_id)
-
-        for field in ("related_intents", "query_terms", "knowledge_supported"):
-            values = profile.get(field)
-            if not isinstance(values, list) or not values or not all(
-                isinstance(item, str) and item.strip() for item in values
+            authority_missing = authority_required - authority.keys()
+            if authority_missing:
+                errors.append(
+                    f"{label}: authority_boundary missing fields "
+                    f"{sorted(authority_missing)}"
+                )
+            if authority.get("mode") != "knowledge_guidance_without_orchestration":
+                errors.append(
+                    f"{label}: authority_boundary.mode must be "
+                    "knowledge_guidance_without_orchestration"
+                )
+            if not isinstance(authority.get("does_not_define"), list) or not authority.get(
+                "does_not_define"
             ):
                 errors.append(
-                    f"agent-index.yaml: profile {profile_id} {field} must be a "
-                    "non-empty string list"
+                    f"{label}: authority_boundary.does_not_define must be "
+                    "non-empty"
                 )
 
-        primary_documents = profile.get("primary_documents")
-        if not isinstance(primary_documents, list) or not primary_documents:
+        profiles = index.get("retrieval_profiles", [])
+        if not isinstance(profiles, list) or not profiles:
             errors.append(
-                f"agent-index.yaml: profile {profile_id} primary_documents "
-                "must be non-empty"
+                f"{label}: retrieval_profiles must be a non-empty list"
             )
-        else:
-            for target in primary_documents:
-                validate_model_path(f"profile {profile_id} primary document", target)
+            profiles = []
+        profile_required = set(contract["profile_required"])
+        profile_ids: set[str] = set()
+        for position, profile in enumerate(profiles):
+            profile_label = f"{label}: retrieval profile #{position}"
+            if not isinstance(profile, dict):
+                errors.append(f"{profile_label} is not a mapping")
+                continue
+            profile_missing = profile_required - profile.keys()
+            if profile_missing:
+                errors.append(
+                    f"{profile_label} missing {sorted(profile_missing)}"
+                )
+            profile_id = profile.get("id")
+            if not isinstance(profile_id, str) or not ROUTE_ID.fullmatch(
+                profile_id
+            ):
+                errors.append(
+                    f"{label}: invalid profile id {profile_id!r}"
+                )
+            elif profile_id in profile_ids:
+                errors.append(
+                    f"{label}: duplicate profile id {profile_id}"
+                )
+            else:
+                profile_ids.add(profile_id)
 
-        additional = profile.get("additional_documents")
-        if not isinstance(additional, dict):
-            errors.append(
-                f"agent-index.yaml: profile {profile_id} additional_documents "
-                "must be a mapping"
-            )
-        else:
-            for topic, targets in additional.items():
-                if not isinstance(targets, list) or not targets:
+            for field in (
+                "related_intents",
+                "query_terms",
+                "knowledge_supported",
+            ):
+                values = profile.get(field)
+                if not isinstance(values, list) or not values or not all(
+                    isinstance(item, str) and item.strip() for item in values
+                ):
                     errors.append(
-                        f"agent-index.yaml: profile {profile_id} additional topic "
-                        f"{topic} must contain documents"
+                        f"{label}: profile {profile_id} {field} must be a "
+                        "non-empty string list"
                     )
-                    continue
-                for target in targets:
+
+            primary_documents = profile.get("primary_documents")
+            if not isinstance(primary_documents, list) or not primary_documents:
+                errors.append(
+                    f"{label}: profile {profile_id} primary_documents must "
+                    "be non-empty"
+                )
+            else:
+                for target in primary_documents:
                     validate_model_path(
-                        f"profile {profile_id} additional topic {topic}", target
+                        f"profile {profile_id} primary document", target
                     )
+
+            additional = profile.get("additional_documents")
+            if not isinstance(additional, dict):
+                errors.append(
+                    f"{label}: profile {profile_id} additional_documents "
+                    "must be a mapping"
+                )
+            else:
+                for topic, targets in additional.items():
+                    if not isinstance(targets, list) or not targets:
+                        errors.append(
+                            f"{label}: profile {profile_id} additional topic "
+                            f"{topic} must contain documents"
+                        )
+                        continue
+                    for target in targets:
+                        validate_model_path(
+                            f"profile {profile_id} additional topic {topic}",
+                            target,
+                            allow_cross_part=True,
+                        )
+
+
+def validate_benchmark_manifests(schema: dict, errors: list[str]) -> None:
+    """Validate benchmark identity, scope, protocol, and document ownership."""
+
+    benchmark_schema = load_yaml(BENCHMARK_SCHEMA_PATH)
+    contract = benchmark_schema["benchmark"]
+    benchmark_contracts = schema.get("benchmark_entry", {}).get(
+        "active_entries", {}
+    )
+
+    for entry, entry_contract in sorted(benchmark_contracts.items()):
+        benchmark_root = BENCHMARK_ROOT / entry
+        manifest_path = benchmark_root / "benchmark.yaml"
+        label = relative(manifest_path)
+        manifest = load_yaml(manifest_path)
+
+        if manifest.get("schema_version") != benchmark_schema.get(
+            "schema_version"
+        ):
+            errors.append(
+                f"{label}: schema_version does not match "
+                "_schema/benchmark.schema.yaml"
+            )
+        missing = set(contract["required"]) - manifest.keys()
+        if missing:
+            errors.append(f"{label}: missing fields {sorted(missing)}")
+        if manifest.get("entity_type") not in set(
+            contract["entity_type_values"]
+        ):
+            errors.append(
+                f"{label}: invalid entity_type "
+                f"{manifest.get('entity_type')!r}"
+            )
+
+        for field in (
+            "release",
+            "scope",
+            "task_taxonomy",
+            "evaluation",
+            "reproduction",
+        ):
+            value = manifest.get(field, {})
+            required = set(benchmark_schema[field]["required"])
+            if not isinstance(value, dict):
+                errors.append(f"{label}: {field} must be a mapping")
+                continue
+            nested_missing = required - value.keys()
+            if nested_missing:
+                errors.append(
+                    f"{label}: {field} missing {sorted(nested_missing)}"
+                )
+
+        for field, owner_key in (
+            ("scope", "canonical_owner"),
+            ("evaluation", "protocol_owner"),
+            ("reproduction", "canonical_owner"),
+        ):
+            owner = manifest.get(field, {}).get(owner_key)
+            if not isinstance(owner, str) or not (
+                benchmark_root / owner
+            ).is_file():
+                errors.append(
+                    f"{label}: {field}.{owner_key} must resolve to a file"
+                )
+
+        reproduction = manifest.get("reproduction", {})
+        reproduction_owner = reproduction.get("canonical_owner")
+        registry_heading = reproduction.get("registry_heading")
+        reproduction_path = benchmark_root / str(reproduction_owner)
+        if (
+            isinstance(registry_heading, str)
+            and reproduction_path.is_file()
+            and f"## {registry_heading}" not in read_text(reproduction_path)
+        ):
+            errors.append(
+                f"{label}: reproduction.registry_heading does not exist in "
+                "the reproduction owner"
+            )
+
+        documents = manifest.get("documents", {})
+        if not isinstance(documents, dict):
+            errors.append(f"{label}: documents must be a mapping")
+            documents = {}
+        route_missing = set(
+            benchmark_schema["documents"]["required_routes"]
+        ) - documents.keys()
+        if route_missing:
+            errors.append(
+                f"{label}: documents missing ownership entries "
+                f"{sorted(route_missing)}"
+            )
+        document_values: set[str] = set()
+        for route, target in documents.items():
+            if not isinstance(target, str):
+                errors.append(
+                    f"{label}: document route {route} must be a string"
+                )
+                continue
+            document_values.add(target)
+            path = Path(target)
+            resolved = (benchmark_root / path).resolve()
+            if (
+                path.is_absolute()
+                or not resolved.is_relative_to(benchmark_root.resolve())
+                or not resolved.is_file()
+            ):
+                errors.append(
+                    f"{label}: document route {route} references missing "
+                    f"path {target!r}"
+                )
+        if documents.get("retrieval_index") != "retrieval-index.yaml":
+            errors.append(
+                f"{label}: retrieval_index must resolve to "
+                "retrieval-index.yaml"
+            )
+
+        required_files = set(entry_contract.get("required_files", []))
+        unmapped = (
+            required_files - {"benchmark.yaml"} - document_values
+        )
+        if unmapped:
+            errors.append(
+                f"{label}: declared benchmark files without document "
+                f"ownership {sorted(unmapped)}"
+            )
+
+
+def validate_benchmark_indexes(schema: dict, errors: list[str]) -> None:
+    """Validate benchmark query-to-knowledge associations."""
+
+    contract = schema["benchmark_retrieval_index"]
+    benchmark_contracts = schema.get("benchmark_entry", {}).get(
+        "active_entries", {}
+    )
+
+    for entry in sorted(benchmark_contracts):
+        benchmark_root = BENCHMARK_ROOT / entry
+        index_path = benchmark_root / "retrieval-index.yaml"
+        manifest_path = benchmark_root / "benchmark.yaml"
+        label = relative(index_path)
+        index = load_yaml(index_path)
+
+        missing = set(contract["required"]) - index.keys()
+        if missing:
+            errors.append(f"{label}: missing fields {sorted(missing)}")
+        if index.get("schema_version") != contract.get(
+            "supported_schema_version"
+        ):
+            errors.append(f"{label}: unsupported schema_version")
+
+        try:
+            overview_metadata, _ = load_frontmatter(
+                benchmark_root / "README.md"
+            )
+        except ValueError as exc:
+            errors.append(str(exc))
+            overview_metadata = {}
+        if index.get("benchmark_entry") != overview_metadata.get("id"):
+            errors.append(
+                f"{label}: benchmark_entry must equal the benchmark README id"
+            )
+
+        def validate_benchmark_path(
+            owner: str,
+            target: object,
+            *,
+            allow_cross_part: bool = False,
+        ) -> None:
+            if not isinstance(target, str):
+                errors.append(f"{label}: {owner} path must be a string")
+                return
+            path = Path(target)
+            resolved = (benchmark_root / path).resolve()
+            required_root = (
+                ROOT.resolve() if allow_cross_part else benchmark_root.resolve()
+            )
+            if (
+                path.is_absolute()
+                or not resolved.is_relative_to(required_root)
+                or not resolved.is_file()
+            ):
+                errors.append(
+                    f"{label}: {owner} references missing path {target!r}"
+                )
+
+        validate_benchmark_path("entrypoint", index.get("entrypoint"))
+
+        canonical_owners = index.get("canonical_owners", {})
+        if not isinstance(canonical_owners, dict) or not canonical_owners:
+            errors.append(
+                f"{label}: canonical_owners must be a non-empty mapping"
+            )
+            canonical_owners = {}
+        else:
+            for owner, target in canonical_owners.items():
+                validate_benchmark_path(
+                    f"canonical owner {owner}", target
+                )
+
+        manifest_documents = set(
+            load_yaml(manifest_path).get("documents", {}).values()
+        )
+        unowned_documents = manifest_documents - set(
+            canonical_owners.values()
+        )
+        if unowned_documents:
+            errors.append(
+                f"{label}: benchmark documents without a canonical owner "
+                f"{sorted(unowned_documents)}"
+            )
+
+        forbidden_control_fields = {
+            "retrieval_policy",
+            "routes",
+            "context_bundles",
+            "global_stop_rules",
+            "priorities",
+            "execution_order",
+        }
+        present_control_fields = forbidden_control_fields & index.keys()
+        if present_control_fields:
+            errors.append(
+                f"{label}: workflow-control fields are not allowed: "
+                f"{sorted(present_control_fields)}"
+            )
+
+        authority = index.get("authority_boundary", {})
+        authority_required = {
+            "mode",
+            "knowledge_role",
+            "workflow_authority",
+            "does_not_define",
+            "integration_note",
+        }
+        if not isinstance(authority, dict):
+            errors.append(f"{label}: authority_boundary must be a mapping")
+        else:
+            authority_missing = authority_required - authority.keys()
+            if authority_missing:
+                errors.append(
+                    f"{label}: authority_boundary missing fields "
+                    f"{sorted(authority_missing)}"
+                )
+            if authority.get("mode") != "knowledge_guidance_without_orchestration":
+                errors.append(
+                    f"{label}: authority_boundary.mode must be "
+                    "knowledge_guidance_without_orchestration"
+                )
+            if not isinstance(authority.get("does_not_define"), list) or not authority.get(
+                "does_not_define"
+            ):
+                errors.append(
+                    f"{label}: authority_boundary.does_not_define must be "
+                    "non-empty"
+                )
+
+        profiles = index.get("retrieval_profiles", [])
+        if not isinstance(profiles, list) or not profiles:
+            errors.append(
+                f"{label}: retrieval_profiles must be a non-empty list"
+            )
+            profiles = []
+        profile_required = set(contract["profile_required"])
+        profile_ids: set[str] = set()
+        for position, profile in enumerate(profiles):
+            profile_label = f"{label}: retrieval profile #{position}"
+            if not isinstance(profile, dict):
+                errors.append(f"{profile_label} is not a mapping")
+                continue
+            profile_missing = profile_required - profile.keys()
+            if profile_missing:
+                errors.append(
+                    f"{profile_label} missing {sorted(profile_missing)}"
+                )
+            profile_id = profile.get("id")
+            if not isinstance(profile_id, str) or not ROUTE_ID.fullmatch(
+                profile_id
+            ):
+                errors.append(
+                    f"{label}: invalid profile id {profile_id!r}"
+                )
+            elif profile_id in profile_ids:
+                errors.append(
+                    f"{label}: duplicate profile id {profile_id}"
+                )
+            else:
+                profile_ids.add(profile_id)
+
+            for field in (
+                "related_intents",
+                "query_terms",
+                "knowledge_supported",
+            ):
+                values = profile.get(field)
+                if not isinstance(values, list) or not values or not all(
+                    isinstance(item, str) and item.strip() for item in values
+                ):
+                    errors.append(
+                        f"{label}: profile {profile_id} {field} must be a "
+                        "non-empty string list"
+                    )
+
+            primary_documents = profile.get("primary_documents")
+            if not isinstance(primary_documents, list) or not primary_documents:
+                errors.append(
+                    f"{label}: profile {profile_id} primary_documents must "
+                    "be non-empty"
+                )
+            else:
+                for target in primary_documents:
+                    validate_benchmark_path(
+                        f"profile {profile_id} primary document", target
+                    )
+
+            additional = profile.get("additional_documents")
+            if not isinstance(additional, dict):
+                errors.append(
+                    f"{label}: profile {profile_id} additional_documents "
+                    "must be a mapping"
+                )
+            else:
+                for topic, targets in additional.items():
+                    if not isinstance(targets, list) or not targets:
+                        errors.append(
+                            f"{label}: profile {profile_id} additional topic "
+                            f"{topic} must contain documents"
+                        )
+                        continue
+                    for target in targets:
+                        validate_benchmark_path(
+                            f"profile {profile_id} additional topic {topic}",
+                            target,
+                            allow_cross_part=True,
+                        )
 
 
 def validate_foundation_index(schema: dict, errors: list[str]) -> None:
@@ -1084,8 +1647,10 @@ def main() -> int:
                 f"source registries: unreferenced source IDs {sorted(orphan_sources)}"
             )
         validate_structure(schema, errors)
-        validate_manifest(errors)
-        validate_agent_index(schema, errors)
+        validate_model_manifests(schema, errors)
+        validate_model_indexes(schema, errors)
+        validate_benchmark_manifests(schema, errors)
+        validate_benchmark_indexes(schema, errors)
         validate_foundation_index(schema, errors)
         validate_removed_taxonomy(errors)
     except ValueError as exc:
@@ -1103,7 +1668,14 @@ def main() -> int:
             print(f"- {warning}")
 
     page_count = sum(1 for _ in ROOT.rglob("*.md"))
-    model_pages = sum(1 for _ in MODEL_ROOT.glob("*.md"))
+    model_pages = sum(
+        1 for path in MODELS_ROOT.rglob("*.md") if path.parent != MODELS_ROOT
+    )
+    model_entry_count = len(
+        load_yaml(SCHEMA_PATH)
+        .get("model_entry", {})
+        .get("active_entries", {})
+    )
     foundation_pages = sum(
         1 for path in FOUNDATION_ROOT.rglob("*.md") if path.name != "README.md"
     )
@@ -1119,22 +1691,40 @@ def main() -> int:
     component_entry_count = len(
         [path for path in COMPONENT_ROOT.iterdir() if path.is_dir()]
     )
+    benchmark_pages = sum(
+        1
+        for path in BENCHMARK_ROOT.rglob("*.md")
+        if path.parent != BENCHMARK_ROOT
+    )
+    benchmark_entry_count = len(
+        load_yaml(SCHEMA_PATH)
+        .get("benchmark_entry", {})
+        .get("active_entries", {})
+    )
     source_count = sum(
         len(load_yaml(path).get("sources", [])) for path in source_registries()
     )
-    model_profile_count = len(
-        load_yaml(AGENT_INDEX_PATH).get("retrieval_profiles", [])
+    model_profile_count = sum(
+        len(load_yaml(path).get("retrieval_profiles", []))
+        for path in MODELS_ROOT.glob("*/agent-index.yaml")
+    )
+    benchmark_profile_count = sum(
+        len(load_yaml(path).get("retrieval_profiles", []))
+        for path in BENCHMARK_ROOT.glob("*/retrieval-index.yaml")
     )
     foundation_profile_count = len(
         load_yaml(FOUNDATION_INDEX_PATH).get("retrieval_profiles", [])
     )
     print(
         "KB validation passed: "
-        f"4 content parts, {page_count} pages, {foundation_pages} Foundation topics, "
+        f"{len(schema['directory_contract']['content_parts'])} content parts, "
+        f"{page_count} pages, {foundation_pages} Foundation topics, "
         f"{paper_entry_count} Paper entries with {paper_pages} pages, "
         f"{component_entry_count} Component entries with {component_pages} pages, "
-        f"{model_pages} Cosmos3-Nano pages, {source_count} sources, "
-        f"{foundation_profile_count} Foundation and {model_profile_count} model "
+        f"{model_entry_count} Model entries with {model_pages} pages, "
+        f"{benchmark_entry_count} Benchmark entries with {benchmark_pages} pages, "
+        f"{source_count} sources, {foundation_profile_count} Foundation, "
+        f"{model_profile_count} Model, and {benchmark_profile_count} Benchmark "
         "knowledge-guidance retrieval profiles."
     )
     return 0

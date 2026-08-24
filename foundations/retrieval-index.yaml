@@ -65,6 +65,8 @@ retrieval_profiles:
       model_instantiation:
         - ../models/cosmos3-nano/README.md
         - ../models/cosmos3-nano/action-modeling.md
+        - ../models/x-wam/README.md
+        - ../models/x-wam/architecture.md
     knowledge_supported:
       - scoped definitions and invalid equivalences
       - orthogonal classification axes and family relationships
@@ -87,6 +89,8 @@ retrieval_profiles:
       model_instantiation:
         - ../models/cosmos3-nano/modalities-and-io.md
         - ../models/cosmos3-nano/action-modeling.md
+        - ../models/x-wam/modalities-and-io.md
+        - ../models/x-wam/architecture.md
     knowledge_supported:
       - variable and conditional-distribution contracts
       - observability, stochasticity, and identifiability assumptions
@@ -109,6 +113,8 @@ retrieval_profiles:
       model_instantiation:
         - ../models/cosmos3-nano/architecture.md
         - ../models/cosmos3-nano/modalities-and-io.md
+        - ../models/x-wam/architecture.md
+        - ../models/x-wam/modalities-and-io.md
     knowledge_supported:
       - representation domains and information bottlenecks
       - invariance, equivariance, compositionality, and geometry trade-offs
@@ -129,6 +135,8 @@ retrieval_profiles:
         - ../models/cosmos3-nano/architecture.md
         - ../models/cosmos3-nano/generator.md
         - ../models/cosmos3-nano/training.md
+        - ../models/x-wam/architecture.md
+        - ../models/x-wam/data-and-training.md
     knowledge_supported:
       - objective and inference-time contracts
       - factorization, conditioning, compute, and error trade-offs
@@ -148,6 +156,8 @@ retrieval_profiles:
       model_instantiation:
         - ../models/cosmos3-nano/action-modeling.md
         - ../models/cosmos3-nano/policy.md
+        - ../models/x-wam/inference.md
+        - ../models/x-wam/optimization-playbook.md
     knowledge_supported:
       - decision-time use of learned predictions
       - horizon, uncertainty, objective, and replanning trade-offs
@@ -167,6 +177,11 @@ retrieval_profiles:
         - ../models/cosmos3-nano/modalities-and-io.md
         - ../models/cosmos3-nano/action-modeling.md
         - ../models/cosmos3-nano/policy.md
+        - ../models/x-wam/modalities-and-io.md
+        - ../models/x-wam/inference.md
+      benchmark_instantiation:
+        - ../benchmarks/robocasa/README.md
+        - ../benchmarks/robocasa/tasks-and-environments.md
     knowledge_supported:
       - embodiment-specific observation, action, timing, and controller contracts
       - open-loop versus closed-loop capability boundaries
@@ -189,6 +204,13 @@ retrieval_profiles:
         - ../models/cosmos3-nano/data.md
         - ../models/cosmos3-nano/evaluation.md
         - ../models/cosmos3-nano/reproduction.md
+        - ../models/x-wam/data-and-training.md
+        - ../models/x-wam/evaluation.md
+        - ../models/x-wam/reproduction.md
+      benchmark_instantiation:
+        - ../benchmarks/robocasa/datasets.md
+        - ../benchmarks/robocasa/protocol-and-metrics.md
+        - ../benchmarks/robocasa/reproduction.md
     knowledge_supported:
       - data composition, coverage, contamination, and supervision principles
       - capability-aligned metrics and controlled comparison requirements
@@ -208,6 +230,12 @@ retrieval_profiles:
         - ../models/cosmos3-nano/limitations.md
         - ../models/cosmos3-nano/research-queue.md
         - ../models/cosmos3-nano/optimization-playbook.md
+        - ../models/x-wam/limitations.md
+        - ../models/x-wam/research-queue.md
+        - ../models/x-wam/optimization-playbook.md
+      benchmark_instantiation:
+        - ../benchmarks/robocasa/limitations.md
+        - ../benchmarks/robocasa/optimization-reference.md
     knowledge_supported:
       - unresolved conditions with decision consequences
       - cross-cutting hypotheses and falsification targets

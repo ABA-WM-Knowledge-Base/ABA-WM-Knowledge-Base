@@ -3,7 +3,7 @@ id: world-model-kb.foundations.data-and-evaluation.evaluation-methodology
 title: World-Model Evaluation Methodology
 kind: reference
 status: maintained
-last_updated: 2026-08-14
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** a layered evaluation model, metric-to-claim mappings, comparison and falsification conditions, and failure modes that prevent perceptual or aggregate scores from standing in for decision utility.
 
-**Related pages:** [Datasets and supervision](datasets-and-supervision.md) covers split identity and provenance; [planning and control](../decision-making/planning-and-control.md) covers closed-loop utility; [open problems](../research-frontiers/open-problems.md) connects unresolved measurement gaps.
+**Related pages:** [Datasets and supervision](datasets-and-supervision.md) covers split identity and provenance; [planning and control](../decision-making/planning-and-control.md) covers closed-loop utility; [open problems](../research-frontiers/open-problems.md) connects unresolved measurement gaps; [Original RoboCasa protocol](../../benchmarks/robocasa/protocol-and-metrics.md) is a concrete versioned benchmark contract.
 
 ## Definition and formalism
 
@@ -74,7 +74,7 @@ Fréchet Video Distance was proposed to measure distributional video quality and
 - end-to-end latency, control rate, intervention, and recovery;
 - transfer matrices across objects, scenes, tasks, language, and embodiments.
 
-LIBERO evaluates lifelong robot learning and knowledge transfer across four suites totaling 130 tasks. CALVIN evaluates language-conditioned long-horizon manipulation. RoboCasa contributes 100 household task definitions in a large-scale simulation environment. These benchmarks test different capability slices and are not numerically interchangeable. [BENCH-LIBERO-2023; BENCH-CALVIN-2022; BENCH-ROBOCASA-2024]
+LIBERO evaluates lifelong robot learning and knowledge transfer across four suites totaling 130 tasks. CALVIN evaluates language-conditioned long-horizon manipulation. Original RoboCasa contributes 100 household task definitions in a large-scale simulation environment. These benchmarks test different capability slices and are not numerically interchangeable. [BENCH-LIBERO-2023; BENCH-CALVIN-2022; RC24-PAPER-V1]
 
 ## Design implications and trade-offs
 
@@ -132,6 +132,8 @@ Reproduction states remain distinct: a result reported by a source, a command do
 - [Cosmos3-Nano reproduction](../../models/cosmos3-nano/reproduction.md) separates documented capability from locally observed execution state.
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) maps FD, ID, and WAM outputs to geometry, state, dynamics, sensitivity, and task-utility measures.
 - [Cosmos3-Nano optimization reference](../../models/cosmos3-nano/optimization-playbook.md) instantiates controlled experiment patterns without owning workflow orchestration.
+- [X-WAM evaluation](../../models/x-wam/evaluation.md) separates policy success, RGB/depth/point-cloud fidelity, latency, and no-large-pretraining ablations.
+- [Original RoboCasa protocol and metrics](../../benchmarks/robocasa/protocol-and-metrics.md) owns the original rollout tuple and its separation from later X-WAM and RoboCasa365 protocols.
 - [Paper entries](../../papers/README.md) can preserve exact benchmark versions, evaluator details, results, and confidence conditions for each publication.
 
 ## Sources
@@ -140,5 +142,5 @@ Reproduction states remain distinct: a result reported by a source, a command do
 - [EVAL-PHYSION-2021] Bear et al., *Physion: Evaluating Physical Prediction from Vision in Humans and Machines*, NeurIPS Datasets and Benchmarks 2021.
 - [BENCH-CALVIN-2022] Mees et al., *CALVIN: A Benchmark for Language-Conditioned Policy Learning for Long-Horizon Robot Manipulation Tasks*, IEEE Robotics and Automation Letters 7(3), DOI:10.1109/LRA.2022.3180108.
 - [BENCH-LIBERO-2023] Liu et al., *LIBERO: Benchmarking Knowledge Transfer for Lifelong Robot Learning*, NeurIPS Datasets and Benchmarks 2023, DOI:10.52202/075280-1939.
-- [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Household Tasks for Generalist Robots*, RSS 2024, DOI:10.15607/RSS.2024.XX.050.
+- [RC24-PAPER-V1] Nasiriany et al., *RoboCasa: Large-Scale Simulation of Everyday Tasks for Generalist Robots*, arXiv:2406.02523v1 / RSS 2024; identity owned by the [Original RoboCasa registry](../../benchmarks/robocasa/sources.yaml).
 - [EVAL-RL-MATTERS-2018] Henderson et al., *Deep Reinforcement Learning That Matters*, AAAI 2018, DOI:10.1609/aaai.v32i1.11694.

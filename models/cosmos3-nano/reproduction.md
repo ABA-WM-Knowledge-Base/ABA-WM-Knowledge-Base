@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.reproduction
 title: Cosmos3-Nano Execution-State Ledger
 kind: record
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** immutable execution observations, surface-specific claim states, artifact locations, raw-status interpretation, and the evidence available for each reproduction claim.
 
-**Related pages:** [Inference](inference.md) contains reference commands; [Optimization reference](optimization-playbook.md) contains experiment-design patterns; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) defines model-independent evidence standards. This ledger records evidence and does not schedule retries or choose a backend.
+**Related pages:** [Inference](inference.md) contains reference commands; [Optimization reference](optimization-playbook.md) contains experiment-design patterns; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) defines model-independent evidence standards; [Original RoboCasa reproduction](../../benchmarks/robocasa/reproduction.md) owns simulator/evaluator execution state; [X-WAM reproduction](../x-wam/reproduction.md) owns comparator execution state. This ledger records evidence and does not schedule retries or choose a backend.
 
 ## Claim registry
 

@@ -3,7 +3,7 @@ id: world-model-kb.foundations.research-frontiers.open-problems
 title: Open Problems in World Models
 kind: reference
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -82,9 +82,9 @@ Progress in one family can move a bottleneck elsewhere. A more expressive predic
 | When do latent actions transfer to physical controls? | Genie learns controllable latent actions from unlabeled video; inverse models infer actions from observed transitions. [WFM-GENIE-2024; DYN-POKE-2016] | Latent actions are not uniquely identifiable and need not align with robot joints, frames, rates, or forces. | Alignment with recorded physical actions, invertible target adapters, per-axis intervention tests, and target-data adaptation curves. |
 | How can action semantics transfer across embodiments? | Octo reports generalist pretraining and adaptation across multiple robot platforms; DROID and BridgeData provide large but embodiment- and protocol-specific trajectory collections. [EMB-OCTO-2024; DATA-DROID-2024; DATA-BRIDGEV2-2023] | Which aspects of action can be shared across kinematics, controllers, rates, sensors, and morphology without creating dataset-identity shortcuts. | Leave-one-embodiment-out evaluation, explicit adapter ablations, canonical-versus-native action comparisons, and physical-unit error after decoding. |
 | Can heterogeneous video and robot data be mixed without hidden negative transfer? | Ego4D supplies broad egocentric observation; robot datasets add physical action supervision; UniSim and generalist policies use heterogeneous sources. [DATA-EGO4D-2022; DATA-DROID-2024; WFM-UNISIM-2024; EMB-OCTO-2024] | Effective sampling, alignment, provenance, and supervision ratios are not determined by raw dataset scale, and one domain can dominate shared features. | Fixed-token mixture matrices, leave-one-source-out transfer, dataset-identifiability probes, and per-domain retention rather than one aggregate. |
-| When does a learned or analytic simulator support real deployment? | UniSim reports simulator-trained policies transferring in its selected experiments; RoboCasa reports scalable simulated household tasks and selected real-world evidence. [WFM-UNISIM-2024; BENCH-ROBOCASA-2024] | Visual similarity does not bound errors in contact, sensing, actuator dynamics, latency, recovery, or long-tail events. | Paired simulator/real transition tests, policy ranking correlation, hardware-in-the-loop evaluation, and residual failure analysis across controlled randomization. |
+| When does a learned or analytic simulator support real deployment? | UniSim reports simulator-trained policies transferring in its selected experiments; Original RoboCasa reports scalable simulated household tasks and selected real-world evidence. [WFM-UNISIM-2024; RC24-PAPER-V1] | Visual similarity does not bound errors in contact, sensing, actuator dynamics, latency, recovery, or long-tail events. | Paired simulator/real transition tests, policy ranking correlation, hardware-in-the-loop evaluation, and residual failure analysis across controlled randomization. |
 | Can large world models act at the required feedback rate? | Visual MPC demonstrates closed-loop use of an action-conditioned predictor; DreamZero reports a particular 14B WAM operating at 7 Hz. [PLAN-VISUAL-FORESIGHT-2017; WAM-DREAMZERO-2026] | The accuracy-latency frontier across task dynamics, model scale, candidate count, action chunks, and hardware, especially under observation or network delay. | End-to-end timestamped latency, effective control rate, success under injected delay, and equal-wall-clock comparisons of direct policy, cached, distilled, and planning variants. |
-| Which metrics track physical and decision competence? | FVD targets video-distribution quality; Physion targets physical prediction; LIBERO, CALVIN, and RoboCasa target different embodied capabilities; RL results can vary materially with implementation and seeds. [EVAL-FVD-2019; EVAL-PHYSION-2021; BENCH-LIBERO-2023; BENCH-CALVIN-2022; BENCH-ROBOCASA-2024; EVAL-RL-MATTERS-2018] | A common protocol that connects perceptual quality, causal response, physical events, planning value, closed-loop success, safety, and compute without collapsing them into an opaque score. | Metric-to-outcome correlation across diverse systems, preregistered failure slices, fixed inference budgets, multi-seed evaluation, and independent real or authoritative simulators. |
+| Which metrics track physical and decision competence? | FVD targets video-distribution quality; Physion targets physical prediction; LIBERO, CALVIN, and Original RoboCasa target different embodied capabilities; RL results can vary materially with implementation and seeds. [EVAL-FVD-2019; EVAL-PHYSION-2021; BENCH-LIBERO-2023; BENCH-CALVIN-2022; RC24-PAPER-V1; EVAL-RL-MATTERS-2018] | A common protocol that connects perceptual quality, causal response, physical events, planning value, closed-loop success, safety, and compute without collapsing them into an opaque score. | Metric-to-outcome correlation across diverse systems, preregistered failure slices, fixed inference budgets, multi-seed evaluation, and independent real or authoritative simulators. |
 
 ## Design implications and trade-offs
 
@@ -160,6 +160,8 @@ Useful falsification patterns include:
 - [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md) exposes concrete FD, ID, WAM, action-adapter, and counterfactual questions.
 - [Cosmos3-Nano data](../../models/cosmos3-nano/data.md) and [evaluation](../../models/cosmos3-nano/evaluation.md) instantiate mixture, provenance, metric, and protocol questions.
 - [Cosmos3-Nano optimization reference](../../models/cosmos3-nano/optimization-playbook.md) contains experiment-design patterns that can test model-specific hypotheses.
+- [X-WAM research registry](../../models/x-wam/research-queue.md) narrows geometry, asynchronous sampling, counterfactual action sensitivity, transfer, and resource questions to the released model.
+- [Original RoboCasa limitations](../../benchmarks/robocasa/limitations.md) owns benchmark-specific validity gaps and the boundary to RoboCasa365.
 - [Representative paper entries](../../papers/README.md) can preserve exact mechanisms, evaluated domains, negative results, and source status for the works cited here.
 
 ## Sources
@@ -194,5 +196,5 @@ Useful falsification patterns include:
 - [EVAL-PHYSION-2021] Bear et al., *Physion: Evaluating Physical Prediction from Vision in Humans and Machines*, NeurIPS Datasets and Benchmarks 2021.
 - [BENCH-CALVIN-2022] Mees et al., *CALVIN*, IEEE Robotics and Automation Letters 7(3).
 - [BENCH-LIBERO-2023] Liu et al., *LIBERO*, NeurIPS Datasets and Benchmarks 2023.
-- [BENCH-ROBOCASA-2024] Nasiriany et al., *RoboCasa*, RSS 2024.
+- [RC24-PAPER-V1] Nasiriany et al., *RoboCasa*, arXiv:2406.02523v1 / RSS 2024; identity owned by the [Original RoboCasa registry](../../benchmarks/robocasa/sources.yaml).
 - [EVAL-RL-MATTERS-2018] Henderson et al., *Deep Reinforcement Learning That Matters*, AAAI 2018.

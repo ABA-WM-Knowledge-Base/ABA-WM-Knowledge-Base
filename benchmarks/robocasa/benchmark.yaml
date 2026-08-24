@@ -1,0 +1,47 @@
+schema_version: 1
+id: benchmark.robocasa-original
+entity_type: benchmark
+canonical_name: RoboCasa
+family: RoboCasa Original
+aliases:
+  - Original RoboCasa
+  - RoboCasa RSS 2024
+release:
+  paper_version: "arXiv:2406.02523v1; Robotics: Science and Systems 2024"
+  code_revision: 756598a5be52e052339bb2d957426e39015c2afb
+  code_tag: v0.2
+  code_license: MIT
+  asset_and_dataset_license: CC-BY-4.0
+scope:
+  included_release: "Original RoboCasa: 120 scenes, 25 atomic tasks, 75 composite tasks, and the pre-RoboCasa365 data and evaluator surfaces"
+  excluded_successors:
+    - "RoboCasa365 v1.0 and later"
+    - "RoboCasa365 leaderboard protocols"
+  canonical_owner: scope-and-versions.md
+task_taxonomy:
+  atomic_tasks: 25
+  composite_tasks: 75
+  skill_families: 8
+evaluation:
+  primary_outcome: binary task success per rollout
+  success_unit: task-defined terminal predicate evaluated on one environment rollout
+  aggregation_boundary: protocol-specific task, scene, object, seed, and rollout collection
+  protocol_owner: protocol-and-metrics.md
+reproduction:
+  canonical_owner: reproduction.md
+  registry_heading: Execution-state registry
+documents:
+  identity: benchmark.yaml
+  overview: README.md
+  retrieval_index: retrieval-index.yaml
+  scope_and_versions: scope-and-versions.md
+  tasks_and_environments: tasks-and-environments.md
+  datasets: datasets.md
+  protocol_and_metrics: protocol-and-metrics.md
+  baselines_and_results: baselines-and-results.md
+  codebase: codebase.md
+  reproduction: reproduction.md
+  limitations: limitations.md
+  optimization_reference: optimization-reference.md
+  sources: sources.yaml
+last_updated: "2026-08-24"

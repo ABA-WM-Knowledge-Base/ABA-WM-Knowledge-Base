@@ -1,0 +1,72 @@
+schema_version: 1
+
+benchmark:
+  required:
+    - schema_version
+    - id
+    - entity_type
+    - canonical_name
+    - family
+    - release
+    - scope
+    - task_taxonomy
+    - evaluation
+    - reproduction
+    - documents
+    - last_updated
+  entity_type_values:
+    - benchmark
+
+release:
+  required:
+    - paper_version
+    - code_revision
+    - code_tag
+    - code_license
+    - asset_and_dataset_license
+
+scope:
+  required:
+    - included_release
+    - excluded_successors
+    - canonical_owner
+
+task_taxonomy:
+  required:
+    - atomic_tasks
+    - composite_tasks
+    - skill_families
+
+evaluation:
+  required:
+    - primary_outcome
+    - success_unit
+    - aggregation_boundary
+    - protocol_owner
+
+reproduction:
+  required:
+    - canonical_owner
+    - registry_heading
+
+documents:
+  required_routes:
+    - overview
+    - retrieval_index
+    - scope_and_versions
+    - tasks_and_environments
+    - datasets
+    - protocol_and_metrics
+    - baselines_and_results
+    - codebase
+    - reproduction
+    - limitations
+    - optimization_reference
+    - sources
+
+rules:
+  - Keep the benchmark release, simulator revision, task subset, dataset variant, object and scene split, controller, camera contract, horizon, success predicate, rollout count, seeds, and aggregation rule bound together.
+  - Do not import successor-suite tasks, assets, datasets, horizons, or leaderboard results into an earlier benchmark identity.
+  - Separate benchmark-definition facts from results reported by a paper or model under one protocol variant.
+  - Resolve document paths relative to the benchmark entry root.
+  - Store mutable execution state only in the reproduction owner.

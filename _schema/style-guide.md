@@ -3,7 +3,7 @@ id: world-model-kb.style
 title: Knowledge-Oriented Writing Style
 kind: guide
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-24
 owners:
   - AIBuildAI world-model group
 ---
@@ -22,9 +22,9 @@ A statement such as “the model supports video and action” is insufficient. S
 
 ## Describe retrieval without controlling workflow
 
-Every canonical Foundation, Paper, or model-topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
+Every canonical Foundation, Paper, Model, or Benchmark topic page starts with `## Retrieval metadata` and the labels `Relevant queries`, `Knowledge provided`, and `Related pages`. Query terms support lexical or semantic discovery, while canonical ownership identifies where a topic is explained completely.
 
-Foundation `retrieval-index.yaml` and model-entry `agent-index.yaml` map query themes to knowledge, strategies, best practices, and evidence that can ground Agent decisions. They support dynamic retrieval but do not define AIBuildAI's Agent selection, repository selection, task sequencing, execution scheduling, permissions, or external actions.
+Foundation and Benchmark `retrieval-index.yaml` files and Model-entry `agent-index.yaml` files map query themes to knowledge, strategies, best practices, and evidence that can ground Agent decisions. They support dynamic retrieval but do not define AIBuildAI's Agent selection, repository selection, task sequencing, execution scheduling, permissions, or external actions.
 
 Progressive disclosure may be useful as a retrieval pattern, but it remains a choice of the consuming workflow rather than a KB requirement.
 
@@ -86,7 +86,7 @@ Every result retains model variant, task, dataset, metric definition and directi
 
 ## Sources and locators
 
-Resolve every source ID through its owning registry. The standard owners are `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, and `models/<model-id>/sources.yaml`; a Component may place an optional `sources.yaml` in a directory chosen by its author. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; existing examples include `[C3-TR, p. 14, Table 2]`, `[C3-FW-ARGS, OmniSetupOverrides]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
+Resolve every source ID through its owning registry. The standard owners are `foundations/sources.yaml`, `papers/<paper-id>/sources.yaml`, `models/<model-id>/sources.yaml`, and `benchmarks/<benchmark-id>/sources.yaml`; a Component may place an optional `sources.yaml` in a directory chosen by its author. Attach a precise section, page, table, figure, equation, theorem, symbol, or artifact locator; examples include `[C3-TR, p. 14, Table 2]`, `[XWAM-CODE-72CF, XWAMRunner.generate]`, `[RC24-PAPER-V1, Table II]`, and `[LOCAL-REPRO-20260809, run_summary]`. Link to the canonical owner when the source has already been interpreted there.
 
 Source type, venue, and version describe provenance; they do not substitute for claim-level reasoning. For broad or contested claims, triangulate primary sources with different assumptions and identify the resulting synthesis explicitly.
 

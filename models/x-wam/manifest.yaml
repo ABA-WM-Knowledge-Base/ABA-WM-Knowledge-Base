@@ -1,0 +1,89 @@
+schema_version: 4
+id: model.x-wam
+entity_type: model
+canonical_name: X-WAM
+aliases:
+  - Unified 4D World Action Model
+family: Wan2.2-based unified world action model
+developer: Tsinghua University and Xiaomi Robotics collaborators
+release_date: "2026-06-09"
+license: Apache-2.0
+tags:
+  - world-action-model
+  - video-world-model
+  - diffusion-transformer
+  - flow-matching
+  - multi-view
+  - rgb-d
+  - robotics
+artifacts:
+  - artifact_id: x-wam-pretrained
+    repository: sharinka0715/X-WAM-checkpoints
+    path: pretrained/checkpoints/last.ckpt/checkpoint/mp_rank_00_model_states.pt
+    revision: bb6fd1643cfa8bdc751612a7ace0bd8062a8917a
+    role: cross-embodiment pretrained checkpoint
+  - artifact_id: x-wam-robocasa-sft
+    repository: sharinka0715/X-WAM-checkpoints
+    path: robocasa_sft/checkpoints/last.ckpt/checkpoint/mp_rank_00_model_states.pt
+    revision: bb6fd1643cfa8bdc751612a7ace0bd8062a8917a
+    role: Original RoboCasa 24-task policy and world-model checkpoint
+  - artifact_id: x-wam-robotwin-sft
+    repository: sharinka0715/X-WAM-checkpoints
+    path: robotwin_sft/checkpoints/last.ckpt/checkpoint/mp_rank_00_model_states.pt
+    revision: bb6fd1643cfa8bdc751612a7ace0bd8062a8917a
+    role: RoboTwin 2.0 policy and world-model checkpoint
+revisions:
+  official_code: 72cfb86b33fc5060963ef63412f16439fcfa472f
+  huggingface_checkpoints: bb6fd1643cfa8bdc751612a7ace0bd8062a8917a
+  huggingface_robocasa_data: f439f3cee3e227065ac27e7aab92bfc62667c9ca
+  huggingface_robotwin_data: 383c3bb7db3ba1e3baa44c1bd33f0bc94d69a20f
+  wan22_ti2v_5b: 921dbaf3f1674a56f47e83fb80a34bac8a8f203e
+  robocasa_submodule: 756598a5be52e052339bb2d957426e39015c2afb
+  robosuite_submodule: 232ce7d4a6ed89c949a9aba024a05c8c32fdd08b
+  robotwin_submodule: c3ddfa8b97d5519efa828b075999bd0006778e5e
+interfaces:
+  canonical_owner: modalities-and-io.md
+  contracts:
+    - mode: policy_action
+      component: main RGB-state-action branch
+      checkpoint_scope: RoboCasa SFT or RoboTwin SFT with matching adapter and normalization config
+      inputs: [language_instruction, current_multiview_rgb, current_proprioceptive_state]
+      outputs: [future_action_chunk, future_proprioceptive_states]
+    - mode: unified_world_prediction
+      component: main branch plus depth branch
+      checkpoint_scope: pretrained or benchmark SFT checkpoint with Wan2.2 base and matching VAE/text encoder
+      inputs: [language_instruction, current_multiview_rgb, current_proprioceptive_state]
+      outputs: [future_multiview_rgb, future_multiview_depth, future_proprioceptive_states, future_action_chunk]
+    - mode: action_conditioned_video_continuation
+      component: main branch after asynchronous action decoding
+      checkpoint_scope: checkpoint and config with coupled ANS support
+      inputs: [language_instruction, current_multiview_rgb, current_proprioceptive_state, decoded_action_and_state]
+      outputs: [continued_future_multiview_rgb, optional_depth]
+reproduction:
+  canonical_owner: reproduction.md
+  registry_heading: Claim registry
+optimization_surfaces:
+  - pretraining_data_mixture
+  - pseudo_depth_quality
+  - depth_branch_capacity
+  - shared_block_gradient_flow
+  - asynchronous_noise_distribution
+  - action_and_video_denoising_steps
+  - action_chunk_and_history
+  - state_action_normalization
+  - language_and_view_conditioning
+documents:
+  overview: README.md
+  agent_index: agent-index.yaml
+  architecture: architecture.md
+  modalities_and_io: modalities-and-io.md
+  data_and_training: data-and-training.md
+  inference: inference.md
+  evaluation: evaluation.md
+  limitations: limitations.md
+  codebase: codebase.md
+  reproduction: reproduction.md
+  optimization_playbook: optimization-playbook.md
+  research_queue: research-queue.md
+  sources: sources.yaml
+last_updated: "2026-08-24"
