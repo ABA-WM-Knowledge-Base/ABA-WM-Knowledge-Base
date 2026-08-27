@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.video-world-model
 title: Video World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-27
 owners:
   - AIBuildAI world-model group
 ---
@@ -85,6 +85,7 @@ Independent environment replay is stronger evidence than action-video self-consi
 - [Modalities and I/O](../../models/cosmos3-nano/modalities-and-io.md) specifies frame, context, action, and temporal contracts.
 - [Action modeling](../../models/cosmos3-nano/action-modeling.md) distinguishes passive continuation from forward and joint action-conditioned generation.
 - [Evaluation](../../models/cosmos3-nano/evaluation.md) and [limitations](../../models/cosmos3-nano/limitations.md) contain model-specific evidence; generic video quality should not be projected onto untested control regimes.
+- [Observation-space state](../../components/world-representation/observation-space-state.md) and [observation-space dynamics](../../components/dynamics-modeling/observation-space-dynamics.md) own cross-paper synthesis of pixels as state versus next-observation transitions.
 - [Paper entries](../../papers/README.md) preserve exact protocols for representative video world models.
 - [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/paper.md) instantiates latent rectified-flow video prediction, clean visual prefixes, and a Bridge action-conditioned specialist; its paper entry preserves exact protocols and evidence limits.
 - [IRASim](../../papers/irasim/paper.md) instantiates SDXL-latent trajectory-to-video diffusion with a clean historical prefix, per-frame action modulation, autoregressive clip chaining, and downstream candidate ranking.

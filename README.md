@@ -3,14 +3,14 @@ id: world-model-kb.home
 title: World Model Knowledge Base
 kind: index
 status: maintained
-last_updated: 2026-08-24
+last_updated: 2026-08-27
 owners:
   - AIBuildAI world-model group
 ---
 
 # World Model Knowledge Base
 
-This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, fourteen representative-paper entries, independently scoped Components, two active Model entries, and a versioned Benchmark part. The current Reasoning and Generative Modeling Components use cross-paper evolution to connect general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, and candidate optimization experiments.
+This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, fourteen representative-paper entries, independently scoped Components, two active Model entries, and a versioned Benchmark part. The current World Representation, Dynamics Modeling, Reasoning, and Generative Modeling Components use cross-paper synthesis to connect general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, and candidate optimization experiments.
 
 ## Authority boundary
 
@@ -94,7 +94,7 @@ The five content parts are peers:
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
 | [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Fourteen active entries |
-| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Reasoning and Generative Modeling are active |
+| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | World Representation, Dynamics Modeling, Reasoning, and Generative Modeling are active |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano and X-WAM are active |
 | [Benchmarks](benchmarks/README.md) | Versioned tasks, environments, datasets, protocols, evaluators, baselines, and reproduction state | Original RoboCasa is active; RoboCasa365 is outside this entry |
 

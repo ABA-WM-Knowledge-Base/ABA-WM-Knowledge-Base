@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** identity, architecture, tables, named checkpoints, reproduction state, Generator FD/WAM transfers.
 
-**Related pages:** [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md); [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [model-based RL](../../foundations/decision-making/model-based-rl.md); [autoregressive and recurrent generation](../../components/generative-modeling/autoregressive.md); [action-conditioned video modeling](../../components/generative-modeling/action-conditioned-video.md); [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md).
+**Related pages:** [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md); [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [model-based RL](../../foundations/decision-making/model-based-rl.md); [discrete and structured state](../../components/world-representation/discrete-and-structured-state.md); [observation-space dynamics](../../components/dynamics-modeling/observation-space-dynamics.md); [autoregressive and recurrent generation](../../components/generative-modeling/autoregressive.md); [action-conditioned video modeling](../../components/generative-modeling/action-conditioned-video.md); [Cosmos3-Nano action modeling](../../models/cosmos3-nano/action-modeling.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md).
 
 Project page: [thuml.github.io/iVideoGPT](https://thuml.github.io/iVideoGPT/). Numbers bind to v3. [IVG-PAPER; IVG-PROJECT]
 

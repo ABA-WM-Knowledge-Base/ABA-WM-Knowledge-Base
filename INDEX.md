@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-24
+last_updated: 2026-08-27
 owners:
   - AIBuildAI world-model group
 ---
@@ -18,7 +18,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
 | Representative methods and papers | [Papers](papers/README.md) | Fourteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, robotics, and driving |
-| Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use method-oriented, cross-paper synthesis |
+| Independently scoped component knowledge | [Components](components/README.md) | World Representation, Dynamics Modeling, Reasoning, and Generative Modeling currently use method-oriented, cross-paper synthesis |
 | Concrete model knowledge | [Models](models/README.md) | Cosmos3-Nano and X-WAM architecture, artifacts, interfaces, results, code, execution state, and optimization knowledge |
 | Versioned benchmark knowledge | [Benchmarks](benchmarks/README.md) | Original RoboCasa tasks, environments, datasets, protocol, baselines, evaluator, and reproduction state |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
@@ -43,14 +43,16 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 
 ## Component map
 
-The two current Components compare how related method families address a capability across several works. Their entry pages expose concise method maps; detailed knowledge is owned by the linked method pages rather than compressed into a single review. This is the design of these two entries, not a required form for future Components.
+The current Components compare how related method families address a capability across several works. Their entry pages expose concise method maps; detailed knowledge is owned by the linked method pages rather than compressed into a single review. This is the design of these entries, not a required form for future Components.
 
 | Component | Knowledge scope | Entry point |
 |---|---|---|
+| World Representation and Latent State | Observation-space, reconstructive, predictive-embedding, discrete/structured, and multimodal world state | [Method map](components/world-representation/README.md) |
+| Dynamics Modeling | Recurrent latent, decoder-free latent, observation-space, occupancy/ego, and joint multimodal transitions | [Method map](components/dynamics-modeling/README.md) |
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
 | Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
 
-The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with applicable Foundation, Paper, Model, and Benchmark owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
+The Component map is advisory and non-exclusive. A task can retrieve any current Components together with applicable Foundation, Paper, Model, and Benchmark owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here. Action representation and world-model–policy interfaces are not yet independent entries.
 
 ## Representative paper map
 
@@ -94,7 +96,7 @@ The Original RoboCasa entry explicitly excludes RoboCasa365 v1.0+ identities. A 
 
 - Foundations owns reusable concepts, formalisms, mechanism families, trade-offs, and evaluation principles.
 - Papers owns the claims, implementations, experiments, limitations, reproduction state, and transfer hypotheses of individual works.
-- Each Component owns the knowledge boundary it explicitly declares; the current Reasoning and Generative Modeling entries own their respective cross-paper syntheses.
+- Each Component owns the knowledge boundary it explicitly declares; World Representation, Dynamics Modeling, Reasoning, and Generative Modeling own their respective cross-paper syntheses.
 - Models owns concrete architecture, checkpoint, interface, training, result, code, and execution facts for a named model.
 - Benchmarks owns versioned tasks, environments, datasets, observation/action contracts, rollout protocols, success evaluators, aggregation, baseline context, and benchmark execution state.
 

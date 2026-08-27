@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** identity, operational model, table anchors, implementation boundary, reproduction state, and Generator-oriented transfers.
 
-**Related pages:** [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [video world models](../../foundations/representations/video-world-model.md); [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
+**Related pages:** [forward dynamics](../../foundations/problem-formulation/forward-dynamics.md); [video world models](../../foundations/representations/video-world-model.md); [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md); [observation-space state](../../components/world-representation/observation-space-state.md); [observation-space dynamics](../../components/dynamics-modeling/observation-space-dynamics.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
 
 Demo page: [vista-demo.github.io](https://vista-demo.github.io/). Numbers bind to the paper, not the demo. [VISTA-PAPER]
 

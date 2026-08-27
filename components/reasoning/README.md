@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** A method-oriented map of reasoning mechanisms used in world models, their evidence boundaries, their relationships, and the comparison and optimization knowledge shared across the methods.
 
-**Related pages:** [World-model definitions](../../foundations/definitions-and-taxonomy/world-model.md) owns the general category; [planning and control](../../foundations/decision-making/planning-and-control.md) owns generic planning formalisms; [Cosmos3-Nano Reasoner](../../models/cosmos3-nano/reasoner.md) owns the concrete target-model surface.
+**Related pages:** [World-model definitions](../../foundations/definitions-and-taxonomy/world-model.md) owns the general category; [planning and control](../../foundations/decision-making/planning-and-control.md) owns generic planning formalisms; [world representation](../world-representation/README.md) owns state media; [dynamics modeling](../dynamics-modeling/README.md) owns transitions; [Cosmos3-Nano Reasoner](../../models/cosmos3-nano/reasoner.md) owns the concrete target-model surface.
 
 ## Component boundary
 

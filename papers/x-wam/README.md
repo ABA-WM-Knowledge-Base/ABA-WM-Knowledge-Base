@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** the paper's formal model, architecture, learning objective, data, evaluation and ablations; its fixed code implementation; reproduction state; and falsifiable transfer hypotheses.
 
-**Related pages:** [X-WAM Model](../../models/x-wam/README.md) owns released checkpoint, configuration, inference, and model-optimization facts. [Original RoboCasa](../../benchmarks/robocasa/README.md) owns the benchmark definition. Foundations own [world action models](../../foundations/definitions-and-taxonomy/world-action-model.md), [3D/4D world models](../../foundations/representations/3d-and-4d-world-model.md), [video world models](../../foundations/representations/video-world-model.md), and [diffusion/flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md).
+**Related pages:** [X-WAM Model](../../models/x-wam/README.md) owns released checkpoint, configuration, inference, and model-optimization facts. [Original RoboCasa](../../benchmarks/robocasa/README.md) owns the benchmark definition. Foundations own [world action models](../../foundations/definitions-and-taxonomy/world-action-model.md), [3D/4D world models](../../foundations/representations/3d-and-4d-world-model.md), [video world models](../../foundations/representations/video-world-model.md), and [diffusion/flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). Component method pages own [multimodal state](../../components/world-representation/multimodal-state.md) and [joint multimodal dynamics](../../components/dynamics-modeling/joint-multimodal-dynamics.md).
 
 ## Paper identity and scope
 
