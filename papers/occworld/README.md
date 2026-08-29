@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** ECCV 2024 identity, occupancy-token forecasting plus joint ego-trajectory prediction, named-variant evidence (O/D/T/S), license constraints, reproduction state, and falsifiable transfers toward a Cosmos3-Nano occupancy head **parallel to** Generator FD/WAM — not pixel replacement.
 
-**Related pages:** [3D and 4D world models](../../foundations/representations/3d-and-4d-world-model.md); [latent world models](../../foundations/representations/latent-world-model.md); [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md); [planning and control](../../foundations/decision-making/planning-and-control.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
+**Related pages:** [3D and 4D world models](../../foundations/representations/3d-and-4d-world-model.md); [latent world models](../../foundations/representations/latent-world-model.md); [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md); [planning and control](../../foundations/decision-making/planning-and-control.md); [discrete and structured state](../../components/world-representation/discrete-and-structured-state.md); [structured occupancy dynamics](../../components/dynamics-modeling/structured-occupancy-dynamics.md); [Cosmos3-Nano generator](../../models/cosmos3-nano/generator.md); [action modeling](../../models/cosmos3-nano/action-modeling.md).
 
 Foundation registry [REP-OCCWORLD-2024](../../foundations/representations/3d-and-4d-world-model.md) owns the cross-entry source identity — this paper entry does not duplicate that registration. [OCCSRC-PAPER]
 

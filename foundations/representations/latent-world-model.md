@@ -3,7 +3,7 @@ id: world-model-kb.foundations.representations.latent-world-model
 title: Latent World Models
 kind: concept
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-08-27
 owners:
   - AIBuildAI world-model group
 ---
@@ -96,6 +96,7 @@ A claim that the latent is Markov is weakened when longer raw history improves f
 - [Cosmos3-Nano architecture](../../models/cosmos3-nano/architecture.md) owns its actual tokenizers and latent pathways; generic RSSM assumptions should not be projected onto it.
 - [Generator](../../models/cosmos3-nano/generator.md) and [training](../../models/cosmos3-nano/training.md) specify model-specific latent targets and losses.
 - [Action modeling](../../models/cosmos3-nano/action-modeling.md) identifies which latent or decoded outputs are conditioned on actions.
+- [Reconstructive latents](../../components/world-representation/reconstructive-latents.md) owns decoder-backed compression as world state; [decoder-free latent dynamics](../../components/dynamics-modeling/decoder-free-latent-dynamics.md) owns TD-MPC2-style transitions without an observation decoder.
 - [DreamerV3](../../papers/dreamerv3/paper.md) instantiates an RSSM with categorical latents and imagination actor-critic; the public repository is a DreamerV2-based reimplementation, not Google internal code.
 - [TD-MPC2](../../papers/td-mpc2/paper.md) instantiates decoder-free latent dynamics with MPPI planning; latest public commits include post-paper Q-ensemble initialization fixes.
 - [Optimization playbook](../../models/cosmos3-nano/optimization-playbook.md) can use rate, objective balance, and rollout diagnostics as testable hypotheses rather than universal prescriptions.

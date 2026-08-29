@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** A method-oriented map of generative world-model families, their interfaces and evidence boundaries, and the comparison and optimization knowledge that connects them.
 
-**Related pages:** [Video world models](../../foundations/representations/video-world-model.md) owns the general prediction surface; [latent world models](../../foundations/representations/latent-world-model.md) owns representation choices; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the concrete target-model implementation.
+**Related pages:** [Video world models](../../foundations/representations/video-world-model.md) owns the general prediction surface; [latent world models](../../foundations/representations/latent-world-model.md) owns representation choices; [world representation](../world-representation/README.md) owns state media; [dynamics modeling](../dynamics-modeling/README.md) owns transitions; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the concrete target-model implementation.
 
 ## Component boundary
 

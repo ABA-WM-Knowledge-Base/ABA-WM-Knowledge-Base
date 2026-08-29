@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-24
+last_updated: 2026-08-27
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,13 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.3.0 - 2026-08-27
+
+- Added World Representation and Dynamics Modeling as the third and fourth Component entries, using the same local method-map design as Reasoning and Generative Modeling without making that layout a part-wide template.
+- World Representation owns how systems choose and compress world state (observation-space, reconstructive latents, predictive embeddings, discrete/occupancy tokens, multimodal streams). It does not own generative samplers, imagination/planning loops, or latent-action codes.
+- Dynamics Modeling owns learned transitions \(p(s_{t+1}\mid s_t,a_t)\) across recurrent latent, decoder-free latent, observation-space, occupancy/ego, and joint multimodal families. Inverse dynamics and world-model–policy interfaces remain out of scope for later Components.
+- Linked the new method pages from the Component map, global index, applicable Foundation Cross-part instantiations, and Paper Related pages. Existing Reasoning and Generative Modeling ownership is unchanged.
 
 ## 1.2.0 - 2026-08-24
 
