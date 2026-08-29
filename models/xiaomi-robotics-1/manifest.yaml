@@ -1,0 +1,110 @@
+schema_version: 4
+id: model.xiaomi-robotics-1
+entity_type: model
+canonical_name: Xiaomi-Robotics-1
+aliases:
+  - XR-1
+  - Xiaomi Robotics 1
+  - MiBoT (remote-code class prefix)
+family: Xiaomi-Robotics
+developer: Xiaomi Robotics
+release_date: "2026-08-03"
+license: Apache-2.0
+license_scope: code_and_downloadable_checkpoints
+hosted_service_terms: none_published
+tags:
+  - vision-language-action
+  - mixture-of-transformers
+  - flow-matching
+  - robot-policy
+  - manipulation
+  - umi-pretraining
+checkpoint:
+  model_id: XiaomiRobotics/Xiaomi-Robotics-1-5B
+  reference_revision: ee21d524b5c52ac961d941e1bc7d6d92836c3d5e
+  total_parameters: 5.1B
+  hosted_revision: not_applicable_no_hosted_service
+components:
+  vlm:
+    approximate_scale: 4.4B
+    mechanism: Qwen3-VL-4B-Instruct autoregressive vision-language backbone; input embeddings frozen in post-training
+    served_model_id: Qwen/Qwen3-VL-4B-Instruct (backbone loaded by name)
+  dit:
+    approximate_scale: 604M
+    mechanism: 36-layer diffusion transformer attending into the VLM per-layer KV cache; flow matching with 5 Euler steps
+  choice_heads:
+    approximate_scale: training_only
+    mechanism: best-of-5 candidate action regression and score heads on VLM action-token states; absent from HF inference checkpoints
+related_checkpoints:
+  - model_id: XiaomiRobotics/Xiaomi-Robotics-1-VLABench
+    relationship: VLABench fine-tune served in HF format (robot type vlabench_choice, chunk 10); the aibuildai campaign anchor
+    reference_revision: f4986843002d86502e2e53079ca06d00a33abffc
+  - model_id: XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa
+    relationship: RoboCasa fine-tune (robot type robocasa_mg); 74.21% over 2,400 episodes
+    reference_revision: not_pinned_in_this_entry
+  - model_id: XiaomiRobotics/Xiaomi-Robotics-1-RoboCasa365
+    relationship: RoboCasa365 fine-tune; 57.4% average
+    reference_revision: not_pinned_in_this_entry
+revisions:
+  nvidia_cosmos: not_applicable
+  cosmos_framework: not_applicable
+  huggingface_checkpoint: ee21d524b5c52ac961d941e1bc7d6d92836c3d5e
+  xiaomi_robotics_1: 556cca33963a2b36d835a40374c3b4c8eef68401
+  vlabench: cf588fe60c0c7282174fe979f5913170cfe69017
+interfaces:
+  canonical_owner: modalities-and-io.md
+  contracts:
+    - mode: hf_action_generation
+      component: dit
+      checkpoint_scope: Any HF-format benchmark fine-tune served by deploy/server.py
+      inputs: [three_images, instruction_text, raw_state_60d, robot_type]
+      outputs: [action_chunk_raw_60d]
+      backend_constraint: transformers 4.57.1, flash-attn 2, bf16; chunk length comes from the processor action_config of the robot type
+    - mode: vlabench_choice
+      component: dit
+      checkpoint_scope: XiaomiRobotics/Xiaomi-Robotics-1-VLABench
+      inputs: [ego_base_wrist_480px, instruction_text, robot_frame_pose_gripper_7d]
+      outputs: [per_step_delta_pose_and_absolute_gripper_chunk_10]
+    - mode: xr1_trainer
+      component: vlm
+      checkpoint_scope: XiaomiRobotics/Xiaomi-Robotics-1-5B model_states.pt or an importer-built warm start
+      inputs: [episode_json, three_videos, packed_chat_template]
+      outputs: [lightning_deepspeed_last_ckpt]
+    - mode: async_prefix
+      component: dit
+      checkpoint_scope: Any checkpoint trained with async_train
+      inputs: [executed_action_prefix_1_to_6, observation]
+      outputs: [continuation_chunk]
+  action_mode_names:
+    training: [flow_matching, choice_regression, score_regression, optional_cot_next_token]
+    serving: [hf_action_generation]
+reproduction:
+  canonical_owner: reproduction.md
+  registry_heading: Claim registry
+optimization_surfaces:
+  - data_path_conventions
+  - cot_auxiliary_loss
+  - action_normalization
+  - inference_time_levers
+  - benchmark_fine_tune
+documents:
+  overview: README.md
+  agent_index: agent-index.yaml
+  architecture: architecture.md
+  modalities_and_io: modalities-and-io.md
+  reasoner: vlm-backbone.md
+  generator: action-head.md
+  action_modeling: action-modeling.md
+  policy: policy.md
+  data: data.md
+  training: training.md
+  post_training: post-training.md
+  evaluation: evaluation.md
+  limitations: limitations.md
+  codebase: codebase.md
+  inference: inference.md
+  reproduction: reproduction.md
+  optimization_playbook: optimization-playbook.md
+  research_queue: research-queue.md
+  sources: sources.yaml
+last_updated: "2026-08-21"

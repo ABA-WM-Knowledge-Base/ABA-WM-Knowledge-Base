@@ -64,6 +64,9 @@ paper_entry:
     - optimization-transfer.md
     - sources.yaml
   active_entries:
+    - xiaomi-robotics-1
+    - vlabench
+    - ervla
     - cosmos-predict2-5
     - irasim
     - mimicgen
@@ -196,6 +199,28 @@ model_entry:
         - evaluation.md
         - limitations.md
         - codebase.md
+        - reproduction.md
+        - optimization-playbook.md
+        - research-queue.md
+        - sources.yaml
+    xiaomi-robotics-1:
+      required_files:
+        - README.md
+        - agent-index.yaml
+        - manifest.yaml
+        - architecture.md
+        - modalities-and-io.md
+        - vlm-backbone.md
+        - action-head.md
+        - action-modeling.md
+        - policy.md
+        - data.md
+        - training.md
+        - post-training.md
+        - evaluation.md
+        - limitations.md
+        - codebase.md
+        - inference.md
         - reproduction.md
         - optimization-playbook.md
         - research-queue.md

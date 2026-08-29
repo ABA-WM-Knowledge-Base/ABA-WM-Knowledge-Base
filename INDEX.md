@@ -17,9 +17,9 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 | Knowledge area | Entry point | Current scope |
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
-| Representative methods and papers | [Papers](papers/README.md) | Fourteen active entries spanning video WM, WAM, latent-action, MBRL, JEPA, occupancy, robotics, and driving |
-| Independently scoped component knowledge | [Components](components/README.md) | Reasoning and Generative Modeling currently use method-oriented, cross-paper synthesis |
-| Concrete model knowledge | [Models](models/README.md) | Cosmos3-Nano and X-WAM architecture, artifacts, interfaces, results, code, execution state, and optimization knowledge |
+| Representative methods and papers | [Papers](papers/README.md) | Seventeen active entries spanning video WM, WAM, VLA, latent-action, MBRL, JEPA, occupancy, robotics, and driving |
+| Independently scoped component knowledge | [Components](components/README.md) | Four active entries currently expose entry-specific method maps and cross-paper synthesis |
+| Concrete model knowledge | [Models](models/README.md) | Cosmos3-Nano, X-WAM, and Xiaomi-Robotics-1 architecture, artifacts, interfaces, results, code, execution state, and optimization knowledge |
 | Versioned benchmark knowledge | [Benchmarks](benchmarks/README.md) | Original RoboCasa tasks, environments, datasets, protocol, baselines, evaluator, and reproduction state |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
 | Structural history | [Changelog](CHANGELOG.md) | Schema, path, and ownership changes |
@@ -72,6 +72,9 @@ The Component map is advisory and non-exclusive. A task can retrieve either or b
 | OccWorld | 3D occupancy driving world model | Occupancy-token forecasting plus ego-trajectory prediction; nuScenes license and variant boundaries | [Entry](papers/occworld/README.md) |
 | Vista | Controllable driving video world model | OpenDV control modes and official `vista.safetensors`; not Wayve GAIA; high-VRAM sampling not attempted | [Entry](papers/vista/README.md) |
 | X-WAM | Unified RGB-D world action model | Wan2.2-based multi-view RGB/depth/state/action denoising, copied depth branch, asynchronous noise scheduling and inference, cross-embodiment pretraining, and RoboCasa/RoboTwin evidence | [Entry](papers/x-wam/README.md) |
+| Xiaomi-Robotics-1 | Vision-language-action model | Qwen3-VL backbone, flow-matching DiT action head, heterogeneous robot pretraining, VLABench adaptation, and released implementation boundaries | [Entry](papers/xiaomi-robotics-1/README.md) |
+| VLABench | Language-conditioned manipulation benchmark | Long-horizon task construction, evaluator and metric implementation, benchmark defects, and protocol constraints | [Entry](papers/vlabench/README.md) |
+| ERVLA | Reasoning-augmented vision-language-action model | Embodied chain-of-thought, reasoning dropout, action generation, and reported robot evaluation | [Entry](papers/ervla/README.md) |
 
 Paper entries link their mechanisms to Foundation owners and target-model implications where applicable. Those links express knowledge dependencies, not a required retrieval sequence.
 
@@ -81,6 +84,7 @@ Paper entries link their mechanisms to Foundation owners and target-model implic
 |---|---|---|
 | Cosmos3-Nano | Unified Reasoner/Generator towers, multimodal and action interfaces, Policy-DROID, training and post-training, evaluation, code, execution evidence, and optimization questions | [Entry](models/cosmos3-nano/README.md) |
 | X-WAM | Released Wan2.2-based RGB-D/state/action graph, checkpoint and dataset revisions, asynchronous inference, RoboCasa/RoboTwin adapters and results, code, execution evidence, and model-specific interventions | [Entry](models/x-wam/README.md) |
+| Xiaomi-Robotics-1 | Qwen3-VL-based 5B VLA with a flow-matching DiT action head, released base and VLABench checkpoints, model interfaces, training and evaluation evidence, code, and optimization questions | [Entry](models/xiaomi-robotics-1/README.md) |
 
 Model entries bind facts to a named architecture and artifact identity. Conceptual mechanisms remain in Foundations, work-specific claims remain in Papers, and benchmark semantics remain in Benchmarks.
 
@@ -104,7 +108,7 @@ A page in one part links to the relevant canonical owner in another part instead
 
 ## Model and Benchmark retrieval metadata
 
-Model indexes for [Cosmos3-Nano](models/cosmos3-nano/agent-index.yaml) and [X-WAM](models/x-wam/agent-index.yaml) associate model-specific query themes with knowledge that can ground design and implementation decisions. The [Original RoboCasa retrieval index](benchmarks/robocasa/retrieval-index.yaml) associates benchmark questions with the owning version, task, data, protocol, result, code, and reproduction pages. These indexes can be combined with Foundation concepts, Paper entries, and relevant Component knowledge; none is a mandatory first path, task router, or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
+Model indexes for [Cosmos3-Nano](models/cosmos3-nano/agent-index.yaml), [X-WAM](models/x-wam/agent-index.yaml), and [Xiaomi-Robotics-1](models/xiaomi-robotics-1/agent-index.yaml) associate model-specific query themes with knowledge that can ground design and implementation decisions. The [Original RoboCasa retrieval index](benchmarks/robocasa/retrieval-index.yaml) associates benchmark questions with the owning version, task, data, protocol, result, code, and reproduction pages. These indexes can be combined with Foundation concepts, Paper entries, and relevant Component knowledge; none is a mandatory first path, task router, or orchestration control plane. AIBuildAI and its Agent architecture remain authoritative over Agent selection, repository selection, task sequencing, execution scheduling, and external actions.
 
 ## Metadata and maintenance references
 

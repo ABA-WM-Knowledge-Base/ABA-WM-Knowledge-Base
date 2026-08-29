@@ -44,6 +44,9 @@ The current Reasoning and Generative Modeling Components synthesize mechanisms a
 | [OccWorld](occworld/README.md) | 3D occupancy driving world model | Occupancy-token forecasting plus ego-trajectory prediction on nuScenes, including license and variant boundaries |
 | [Vista](vista/README.md) | Controllable driving video world model | OpenDV control modes and official weights; not Wayve GAIA; high-VRAM sampling is not locally attempted |
 | [X-WAM](x-wam/README.md) | Unified RGB-D world action model | Wan2.2-based multi-view RGB/depth/state/action denoising, copied depth branch, asynchronous noise scheduling and inference, cross-embodiment pretraining, RoboCasa/RoboTwin evidence, released-code boundary, and transferable interventions |
+| [Xiaomi-Robotics-1](xiaomi-robotics-1/README.md) | Vision-language-action model | Qwen3-VL backbone, flow-matching DiT action head, heterogeneous robot pretraining, VLABench adaptation, and released implementation boundaries |
+| [VLABench](vlabench/README.md) | Language-conditioned manipulation benchmark paper | Long-horizon task construction, evaluator and metric implementation, benchmark defects, and protocol constraints |
+| [ERVLA](ervla/README.md) | Reasoning-augmented vision-language-action model | Embodied chain-of-thought, reasoning dropout, action generation, and reported robot evaluation |
 
 An active entry is evidence about that named work, not a claim that its findings generalize to every model. Candidate families or titles are not KB facts until their entries exist.
 

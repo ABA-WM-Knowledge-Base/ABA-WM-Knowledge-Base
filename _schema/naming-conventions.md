@@ -68,6 +68,9 @@ Preserve official capitalization and identifiers:
 | Prior-generation model | Cosmos-Predict2.5; never abbreviate it to Cosmos3 |
 | Unified world action model | X-WAM |
 | Benchmark entry | Original RoboCasa or RoboCasa; explicitly exclude RoboCasa365 when referring to the v0.2 entry |
+| Model product (VLA) | Xiaomi-Robotics-1 |
+| Base checkpoint | `XiaomiRobotics/Xiaomi-Robotics-1-5B` |
+| VLABench fine-tune checkpoint | `XiaomiRobotics/Xiaomi-Robotics-1-VLABench` |
 
 Distinguish a product family, downloadable checkpoint, hosted service ID, post-trained checkpoint, and local run. Similar names do not establish revision identity or behavioral equivalence.
 

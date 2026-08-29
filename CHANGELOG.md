@@ -21,6 +21,9 @@ This file records changes that affect retrieval metadata, canonical ownership, s
 - Preserved paper-to-release conflicts for pretraining batch per GPU, SFT learning rate, RoboTwin step count, and CFG execution semantics instead of merging them into one synthetic recipe.
 - Added generic multi-model manifest/index validation plus Benchmark schema, template, retrieval-index, source, path, metadata, and document-map validation. Advanced the metadata schema to version 8 and the model manifest schema to version 4.
 - Updated the repository architecture, global maps, Foundation retrieval associations, schema guidance, and cross-part links for five non-exclusive parts. Migrated the existing RoboCasa paper source identity from the Foundation registry to the canonical Original RoboCasa registry.
+- Added the `models/xiaomi-robotics-1/` entry, with distinct retrieval owners for its Qwen3-VL backbone, DiT action head, action modeling, policy, training, evaluation, released checkpoints, and reproduction state.
+- Added the Xiaomi-Robotics-1, VLABench, and ERVLA Paper entries and registered their XR1, XR0, QWEN3VL, VLAB, and ERV source identities.
+- Extended the generic model-entry contract and validation to the Xiaomi-Robotics-1 file inventory without removing the existing Cosmos3-Nano, X-WAM, or Benchmark checks.
 
 ## 1.1.1 - 2026-08-20
 

@@ -1,0 +1,29 @@
+schema_version: 3
+as_of: "2026-08-21"
+sources:
+  - id: ERV-PAPER
+    type: paper
+    title: "Revisiting Embodied Chain-of-Thought for Generalizable Robot Manipulation"
+    publisher: Tsinghua University, Xiaomi Robotics and collaborators / arXiv
+    canonical_url: https://arxiv.org/abs/2606.03784
+    version: "arXiv:2606.03784v1; 2026-06-02"
+    accessed: "2026-08-21"
+    retrieval_hint: CoT content taxonomy and ablations (Table 1), reasoning dropout (/cot versus /no_cot with probability p_cot), Qwen3-VL-4B + DiT architecture with choice branch and knowledge truncation, LIBERO-Plus 86.9, VLABench 53.2/70.4/65.9 with per-track values.
+    scope: Code, data, and checkpoints are announced as forthcoming; none was available on the access date.
+  - id: ERV-PROJECT
+    type: official_blog
+    title: ERVLA project page
+    publisher: ERVLA authors
+    canonical_url: https://taoshuaiz.github.io/ERVLA/
+    version: "mutable page; states that code, data, and model checkpoints will be released"
+    accessed: "2026-08-21"
+    retrieval_hint: Release status of the CoT corpus and checkpoints.
+  - id: ERV-ACOT-CODE
+    type: code_repository
+    title: AgibotTech/ACoT-VLA (Action Chain-of-Thought, CVPR 2026)
+    publisher: AgiBot / GitHub
+    canonical_url: https://github.com/AgibotTech/ACoT-VLA
+    version: "public repository read 2026-08-21; paper arXiv:2601.11404"
+    accessed: "2026-08-21"
+    retrieval_hint: The action-chain-of-thought baseline ERVLA compares against (VLABench average SR 47.4 in ERVLA's table; pi0/pi0.5 retrained 60k steps in its own table).
+    scope: Comparison method, not ERVLA code.

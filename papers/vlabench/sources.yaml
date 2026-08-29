@@ -1,0 +1,101 @@
+schema_version: 3
+as_of: "2026-08-21"
+sources:
+  - id: VLAB-PAPER
+    type: paper
+    title: "VLABench: A Large-Scale Benchmark for Language-Conditioned Robotics Manipulation with Long-Horizon Reasoning Tasks"
+    publisher: Fudan University / arXiv; ICCV 2025
+    canonical_url: https://arxiv.org/abs/2412.18194
+    version: "arXiv:2412.18194v1 (2024-12-24); ICCV 2025 camera-ready; the maintainer states the paper's metric definitions are outdated relative to the code"
+    accessed: "2026-08-21"
+    retrieval_hint: 100 task categories (60 primitive, 40 composite), 163 object categories / 2,164 items, skill library with RRT + SLERP, the original Progress Score formula with alpha 0.2, the five primitive evaluation dimensions, OpenVLA/Octo/RDT-1B baselines.
+  - id: VLAB-CODE
+    type: code_repository
+    title: OpenMOSS/VLABench official repository snapshot
+    publisher: OpenMOSS / GitHub
+    canonical_url: https://github.com/OpenMOSS/VLABench/tree/cf588fe60c0c7282174fe979f5913170cfe69017
+    revision: cf588fe60c0c7282174fe979f5913170cfe69017
+    version: "main; commit dated 2025-11-11; pinned by the aibuildai xr1_vlabench deploy"
+    license: MIT
+    accessed: "2026-08-21"
+    retrieval_hint: configs/evaluation/tracks/*.json, VLABench/evaluation/evaluator/base.py, scripts/evaluate_policy.py, scripts/download_assets.py, requirements.txt pins.
+    scope: Xiaomi's eval README pins no VLABench commit; this snapshot is the one the deploy chain uses.
+  - id: VLAB-DATA-LEROBOT
+    type: dataset
+    title: VLABench/vlabench_primitive_ft_lerobot_video
+    publisher: OpenMOSS / Hugging Face
+    canonical_url: https://huggingface.co/datasets/VLABench/vlabench_primitive_ft_lerobot_video
+    revision: 9846a2f6bead3873251dc4fe3079359d57326b7c
+    version: "LeRobot v3.0; 5,000 episodes; 575,101 frames; 10 fps; 13.1 GB; last modified 2026-04-23"
+    license: MIT
+    accessed: "2026-08-21"
+    retrieval_hint: Three 480x480 video keys (image, second_image, wrist_image), 7-D state and actions (robot-frame pose + gripper), 128 instruction strings, 10 primitive tasks x 500 episodes.
+  - id: VLAB-DATA-RAW
+    type: dataset
+    title: VLABench/raw_primitive_datasets
+    publisher: OpenMOSS / Hugging Face
+    canonical_url: https://huggingface.co/datasets/VLABench/raw_primitive_datasets
+    version: "HDF5; 10 tasks x 500 episodes; 817 GB; 212 timesteps x 4 views x 480x480 RGB-D plus point clouds"
+    license: MIT
+    accessed: "2026-08-21"
+    retrieval_hint: The raw release behind the LeRobot mirror; depth, point clouds, joint states, velocities.
+  - id: VLAB-DATA-UNIFIED
+    type: dataset
+    title: lerobot/vlabench_unified
+    publisher: Hugging Face LeRobot
+    canonical_url: https://huggingface.co/datasets/lerobot/vlabench_unified
+    revision: f61ad898199e746c20af3112f278cc86eb3ca3c4
+    version: "LeRobot v3.0; 10,977 episodes; 3,114,872 frames; 295 tasks; 224x224 views; 22.9 GB"
+    license: Apache-2.0
+    accessed: "2026-08-21"
+    retrieval_hint: A larger community mirror covering composite tasks; its gripper-bit polarity analysis is the evidence behind VLABench issue 88.
+    scope: Not the official Track-1 training set; using it changes the leaderboard provenance.
+  - id: VLAB-HF-ORG
+    type: service_page
+    title: VLABench Hugging Face organization (baseline checkpoints and datasets)
+    publisher: OpenMOSS / Hugging Face
+    canonical_url: https://huggingface.co/VLABench
+    version: "mutable listing read 2026-08-21"
+    accessed: "2026-08-21"
+    retrieval_hint: pi0 / pi0-FAST / pi0.5 primitive fine-tunes with Track-1 SR 29.1 to 51.2 depending on action representation; vlm_evaluation_v1.0; assets.
+  - id: VLAB-ISSUE-55
+    type: forum_thread
+    title: VLABench issue 55, progress-score implementation versus paper formula
+    publisher: OpenMOSS / GitHub
+    canonical_url: https://github.com/OpenMOSS/VLABench/issues/55
+    version: "maintainer reply 2025-07"
+    accessed: "2026-08-21"
+    retrieval_hint: The maintainer states the paper's PS definition is outdated and the code is authoritative.
+  - id: VLAB-ISSUE-80
+    type: forum_thread
+    title: VLABench issue 80, robot moves when the action equals the current end-effector state
+    publisher: OpenMOSS / GitHub
+    canonical_url: https://github.com/OpenMOSS/VLABench/issues/80
+    version: "opened 2026-01-09; open"
+    accessed: "2026-08-21"
+    retrieval_hint: Null-action drift through the IK controller; a confounder for step-0 and hold-still behaviour.
+  - id: VLAB-ISSUE-82
+    type: forum_thread
+    title: VLABench issue 82, evaluation inconsistencies (intention score 0 on successful episodes)
+    publisher: OpenMOSS / GitHub
+    canonical_url: https://github.com/OpenMOSS/VLABench/issues/82
+    version: "opened 2026-02-04; open"
+    accessed: "2026-08-21"
+    retrieval_hint: IS can be 0 on a success (select_chemistry_tube); absolute versus delta action representations score very differently.
+  - id: VLAB-ISSUE-88
+    type: forum_thread
+    title: VLABench issue 88, gripper open-state predicate polarity
+    publisher: OpenMOSS / GitHub
+    canonical_url: https://github.com/OpenMOSS/VLABench/issues/88
+    version: "opened 2026-08-10; open; cites commit cf588fe60c0c7282174fe979f5913170cfe69017"
+    accessed: "2026-08-21"
+    retrieval_hint: get_ee_open_state returns true when CLOSED; the published state bit keeps that legacy polarity while the action bit uses 1 = open (95.2% of rows are complements).
+  - id: VLAB-WAM-LEADERBOARD
+    type: benchmark
+    title: OpenMOSS/Awesome-WAM leaderboard data (leaderboard.json, benchmarks.json)
+    publisher: OpenMOSS / GitHub
+    canonical_url: https://github.com/OpenMOSS/Awesome-WAM/tree/main/leaderboard/data
+    version: "last_updated 2026-05-16 as read on 2026-08-21"
+    accessed: "2026-08-21"
+    retrieval_hint: VLABench overall_score = Track 1-4 progress-score average; 25 VLABench rows, most flagged non-standard (cherry-picked task subsets or the legacy pre-track protocol); X-VLA 51.1 is the top standard row.
+    scope: Community leaderboard; Xiaomi-Robotics-1 is not listed there as of the snapshot.
