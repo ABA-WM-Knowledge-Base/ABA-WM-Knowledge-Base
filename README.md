@@ -94,7 +94,7 @@ The five content parts are peers:
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
 | [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Fourteen active entries |
-| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Reasoning and Generative Modeling are active |
+| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Reasoning, Generative Modeling, Action Conditioning, and WM-Policy Interface are active |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano and X-WAM are active |
 | [Benchmarks](benchmarks/README.md) | Versioned tasks, environments, datasets, protocols, evaluators, baselines, and reproduction state | Original RoboCasa is active; RoboCasa365 is outside this entry |
 

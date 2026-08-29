@@ -32,8 +32,10 @@ Component knowledge can inform model diagnosis, intervention design, and experim
 |---|---|---|---|
 | Reasoning for World Models | Latent simulation, imagined decision learning, predictive representation, explicit physical reasoning, and reasoning-to-generation coupling | Five method and comparison pages | [Reasoning](reasoning/README.md) |
 | Generative Modeling | Conditional future modeling across autoregressive, diffusion, latent, flow, video, and action-conditioned systems | Seven method and comparison pages | [Generative Modeling](generative-modeling/README.md) |
+| Action Representation and Conditioning | Action representation routes (conditioning input, jointly denoised modality, inferred latent), denoising schedules, and action-to-future-prediction coupling | Five method and comparison pages | [Action Conditioning](action-conditioning/README.md) |
+| World Model to Policy Interface | The five consumption modes of world-model output, offline synthetic trajectories, rollout selection and evaluation, deployment boundaries, and the reasoner-to-policy evidence gap | Four method and comparison pages | [WM-Policy Interface](wm-policy-interface/README.md) |
 
-The two entries are non-exclusive. For example, action-conditioned video planning may require both the reasoning synthesis and the generative-modeling synthesis, together with canonical action, planning, and evaluation pages from Foundations.
+The entries are non-exclusive. For example, action-conditioned video planning may require both the reasoning synthesis and the generative-modeling synthesis, together with canonical action, planning, and evaluation pages from Foundations.
 
 ## Ownership boundary
 

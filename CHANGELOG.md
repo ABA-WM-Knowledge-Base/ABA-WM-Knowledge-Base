@@ -22,6 +22,10 @@ This file records changes that affect retrieval metadata, canonical ownership, s
 - Added generic multi-model manifest/index validation plus Benchmark schema, template, retrieval-index, source, path, metadata, and document-map validation. Advanced the metadata schema to version 8 and the model manifest schema to version 4.
 - Updated the repository architecture, global maps, Foundation retrieval associations, schema guidance, and cross-part links for five non-exclusive parts. Migrated the existing RoboCasa paper source identity from the Foundation registry to the canonical Original RoboCasa registry.
 
+## 1.1.1 - 2026-08-20
+
+- Added components/action-conditioning and components/wm-policy-interface (six-component split, topics 3 and 6): action representation routes, denoising schedules, future-prediction coupling; five WM-to-policy consumption modes, deployment boundaries, and the reasoner-to-policy evidence gap. Registered six new component source identities (X-WAM, World2Act, Consistency-Consensus, GigaWorld-1, the WAM-versus-VLA robustness study, and LaWAM).
+
 ## 1.1.0 - 2026-08-19
 
 - Replaced the single long page in each current Component with method-oriented pages so retrieval can target a mechanism directly instead of loading a broad review.
