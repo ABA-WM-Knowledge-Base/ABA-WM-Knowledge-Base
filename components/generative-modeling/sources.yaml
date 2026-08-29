@@ -19,3 +19,50 @@ sources:
     accessed: "2026-08-19"
     retrieval_hint: Use for latent-patch Transformer diffusion, conditioning-block ablations, compute scaling measured in Gflops, and ImageNet class-conditional FID results.
     scope: Image-generation and architecture-scaling evidence; it does not establish video rollout consistency or action-conditioned prediction.
+  - id: COMP-MF-2025
+    type: paper
+    title: Mean Flows for One-step Generative Modeling
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2505.13447
+    version: "arXiv:2505.13447; submitted 2025-05-19"
+    accessed: "2026-08-24"
+    retrieval_hint: Use for average velocity, the MeanFlow identity, Jacobian-vector-product training, one-step sampling, and ImageNet evidence.
+    scope: Image-generation method evidence; it does not establish temporal dynamics, physical fidelity, or action-conditioned prediction.
+  - id: COMP-IMF-2025
+    type: paper
+    title: "Improved Mean Flows: On the Challenges of Fastforward Generative Models"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2512.02012
+    version: "arXiv:2512.02012v2; revised 2026-05-09"
+    accessed: "2026-08-24"
+    retrieval_hint: Use for the velocity-space reformulation, explicit guidance conditioning, in-context conditioning, and one-step ImageNet evidence.
+    scope: Improved MeanFlow method evidence; it does not establish world-model rollout or action validity.
+  - id: COMP-PMF-2026
+    type: paper
+    title: One-step Latent-free Image Generation with Pixel Mean Flows
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2601.22158
+    version: "arXiv:2601.22158v3; revised 2026-05-09"
+    accessed: "2026-08-24"
+    retrieval_hint: Use for pixel-space x-prediction, velocity-space MeanFlow loss, latent-free generation, and 256/512 ImageNet evidence.
+    scope: Pixel-space image-generation evidence; it does not establish that raw-pixel video is preferable for long-horizon control.
+  - id: IMF-CODE
+    type: code_repository
+    title: Lyy-iiis/imeanflow official Improved MeanFlow implementation
+    publisher: Lyy-iiis / GitHub
+    canonical_url: https://github.com/Lyy-iiis/imeanflow
+    version: "official JAX implementation; repository accessed 2026-08-24"
+    accessed: "2026-08-24"
+    license: MIT
+    retrieval_hint: Use for iMF model configurations, training and evaluation commands, released checkpoint families, and implementation-reported metric differences.
+    scope: Official implementation identity; code results remain bound to its TPU/JAX evaluation surface.
+  - id: PMF-CODE
+    type: code_repository
+    title: Lyy-iiis/pMF official Pixel MeanFlow implementation
+    publisher: Lyy-iiis / GitHub
+    canonical_url: https://github.com/Lyy-iiis/pMF
+    version: "official JAX implementation; repository accessed 2026-08-24"
+    accessed: "2026-08-24"
+    license: MIT
+    retrieval_hint: Use for pMF model families, pixel-space training configuration, checkpoints, and TPU/JAX evaluation details.
+    scope: Official implementation identity; code results remain bound to its released configurations and evaluation surface.

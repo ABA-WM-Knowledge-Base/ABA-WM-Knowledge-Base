@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Continuous transport objectives, the distinction between flow matching and rectified flow, path and solver trade-offs, and their implementation in Cosmos-Predict2.5 and Cosmos 3.
 
-**Related pages:** [Diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic mathematics; [diffusion](diffusion.md) owns DDPM lineage; [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) owns its exact implementation.
+**Related pages:** [Diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic mathematics; [diffusion](diffusion.md) owns DDPM lineage; [Mean Flow and Pixel Mean Flow](mean-flow-and-pixel-mean-flow.md) owns average-velocity and latent-free one-step extensions; [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) owns its exact implementation.
 
 ## Method definition
 

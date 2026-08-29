@@ -43,16 +43,16 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 
 ## Component map
 
-The two current Components compare how related method families address a capability across several works. Their entry pages expose concise method maps; detailed knowledge is owned by the linked method pages rather than compressed into a single review. This is the design of these two entries, not a required form for future Components.
+The four current Components compare how related method families address a capability across several works. Their entry pages expose concise method maps; detailed knowledge is owned by the linked method pages rather than compressed into a single review. This is the design of these entries, not a required form for future Components.
 
 | Component | Knowledge scope | Entry point |
 |---|---|---|
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
-| Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
+| Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, MeanFlow, Pixel MeanFlow, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
 | Action Representation and Conditioning | Action representation routes, latent-frame injection, joint denoising schedules, latent and pseudo-actions, and future-prediction coupling | [Method map](components/action-conditioning/README.md) |
 | World Model to Policy Interface | Offline synthetic trajectories, rollout selection and evaluation, deployment boundaries, and the reasoner-to-policy evidence gap | [Method map](components/wm-policy-interface/README.md) |
 
-The Component map is advisory and non-exclusive. A task can retrieve either or both current Components together with applicable Foundation, Paper, Model, and Benchmark owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
+The Component map is advisory and non-exclusive. A task can retrieve any relevant Components together with applicable Foundation, Paper, Model, and Benchmark owners. Future entries may use a different content or retrieval structure and need only expose their chosen entrypoint here.
 
 ## Representative paper map
 

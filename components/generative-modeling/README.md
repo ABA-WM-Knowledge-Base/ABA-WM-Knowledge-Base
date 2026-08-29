@@ -40,6 +40,7 @@ The multi-page layout below is specific to this Generative Modeling Component.
 | [Diffusion modeling](diffusion.md) | DDPM denoising, iterative sampling, multimodal futures, pixel-space world models, and DIAMOND |
 | [Latent diffusion and DiT](latent-diffusion-and-dit.md) | codec rate–distortion, latent denoising, cross-attention conditioning, Transformer scaling, LDM and DiT evidence |
 | [Flow matching and rectified flow](flow-matching-and-rectified-flow.md) | continuous transport fields, path geometry, solvers, few-step claims, and Cosmos flow objectives |
+| [Mean Flow and Pixel Mean Flow](mean-flow-and-pixel-mean-flow.md) | average-velocity prediction, Improved MeanFlow stability and guidance, Pixel MeanFlow output parameterization, and world-model transfer tests |
 | [Action-conditioned video modeling](action-conditioned-video.md) | action timing and semantics across UniSim, iVideoGPT, IRASim, and DIAMOND; planning and model-exploitation boundaries |
 | [Omnimodal generation](omnimodal-generation.md) | Cosmos-Predict2.5 and Cosmos 3 lineage, clean-prefix curricula, multimodal latent streams, and action modes |
 | [Comparison and optimization](comparison-and-optimization.md) | method selection axes, supported patterns, failure diagnosis, Cosmos3-Nano attachment points, and open questions |
