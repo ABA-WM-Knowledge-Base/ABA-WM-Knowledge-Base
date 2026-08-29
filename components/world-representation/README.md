@@ -3,7 +3,7 @@ id: world-model-kb.components.world-representation
 title: World Representation and Latent State
 kind: component
 status: maintained
-last_updated: 2026-08-27
+last_updated: 2026-08-29
 owners:
   - AIBuildAI world-model group
 ---
@@ -49,6 +49,6 @@ These methods are compositional. A system may encode observations with a VAE, pr
 
 ## Evidence ownership
 
-Work-specific architectures, tables, and reproduction state remain in the [Paper](../../papers/README.md) entries. Concrete Cosmos3-Nano and X-WAM tensor layouts remain under [Models](../../models/README.md). Foundation pages keep model-independent definitions. This Component cites those owners and synthesizes the representation choice across works.
+Work-specific architectures, tables, and reproduction state remain in the [Paper](../../papers/README.md) entries. Concrete tensor layouts and interface contracts remain under their named [Model](../../models/README.md) entries. Foundation pages keep model-independent definitions. This Component cites those owners and synthesizes the representation choice across works.
 
 The section pattern used across these method pages is a local organizational choice for this Component. It is not a template or validation requirement for other Components.

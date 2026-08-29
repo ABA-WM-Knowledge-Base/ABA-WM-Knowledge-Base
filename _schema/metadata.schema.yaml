@@ -1,4 +1,4 @@
-schema_version: 8
+schema_version: 9
 
 page_frontmatter:
   required:
@@ -248,7 +248,7 @@ canonical_ownership:
   rules:
     - One page owns the complete reusable explanation of a topic.
     - Dependent pages summarize only the local implication and link to the owner.
-    - Each Component declares its own canonical knowledge scope and internal representation; the Reasoning and Generative Modeling entries use cross-paper synthesis as a local design choice, not a part-wide contract.
+    - Each Component declares its own canonical knowledge scope and internal representation; any cross-paper synthesis or method-map layout remains an entry-local design choice, not a part-wide contract.
     - Reproduction owns execution state; topic pages own stable model or benchmark knowledge.
     - Optimization references own reusable intervention strategies; research registries own unresolved evidence questions.
     - Retrieved knowledge may influence Agent reasoning and strategy, but retrieval metadata does not define AIBuildAI orchestration, permissions, Agent selection, repository selection, or execution scheduling.

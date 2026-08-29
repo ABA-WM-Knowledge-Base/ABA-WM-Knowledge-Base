@@ -3,7 +3,7 @@ id: world-model-kb.papers
 title: Representative Paper Entries
 kind: index
 status: maintained
-last_updated: 2026-08-27
+last_updated: 2026-08-29
 owners:
   - AIBuildAI world-model group
 ---
@@ -24,7 +24,7 @@ Each paper entry reconstructs one work as reusable optimization knowledge. It se
 
 Paper-specific evidence remains canonical in its entry. When a mechanism, formal assumption, evaluation principle, or transfer claim depends on a model-independent concept, the entry links to that concept's Foundation page instead of redefining it. These links express knowledge ownership and dependencies; they do not prescribe task sequencing or AIBuildAI workflow orchestration.
 
-The current World Representation, Dynamics Modeling, Reasoning, and Generative Modeling Components synthesize mechanisms across several Paper entries, but the source paper's exact architecture, protocol, results, code, and reproduction state remain canonical here. Future Components may declare a different scope.
+The six current Components synthesize representation, dynamics, reasoning, generation, action-conditioning, and world-model–policy-interface mechanisms across several Paper entries, but each source paper's exact architecture, protocol, results, code, and reproduction state remain canonical here. Future Components may declare a different scope.
 
 ## Active entries
 

@@ -3,14 +3,14 @@ id: world-model-kb.home
 title: World Model Knowledge Base
 kind: index
 status: maintained
-last_updated: 2026-08-27
+last_updated: 2026-08-29
 owners:
   - AIBuildAI world-model group
 ---
 
 # World Model Knowledge Base
 
-This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, fourteen representative-paper entries, independently scoped Components, two active Model entries, and a versioned Benchmark part. The current World Representation, Dynamics Modeling, Reasoning, and Generative Modeling Components use cross-paper synthesis to connect general formalisms, representation and learning choices, paper mechanisms and ablations, model interfaces, evaluation conditions, and candidate optimization experiments.
+This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, seventeen representative-paper entries, six independently scoped Component entries, three active Model entries, and a versioned Benchmark part. The current Components synthesize knowledge about world representation, dynamics, reasoning, generation, action conditioning, and world-model–policy interfaces while preserving entry-specific boundaries and evidence ownership.
 
 ## Authority boundary
 
@@ -43,9 +43,8 @@ flowchart TD
     F --> F4["Data, evaluation, and research frontiers"]
 
     P --> PE["Representative-paper mechanisms, experiments, code, and transfer evidence"]
-    X --> XR["Reasoning evolution and evidence"]
-    X --> XG["Generative-modeling evolution and evidence"]
-    M --> C["Cosmos3-Nano and X-WAM model knowledge"]
+    X --> XC["Six component maps: representation, dynamics, reasoning, generation, action conditioning, and policy interfaces"]
+    M --> C["Cosmos3-Nano, X-WAM, and Xiaomi-Robotics-1 model knowledge"]
     B --> RB["Original RoboCasa tasks, data, protocol, and evaluator"]
 
     F1 --> S["Task-relevant knowledge synthesis"]
@@ -53,8 +52,7 @@ flowchart TD
     F3 --> S
     F4 --> S
     PE --> S
-    XR --> S
-    XG --> S
+    XC --> S
     C --> S
     RB --> S
 
@@ -100,9 +98,9 @@ The five content parts are peers:
 
 ## How to navigate
 
-Start from [`INDEX.md`](INDEX.md) for the global topic map. AIBuildAI may dynamically combine model-independent Foundations, Paper-specific evidence, independently scoped Components, Model-specific knowledge, and Benchmark contracts rather than assigning a task to exactly one part. The Foundation [`retrieval-index.yaml`](foundations/retrieval-index.yaml), Model `agent-index.yaml` files for [Cosmos3-Nano](models/cosmos3-nano/agent-index.yaml) and [X-WAM](models/x-wam/agent-index.yaml), and the [RoboCasa retrieval index](benchmarks/robocasa/retrieval-index.yaml) expose advisory query-to-knowledge associations. The current Component pages expose retrieval metadata by local choice, not by a part-wide contract.
+Start from [`INDEX.md`](INDEX.md) for the global topic map. AIBuildAI may dynamically combine model-independent Foundations, Paper-specific evidence, independently scoped Components, Model-specific knowledge, and Benchmark contracts rather than assigning a task to exactly one part. The Foundation [`retrieval-index.yaml`](foundations/retrieval-index.yaml), Model `agent-index.yaml` files for [Cosmos3-Nano](models/cosmos3-nano/agent-index.yaml), [X-WAM](models/x-wam/agent-index.yaml), and [Xiaomi-Robotics-1](models/xiaomi-robotics-1/agent-index.yaml), and the [RoboCasa retrieval index](benchmarks/robocasa/retrieval-index.yaml) expose advisory query-to-knowledge associations. The current Component pages expose retrieval metadata by local choice, not by a part-wide contract.
 
-Within canonical Foundation, Paper, Model, and Benchmark pages, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through their owning registry, such as Foundation [`sources.yaml`](foundations/sources.yaml), a Paper entry's registry such as X-WAM [`sources.yaml`](papers/x-wam/sources.yaml), the current Reasoning Component's optional local [`sources.yaml`](components/reasoning/sources.yaml), a Model registry such as X-WAM [`sources.yaml`](models/x-wam/sources.yaml), or RoboCasa [`sources.yaml`](benchmarks/robocasa/sources.yaml). Observed execution evidence remains in the relevant entry's `reproduction.md`. The `_schema/` directory defines repository interoperability; it does not prescribe future Component structure or AIBuildAI workflow orchestration.
+Within canonical Foundation, Paper, Model, and Benchmark pages, `Retrieval metadata` identifies related questions and pages. Stable source IDs resolve through their owning registry, such as Foundation [`sources.yaml`](foundations/sources.yaml), a Paper entry's registry such as X-WAM [`sources.yaml`](papers/x-wam/sources.yaml), an optional Component registry such as Reasoning [`sources.yaml`](components/reasoning/sources.yaml), a Model registry such as Xiaomi-Robotics-1 [`sources.yaml`](models/xiaomi-robotics-1/sources.yaml), or RoboCasa [`sources.yaml`](benchmarks/robocasa/sources.yaml). Observed execution evidence remains in the relevant entry's `reproduction.md`. The `_schema/` directory defines repository interoperability; it does not prescribe future Component structure or AIBuildAI workflow orchestration.
 
 ## Validation
 

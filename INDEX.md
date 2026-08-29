@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-27
+last_updated: 2026-08-29
 owners:
   - AIBuildAI world-model group
 ---
@@ -102,7 +102,7 @@ The Original RoboCasa entry explicitly excludes RoboCasa365 v1.0+ identities. A 
 
 - Foundations owns reusable concepts, formalisms, mechanism families, trade-offs, and evaluation principles.
 - Papers owns the claims, implementations, experiments, limitations, reproduction state, and transfer hypotheses of individual works.
-- Each Component owns the knowledge boundary it explicitly declares; World Representation, Dynamics Modeling, Reasoning, and Generative Modeling own their respective cross-paper syntheses.
+- Each Component owns the knowledge boundary it explicitly declares; the six current entries own their respective cross-paper syntheses without establishing a required structure for future entries.
 - Models owns concrete architecture, checkpoint, interface, training, result, code, and execution facts for a named model.
 - Benchmarks owns versioned tasks, environments, datasets, observation/action contracts, rollout protocols, success evaluators, aggregation, baseline context, and benchmark execution state.
 

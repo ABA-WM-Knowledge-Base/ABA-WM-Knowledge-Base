@@ -3,7 +3,7 @@ id: world-model-kb.models
 title: Model Entries
 kind: index
 status: maintained
-last_updated: 2026-08-24
+last_updated: 2026-08-29
 owners:
   - AIBuildAI world-model group
 ---

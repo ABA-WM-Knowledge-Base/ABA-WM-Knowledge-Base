@@ -3,7 +3,7 @@ id: world-model-kb.schema
 title: Agent Retrieval and Authoring Contract
 kind: reference
 status: maintained
-last_updated: 2026-08-24
+last_updated: 2026-08-29
 owners:
   - AIBuildAI world-model group
 ---
@@ -27,13 +27,13 @@ owners:
 
 ## Retrieval metadata use
 
-[The global index](../INDEX.md) exposes non-exclusive knowledge areas. The Foundation [`retrieval-index.yaml`](../foundations/retrieval-index.yaml) associates model-independent queries with canonical concepts; each active Model can expose an `agent-index.yaml`; and each registered Benchmark can expose a `retrieval-index.yaml`. The current Reasoning and Generative Modeling Components expose page-level retrieval metadata by local design; `components/` has no required common retrieval representation. AIBuildAI may dynamically combine these inputs according to the current task and state. None of these knowledge interfaces selects Agents, repositories, task order, or execution schedule.
+[The global index](../INDEX.md) exposes non-exclusive knowledge areas. The Foundation [`retrieval-index.yaml`](../foundations/retrieval-index.yaml) associates model-independent queries with canonical concepts; each active Model can expose an `agent-index.yaml`; and each registered Benchmark can expose a `retrieval-index.yaml`. Current Components expose page-level retrieval metadata by local design; `components/` has no required common retrieval representation. AIBuildAI may dynamically combine these inputs according to the current task and state. None of these knowledge interfaces selects Agents, repositories, task order, or execution schedule.
 
 ## Canonical page contract
 
 Every canonical Foundation, Paper, Model, or Benchmark topic page begins its body with `## Retrieval metadata` and exposes `Relevant queries`, `Knowledge provided`, and `Related pages`. Foundation pages own transferable concepts; Paper entries own work-specific evidence; Model pages own concrete instantiations; Benchmark pages own versioned evaluation systems. The remaining content is intended to influence model understanding, diagnosis, strategy selection, and evidence-based decisions without prescribing AIBuildAI workflow orchestration.
 
-Component authors choose the content structure, file layout, and retrieval representation appropriate to their own knowledge surface. The two current Components voluntarily use the same retrieval fields and historical evidence pattern; that choice is not part of the canonical page contract for future Components.
+Component authors choose the content structure, file layout, and retrieval representation appropriate to their own knowledge surface. The current Components voluntarily use compatible retrieval fields and method maps; that choice is not part of the canonical page contract for future Components.
 
 Canonical pages must not contain:
 
