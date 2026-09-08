@@ -3,7 +3,7 @@ id: world-model-kb.papers.cosmos-predict2-5.optimization-transfer
 title: Cosmos-Predict2.5 Transferable Optimization Knowledge
 kind: reference
 status: maintained
-last_updated: 2026-08-12
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** source-grounded optimization patterns and hypotheses with target behavior, attachment point, data/objective change, expected evidence, compute and regression risks, minimum controlled experiment, and falsification criteria.
 
-**Related pages:** [`paper.md`](paper.md) owns source evidence; [`codebase.md`](codebase.md) owns implementation surfaces; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns controlled comparison; [Cosmos3-Nano optimization](../../models/cosmos3-nano/optimization-playbook.md) owns target-model experiment design rather than inheriting these proposals automatically.
+**Related pages:** [`paper.md`](paper.md) owns source evidence; [`codebase.md`](codebase.md) owns implementation surfaces; [evaluation methodology](../../foundations/data-and-evaluation/evaluation-methodology.md) owns controlled comparison; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns the broader method lineage, cost semantics, and failure taxonomy; [Cosmos3-Nano optimization](../../models/cosmos3-nano/optimization-playbook.md) owns target-model experiment design rather than inheriting these proposals automatically.
 
 ## 1. Transfer discipline
 

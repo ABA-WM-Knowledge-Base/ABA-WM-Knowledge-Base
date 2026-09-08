@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-08-29
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -18,7 +18,7 @@ This index is a non-exclusive topic map. AIBuildAI may retrieve from multiple co
 |---|---|---|
 | Model-independent concepts | [Foundations](foundations/README.md) | Active; eight semantic subparts and advisory retrieval metadata |
 | Representative methods and papers | [Papers](papers/README.md) | Seventeen active entries spanning video WM, WAM, VLA, latent-action, MBRL, JEPA, occupancy, robotics, and driving |
-| Independently scoped component knowledge | [Components](components/README.md) | Six active entries currently expose entry-specific method maps and cross-paper synthesis |
+| Independently scoped component knowledge | [Components](components/README.md) | Seven active entries currently expose entry-specific knowledge maps and cross-paper synthesis |
 | Concrete model knowledge | [Models](models/README.md) | Cosmos3-Nano, X-WAM, and Xiaomi-Robotics-1 architecture, artifacts, interfaces, results, code, execution state, and optimization knowledge |
 | Versioned benchmark knowledge | [Benchmarks](benchmarks/README.md) | Original RoboCasa tasks, environments, datasets, protocol, baselines, evaluator, and reproduction state |
 | KB representation and provenance | [Schema reference](_schema/README.md) | Metadata, naming, sources, and authoring conventions |
@@ -43,7 +43,7 @@ The Foundation subparts are compositional rather than mutually exclusive. A mode
 
 ## Component map
 
-The six current Components compare how related method families address a capability across several works. Their entry pages expose concise method maps; detailed knowledge is owned by the linked method pages rather than compressed into a single review. This is the design of these entries, not a required form for future Components.
+The seven current Components compare how related method families address a capability across several works. Their entry pages expose concise knowledge maps; detailed knowledge is owned by the linked pages rather than compressed into a single review. This is the design of these entries, not a required form for future Components.
 
 | Component | Knowledge scope | Entry point |
 |---|---|---|
@@ -51,6 +51,7 @@ The six current Components compare how related method families address a capabil
 | Dynamics Modeling | Recurrent latent, decoder-free latent, observation-space, occupancy/ego, and joint multimodal transitions | [Method map](components/dynamics-modeling/README.md) |
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
 | Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, MeanFlow, Pixel MeanFlow, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
+| Fast Video Inference | Learned reduction of video-generation cost, currently covering consistency, distribution-matching, adversarial, reward-guided, phased, expert, and transition-matching distillation | [Knowledge map](components/fast-video-inference/README.md) |
 | Action Representation and Conditioning | Action representation routes, latent-frame injection, joint denoising schedules, latent and pseudo-actions, and future-prediction coupling | [Method map](components/action-conditioning/README.md) |
 | World Model to Policy Interface | Offline synthetic trajectories, rollout selection and evaluation, deployment boundaries, and the reasoner-to-policy evidence gap | [Method map](components/wm-policy-interface/README.md) |
 
@@ -102,7 +103,7 @@ The Original RoboCasa entry explicitly excludes RoboCasa365 v1.0+ identities. A 
 
 - Foundations owns reusable concepts, formalisms, mechanism families, trade-offs, and evaluation principles.
 - Papers owns the claims, implementations, experiments, limitations, reproduction state, and transfer hypotheses of individual works.
-- Each Component owns the knowledge boundary it explicitly declares; the six current entries own their respective cross-paper syntheses without establishing a required structure for future entries.
+- Each Component owns the knowledge boundary it explicitly declares; the seven current entries own their respective cross-paper syntheses without establishing a required structure for future entries.
 - Models owns concrete architecture, checkpoint, interface, training, result, code, and execution facts for a named model.
 - Benchmarks owns versioned tasks, environments, datasets, observation/action contracts, rollout protocols, success evaluators, aggregation, baseline context, and benchmark execution state.
 

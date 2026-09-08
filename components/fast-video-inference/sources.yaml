@@ -1,0 +1,171 @@
+schema_version: 3
+as_of: "2026-09-08"
+sources:
+  - id: FVI-VIDEOLCM-PAPER
+    type: paper
+    title: "VideoLCM: Video Latent Consistency Model"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2312.09109
+    version: arXiv:2312.09109v1
+    accessed: "2026-09-08"
+    retrieval_hint: Use for latent-consistency distillation, fixed teacher guidance, step ablations, and the reported A100 latency table.
+    scope: Text-to-video and compositional video generation; the reported latency is configuration-specific rather than a universal speed ratio.
+  - id: FVI-VIDEOLCM-CODE
+    type: code_repository
+    title: VGen
+    publisher: Alibaba Group
+    canonical_url: https://github.com/ali-vilab/VGen
+    revision: 4014d1fae4ac4a35e8e8442123611e913001399e
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the public VideoLCM training and inference configuration paths and checkpoint instructions.
+    scope: Current repository snapshot inspected for source availability; no execution result is implied.
+  - id: FVI-T2V-TURBO-PAPER
+    type: paper
+    title: "T2V-Turbo: Breaking the Quality Bottleneck of Video Consistency Model with Mixed Reward Feedback"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2405.18750
+    version: arXiv:2405.18750v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for mixed image-text and video-text reward feedback, LoRA student training, VBench results, and teacher comparisons.
+    scope: Four-step text-to-video consistency distillation from VideoCrafter2 and ModelScopeT2V.
+  - id: FVI-T2V-TURBO-CODE
+    type: code_repository
+    title: T2V-Turbo official implementation
+    publisher: T2V-Turbo authors
+    canonical_url: https://github.com/Ji4chenLi/t2v-turbo
+    revision: eaae323f10d136796a33e8f5304ed50e40def570
+    accessed: "2026-09-08"
+    retrieval_hint: Use for released inference applications, training scripts, and checkpoint links.
+    scope: Current repository snapshot inspected for source availability; paper-version and current-repository variants must remain distinguished.
+  - id: FVI-MCM-PAPER
+    type: paper
+    title: "Motion Consistency Model: Accelerating Video Diffusion with Disentangled Motion-Appearance Distillation"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2406.06890
+    version: arXiv:2406.06890v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for motion-representation consistency, image adversarial appearance supervision, mixed trajectories, and FVD/CLIPSIM comparisons.
+    scope: ModelScopeT2V and AnimateDiff distillation; reported hardware and results are experiment-specific.
+  - id: FVI-MCM-CODE
+    type: code_repository
+    title: Motion Consistency Model official implementation
+    publisher: MCM authors
+    canonical_url: https://github.com/yhZhai/mcm
+    revision: 77cf4f528e5be26bf97665efa5f5acb4c6815b8f
+    accessed: "2026-09-08"
+    retrieval_hint: Use for public LoRA training, inference, checkpoint, and memory-requirement surfaces.
+    scope: Current repository snapshot inspected for source availability; no local training or inference is recorded here.
+  - id: FVI-OSV-PAPER
+    type: paper
+    title: "OSV: One Step is Enough for High-Quality Image to Video Generation"
+    publisher: CVPR 2025
+    canonical_url: https://openaccess.thecvf.com/content/CVPR2025/html/Mao_OSV_One_Step_is_Enough_for_High-Quality_Image_to_Video_CVPR_2025_paper.html
+    version: arXiv:2409.11367v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for two-stage latent adversarial consistency distillation, the DINOv2 latent discriminator, Time Travel Sampler, NFE accounting, and I2V limitations.
+    scope: Stable Video Diffusion image-to-video experiments; an official public code release was not linked from the checked primary surfaces.
+  - id: FVI-DOLLAR-PAPER
+    type: paper
+    title: "DOLLAR: Few-Step Video Generation via Distillation and Latent Reward Optimization"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2412.15689
+    version: arXiv:2412.15689v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for combined variational score distillation, consistency distillation, latent reward optimization, diversity analysis, and component-level timing.
+    scope: Text-to-video experiments with a CogVideoX-like latent DiT; project-page availability does not imply released training code.
+  - id: FVI-DOLLAR-PROJECT
+    type: service_page
+    title: DOLLAR project page
+    publisher: DOLLAR authors
+    canonical_url: https://quantumiracle.github.io/dollar/
+    accessed: "2026-09-08"
+    retrieval_hint: Use for author-hosted samples and release links visible at the access date.
+    scope: The checked page exposes the paper and samples but no official public training repository.
+  - id: FVI-DMD-PAPER
+    type: paper
+    title: One-step Diffusion with Distribution Matching Distillation
+    publisher: CVPR 2024
+    canonical_url: https://arxiv.org/abs/2311.18828
+    version: arXiv:2311.18828v4
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the original distribution-matching gradient, real and fake score models, and regression stabilization.
+    scope: Image generation method and conceptual ancestor; it is not direct video-model evidence.
+  - id: FVI-DMD2-CODE
+    type: code_repository
+    title: Improved Distribution Matching Distillation official implementation
+    publisher: DMD2 authors
+    canonical_url: https://github.com/tianweiy/DMD2
+    revision: 8d8fa55633d47cfb81bbc7a892e7248f9518763f
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the released ImageNet, Stable Diffusion, and SDXL implementation boundaries.
+    scope: Image-only repository at the pinned revision; it does not itself establish video support.
+  - id: FVI-FASTVIDEO-CODE
+    type: code_repository
+    title: FastVideo
+    publisher: Hao AI Lab
+    canonical_url: https://github.com/hao-ai-lab/FastVideo
+    revision: 556ac7088e7b4750806d277d31e0db6cd25a5238
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the current sparse-distillation DMD plus VSA recipe, supported video backbones, training configurations, checkpoints, and performance claims.
+    scope: Mutable implementation framework inspected at a pinned commit; its documentation is not a controlled cross-paper benchmark.
+  - id: FVI-RCM-CODE
+    type: code_repository
+    title: Score-Regularized Continuous-Time Consistency official implementation
+    publisher: NVIDIA Research and Tsinghua University
+    canonical_url: https://github.com/NVlabs/rcm
+    revision: ed3cb14dd936f92cdc9f9381af7369991509b41f
+    accessed: "2026-09-08"
+    retrieval_hint: Use for released rCM inference, training, checkpoints, and code added after the paper snapshot.
+    scope: Current repository snapshot; later causal-model support must not be projected backward into paper experiments.
+  - id: FVI-TMD-PAPER
+    type: paper
+    title: Transition Matching Distillation for Fast Video Generation
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2601.09881
+    version: arXiv:2601.09881v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for backbone/head decomposition, MeanFlow-style transition adaptation, improved DMD2 training, effective NFE, and Wan2.1 results.
+    scope: Text-to-video experiments on Wan2.1 1.3B and 14B; implementation availability is tracked separately.
+  - id: FVI-TMD-PROJECT
+    type: service_page
+    title: Transition Matching Distillation project page
+    publisher: NVIDIA Research
+    canonical_url: https://research.nvidia.com/labs/genair/tmd/
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the official release status and project summary.
+    scope: The official page marked code as coming soon at the access date.
+  - id: FVI-PHASED-DMD-PAPER
+    type: paper
+    title: "Phased DMD: Few-step Distribution Matching Distillation via Score Matching within Subintervals"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2510.27684
+    version: arXiv:2510.27684v3
+    accessed: "2026-09-08"
+    retrieval_hint: Use for SNR-subinterval distribution matching, score matching within phases, motion/diversity evidence, and Wan2.2 experiments.
+    scope: Text-to-video and image-to-video distillation on Wan2.2; code availability must be evaluated against the separate release repository.
+  - id: FVI-PHASED-DMD-PROJECT
+    type: service_page
+    title: Phased DMD project page
+    publisher: Phased DMD authors
+    canonical_url: https://x-niper.github.io/projects/Phased-DMD/
+    accessed: "2026-09-08"
+    retrieval_hint: Use for author-hosted samples and links to released models and code.
+    scope: Project-level release surface; exact trainability is determined by the pinned repository contents.
+  - id: FVI-PHASED-DMD-CODE
+    type: code_repository
+    title: LightX2V Wan2.2 Lightning
+    publisher: ModelTC
+    canonical_url: https://github.com/ModelTC/LightX2V-Wan2.2-Lightning
+    revision: 4c6086dc3f4cd038af4ef93f98e8c4dae82ec2fc
+    accessed: "2026-09-08"
+    retrieval_hint: Use for released Phased DMD checkpoints, inference configuration, and repository file inventory.
+    scope: The pinned release exposes distilled checkpoints and inference, but no distillation-training implementation was located.
+  - id: FVI-DUET-PAPER
+    type: paper
+    title: "DUET: A Diversity–Quality Duet of Distillation Experts for Two-Step Video Generation"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2608.09637
+    version: arXiv:2608.09637v1
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the high-noise consistency and low-noise DMD expert split, relay distribution correction, diversity-quality measurements, and two-NFE results.
+    scope: August 2026 preprint evaluated on Wan2.1-T2V-1.3B; no official code link was found on the checked primary surfaces.

@@ -3,7 +3,7 @@ id: world-model-kb.papers.cosmos-predict2-5
 title: Cosmos-Predict2.5 Paper Knowledge Entry
 kind: paper
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** paper identity and scope, a map to its mechanisms and experiments, the released implementation and checkpoint boundary, reproduction state, and falsifiable transfer hypotheses.
 
-**Related pages:** [Video world models](../../foundations/representations/video-world-model.md) owns the general observation-prediction category; [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the objective family; [actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md) distinguishes passive from action-conditioned prediction; [reconstructive latents](../../components/world-representation/reconstructive-latents.md) owns codec latents as state; [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md) and [omnimodal generation](../../components/generative-modeling/omnimodal-generation.md) own the cross-paper method synthesis; [Cosmos Policy](../cosmos-policy/README.md) owns Predict2-initialized visuomotor post-training and must not inherit Predict2.5 video scores; [Cosmos3-Nano training](../../models/cosmos3-nano/training.md) owns the later model's lineage-specific use of Predict2.5 concepts.
+**Related pages:** [Video world models](../../foundations/representations/video-world-model.md) owns the general observation-prediction category; [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the objective family; [actions and interventions](../../foundations/problem-formulation/actions-and-interventions.md) distinguishes passive from action-conditioned prediction; [reconstructive latents](../../components/world-representation/reconstructive-latents.md) owns codec latents as state; [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md) and [omnimodal generation](../../components/generative-modeling/omnimodal-generation.md) own the generative-method synthesis; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns the cross-paper acceleration lineage and normalized comparison contract; [Cosmos Policy](../cosmos-policy/README.md) owns Predict2-initialized visuomotor post-training and must not inherit Predict2.5 video scores; [Cosmos3-Nano training](../../models/cosmos3-nano/training.md) owns the later model's lineage-specific use of Predict2.5 concepts.
 
 ## Identity and revision boundary
 

@@ -3,7 +3,7 @@ id: world-model-kb.components.generative-modeling.comparison-and-optimization
 title: Generative Method Comparison and Optimization
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Stable comparison axes across generative methods, evidence-supported intervention patterns, failure-to-measurement mappings, Cosmos3-Nano attachment hypotheses, and open questions.
 
-**Related pages:** [Autoregressive](autoregressive.md), [diffusion](diffusion.md), [latent diffusion and DiT](latent-diffusion-and-dit.md), [flow matching](flow-matching-and-rectified-flow.md), [action-conditioned video](action-conditioned-video.md), and [omnimodal generation](omnimodal-generation.md) own method details.
+**Related pages:** [Autoregressive](autoregressive.md), [diffusion](diffusion.md), [latent diffusion and DiT](latent-diffusion-and-dit.md), [flow matching](flow-matching-and-rectified-flow.md), [action-conditioned video](action-conditioned-video.md), and [omnimodal generation](omnimodal-generation.md) own method details; [Few-Step and One-Step Video Distillation](../fast-video-inference/few-step-distillation.md) owns the detailed acceleration lineage, cost semantics, and evaluation contract.
 
 ## Comparison matrix
 

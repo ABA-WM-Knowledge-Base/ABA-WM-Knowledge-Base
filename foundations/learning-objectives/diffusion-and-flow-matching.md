@@ -3,7 +3,7 @@ id: world-model-kb.foundations.learning-objectives.diffusion-and-flow-matching
 title: Diffusion and Flow Matching
 kind: concept
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** diffusion and continuous-flow formulations, distinctions between flow matching and rectified flow, optimization/sampling levers, and tests for conditional dynamics and downstream rollout quality.
 
-**Related pages:** [Video world models](../representations/video-world-model.md) covers the predicted observation surface; [latent world models](../representations/latent-world-model.md) covers codec and state choices; [autoregressive modeling](autoregressive-modeling.md) covers ordered likelihood factorization; [diffusion](../../components/generative-modeling/diffusion.md), [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md), and [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md) own the cross-paper method syntheses.
+**Related pages:** [Video world models](../representations/video-world-model.md) covers the predicted observation surface; [latent world models](../representations/latent-world-model.md) covers codec and state choices; [autoregressive modeling](autoregressive-modeling.md) covers ordered likelihood factorization; [diffusion](../../components/generative-modeling/diffusion.md), [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md), and [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md) own the generative-method syntheses; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns learned reduction of the resulting sampling cost.
 
 ## Definition and formalism
 

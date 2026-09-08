@@ -3,14 +3,14 @@ id: world-model-kb.home
 title: World Model Knowledge Base
 kind: index
 status: maintained
-last_updated: 2026-08-29
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
 
 # World Model Knowledge Base
 
-This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, seventeen representative-paper entries, six independently scoped Component entries, three active Model entries, and a versioned Benchmark part. The current Components synthesize knowledge about world representation, dynamics, reasoning, generation, action conditioning, and world-model–policy interfaces while preserving entry-specific boundaries and evidence ownership.
+This repository is a structured knowledge and evidence layer for world-model research. It contains reusable World Model Foundations, seventeen representative-paper entries, seven independently scoped Component entries, three active Model entries, and a versioned Benchmark part. The current Components synthesize knowledge about world representation, dynamics, reasoning, generation, fast video inference, action conditioning, and world-model–policy interfaces while preserving entry-specific boundaries and evidence ownership.
 
 ## Authority boundary
 
@@ -43,7 +43,7 @@ flowchart TD
     F --> F4["Data, evaluation, and research frontiers"]
 
     P --> PE["Representative-paper mechanisms, experiments, code, and transfer evidence"]
-    X --> XC["Six component maps: representation, dynamics, reasoning, generation, action conditioning, and policy interfaces"]
+    X --> XC["Seven component maps, including fast video inference"]
     M --> C["Cosmos3-Nano, X-WAM, and Xiaomi-Robotics-1 model knowledge"]
     B --> RB["Original RoboCasa tasks, data, protocol, and evaluator"]
 
@@ -92,7 +92,7 @@ The five content parts are peers:
 |---|---|---|
 | [Foundations](foundations/README.md) | Model-independent concepts, formalisms, representations, objectives, control, embodiment, data, and evaluation | Active; eight semantic subparts |
 | [Papers](papers/README.md) | Paper-specific mechanisms, implementations, experiments, and transfer hypotheses | Seventeen active entries |
-| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Six active entries: World Representation, Dynamics Modeling, Reasoning, Generative Modeling, Action Conditioning, and WM-Policy Interface |
+| [Components](components/README.md) | Independently scoped component knowledge; each entry declares its own representation | Seven active entries, including Fast Video Inference |
 | [Models](models/README.md) | Model-specific architecture, interfaces, learning, evaluation, code, and execution evidence | Cosmos3-Nano, X-WAM, and Xiaomi-Robotics-1 are active |
 | [Benchmarks](benchmarks/README.md) | Versioned tasks, environments, datasets, protocols, evaluators, baselines, and reproduction state | Original RoboCasa is active; RoboCasa365 is outside this entry |
 

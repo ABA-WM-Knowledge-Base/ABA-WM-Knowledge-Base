@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.post-training
 title: Cosmos3-Nano Post-Training and Domain Adaptation
 kind: guide
 status: maintained
-last_updated: 2026-08-11
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -12,11 +12,11 @@ owners:
 
 ## Retrieval metadata
 
-**Relevant queries:** adaptation branch, public SFT recipe, action-interface adaptation, checkpoint conversion or export, specialist training, or domain-specific post-training.
+**Relevant queries:** adaptation branch, public SFT recipe, action-interface adaptation, checkpoint conversion or export, specialist training, distillation, or domain-specific post-training.
 
 **Knowledge provided:** checkpoint branch boundaries, published specialist recipes, trainable groups, conversion paths, adaptation variables, and comparison confounders.
 
-**Related pages:** [Training](training.md) contains foundation objectives; [Data](data.md) contains dataset state; [Policy](policy.md) contains serving I/O; [Evaluation](evaluation.md) contains reported results; [Reproduction](reproduction.md) contains execution state. [Datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md) owns the model-independent data principles used to assess adaptation recipes.
+**Related pages:** [Training](training.md) contains foundation objectives; [Data](data.md) contains dataset state; [Policy](policy.md) contains serving I/O; [Evaluation](evaluation.md) contains reported results; [Reproduction](reproduction.md) contains execution state. [Datasets and supervision](../../foundations/data-and-evaluation/datasets-and-supervision.md) owns the model-independent data principles used to assess adaptation recipes; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns cross-paper acceleration methods whose direct Cosmos3-Nano compatibility remains unverified.
 
 ## 1. Select the branch before selecting a recipe
 

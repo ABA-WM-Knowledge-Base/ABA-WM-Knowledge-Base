@@ -3,7 +3,7 @@ id: world-model-kb.components.generative-modeling.diffusion
 title: Diffusion Generative Modeling
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** The denoising-diffusion mechanism, its sampling and compute trade-offs, its extension to world modeling, and evidence that pixel detail and denoising budget can affect downstream control.
 
-**Related pages:** [Diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic formalism; [video world models](../../foundations/representations/video-world-model.md) owns temporal prediction; [DIAMOND](../../papers/diamond/README.md) owns its released system and experiments.
+**Related pages:** [Diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic formalism; [video world models](../../foundations/representations/video-world-model.md) owns temporal prediction; [Few-Step and One-Step Video Distillation](../fast-video-inference/few-step-distillation.md) owns post-training methods that compress iterative sampling; [DIAMOND](../../papers/diamond/README.md) owns its released system and experiments.
 
 ## Method definition
 

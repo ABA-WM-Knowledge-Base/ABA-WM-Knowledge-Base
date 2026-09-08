@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-08-29
+last_updated: 2026-09-08
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,14 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.5.0 - 2026-09-08
+
+- Added Fast Video Inference as the seventh independently scoped Component and defined its boundary as reducing the inference cost of an already defined video generator, distinct from the generative objective owned by Generative Modeling and from AIBuildAI workflow orchestration.
+- Added the Few-Step and One-Step Video Distillation owner page. It separates sampling steps, NFE, denoising latency, and end-to-end latency; synthesizes VideoLCM, T2V-Turbo, MCM, OSV, DOLLAR, DMD/DMD2, FastVideo, rCM, Phased DMD, TMD, and DUET; and records failure diagnosis, a structured evaluation contract, public implementation status, and Cosmos transfer boundaries.
+- Registered primary paper, official project, and pinned repository identities under the `FVI-*` source family while reusing the existing `P25-DMD2`, `P25-RCM`, and Cosmos-Predict2.5 source identities.
+- Updated global and Component knowledge maps plus reciprocal Generative Modeling, Cosmos3-Nano, and Cosmos-Predict2.5 links. Corrected the stale Components page reference from four to five peer content parts.
+- Extended source-reference validation to recognize the `FVI-*` family without imposing an internal layout or retrieval contract on this or future Components.
 
 ## 1.4.0 - 2026-08-29
 
