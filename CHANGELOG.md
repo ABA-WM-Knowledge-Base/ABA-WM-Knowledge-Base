@@ -12,6 +12,12 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 1.6.0 - 2026-09-08
+
+- Added Training-Free Caching as the second Fast Video Inference owner page, covering cross-timestep, operator, and classifier-free-guidance redundancy; cache-object, refresh, correction, and protection choices; method evolution from DeepCache and PAB through adaptive runtime policies; failure diagnosis; and a cache-specific evaluation contract.
+- Registered primary paper and pinned official-code identities for DeepCache, PAB, FasterCache, TeaCache, AdaCache, MagCache, and EasyCache. Speed claims remain bound to their original model, hardware, sampling, and timing conditions.
+- Added reciprocal links from diffusion, flow matching, few-step distillation, and Cosmos3-Nano runtime pages. Cosmos caching remains an explicit transfer hypothesis rather than a reproduced capability, and the new knowledge does not alter AIBuildAI workflow orchestration.
+
 ## 1.5.0 - 2026-09-08
 
 - Added Fast Video Inference as the seventh independently scoped Component and defined its boundary as reducing the inference cost of an already defined video generator, distinct from the generative objective owned by Generative Modeling and from AIBuildAI workflow orchestration.

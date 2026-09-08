@@ -169,3 +169,129 @@ sources:
     accessed: "2026-09-08"
     retrieval_hint: Use for the high-noise consistency and low-noise DMD expert split, relay distribution correction, diversity-quality measurements, and two-NFE results.
     scope: August 2026 preprint evaluated on Wan2.1-T2V-1.3B; no official code link was found on the checked primary surfaces.
+  - id: FVI-DEEPCACHE-PAPER
+    type: paper
+    title: "DeepCache: Accelerating Diffusion Models for Free"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2312.00858
+    version: arXiv:2312.00858v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for architecture-level feature reuse, U-Net branch selection, image-generation speed and quality evidence, and compatibility claims.
+    scope: The paper evaluates image diffusion; later video integrations belong to the separate repository snapshot.
+  - id: FVI-DEEPCACHE-CODE
+    type: code_repository
+    title: DeepCache official implementation
+    publisher: DeepCache authors
+    canonical_url: https://github.com/horseee/DeepCache
+    revision: 1691a3ab22308fe06685e4ff151a9ab175be2dc4
+    accessed: "2026-09-08"
+    retrieval_hint: Use for implementation hooks and the later Stable Video Diffusion and Text2Video-Zero integration surface.
+    scope: Current repository snapshot; later video support is not retroactive evidence for the original paper experiments.
+  - id: FVI-PAB-PAPER
+    type: paper
+    title: Real-Time Video Generation with Pyramid Attention Broadcast
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2408.12588
+    version: arXiv:2408.12588v3
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the U-shaped attention-difference observation, operator-specific broadcast ranges, PAB ablations, and combined distributed-inference results.
+    scope: Cache-only and PAB-plus-broadcast-sequence-parallel speed claims must remain separated by hardware and configuration.
+  - id: FVI-PAB-CODE
+    type: code_repository
+    title: VideoSys official PAB implementation
+    publisher: NUS HPC-AI Lab
+    canonical_url: https://github.com/NUS-HPC-AI-Lab/VideoSys
+    revision: 4cce477878b0683b5c05cd001ce45ac0e2fc3034
+    accessed: "2026-09-08"
+    retrieval_hint: Use for current PAB schedules, supported video-model integrations, and broadcast sequence parallel implementation.
+    scope: Mutable multi-method video-inference framework inspected at a pinned revision; no local execution is implied.
+  - id: FVI-FASTERCACHE-PAPER
+    type: paper
+    title: "FasterCache: Training-Free Video Diffusion Model Acceleration with High Quality"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2410.19355
+    version: arXiv:2410.19355v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for dynamic feature reuse, conditional–unconditional redundancy, CFG-Cache correction, cache-interval ablations, and protocol-bound latency results.
+    scope: Evaluated video-diffusion configurations; reported ratios are not architecture-independent constants.
+  - id: FVI-FASTERCACHE-CODE
+    type: code_repository
+    title: FasterCache official implementation
+    publisher: FasterCache authors
+    canonical_url: https://github.com/Vchitect/FasterCache
+    revision: 02d05ef7edb48bdec01d2b4df6edfe7f472a41b9
+    accessed: "2026-09-08"
+    retrieval_hint: Use for released Vchitect-2.0, CogVideoX, Mochi, and DynamiCrafter model-specific cache paths.
+    scope: Model-specific inference patches at the pinned revision; feature and guidance semantics must be inspected per integration.
+  - id: FVI-TEACACHE-PAPER
+    type: paper
+    title: "Timestep Embedding Tells: It's Time to Cache for Video Diffusion Model"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2411.19108
+    version: arXiv:2411.19108v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for timestep-embedding-modulated input change, proxy calibration, accumulated thresholds, prompt-adaptive refresh, and VBench evidence.
+    scope: Training-free video-DiT caching; proxy calibration and thresholds remain model and runtime dependent.
+  - id: FVI-TEACACHE-CODE
+    type: code_repository
+    title: TeaCache official implementation
+    publisher: Alibaba Group
+    canonical_url: https://github.com/ali-vilab/TeaCache
+    revision: 7c10efc4702c6b619f47805f7abe4a7a08085aa0
+    accessed: "2026-09-08"
+    retrieval_hint: Use for current model integrations, cached residual hook points, coefficient tables, and threshold configuration.
+    scope: The repository's Cosmos-family integration does not establish support or results for Cosmos3-Nano.
+  - id: FVI-ADACACHE-PAPER
+    type: paper
+    title: Adaptive Caching for Faster Video Generation with Diffusion Transformers
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2411.02397
+    version: arXiv:2411.02397v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for content-adaptive residual caching, representation-change scheduling, Motion Regularization, and matched Open-Sora comparisons.
+    scope: Evaluated on selected video-DiT baselines; extreme-cache artifacts and the effect of MoReg are part of the evidence.
+  - id: FVI-ADACACHE-CODE
+    type: code_repository
+    title: AdaCache official implementation
+    publisher: AdaCache authors
+    canonical_url: https://github.com/AdaCache-DiT/AdaCache
+    revision: 2c6d3ca0320afd1f3ac41ac52673c79c8f6e00a4
+    accessed: "2026-09-08"
+    retrieval_hint: Use for Open-Sora residual-cache configuration, content-adaptive schedules, MoReg, and inference entrypoints.
+    scope: Open-Sora-centered implementation at the pinned revision; no local execution is implied.
+  - id: FVI-MAGCACHE-PAPER
+    type: paper
+    title: "MagCache: Fast Video Generation with Magnitude-Aware Cache"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2506.09045
+    version: arXiv:2506.09045v2
+    accessed: "2026-09-08"
+    retrieval_hint: Use for the residual-magnitude law, multiplicative skip-error modeling, minimal calibration, stage protection, and cross-model evidence.
+    scope: Training-free caching across named video generators; paired fidelity metrics do not alone establish world-model utility.
+  - id: FVI-MAGCACHE-CODE
+    type: code_repository
+    title: MagCache official implementation
+    publisher: MagCache authors
+    canonical_url: https://github.com/Zehong-Ma/MagCache
+    revision: df81cb181776c2c61477c08e1d21f87fda1cd938
+    accessed: "2026-09-08"
+    retrieval_hint: Use for current magnitude-ratio profiles, error thresholds, and supported Open-Sora, HunyuanVideo, Wan, and related integrations.
+    scope: Mutable model-specific integrations inspected at a pinned revision; calibration artifacts are not universal constants.
+  - id: FVI-EASYCACHE-PAPER
+    type: paper
+    title: "Less is Enough: Training-Free Video Diffusion Acceleration via Runtime-Adaptive Caching"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2507.02860
+    version: arXiv:2507.02860v1
+    accessed: "2026-09-08"
+    retrieval_hint: Use for runtime-adaptive transformation-vector caching without offline profiling and for the reported OpenSora, Wan2.1, and HunyuanVideo evidence.
+    scope: Preprint evidence at the pinned version; speed and fidelity claims bind to its declared protocols.
+  - id: FVI-EASYCACHE-CODE
+    type: code_repository
+    title: EasyCache official implementation
+    publisher: EasyCache authors
+    canonical_url: https://github.com/H-EmbodVis/EasyCache
+    revision: bfc63232cfae8c77e2dccf9d72b8f2f56bd995b8
+    accessed: "2026-09-08"
+    retrieval_hint: Use for runtime cache decisions and released OpenSora, Wan2.1, and HunyuanVideo integrations.
+    scope: Model-specific inference implementation at the pinned revision; no local reproduction is implied.

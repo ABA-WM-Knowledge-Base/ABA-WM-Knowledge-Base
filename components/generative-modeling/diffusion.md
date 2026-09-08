@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** The denoising-diffusion mechanism, its sampling and compute trade-offs, its extension to world modeling, and evidence that pixel detail and denoising budget can affect downstream control.
 
-**Related pages:** [Diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic formalism; [video world models](../../foundations/representations/video-world-model.md) owns temporal prediction; [Few-Step and One-Step Video Distillation](../fast-video-inference/few-step-distillation.md) owns post-training methods that compress iterative sampling; [DIAMOND](../../papers/diamond/README.md) owns its released system and experiments.
+**Related pages:** [Diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic formalism; [video world models](../../foundations/representations/video-world-model.md) owns temporal prediction; [Few-Step and One-Step Video Distillation](../fast-video-inference/few-step-distillation.md) owns post-training methods that compress iterative sampling; [Training-Free Caching](../fast-video-inference/caching.md) owns approximate intermediate reuse across iterative evaluations; [DIAMOND](../../papers/diamond/README.md) owns its released system and experiments.
 
 ## Method definition
 
