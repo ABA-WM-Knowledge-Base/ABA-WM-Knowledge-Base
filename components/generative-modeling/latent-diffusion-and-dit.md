@@ -3,7 +3,7 @@ id: world-model-kb.components.generative-modeling.latent-diffusion-and-dit
 title: Latent Diffusion and Diffusion Transformers
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** How latent diffusion changes the representation/compute trade-off, how DiT changes the denoiser backbone and scaling axes, and which image evidence can and cannot transfer to world models.
 
-**Related pages:** [Latent world models](../../foundations/representations/latent-world-model.md) owns the general representation choice; [diffusion](diffusion.md) owns DDPM mechanics; [flow matching](flow-matching-and-rectified-flow.md) owns continuous transport objectives.
+**Related pages:** [Latent world models](../../foundations/representations/latent-world-model.md) owns the general representation choice; [diffusion](diffusion.md) owns DDPM mechanics; [flow matching](flow-matching-and-rectified-flow.md) owns continuous transport objectives; [Sparse, Local, and Linear Attention](../fast-video-inference/efficient-attention.md) owns token-interaction cost, alternative attention operators, and their implementation trade-offs.
 
 ## Latent diffusion factorization
 

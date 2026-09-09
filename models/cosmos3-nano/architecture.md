@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.architecture
 title: Cosmos3-Nano Architecture and Computation Semantics
 kind: reference
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** computation-graph invariants, tower and frontend boundaries, parameter groups, compatibility considerations, implementation anchors, and architecture-level experiment variables.
 
-**Related pages:** [Inference](inference.md) contains runtime references; [Reproduction](reproduction.md) contains observed execution state; [Policy](policy.md) owns the specialized policy interface; [Research registry](research-queue.md) records unresolved architecture questions. Model-independent owners include [latent world models](../../foundations/representations/latent-world-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). Cross-paper method context is owned by [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md), [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md), and [reasoning–generation–action integration](../../components/reasoning/reasoning-generation-action.md).
+**Related pages:** [Inference](inference.md) contains runtime references; [Reproduction](reproduction.md) contains observed execution state; [Policy](policy.md) owns the specialized policy interface; [Research registry](research-queue.md) records unresolved architecture questions. Model-independent owners include [latent world models](../../foundations/representations/latent-world-model.md), [representation learning and JEPA](../../foundations/representations/representation-learning-and-jepa.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). Cross-paper method context is owned by [latent diffusion and DiT](../../components/generative-modeling/latent-diffusion-and-dit.md), [flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md), [reasoning–generation–action integration](../../components/reasoning/reasoning-generation-action.md), and [sparse, local, and linear attention](../../components/fast-video-inference/efficient-attention.md).
 
 ## Canonical model boundaries
 
@@ -91,6 +91,8 @@ Three operational consequences follow:
 3. A Reasoner-only backend may omit Generator, audio, action, and VAE parameters; it therefore cannot recover media generation by changing the prompt.[C3-REASONER-COOKBOOK]
 
 Any intervention that allows AR queries to attend to noisy DM states changes this invariant and should be treated as an architecture experiment, not a routine fine-tuning change.
+
+The pinned implementation distinguishes joint two-way attention from a three-way path that separates Generator self-attention and semantic-context attention. In `cosmos_framework/model/generator/mot/attention.py`, `three_way_attention` accepts NATTEN or FlexAttention metadata, or uses dense self-attention; `dispatch_attention` and `build_packed_sequence` determine the selected path and its metadata. Neighborhood, causal, and packed-sample semantics therefore depend on the resolved configuration, not only on the model name. These code surfaces do not establish a measured sparsity or speedup for a particular Nano checkpoint.[C3-FW, three_way_attention, dispatch_attention, build_packed_sequence]
 
 ### Spatial and temporal positions
 

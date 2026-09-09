@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.generator
 title: Cosmos3-Nano Generator Optimization Reference
 kind: reference
 status: maintained
-last_updated: 2026-09-08
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Generator mechanisms, task surfaces, condition and target semantics, sampling variables, training lineage, failure interpretations, and published evaluation anchors.
 
-**Related pages:** [Reasoner](reasoner.md) covers text output; [Action modeling](action-modeling.md) covers action schemas; [Policy](policy.md) covers DROID control; [Reproduction](reproduction.md) records actual load and run outcomes. Foundation owners cover [video world models](../../foundations/representations/video-world-model.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). [Flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md), [action-conditioned video](../../components/generative-modeling/action-conditioned-video.md), and [omnimodal generation](../../components/generative-modeling/omnimodal-generation.md) own the applicable cross-paper method syntheses; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns learned sampling-cost reduction, while [Training-Free Caching](../../components/fast-video-inference/caching.md) owns intermediate reuse and its transfer evidence boundary.
+**Related pages:** [Reasoner](reasoner.md) covers text output; [Action modeling](action-modeling.md) covers action schemas; [Policy](policy.md) covers DROID control; [Reproduction](reproduction.md) records actual load and run outcomes. Foundation owners cover [video world models](../../foundations/representations/video-world-model.md), [autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md), and [diffusion and flow matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md). [Flow matching and rectified flow](../../components/generative-modeling/flow-matching-and-rectified-flow.md), [action-conditioned video](../../components/generative-modeling/action-conditioned-video.md), and [omnimodal generation](../../components/generative-modeling/omnimodal-generation.md) own the applicable cross-paper method syntheses; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns learned sampling-cost reduction; [Training-Free Caching](../../components/fast-video-inference/caching.md) owns intermediate reuse; [Sparse, Local, and Linear Attention](../../components/fast-video-inference/efficient-attention.md) owns cheaper interactions and attention-specific transfer boundaries.
 
 ## Identity and strict boundaries
 

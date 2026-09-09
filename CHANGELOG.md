@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-09-08
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,12 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.7.0 - 2026-09-09
+
+- Added Sparse, Local, and Linear Attention as the third Fast Video Inference owner page, covering interaction cost, local and dynamic sparse routing, linear and hybrid architectures, training requirements, kernel constraints, controlled comparison evidence, failure diagnosis, and world-model transfer hypotheses.
+- Registered primary paper and pinned official-code identities for the mathematical background, Video Swin, SVG, STA, VSA, SVG2, SANA-Video, and SANA-Video 2.0. Preserved training-free versus adapted variants, kernel versus pipeline timing, archived STA integration, and paper-to-code differences rather than merging them into a single recipe.
+- Updated global and Component maps plus reciprocal distillation, caching, DiT, and Cosmos3-Nano links. Documented the existing Cosmos attention-dispatch surface separately from untested transfer hypotheses; no model execution or workflow-orchestration change is implied.
 
 ## 1.6.0 - 2026-09-08
 

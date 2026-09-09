@@ -1,5 +1,5 @@
 schema_version: 3
-as_of: "2026-09-08"
+as_of: "2026-09-09"
 sources:
   - id: FVI-VIDEOLCM-PAPER
     type: paper
@@ -295,3 +295,121 @@ sources:
     accessed: "2026-09-08"
     retrieval_hint: Use for runtime cache decisions and released OpenSora, Wan2.1, and HunyuanVideo integrations.
     scope: Model-specific inference implementation at the pinned revision; no local reproduction is implied.
+  - id: FVI-FLASHATTN-PAPER
+    type: paper
+    title: "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2205.14135
+    version: arXiv:2205.14135v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for tiled exact attention, online softmax, memory-traffic analysis, and the distinction from approximate block-sparse attention.
+    scope: Exact dense attention reduces IO without removing quadratic pairwise arithmetic.
+  - id: FVI-LINEAR-TRANSFORMER-PAPER
+    type: paper
+    title: "Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention"
+    publisher: PMLR
+    canonical_url: https://proceedings.mlr.press/v119/katharopoulos20a.html
+    version: "ICML 2020; PMLR 119:5156-5165"
+    accessed: "2026-09-09"
+    retrieval_hint: Use for normalized kernel attention, associative evaluation, fixed-width state, and causal recurrence.
+    scope: Mathematical antecedent; not an experimental result for video generation or a softmax-preserving replacement.
+  - id: FVI-VIDEO-SWIN-PAPER
+    type: paper
+    title: Video Swin Transformer
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2106.13230
+    version: arXiv:2106.13230v1
+    accessed: "2026-09-09"
+    retrieval_hint: Use for three-dimensional shifted windows, hierarchical spatial merging, and local cross-window communication.
+    scope: Video-recognition architecture; recognition accuracy does not establish diffusion-generation fidelity.
+  - id: FVI-VIDEO-SWIN-CODE
+    type: code_repository
+    title: Video Swin Transformer official implementation
+    publisher: Video Swin Transformer authors
+    canonical_url: https://github.com/SwinTransformer/Video-Swin-Transformer
+    revision: db018fb8896251711791386bbd2127562fd8d6a6
+    accessed: "2026-09-09"
+    retrieval_hint: Use for WindowAttention3D, SwinTransformerBlock3D, window partitioning, masks, and shifts in mmaction/models/backbones/swin_transformer.py.
+    scope: Pinned recognition implementation; no local execution or generative-model integration is implied.
+  - id: FVI-SVG-PAPER
+    type: paper
+    title: "Sparse VideoGen: Accelerating Video Diffusion Transformers with Spatial-Temporal Sparsity"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2502.01776
+    version: arXiv:2502.01776v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for online head-pattern selection, sampled-query error estimates, spatial/temporal kernels, and model-specific latency evidence.
+    scope: Distinguish ordinary SVG from SVG plus FP8 and from ancillary kernel optimizations in the full system.
+  - id: FVI-SVG-CODE
+    type: code_repository
+    title: Sparse VideoGen official shared implementation
+    publisher: Sparse VideoGen authors
+    canonical_url: https://github.com/svg-project/Sparse-VideoGen
+    revision: f89aedaf169ac2ae5b186bda674e53c3dc08c476
+    accessed: "2026-09-09"
+    retrieval_hint: Use for method-specific SVG and SVG2 routing, model attention patches, and cosmos_t2v_inference.py.
+    scope: Shared multi-method repository; its Cosmos-1.0 integration is not evidence for Cosmos3-Nano support.
+  - id: FVI-STA-PAPER
+    type: paper
+    title: Fast Video Generation with Sliding Tile Attention
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2502.04507
+    version: arXiv:2502.04507v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for query-tile neighborhoods, GPU-block alignment, training-free window profiling, fine-tuning, and separate kernel/generation timing.
+    scope: Version-specific latency evidence; the generation timing region excludes VAE and text encoder.
+  - id: FVI-STA-ARCHIVE-CODE
+    type: code_repository
+    title: FastVideo archived Sliding Tile Attention integration
+    publisher: Hao AI Lab
+    canonical_url: https://github.com/hao-ai-lab/FastVideo
+    revision: e4de77692fafde5c9c87debcf317ca0cfd77138c
+    version: sta_do_not_delete branch snapshot
+    accessed: "2026-09-09"
+    retrieval_hint: Use for complete STA mask-search and inference integration, including examples/inference/sta_mask_search/inference_wan_sta.sh.
+    scope: Separate archived snapshot from the main-branch FVI-FASTVIDEO-CODE identity; no local kernel execution is implied.
+  - id: FVI-VSA-PAPER
+    type: paper
+    title: Faster Video Diffusion with Trainable Sparse Attention
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2505.13389
+    version: arXiv:2505.13389v5
+    accessed: "2026-09-09"
+    retrieval_hint: Use for pooled coarse attention, top-k fine tiles, gated outputs, native training, and matched dense-to-sparse adaptation controls.
+    scope: Coarse and fine costs both matter; the dense-coverage expression in Section 2.3 is interpreted against block counting and released code.
+  - id: FVI-SVG2-PAPER
+    type: paper
+    title: "Sparse VideoGen2: Accelerate Video Generation with Sparse Attention via Semantic-Aware Permutation"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2505.18875
+    version: arXiv:2505.18875v5
+    accessed: "2026-09-09"
+    retrieval_hint: Use for query/key clustering, semantic permutation, cluster-size-aware top-p selection, variable-size blocks, and warm-start overhead.
+    scope: Training-free content-adaptive routing, distinct from SVG's finite spatial/temporal candidate patterns.
+  - id: FVI-SANA-VIDEO-PAPER
+    type: paper
+    title: "SANA-Video: Efficient Video Generation with Block Linear Diffusion Transformer"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2509.24695
+    version: arXiv:2509.24695v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for ReLU linear attention, video positions, temporal Mix-FFN, and LongSANA block-causal state.
+    scope: Original SANA-Video architecture and system results; not the later SANA-Video 2.0 hybrid design.
+  - id: FVI-SANA-VIDEO2-PAPER
+    type: paper
+    title: "SANA-Video 2.0: Hybrid Linear Attention with Attention Residuals for Efficient Video Generation"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2607.21553
+    version: arXiv:2607.21553v1
+    accessed: "2026-09-09"
+    retrieval_hint: Use for gated linear/full-attention interleaving, Block Attention Residuals, matched backbone comparisons, and combined serving optimizations.
+    scope: Hybrid architecture retains a quadratic dense-layer term; full-stack speed is not solely attributable to attention.
+  - id: FVI-SANA-CODE
+    type: code_repository
+    title: Sana official video-model implementation
+    publisher: NVIDIA Research
+    canonical_url: https://github.com/NVlabs/Sana
+    revision: cc99e6546f5d4164155838e73bc6f5636b2a2d5f
+    accessed: "2026-09-09"
+    retrieval_hint: Use for docs/sana_video.md, docs/sana_video2.md, linear and hybrid blocks, LongSANA state, and released checkpoint/config boundaries.
+    scope: Shared versioned implementation; SANA-Video 2.0 5B release and pending 14B assets are distinct, as are paper and code normalization formulas.

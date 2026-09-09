@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference.few-step-distillation
 title: Few-Step and One-Step Video Distillation
 kind: component
 status: maintained
-last_updated: 2026-09-08
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** A causal account of the main video-distillation paradigms and their evolution; normalized cost semantics; evidence-bound comparisons; failure diagnosis; implementation availability; and transfer hypotheses for video world models and Cosmos-family generators.
 
-**Related pages:** [Training-Free Caching](caching.md) owns intermediate reuse without learned student weights; [Diffusion and Flow Matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the generic objectives; [Flow Matching and Rectified Flow](../generative-modeling/flow-matching-and-rectified-flow.md) owns path geometry and numerical solvers; [Generative Method Comparison](../generative-modeling/comparison-and-optimization.md) owns broader generator-family selection; [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) owns its report-era rCM result and current code boundary; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the later target architecture.
+**Related pages:** [Training-Free Caching](caching.md) owns intermediate reuse without learned student weights; [Sparse, Local, and Linear Attention](efficient-attention.md) owns attention-cost reduction, including VSA combined with distillation; [Diffusion and Flow Matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns the generic objectives; [Flow Matching and Rectified Flow](../generative-modeling/flow-matching-and-rectified-flow.md) owns path geometry and numerical solvers; [Generative Method Comparison](../generative-modeling/comparison-and-optimization.md) owns broader generator-family selection; [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) owns its report-era rCM result and current code boundary; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the later target architecture.
 
 ## Scope and operating definition
 

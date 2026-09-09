@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference
 title: Fast Video Inference
 kind: component
 status: maintained
-last_updated: 2026-09-08
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -12,9 +12,9 @@ owners:
 
 ## Retrieval metadata
 
-**Relevant queries:** accelerate video generation, reduce diffusion or flow sampling cost, one-step video, few-step video, distillation, training-free caching, feature reuse, inference latency, denoising NFE, real-time world-model rollout.
+**Relevant queries:** accelerate video generation, reduce diffusion or flow sampling cost, one-step video, few-step video, distillation, training-free caching, feature reuse, sparse attention, local attention, linear attention, inference latency, denoising NFE, real-time world-model rollout.
 
-**Knowledge provided:** A compute-oriented map of learned step reduction and training-free intermediate reuse, with explicit distinctions among sampling steps, neural-network evaluations, executed operator cost, denoising time, and end-to-end latency.
+**Knowledge provided:** A compute-oriented map of learned step reduction, training-free intermediate reuse, and cheaper attention interactions, with explicit distinctions among sampling steps, neural-network evaluations, executed operator cost, denoising time, and end-to-end latency.
 
 **Related pages:** [Generative Modeling](../generative-modeling/README.md) owns how future distributions are represented and learned; [Flow Matching and Rectified Flow](../generative-modeling/flow-matching-and-rectified-flow.md) owns continuous-transport mathematics and solver behavior; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the concrete target architecture and checkpoint boundaries; [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) owns that work's rCM result and released-code mismatch.
 
@@ -28,12 +28,13 @@ Few-step distillation is a post-training intervention: it learns new student wei
 
 ## Knowledge map
 
-The current entry contains two canonical syntheses:
+The current entry contains three canonical syntheses:
 
 | Page | Knowledge owned |
 |---|---|
 | [Few-Step and One-Step Distillation](few-step-distillation.md) | cost semantics; consistency, distribution-matching, adversarial, reward-guided, phased, expert, and transition-matching methods; historical evidence; failure diagnosis; evaluation contract; public implementation state; and Cosmos transfer boundaries |
 | [Training-Free Caching](caching.md) | cross-timestep and cross-branch redundancy; cached objects, refresh policies, and correction; DeepCache-to-runtime-adaptive method evolution; failure diagnosis; evaluation contract; public implementations; and Cosmos transfer boundaries |
+| [Sparse, Local, and Linear Attention](efficient-attention.md) | token-interaction cost; geometric, content-adaptive, linear, and hybrid mechanisms; training and kernel requirements; controlled speed/quality evidence; failure diagnosis; and Cosmos implementation and transfer boundaries |
 
 Additional acceleration families can be added as independent owner pages when their evidence is curated. The entry does not assume that every future page must use the structure of the current distillation synthesis.
 
