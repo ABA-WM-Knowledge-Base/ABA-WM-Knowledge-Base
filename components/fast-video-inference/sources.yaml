@@ -413,3 +413,111 @@ sources:
     accessed: "2026-09-09"
     retrieval_hint: Use for docs/sana_video.md, docs/sana_video2.md, linear and hybrid blocks, LongSANA state, and released checkpoint/config boundaries.
     scope: Shared versioned implementation; SANA-Video 2.0 5B release and pending 14B assets are distinct, as are paper and code normalization formulas.
+  - id: FVI-VIDEOGPT-PAPER
+    type: paper
+    title: "VideoGPT: Video Generation using VQ-VAE and Transformers"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2104.10157
+    version: arXiv:2104.10157v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for discrete video codes, autoregressive priors, and codec-capacity ablations.
+    scope: Historical video prediction, not a real-time streaming benchmark.
+  - id: FVI-VIDEOGPT-CODE
+    type: code_repository
+    title: VideoGPT official reference implementation
+    publisher: VideoGPT authors
+    canonical_url: https://github.com/wilson1yan/VideoGPT
+    revision: 856c282a8078ee8c3e9db7196799455a2b6ad084
+    accessed: "2026-09-09"
+    retrieval_hint: Use for videogpt/gpt.py token sampling, frozen codec, and decode boundary.
+    scope: Simplified reference; README links separate full-paper reproduction code.
+  - id: FVI-STREAMINGT2V-PAPER
+    type: paper
+    title: "StreamingT2V: Consistent, Dynamic, and Extendable Long Video Generation from Text"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2403.14773
+    version: arXiv:2403.14773v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for CAM, APM, overlapping refinement, and consistency/motion evidence.
+    scope: Long-video continuation does not establish real-time delivery.
+  - id: FVI-STREAMINGT2V-CODE
+    type: code_repository
+    title: StreamingT2V official implementation
+    publisher: Picsart AI Research
+    canonical_url: https://github.com/Picsart-AI-Research/StreamingT2V
+    revision: 411f00d554c8561352854330621b2ac2b83bd4f0
+    accessed: "2026-09-09"
+    retrieval_hint: Use for code/inference_i2v.py continuation, enhancement, and interpolation stages.
+    scope: Source-inspected release; entrypoint behavior is separate from paper-wide capability.
+  - id: FVI-DF-PAPER
+    type: paper
+    title: "Diffusion Forcing: Next-token Prediction Meets Full-Sequence Diffusion"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2407.01392
+    version: arXiv:2407.01392v4
+    accessed: "2026-09-09"
+    retrieval_hint: Use for independent token noise, causal recurrence, rollout stabilization, and planning.
+    scope: Original RNN experiments; not every later Diffusion Forcing variant.
+  - id: FVI-DF-CODE
+    type: code_repository
+    title: Diffusion Forcing maintained official implementation
+    publisher: Diffusion Forcing authors
+    canonical_url: https://github.com/buoyancy99/diffusion-forcing
+    revision: 475e0bcab87545e48b24b39fb46a81fe59d80594
+    accessed: "2026-09-09"
+    retrieval_hint: Use for df_base.py scheduling matrices, chunk size, and main-versus-paper branch differences.
+    scope: Pinned main uses temporal attention; original RNN reproduction belongs to the paper branch.
+  - id: FVI-CAUSVID-PAPER
+    type: paper
+    title: From Slow Bidirectional to Fast Autoregressive Video Diffusion Models
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2412.07772
+    version: arXiv:2412.07772v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for asymmetric distillation, clean-history cache commit, and Table 3 timing.
+    scope: Four-step paper system, distinct from released Wan examples.
+  - id: FVI-CAUSVID-CODE
+    type: code_repository
+    title: CausVid official Wan implementation
+    publisher: CausVid authors
+    canonical_url: https://github.com/tianweiy/CausVid
+    revision: adb6a5ecd07666b4d0290042915c8406e6d5ce22
+    accessed: "2026-09-09"
+    retrieval_hint: Use for causal_inference.py, wan_causal_dmd.yaml, and minimal inference entrypoints.
+    scope: Wan1.3B three-step example and MixKit recipe; not original paper reproduction.
+  - id: FVI-SKYREELS2-PAPER
+    type: paper
+    title: "SkyReels-V2: Infinite-length Film Generative Model"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2504.13074
+    version: arXiv:2504.13074v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for progressive noise schedules and the distinction from optional causal fine-tuning.
+    scope: Extendability, noise scheduling, and full-system optimizations are different claims.
+  - id: FVI-SKYREELS2-CODE
+    type: code_repository
+    title: SkyReels-V2 official inference implementation
+    publisher: Skywork AI
+    canonical_url: https://github.com/SkyworkAI/SkyReels-V2
+    revision: 9351d13152207cc04de780e055346b08ade0b851
+    accessed: "2026-09-09"
+    retrieval_hint: Use for diffusion_forcing_pipeline.py scheduling, overlap, and release caveats.
+    scope: Asynchronous mode may be slower; unreleased distilled weights are not inferred from paper claims.
+  - id: FVI-SELF-FORCING-PAPER
+    type: paper
+    title: "Self Forcing: Bridging the Train-Test Gap in Autoregressive Video Diffusion"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2506.08009
+    version: arXiv:2506.08009v2
+    accessed: "2026-09-09"
+    retrieval_hint: Use for self-rollout training, truncated gradients, rolling cache, and latency/throughput controls.
+    scope: Paper measurements bind to its Wan1.3B/H100 configuration.
+  - id: FVI-SELF-FORCING-CODE
+    type: code_repository
+    title: Self Forcing official implementation
+    publisher: Self Forcing authors
+    canonical_url: https://github.com/guandeh17/Self-Forcing
+    revision: 33593df3e81fa3ec10239271dd2c100facac6de1
+    accessed: "2026-09-09"
+    retrieval_hint: Use for training rollout, causal inference, cache retention, and demo-specific optimizations.
+    scope: CLI and interactive-demo output paths differ; no local execution is implied.

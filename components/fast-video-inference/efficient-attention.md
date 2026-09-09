@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Attention cost and information-flow trade-offs; local, dynamic sparse, and linear mechanisms; training and kernel requirements; controlled comparison criteria; failure diagnosis; and implementation-grounded transfer hypotheses for video world models.
 
-**Related pages:** [Latent Diffusion and DiT](../generative-modeling/latent-diffusion-and-dit.md) owns codec and denoiser architecture; [Few-Step Distillation](few-step-distillation.md) owns learned sampling-step reduction; [Caching](caching.md) owns approximate reuse across denoising evaluations; [Cosmos3-Nano Architecture](../../models/cosmos3-nano/architecture.md) owns tower visibility, grouped-query attention, positions, and modality contracts.
+**Related pages:** [Latent Diffusion and DiT](../generative-modeling/latent-diffusion-and-dit.md) owns codec and denoiser architecture; [Few-Step Distillation](few-step-distillation.md) owns learned sampling-step reduction; [Caching](caching.md) owns approximate reuse across denoising evaluations; [Cosmos3-Nano Architecture](../../models/cosmos3-nano/architecture.md) owns tower visibility, grouped-query attention, positions, and modality contracts. [Causal and Streaming Generation](causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency.
 
 ## The bottleneck: interactions within a forward pass
 

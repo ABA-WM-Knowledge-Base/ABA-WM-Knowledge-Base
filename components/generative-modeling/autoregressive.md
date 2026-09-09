@@ -3,7 +3,7 @@ id: world-model-kb.components.generative-modeling.autoregressive
 title: Autoregressive and Recurrent Generative Modeling
 kind: component
 status: maintained
-last_updated: 2026-08-19
+last_updated: 2026-09-09
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Causal and recurrent factorizations for future prediction, continuous-latent versus discrete-token implementations, their optimization and inference properties, and their world-model evidence.
 
-**Related pages:** [Autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md) owns the general likelihood factorization; [latent world models](../../foundations/representations/latent-world-model.md) owns codec choices; [iVideoGPT](../../papers/ivideogpt/README.md) owns system-specific evidence.
+**Related pages:** [Autoregressive modeling](../../foundations/learning-objectives/autoregressive-modeling.md) owns the general likelihood factorization; [latent world models](../../foundations/representations/latent-world-model.md) owns codec choices; [iVideoGPT](../../papers/ivideogpt/README.md) owns system-specific evidence. [Causal and Streaming Generation](../fast-video-inference/causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency.
 
 ## Method definition
 
@@ -90,7 +90,7 @@ An autoregressive model can achieve good likelihood by predicting common continu
 
 ## Cosmos3-Nano connection
 
-Cosmos3-Nano Reasoner is autoregressive for language and visual context, but Generator media/action output is rectified-flow rather than autoregressive code decoding. Autoregressive lessons apply to the semantic context stream, sequence layout, cache, and exposure behavior; they must not be assigned to the Generator's continuous sampling objective. [C3-TR, pp. 8–13]
+Cosmos3-Nano Reasoner uses autoregressive language modeling, while Generator models continuous media/action outputs with rectified flow rather than categorical video-code prediction. Temporal factorization and within-block sampling are different axes: rectified flow can model each conditional of a block-autoregressive generator. The pinned Framework exposes temporal-causal configuration and per-frame Diffusion Forcing training; those hooks do not prove that a particular Nano checkpoint supports a ready-to-use streaming path. See [causal and streaming generation](../fast-video-inference/causal-streaming.md) for the source-level evidence and transfer boundaries. [C3-TR, pp. 8–13; C3-FW, cosmos_framework/model/generator/omni_mot_model.py]
 
 The cross-method interface is developed in [omnimodal generation](omnimodal-generation.md) and [comparison and optimization](comparison-and-optimization.md).
 

@@ -12,6 +12,12 @@ owners:
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
 
+## 1.8.0 - 2026-09-09
+
+- Added Causal and Streaming Video Generation as the fourth Fast Video Inference owner page: temporal factorization, noise schedules, chunk boundaries, history-state validity, rollout training, latency accounting, failure diagnosis, and action-conditioned transfer hypotheses.
+- Registered six primary-paper and six pinned official-code identities for VideoGPT, StreamingT2V, Diffusion Forcing, CausVid, SkyReels-V2, and Self Forcing. Preserved paper/release differences and distinguished internal autoregression from incremental output and measured real-time performance.
+- Updated Component and global retrieval maps plus reciprocal acceleration and Cosmos links. Corrected the implication that rectified-flow sampling excludes temporal autoregression; documented existing Framework causal-training, sequence-packing, and Transfer-continuation hooks without claiming Nano streaming reproduction or changing AIBuildAI orchestration.
+
 ## 1.7.0 - 2026-09-09
 
 - Added Sparse, Local, and Linear Attention as the third Fast Video Inference owner page, covering interaction cost, local and dynamic sparse routing, linear and hybrid architectures, training requirements, kernel constraints, controlled comparison evidence, failure diagnosis, and world-model transfer hypotheses.
