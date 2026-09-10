@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.inference
 title: Cosmos3-Nano Inference Knowledge Guide
 kind: guide
 status: maintained
-last_updated: 2026-09-09
+last_updated: 2026-09-10
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** documented backend options, reference configurations, resource observations, command examples, artifact fields, and failure interpretations. These references do not select tools or authorize execution.
 
-**Related pages:** [Reproduction](reproduction.md) records whether a path actually ran; [Evaluation](evaluation.md) interprets model quality; [Optimization reference](optimization-playbook.md) collects experiment-design patterns; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns the cross-paper distinction among step count, NFE, denoising time, and end-to-end latency; [Training-Free Caching](../../components/fast-video-inference/caching.md) owns executed-operator reuse, cache overhead, and paired cached-versus-uncached evaluation; [Sparse, Local, and Linear Attention](../../components/fast-video-inference/efficient-attention.md) owns attention backend constraints, routing overhead, and matched operator-to-pipeline timing. [Causal and Streaming Generation](../../components/fast-video-inference/causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency.
+**Related pages:** [Reproduction](reproduction.md) records whether a path actually ran; [Evaluation](evaluation.md) interprets model quality; [Optimization reference](optimization-playbook.md) collects experiment-design patterns; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns the cross-paper distinction among step count, NFE, denoising time, and end-to-end latency; [Training-Free Caching](../../components/fast-video-inference/caching.md) owns executed-operator reuse, cache overhead, and paired cached-versus-uncached evaluation; [Sparse, Local, and Linear Attention](../../components/fast-video-inference/efficient-attention.md) owns attention backend constraints, routing overhead, and matched operator-to-pipeline timing. [Causal and Streaming Generation](../../components/fast-video-inference/causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](../../components/fast-video-inference/quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention.
 
 ## Backend capability map
 

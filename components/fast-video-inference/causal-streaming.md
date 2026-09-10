@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference.causal-streaming
 title: Causal and Streaming Video Generation
 kind: component
 status: maintained
-last_updated: 2026-09-09
+last_updated: 2026-09-10
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Temporal factorization, output availability, history-state validity, training–inference mismatch, latency–quality trade-offs, implementation boundaries, and testable transfer hypotheses for action-conditioned prediction.
 
-**Related pages:** [Autoregressive Modeling](../generative-modeling/autoregressive.md) owns generic sequence modeling; [Few-Step Distillation](few-step-distillation.md) owns learned denoising-step reduction; [Caching](caching.md) owns approximate intermediate reuse; [Efficient Attention](efficient-attention.md) owns interaction cost and linear-state alternatives; [Action-Conditioned Video](../generative-modeling/action-conditioned-video.md) and [World Model to Policy Interface](../wm-policy-interface/README.md) own action semantics and decision use.
+**Related pages:** [Autoregressive Modeling](../generative-modeling/autoregressive.md) owns generic sequence modeling; [Few-Step Distillation](few-step-distillation.md) owns learned denoising-step reduction; [Caching](caching.md) owns approximate intermediate reuse; [Efficient Attention](efficient-attention.md) owns interaction cost and linear-state alternatives; [Action-Conditioned Video](../generative-modeling/action-conditioned-video.md) and [World Model to Policy Interface](../wm-policy-interface/README.md) own action semantics and decision use. [Video Diffusion Quantization](quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention.
 
 ## Problem: when a prediction becomes usable
 

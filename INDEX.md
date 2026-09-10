@@ -3,7 +3,7 @@ id: world-model-kb.index
 title: Knowledge Base Topic Index
 kind: index
 status: maintained
-last_updated: 2026-09-09
+last_updated: 2026-09-10
 owners:
   - AIBuildAI world-model group
 ---
@@ -51,7 +51,7 @@ The seven current Components compare how related method families address a capab
 | Dynamics Modeling | Recurrent latent, decoder-free latent, observation-space, occupancy/ego, and joint multimodal transitions | [Method map](components/dynamics-modeling/README.md) |
 | Reasoning for World Models | Latent simulation, imagined behavior learning, predictive representation, explicit physical reasoning, and reasoning–generation coupling | [Method map](components/reasoning/README.md) |
 | Generative Modeling | Autoregressive prediction, diffusion, latent compression, Transformer scaling, flow matching, MeanFlow, Pixel MeanFlow, interactive video, action conditioning, and omnimodal generation | [Method map](components/generative-modeling/README.md) |
-| Fast Video Inference | Learned step reduction, intermediate caching, efficient attention, and causal/streaming generation; latency–quality trade-offs and implementation boundaries | [Knowledge map](components/fast-video-inference/README.md) |
+| Fast Video Inference | Learned step reduction, intermediate caching, efficient attention, causal/streaming generation, and quantization; latency–quality trade-offs and implementation boundaries | [Knowledge map](components/fast-video-inference/README.md) |
 | Action Representation and Conditioning | Action representation routes, latent-frame injection, joint denoising schedules, latent and pseudo-actions, and future-prediction coupling | [Method map](components/action-conditioning/README.md) |
 | World Model to Policy Interface | Offline synthetic trajectories, rollout selection and evaluation, deployment boundaries, and the reasoner-to-policy evidence gap | [Method map](components/wm-policy-interface/README.md) |
 

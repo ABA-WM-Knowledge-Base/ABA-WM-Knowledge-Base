@@ -1,5 +1,5 @@
 schema_version: 3
-as_of: "2026-09-09"
+as_of: "2026-09-10"
 sources:
   - id: FVI-VIDEOLCM-PAPER
     type: paper
@@ -521,3 +521,82 @@ sources:
     accessed: "2026-09-09"
     retrieval_hint: Use for training rollout, causal inference, cache retention, and demo-specific optimizations.
     scope: CLI and interactive-demo output paths differ; no local execution is implied.
+  - id: FVI-VIDITQ-PAPER
+    type: paper
+    title: "ViDiT-Q: Efficient and Accurate Quantization of Diffusion Transformers for Image and Video Generation"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2406.02540
+    version: arXiv:2406.02540v3
+    accessed: "2026-09-10"
+    scope: Distribution-aware scales, rotations, mixed precision, and hardware measurements.
+  - id: FVI-QVDIT-PAPER
+    type: paper
+    title: "Q-VDiT: Towards Accurate Quantization and Distillation of Video-Generation Diffusion Transformers"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2505.22167
+    version: arXiv:2505.22167v1
+    accessed: "2026-09-10"
+    scope: Temporal correction and calibration distillation; not sampling-step reduction.
+  - id: FVI-S2QVDIT-PAPER
+    type: paper
+    title: "S²Q-VDiT: Accurate Quantized Video Diffusion Transformer with Salient Data and Sparse Token Distillation"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2508.04016
+    version: arXiv:2508.04016v4
+    accessed: "2026-09-10"
+    scope: Salient calibration samples and token-weighted reconstruction; sparse supervision differs from sparse inference.
+  - id: FVI-QUANTSPARSE-PAPER
+    type: paper
+    title: "QuantSparse: Comprehensively Compressing Video Diffusion Transformer with Model Quantization and Attention Sparsification"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2509.23681
+    version: arXiv:2509.23681v4
+    accessed: "2026-09-10"
+    scope: Joint attention distillation and second-order residual correction; density and refresh trade-offs.
+  - id: FVI-6BIT-PAPER
+    type: paper
+    title: "6Bit-Diffusion: Inference-Time Mixed-Precision Quantization for Video Diffusion Models"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2603.18742
+    version: arXiv:2603.18742v1
+    accessed: "2026-09-10"
+    scope: Mixed NVFP4/INT8 execution and caching; average bits are not a native dtype.
+  - id: FVI-VIDITQ-CODE
+    type: code_repository
+    title: ViDiT-Q official implementation
+    publisher: ViDiT-Q authors
+    canonical_url: https://github.com/thu-nics/ViDiT-Q
+    revision: 43657d11b32192ec0f50f0dac8d3a16c3d841196
+    accessed: "2026-09-10"
+    scope: Separate simulation, CUDA-extension execution, and precomputed text embeddings.
+  - id: FVI-QVDIT-CODE
+    type: code_repository
+    title: Q-VDiT official implementation
+    publisher: Q-VDiT authors
+    canonical_url: https://github.com/wlfeng0509/Q-VDiT
+    revision: 83fa54fbd67d831c8d8c7769406775d8006efffa
+    accessed: "2026-09-10"
+    scope: OpenSora v1.0 release; inspected quantizers dequantize for floating-point linear execution.
+  - id: FVI-S2QVDIT-CODE
+    type: code_repository
+    title: S2Q-VDiT official repository
+    publisher: S2Q-VDiT authors
+    canonical_url: https://github.com/wlfeng0509/S2Q-VDiT
+    revision: c1c5fd8c3e3eb8b13baf5d9e50616f547be44d98
+    accessed: "2026-09-10"
+    scope: README/assets placeholder; calibration and inference code not present at this revision.
+  - id: FVI-QUANTSPARSE-CODE
+    type: code_repository
+    title: QuantSparse official repository
+    publisher: QuantSparse authors
+    canonical_url: https://github.com/wlfeng0509/QuantSparse
+    revision: 99beb08670ecc58474d4ba26d3cbb49878e6df47
+    accessed: "2026-09-10"
+    scope: README/assets placeholder; runtime correction and kernels not present at this revision.
+  - id: FVI-NVIDIA-NVFP4-DOC
+    type: official_blog
+    title: Introducing NVFP4 for Efficient and Accurate Low-Precision Inference
+    publisher: NVIDIA
+    canonical_url: https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/
+    accessed: "2026-09-10"
+    scope: NVFP4 format, block and tensor scaling, and Blackwell hardware context; not Cosmos quantization validation.

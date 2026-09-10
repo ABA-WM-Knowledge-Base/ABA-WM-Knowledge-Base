@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-09-09
+last_updated: 2026-09-10
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,12 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.9.0 - 2026-09-10
+
+- Added Video Diffusion Quantization as the fifth Fast Video Inference owner page, covering numerical formats, calibration, five method families, error diagnosis, deployment evidence, and world-model transfer hypotheses.
+- Registered five paper identities, four pinned official repositories, and NVIDIA format documentation. Distinguished simulated quantization from native execution, placeholder repositories from released implementations, and mixed-format average-bit accounting from a native six-bit format.
+- Updated retrieval maps and reciprocal acceleration/Cosmos links while preserving the existing BF16 checkpoint boundary and AIBuildAI orchestration ownership.
 
 ## 1.8.0 - 2026-09-09
 
