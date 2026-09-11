@@ -3,7 +3,7 @@ id: world-model-kb.models.cosmos3-nano.inference
 title: Cosmos3-Nano Inference Knowledge Guide
 kind: guide
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** documented backend options, reference configurations, resource observations, command examples, artifact fields, and failure interpretations. These references do not select tools or authorize execution.
 
-**Related pages:** [Reproduction](reproduction.md) records whether a path actually ran; [Evaluation](evaluation.md) interprets model quality; [Optimization reference](optimization-playbook.md) collects experiment-design patterns; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns the cross-paper distinction among step count, NFE, denoising time, and end-to-end latency; [Training-Free Caching](../../components/fast-video-inference/caching.md) owns executed-operator reuse, cache overhead, and paired cached-versus-uncached evaluation; [Sparse, Local, and Linear Attention](../../components/fast-video-inference/efficient-attention.md) owns attention backend constraints, routing overhead, and matched operator-to-pipeline timing. [Causal and Streaming Generation](../../components/fast-video-inference/causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](../../components/fast-video-inference/quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention.
+**Related pages:** [Reproduction](reproduction.md) records whether a path actually ran; [Evaluation](evaluation.md) interprets model quality; [Optimization reference](optimization-playbook.md) collects experiment-design patterns; [Few-Step and One-Step Video Distillation](../../components/fast-video-inference/few-step-distillation.md) owns the cross-paper distinction among step count, NFE, denoising time, and end-to-end latency; [Training-Free Caching](../../components/fast-video-inference/caching.md) owns executed-operator reuse, cache overhead, and paired cached-versus-uncached evaluation; [Sparse, Local, and Linear Attention](../../components/fast-video-inference/efficient-attention.md) owns attention backend constraints, routing overhead, and matched operator-to-pipeline timing. [Causal and Streaming Generation](../../components/fast-video-inference/causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](../../components/fast-video-inference/quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention. [Parallel and Distributed Inference](../../components/fast-video-inference/parallel-distributed-inference.md) owns partition choices, communication, scaling, and topology-dependent trade-offs.
 
 ## Backend capability map
 
@@ -284,6 +284,24 @@ For OOM, diagnose in order:
 4. apply documented sharding or guardrail offload;
 5. separate compile failure from capacity failure;
 6. move to a suitable runner rather than weakening the model identity or success contract.
+
+## Distributed Framework configuration
+
+The pinned Framework already implements weight sharding, context parallelism, and CFG parallelism. Its inference guide describes the following configuration boundaries; they are code/documentation evidence rather than a local multi-GPU benchmark.
+
+| Surface | Pinned behavior | Interpretation |
+|---|---|---|
+| `--parallelism-preset=throughput` | Defaults to FSDP across visible ranks, with context/CFG degrees one | A sharded replica processes a batch; the preset name does not mean independent full-model replicas. |
+| `--parallelism-preset=latency` | Selects context/CFG parallelism; the guide additionally specifies `--dp-shard-size=1` for multi-GPU use | Resolved mesh and weight residency determine capacity and latency; the preset alone is insufficient evidence. |
+| `--dp-shard-size` / `--dp-replicate-size` | Configure model sharding/replication dimensions | Shards reduce persistent weight residency but still need room for materialization, activations, and other modules. |
+| `--cp-size` / `--cfgp-size` | Override context and guidance dimensions | Compatibility depends on actual mode, head layout, world size, and guidance computation. |
+| Omni `tp_size` | Suppressed at one and labeled unsupported in `OmniSetupOverrides` | Generic tensor-parallel advice or a Reasoner runtime's TP flag does not establish Omni TP support. |
+
+[C3-FW-INFERENCE, Parallelism Arguments; C3-FW-ARGS, OmniSetupOverrides and OmniSetupArgs._validate_parallelism.]
+
+In `cosmos_framework/model/generator/mot/parallelize_unified_mot.py`, `ContextParallelDispatch` delegates to `context_parallel_attention`. The latter redistributes sequence shards into local heads, preserves understanding/generation packing, and handles K/V-head repetition subject to divisibility checks. A separate replicated-attention-I/O path has its own head constraints. These distinctions matter when estimating memory or replacing attention backends. [C3-FW, ContextParallelDispatch, context_parallel_attention.]
+
+The [Parallel and Distributed Inference synthesis](../../components/fast-video-inference/parallel-distributed-inference.md) owns topology trade-offs, scaling metrics, and cross-paper selection reasoning. Existing native parallel code does not establish PipeFusion/xDiT integration or measured Nano scaling.
 
 ## Route F: Policy-DROID service
 

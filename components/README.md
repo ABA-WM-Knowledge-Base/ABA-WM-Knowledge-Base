@@ -3,7 +3,7 @@ id: world-model-kb.components
 title: World Model Components
 kind: index
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -34,7 +34,7 @@ Component knowledge can inform model diagnosis, intervention design, and experim
 | Dynamics Modeling | Recurrent latent, decoder-free latent, observation-space, occupancy/ego, and joint multimodal transitions | Five method pages plus comparison | [Dynamics Modeling](dynamics-modeling/README.md) |
 | Reasoning for World Models | Latent simulation, imagined decision learning, predictive representation, explicit physical reasoning, and reasoning-to-generation coupling | Five method and comparison pages | [Reasoning](reasoning/README.md) |
 | Generative Modeling | Conditional future modeling across autoregressive, diffusion, latent, flow, video, and action-conditioned systems | Seven method pages plus comparison | [Generative Modeling](generative-modeling/README.md) |
-| Fast Video Inference | Reduction of sampling work, repeated computation, attention cost, delay before usable outputs, and numerical precision cost | Few-step distillation, training-free caching, efficient attention, causal/streaming generation, and quantization | [Fast Video Inference](fast-video-inference/README.md) |
+| Fast Video Inference | Reduction of sampling work, repeated computation, attention cost, delay before usable outputs, numerical precision cost, and per-device workload | Few-step distillation, training-free caching, efficient attention, causal/streaming generation, quantization, and parallel/distributed inference | [Fast Video Inference](fast-video-inference/README.md) |
 | Action Representation and Conditioning | Action representation routes (conditioning input, jointly denoised modality, inferred latent), denoising schedules, and action-to-future-prediction coupling | Five method and comparison pages | [Action Conditioning](action-conditioning/README.md) |
 | World Model to Policy Interface | The five consumption modes of world-model output, offline synthetic trajectories, rollout selection and evaluation, deployment boundaries, and the reasoner-to-policy evidence gap | Four method and comparison pages | [WM-Policy Interface](wm-policy-interface/README.md) |
 

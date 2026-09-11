@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference.caching
 title: Training-Free Caching for Video Diffusion and Flow Models
 kind: component
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** A mechanism-centered account of cross-timestep and cross-branch redundancy; a taxonomy of cached objects, refresh policies, and error correction; evidence-bound method comparisons; compatibility and failure diagnosis; an evaluation contract; and transfer hypotheses for video world models and Cosmos-family generators.
 
-**Related pages:** [Few-Step and One-Step Video Distillation](few-step-distillation.md) owns learned step reduction; [Sparse, Local, and Linear Attention](efficient-attention.md) owns cheaper token interactions within an evaluation; [Diffusion and Flow Matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic iterative-generation objectives; [Flow Matching and Rectified Flow](../generative-modeling/flow-matching-and-rectified-flow.md) owns path and solver behavior; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the target architecture, checkpoints, and sampling contract. [Causal and Streaming Generation](causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention.
+**Related pages:** [Few-Step and One-Step Video Distillation](few-step-distillation.md) owns learned step reduction; [Sparse, Local, and Linear Attention](efficient-attention.md) owns cheaper token interactions within an evaluation; [Diffusion and Flow Matching](../../foundations/learning-objectives/diffusion-and-flow-matching.md) owns generic iterative-generation objectives; [Flow Matching and Rectified Flow](../generative-modeling/flow-matching-and-rectified-flow.md) owns path and solver behavior; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the target architecture, checkpoints, and sampling contract. [Causal and Streaming Generation](causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention. [Parallel and Distributed Inference](parallel-distributed-inference.md) owns partition choices, communication, scaling, and topology-dependent trade-offs.
 
 ## Scope and operating definition
 

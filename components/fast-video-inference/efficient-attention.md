@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference.efficient-attention
 title: Sparse, Local, and Linear Attention for Video Generation
 kind: component
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,7 +16,7 @@ owners:
 
 **Knowledge provided:** Attention cost and information-flow trade-offs; local, dynamic sparse, and linear mechanisms; training and kernel requirements; controlled comparison criteria; failure diagnosis; and implementation-grounded transfer hypotheses for video world models.
 
-**Related pages:** [Latent Diffusion and DiT](../generative-modeling/latent-diffusion-and-dit.md) owns codec and denoiser architecture; [Few-Step Distillation](few-step-distillation.md) owns learned sampling-step reduction; [Caching](caching.md) owns approximate reuse across denoising evaluations; [Cosmos3-Nano Architecture](../../models/cosmos3-nano/architecture.md) owns tower visibility, grouped-query attention, positions, and modality contracts. [Causal and Streaming Generation](causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention.
+**Related pages:** [Latent Diffusion and DiT](../generative-modeling/latent-diffusion-and-dit.md) owns codec and denoiser architecture; [Few-Step Distillation](few-step-distillation.md) owns learned sampling-step reduction; [Caching](caching.md) owns approximate reuse across denoising evaluations; [Cosmos3-Nano Architecture](../../models/cosmos3-nano/architecture.md) owns tower visibility, grouped-query attention, positions, and modality contracts. [Causal and Streaming Generation](causal-streaming.md) owns temporal factorization, history-state validity, incremental delivery, and interaction latency. [Video Diffusion Quantization](quantization.md) owns reduced numerical precision, calibration, real-kernel versus simulated execution, and interactions with reuse and attention. [Parallel and Distributed Inference](parallel-distributed-inference.md) owns partition choices, communication, scaling, and topology-dependent trade-offs.
 
 ## The bottleneck: interactions within a forward pass
 

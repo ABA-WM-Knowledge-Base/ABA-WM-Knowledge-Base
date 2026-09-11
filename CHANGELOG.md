@@ -3,7 +3,7 @@ id: world-model-kb.changelog
 title: Knowledge Base Changelog
 kind: record
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -11,6 +11,12 @@ owners:
 # Knowledge Base Changelog
 
 This file records changes that affect retrieval metadata, canonical ownership, schemas, paths, or interpretation. It does not record reading progress or prose-only edits.
+
+## 1.10.0 - 2026-09-11
+
+- Added Parallel and Distributed Inference as the sixth Fast Video Inference owner page, covering partition choices, diffusion-specific stale context, hybrid process groups, topology-based selection, diagnostic comparisons, and scaling interpretation.
+- Registered four paper versions and five pinned official repositories. Preserved image-versus-video evidence, algorithmic versus benchmark warmup, missing hardware metadata in the HunyuanVideo scaling table, and model-specific adapter support.
+- Documented the existing Cosmos Framework FSDP, context/CFG parallel interfaces and Omni tensor-parallel boundary; updated reciprocal retrieval links without introducing Agent orchestration rules. Included the quantization formula's rendering compatibility fix.
 
 ## 1.9.0 - 2026-09-10
 

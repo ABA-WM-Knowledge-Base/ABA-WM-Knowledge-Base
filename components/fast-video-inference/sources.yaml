@@ -1,5 +1,5 @@
 schema_version: 3
-as_of: "2026-09-10"
+as_of: "2026-09-11"
 sources:
   - id: FVI-VIDEOLCM-PAPER
     type: paper
@@ -600,3 +600,75 @@ sources:
     canonical_url: https://developer.nvidia.com/blog/introducing-nvfp4-for-efficient-and-accurate-low-precision-inference/
     accessed: "2026-09-10"
     scope: NVFP4 format, block and tensor scaling, and Blackwell hardware context; not Cosmos quantization validation.
+  - id: FVI-DISTRIFUSION-PAPER
+    type: paper
+    title: "DistriFusion: Distributed Parallel Inference for High-Resolution Diffusion Models"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2402.19481
+    version: arXiv:2402.19481v4
+    accessed: "2026-09-11"
+    scope: Image diffusion evidence; asynchronous patch context and normalization.
+  - id: FVI-USP-PAPER
+    type: paper
+    title: "USP: A Unified Sequence Parallelism Approach for Long Context Generative AI"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2405.07719
+    version: arXiv:2405.07719v5
+    accessed: "2026-09-11"
+    scope: Unified Ulysses/ring layouts; attention benchmarks and language-model training have distinct scopes.
+  - id: FVI-PIPEFUSION-PAPER
+    type: paper
+    title: "PipeFusion: Patch-level Pipeline Parallelism for Diffusion Transformers Inference"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2405.14430
+    version: arXiv:2405.14430v4
+    accessed: "2026-09-11"
+    scope: Patch/stage partitioning, stale context, and image DiT measurements excluding VAE decoding.
+  - id: FVI-XDIT-PAPER
+    type: paper
+    title: "xDiT: an Inference Engine for Diffusion Transformers (DiTs) with Massive Parallelism"
+    publisher: arXiv
+    canonical_url: https://arxiv.org/abs/2411.01738
+    version: arXiv:2411.01738v1
+    accessed: "2026-09-11"
+    scope: Hybrid execution and consistent KV updates across sequence and pipeline groups.
+  - id: FVI-DISTRIFUSION-CODE
+    type: code_repository
+    title: mit-han-lab/distrifuser
+    publisher: mit-han-lab
+    canonical_url: https://github.com/mit-han-lab/distrifuser
+    revision: 8aebdd6d0db87884ba03dc596c98d28f3f38a1a3
+    accessed: "2026-09-11"
+    scope: SDXL execution, warmup, and benchmark output scope.
+  - id: FVI-USP-CODE
+    type: code_repository
+    title: feifeibear/long-context-attention
+    publisher: feifeibear
+    canonical_url: https://github.com/feifeibear/long-context-attention
+    revision: f43ebfc6f158e0f2f19148e2b56eec758526b9e5
+    accessed: "2026-09-11"
+    scope: Attention layouts and backend-dependent distributed execution.
+  - id: FVI-XDIT-CODE
+    type: code_repository
+    title: xdit-project/xDiT
+    publisher: xdit-project
+    canonical_url: https://github.com/xdit-project/xDiT
+    revision: af9a3ac9702f2ddb04be950495dd40802b53d693
+    accessed: "2026-09-11"
+    scope: PipeFusion and USP integration; support remains model- and backend-specific.
+  - id: FVI-HUNYUAN-T2V-CODE
+    type: code_repository
+    title: Tencent-Hunyuan/HunyuanVideo
+    publisher: Tencent-Hunyuan
+    canonical_url: https://github.com/Tencent-Hunyuan/HunyuanVideo
+    revision: e748c73ac064728bf6bd15b1cdb8161e55a4f331
+    accessed: "2026-09-11"
+    scope: Official video USP adapter and incompletely specified README scaling table.
+  - id: FVI-HUNYUAN-I2V-CODE
+    type: code_repository
+    title: Tencent-Hunyuan/HunyuanVideo-I2V
+    publisher: Tencent-Hunyuan
+    canonical_url: https://github.com/Tencent-Hunyuan/HunyuanVideo-I2V
+    revision: c8bba70b9517f08d770a9a2a3d1e93cc6d5b7949
+    accessed: "2026-09-11"
+    scope: I2V USP integration and spatial-resize behavior; not independent validation of the duplicated timing table.

@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference.quantization
 title: Video Diffusion Quantization
 kind: component
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -16,14 +16,14 @@ owners:
 
 **Knowledge provided:** How reduced numerical precision changes video generation cost and errors; five method families addressing distribution variation, temporal reconstruction, calibration selection, sparse attention, and cached residuals; implementation evidence and controlled transfer to world models.
 
-**Related pages:** [Fast Video Inference](README.md) owns the acceleration map; [Few-Step Distillation](few-step-distillation.md) owns learned sampling-step reduction; [Caching](caching.md) owns reuse and refresh; [Efficient Attention](efficient-attention.md) owns interaction sparsity and kernel cost; [Causal and Streaming Generation](causal-streaming.md) owns historical K/V and incremental output; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the target architecture; [Inference](../../models/cosmos3-nano/inference.md) owns runtime and precision boundaries.
+**Related pages:** [Fast Video Inference](README.md) owns the acceleration map; [Few-Step Distillation](few-step-distillation.md) owns learned sampling-step reduction; [Caching](caching.md) owns reuse and refresh; [Efficient Attention](efficient-attention.md) owns interaction sparsity and kernel cost; [Causal and Streaming Generation](causal-streaming.md) owns historical K/V and incremental output; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the target architecture; [Inference](../../models/cosmos3-nano/inference.md) owns runtime and precision boundaries. [Parallel and Distributed Inference](parallel-distributed-inference.md) owns partition choices, communication, scaling, and topology-dependent trade-offs.
 
 ## 1. What quantization changes
 
 Quantization changes numerical representation, not necessarily network size, sampling steps, or the attention pattern. For an integer quantizer, a useful abstraction is
 
 $$
-q=\operatorname{clip}(\operatorname{round}(x/s)+z,q_{\min},q_{\max}),
+q=\mathrm{clip}(\mathrm{round}(x/s)+z,q_{\min},q_{\max}),
 \qquad \hat{x}=s(q-z),
 $$
 

@@ -3,7 +3,7 @@ id: world-model-kb.components.fast-video-inference
 title: Fast Video Inference
 kind: component
 status: maintained
-last_updated: 2026-09-10
+last_updated: 2026-09-11
 owners:
   - AIBuildAI world-model group
 ---
@@ -12,9 +12,9 @@ owners:
 
 ## Retrieval metadata
 
-**Relevant queries:** accelerate video generation, reduce diffusion or flow sampling cost, one-step video, few-step video, distillation, training-free caching, feature reuse, sparse attention, local attention, linear attention, causal video diffusion, streaming generation, first-frame latency, KV history, PTQ, QAT, mixed precision, FP8, NVFP4, low-bit kernels, inference latency, denoising NFE, real-time world-model rollout.
+**Relevant queries:** accelerate video generation, reduce diffusion or flow sampling cost, one-step video, few-step video, distillation, training-free caching, feature reuse, sparse attention, local attention, linear attention, causal video diffusion, streaming generation, first-frame latency, KV history, PTQ, QAT, mixed precision, FP8, NVFP4, low-bit kernels, multi-GPU inference, sequence parallelism, PipeFusion, USP, xDiT, communication overlap, inference latency, denoising NFE, real-time world-model rollout.
 
-**Knowledge provided:** A compute- and latency-oriented map of learned step reduction, intermediate reuse, efficient attention, causal/streaming generation, and numerical precision reduction. It distinguishes sampling steps, network evaluations, operator cost, first usable output, steady throughput, and complete-pipeline latency.
+**Knowledge provided:** A compute- and latency-oriented map of learned step reduction, intermediate reuse, efficient attention, causal/streaming generation, numerical precision reduction, and parallel/distributed execution. It distinguishes sampling steps, network evaluations, operator cost, first usable output, steady throughput, and complete-pipeline latency.
 
 **Related pages:** [Generative Modeling](../generative-modeling/README.md) owns how future distributions are represented and learned; [Flow Matching and Rectified Flow](../generative-modeling/flow-matching-and-rectified-flow.md) owns continuous-transport mathematics and solver behavior; [Cosmos3-Nano Generator](../../models/cosmos3-nano/generator.md) owns the concrete target architecture and checkpoint boundaries; [Cosmos-Predict2.5](../../papers/cosmos-predict2-5/README.md) owns that work's rCM result and released-code mismatch.
 
@@ -28,7 +28,7 @@ Few-step distillation is a post-training intervention: it learns new student wei
 
 ## Knowledge map
 
-The current entry contains five canonical syntheses:
+The current entry contains six canonical syntheses:
 
 | Page | Knowledge owned |
 |---|---|
@@ -37,6 +37,7 @@ The current entry contains five canonical syntheses:
 | [Sparse, Local, and Linear Attention](efficient-attention.md) | token-interaction cost; geometric, content-adaptive, linear, and hybrid mechanisms; training and kernel requirements; controlled speed/quality evidence; failure diagnosis; and Cosmos implementation and transfer boundaries |
 | [Causal and Streaming Generation](causal-streaming.md) | temporal factorization and output availability; chunking, historical K/V, rollout training, and memory; first-output versus sustained latency; condition updates; implementation contracts; and world-model transfer |
 | [Video Diffusion Quantization](quantization.md) | numerical formats and calibration; distribution, temporal, and attention errors; mixed precision and cache interactions; packed storage versus real-kernel execution; controlled efficiency evidence; and Cosmos transfer boundaries |
+| [Parallel and Distributed Inference](parallel-distributed-inference.md) | partition and replication choices; DistriFusion, USP, PipeFusion, xDiT, and HunyuanVideo integration; exposed communication, scaling, topology, failure diagnosis, and native Cosmos parallel interfaces |
 
 Additional acceleration families can be added as independent owner pages when their evidence is curated. The entry does not assume that every future page must use the structure of the current distillation synthesis.
 
